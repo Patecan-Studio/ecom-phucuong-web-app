@@ -3,6 +3,7 @@ import "./style.scss";
 import TabbarLogo from "./TabbarLogo";
 import TabbarSearch from "./TabbarSearch/TabbarSearch";
 import TabbarMenu from "./TabbarSearch/TabbarMenu";
+import TabbarSecondary from "./TabbarSearch/TabbarSecondary";
 
 const Tabbar = () => {
   return (
@@ -12,6 +13,7 @@ const Tabbar = () => {
         <TabbarSearch />
         <TabbarMenu />
       </nav>
+      <TabbarSecondary />
     </div>
   );
 };
