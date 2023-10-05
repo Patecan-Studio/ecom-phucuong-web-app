@@ -1,13 +1,13 @@
-import React from 'react'
-import Logo from '../Icons/Logo'
-import styles from './Tabbar.module.scss'
+import React from "react";
+import "./style.scss";
+import TabbarLogo from "./TabbarLogo";
 
 const Tabbar = () => {
   return (
-    <nav className={styles.tabbar}>
-      <Logo />
+    <nav className="tabbar">
+      <TabbarLogo />
     </nav>
-  )
-}
+  );
+};
 
-export default Tabbar
+export default Tabbar;

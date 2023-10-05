@@ -1,0 +1,19 @@
+.tabbar {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-white);
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: var(--color-black);
+
+  &__logo {
+    display: block;
+    padding: 13px 18px 11px 23px;
+    border-left: 1px solid var(--color-platinum);
+
+    svg {
+      max-width: 150px;
+    }
+  }
+}
