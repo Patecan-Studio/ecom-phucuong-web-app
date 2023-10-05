@@ -11,7 +11,7 @@
   padding-left: 15px;
   padding-right: 15px;
   color: var(--color-black);
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Mulish Italic', sans-serif;
   width: 100%;
 
   &__logo {
@@ -52,6 +52,53 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Mulish', sans-serif;
+
+    &__item {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      align-self: center;
+      white-space: nowrap;
+      padding: 10px 18px;
+      border-left: 1px solid var(--color-platinum);
+
+      &.cart {
+        background-color: var(--color-mikado-yellow);
+      }
+    }
+
+    &__icon {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__text {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+
+    &__count {
+      position: absolute;
+      right: 20px;
+      top: 5px;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 11px;
+      line-height: 19px;
+      display: block;
+      width: 19px;
+      height: 19px;
+      background: #474747;
+      color: var(--color-mikado-yellow);
+      text-align: center;
     }
   }
 }

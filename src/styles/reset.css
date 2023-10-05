@@ -66,6 +66,10 @@ button {
   letter-spacing: inherit;
 }
 
+input:focus {
+  outline: none;
+}
+
 /* I usually expand input and textarea to full-width */
 input[type='text'],
 textarea {
