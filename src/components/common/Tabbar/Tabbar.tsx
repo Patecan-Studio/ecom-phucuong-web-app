@@ -4,7 +4,7 @@ import styles from './Tabbar.module.scss'
 
 const Tabbar = () => {
   return (
-    <nav className="tabbar">
+    <nav className={styles.tabbar}>
       <Logo />
     </nav>
   )
