@@ -1,3 +1,8 @@
+.tabbar-container {
+  max-width: 1410px;
+  margin: auto;
+}
+
 .tabbar {
   display: flex;
   align-items: center;
@@ -6,6 +11,8 @@
   padding-left: 15px;
   padding-right: 15px;
   color: var(--color-black);
+  font-family: 'Mulish', sans-serif;
+  width: 100%;
 
   &__logo {
     display: block;
@@ -14,6 +21,37 @@
 
     svg {
       max-width: 150px;
+    }
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    border-left: 1px solid var(--color-platinum);
+    
+    &__input {
+      background-color: var(--color-white);
+      width: 100%;
+      display: block;
+      border: unset;
+      padding: 10px 0;
+      font-size: 16px;
+      line-height: 20px;
+      padding-left: 30px;
+    }
+
+    &__button {
+      cursor: pointer;
+      border: none;
+      background-color: var(--color-mikado-yellow);
+      border-radius: 5px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

@@ -3,6 +3,7 @@ import styles from './page.module.css'
 import '../styles/reset.css'
 import '../styles/common.scss'
 import '../styles/colors.scss'
+import '../styles/fonts.scss'
 
 export default function Home() {
   return (
