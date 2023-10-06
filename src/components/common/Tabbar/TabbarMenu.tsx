@@ -37,6 +37,7 @@ const TabbarMenu = () => {
     <div className="tabbar__menu">
       {menu.map((item) => (
         <TabbarMenuItem
+          key={item.label}
           className={item.className || ""}
           count={item.count}
           label={item.label}
