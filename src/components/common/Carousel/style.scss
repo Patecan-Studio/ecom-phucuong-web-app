@@ -1,16 +1,32 @@
   .carousel {
     color: var(--color-black);
     overflow: hidden;
-    height: 500px;
     text-align: center;
     position: relative;
 
-    &__main-slides {
-      display: flex;
-      height: 100%;
+    &--sub {
+      background-color: var(--color-gray-light);
     }
 
-    &__main-slide {
+    &--sub &__buttons {
+      display: none;
+    }
+
+    &--sub &__slides {
+      height: 150px;
+    }
+
+    &--sub &__slide {
+      flex: 0 0 33.3333%;
+    }
+
+    &__slides {
+      // TODO: should remove this, let size of the image decide
+      height: 500px;
+      display: flex;
+    }
+
+    &__slide {
       flex: 0 0 100%;
       min-width: 0;
       display: flex;

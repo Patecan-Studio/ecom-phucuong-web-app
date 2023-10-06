@@ -1,28 +1,24 @@
-"use client";
-
 import React from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import "./style.scss";
-import CarouselMainSlides from "./CarouselMainSlides";
-import CarouselButtons from "./CarouselButtons/CarouselButtons";
+import CarouselContent from "./CarouselContent";
+import { EmblaOptionsType } from "embla-carousel-react";
 
 const Carousel = () => {
-  const [carouselRef, carouselMethods] = useEmblaCarousel(
-    { loop: true, align: "center" },
-    [Autoplay()]
-  );
+  const carouselMainOption = {
+    loop: true,
+    align: "center",
+    slidesToScroll: 1,
+  } as EmblaOptionsType;
 
-  const handlePrevClick = () => carouselMethods?.scrollPrev();
-  const handleNextClick = () => carouselMethods?.scrollNext();
+  const carouselSubOption = {
+    loop: true,
+    align: "center",
+    slidesToScroll: 3,
+  } as EmblaOptionsType;
 
   return (
-    <div className="carousel" ref={carouselRef}>
-      <CarouselMainSlides />
-      <CarouselButtons
-        onPrevClick={handlePrevClick}
-        onNextClick={handleNextClick}
-      />
+    <div className="carousel-container">
+      <CarouselContent className="carousel--main" option={carouselMainOption} />
+      <CarouselContent className="carousel--sub" option={carouselSubOption} />
     </div>
   );
 };
