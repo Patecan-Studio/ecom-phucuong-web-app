@@ -1,8 +1,6 @@
 import React from "react";
 
-interface LogoProps extends React.SVGAttributes<HTMLOrSVGElement> {}
-
-const Logo = (props: LogoProps) => {
+const Logo = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +8,6 @@ const Logo = (props: LogoProps) => {
       height="46"
       viewBox="0 0 172 46"
       fill="none"
-      {...props}
     >
       <g clipPath="url(#clip0_1286_411)">
         <path

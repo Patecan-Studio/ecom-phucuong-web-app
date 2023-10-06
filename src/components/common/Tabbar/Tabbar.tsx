@@ -1,15 +1,13 @@
-import React from "react";
-import "./style.scss";
-import TabbarDesktop from "./TabbarDesktop";
-import TabbarMobile from "./TabbarMobile";
+import React from 'react'
+import Logo from '../Icons/Logo'
+import styles from './Tabbar.module.scss'
 
 const Tabbar = () => {
   return (
-    <div className="tabbar-container">
-      <TabbarDesktop />
-      <TabbarMobile />
-    </div>
-  );
-};
+    <nav className="tabbar">
+      <Logo />
+    </nav>
+  )
+}
 
-export default Tabbar;
+export default Tabbar
