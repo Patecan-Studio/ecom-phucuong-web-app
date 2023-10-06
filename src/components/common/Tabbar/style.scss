@@ -225,16 +225,7 @@
     }
 
   }
-
-  @include above1200 {
-    &--mobile {
-      display: none;
-    }
-  }
-
   @include below1200inclusive {
-
-    &--desktop,
     &--secondary {
       display: none;
     }
