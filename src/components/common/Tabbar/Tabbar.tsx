@@ -1,13 +1,19 @@
 import React from "react";
 import "./style.scss";
-import TabbarDesktop from "./TabbarDesktop";
-import TabbarMobile from "./TabbarMobile";
+import TabbarLogo from "./TabbarLogo";
+import TabbarSearch from "./TabbarSearch/TabbarSearch";
+import TabbarMenu from "./TabbarMenu";
+import TabbarSecondary from "./TabbarSecondary";
 
 const Tabbar = () => {
   return (
     <div className="tabbar-container">
-      <TabbarDesktop />
-      <TabbarMobile />
+      <nav className="tabbar">
+        <TabbarLogo />
+        <TabbarSearch />
+        <TabbarMenu />
+      </nav>
+      <TabbarSecondary />
     </div>
   );
 };

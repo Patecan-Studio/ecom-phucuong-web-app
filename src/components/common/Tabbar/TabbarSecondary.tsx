@@ -11,7 +11,11 @@ const TabbarSecondary = () => {
     <div className="tabbar--secondary-container">
       <div className="tabbar--secondary">
         {menu.map((item) => (
-          <a className="tabbar--secondary__item" href={item.path}>
+          <a
+            className="tabbar--secondary__item"
+            href={item.path}
+            key={item.label}
+          >
             {item.label}
           </a>
         ))}

@@ -5,6 +5,7 @@ import NavigatorIcon from "../Icons/NavigatorIcon";
 import ConsultIcon from "../Icons/ConsultIcon";
 import AvatarIcon from "../Icons/AvatarIcon";
 import CartIcon from "../Icons/CartIcon";
+import TabbarMenuItem from "./TabbarMenuItem";
 
 const TabbarMenu = () => {
   const menu = [
@@ -35,25 +36,13 @@ const TabbarMenu = () => {
   return (
     <div className="tabbar__menu">
       {menu.map((item) => (
-        <div
-          className={`tabbar__menu__item ${item.className || ""}`}
+        <TabbarMenuItem
           key={item.label}
-        >
-          {item.count ? (
-            <>
-              <div className="tabbar__menu__icon">
-                {item.icon}
-                <p className="tabbar__menu__count">{item.count}</p>
-              </div>
-              <div className="tabbar__menu__text">{item.label}</div>
-            </>
-          ) : (
-            <>
-              <div className="tabbar__menu__icon">{item.icon}</div>
-              <div className="tabbar__menu__text">{item.label}</div>
-            </>
-          )}
-        </div>
+          className={item.className || ""}
+          count={item.count}
+          label={item.label}
+          icon={item.icon}
+        />
       ))}
     </div>
   );
