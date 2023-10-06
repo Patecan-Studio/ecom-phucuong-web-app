@@ -6,7 +6,7 @@ const LogoIcon = (props: LogoIconProps) => {
   return (
     <svg
       width="21"
-      height="24"
+      height="26"
       viewBox="0 0 21 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
