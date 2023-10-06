@@ -187,11 +187,11 @@
 
     @include below1200inclusive {
       background-color: var(--color-white);
-      position: absolute;
+      position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      height: max-content;
+      height: 70px;
     }
   }
 
