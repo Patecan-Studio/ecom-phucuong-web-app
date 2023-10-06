@@ -1,13 +1,48 @@
-.carousel {
-  color: var(--color-black);
-  overflow: hidden;
+  .carousel {
+    color: var(--color-black);
+    overflow: hidden;
+    height: 500px;
+    text-align: center;
+    position: relative;
 
-  &__container {
-    display: flex;
-  }
+    &__main-slides {
+      display: flex;
+      height: 100%;
+    }
 
-  &__slide {
-    flex: 0 0 100%;
-    min-width: 0;
+    &__main-slide {
+      flex: 0 0 100%;
+      min-width: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__buttons {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 85%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__prev,
+    &__next {
+      background-color: rgb(236 229 223 / 80%);
+      border-radius: 5px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      // TODO: fix transition here, it's not working
+      transition: .2s all ease-in-out;
+
+      &:hover {
+        background-color: var(--color-mikado-yellow);
+      }
+    }
   }
-}

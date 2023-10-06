@@ -2,19 +2,27 @@
 
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from 'embla-carousel-autoplay'
+import Autoplay from "embla-carousel-autoplay";
 import "./style.scss";
+import CarouselMainSlides from "./CarouselMainSlides";
+import CarouselButtons from "./CarouselButtons/CarouselButtons";
 
 const Carousel = () => {
-  const [carouselRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
+  const [carouselRef, carouselMethods] = useEmblaCarousel(
+    { loop: true, align: "center" },
+    [Autoplay()]
+  );
+
+  const handlePrevClick = () => carouselMethods?.scrollPrev();
+  const handleNextClick = () => carouselMethods?.scrollNext();
 
   return (
     <div className="carousel" ref={carouselRef}>
-      <div className="carousel__container">
-        <div className="carousel__slide">Slide 1</div>
-        <div className="carousel__slide">Slide 2</div>
-        <div className="carousel__slide">Slide 3</div>
-      </div>
+      <CarouselMainSlides />
+      <CarouselButtons
+        onPrevClick={handlePrevClick}
+        onNextClick={handleNextClick}
+      />
     </div>
   );
 };
