@@ -12,8 +12,8 @@ const CarouselSlides = ({ slides, isMainSlides }: CarouselSlidesProps) => {
     }
 
     return slides.map((slide) => (
-      <div className="carousel__slide">
-        {slide?.icon || <></>}
+      <div className="carousel__slide" key={slide.id}>
+        <div className="carousel__image">{slide?.icon || <></>}</div>
         <div className="carousel__text">
           <h3>{slide?.title || ""}</h3>
           <p>{slide?.description || ""}</p>

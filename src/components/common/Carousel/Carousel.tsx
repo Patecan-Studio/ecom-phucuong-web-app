@@ -16,7 +16,20 @@ const Carousel = () => {
   const carouselSubOption = {
     loop: true,
     align: "center",
-    slidesToScroll: 3,
+    slidesToScroll: 4,
+    breakpoints: {
+      "(max-width: 1439px)": {
+        slidesToScroll: 3,
+      },
+
+      "(max-width: 1199px)": {
+        slidesToScroll: 2,
+      },
+
+      "(max-width: 767px)": {
+        slidesToScroll: 1,
+      },
+    },
   } as EmblaOptionsType;
 
   const mainSLides = [
@@ -29,7 +42,7 @@ const Carousel = () => {
       image: <img src="./images/main-slide-2.jpg" alt="main-slide-2" />,
     },
   ];
-  
+
   const subSlides = [
     {
       id: "1",
@@ -52,7 +65,7 @@ const Carousel = () => {
     {
       id: "4",
       title: "Đổi trả dễ dàng",
-      description: "Đổi trả trong 2 ngày đầu tiên sau khi mua hàng",
+      description: "Đổi trả trong 2 ngày đầu tiên sau khi mua",
       icon: <PackageIcon />,
     },
   ];

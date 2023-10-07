@@ -13,10 +13,7 @@ const CarouselContent = ({
   option,
   slides,
 }: CarouselContentProps) => {
-  const [carouselRef, carouselMethods] = useEmblaCarousel(
-    option
-    // [Autoplay()]
-  );
+  const [carouselRef, carouselMethods] = useEmblaCarousel(option, [Autoplay()]);
 
   const handlePrevClick = () => carouselMethods?.scrollPrev();
   const handleNextClick = () => carouselMethods?.scrollNext();
