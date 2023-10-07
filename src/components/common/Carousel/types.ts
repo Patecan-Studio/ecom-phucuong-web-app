@@ -21,6 +21,10 @@ export interface CarouselSlidesProps {
   isMainSlides: boolean;
 }
 
+export interface CarouselSlide {
+  slide: Slide;
+}
+
 interface Slide extends MainSlide, SubSlide {}
 
 interface MainSlide {
@@ -37,5 +41,3 @@ interface SubSlide {
   description?: string;
   icon?: React.JSX.Element;
 }
-
-

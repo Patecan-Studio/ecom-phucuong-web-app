@@ -1,28 +1,20 @@
 import React, { ReactNode } from "react";
 import { CarouselSlidesProps } from "./types";
+import CarouselSlideMain from "./CarouselSlideMain";
+import CarouselSlideSub from "./CarouselSlideSub";
 
 const CarouselSlides = ({ slides, isMainSlides }: CarouselSlidesProps) => {
-  const renderSlides = () => {
-    if (isMainSlides) {
-      return slides.map((slide) => (
-        <div className="carousel__slide" key={slide.id}>
-          <div className="carousel__image">{slide?.image as ReactNode}</div>
-        </div>
-      ));
-    }
+  return (
+    <div className="carousel__slides">
+      {slides.map((slide) => {
+        if (isMainSlides) {
+          return <CarouselSlideMain slide={slide} key={slide.id} />;
+        }
 
-    return slides.map((slide) => (
-      <div className="carousel__slide" key={slide.id}>
-        <div className="carousel__image">{slide?.icon || <></>}</div>
-        <div className="carousel__text">
-          <h3>{slide?.title || ""}</h3>
-          <p>{slide?.description || ""}</p>
-        </div>
-      </div>
-    ));
-  };
-
-  return <div className="carousel__slides">{renderSlides()}</div>;
+        return <CarouselSlideSub slide={slide} key={slide.id} />;
+      })}
+    </div>
+  );
 };
 
 export default CarouselSlides;
