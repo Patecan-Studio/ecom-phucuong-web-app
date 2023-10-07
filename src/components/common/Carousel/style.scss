@@ -136,5 +136,17 @@
     &:hover {
       background-color: var(--color-mikado-yellow);
     }
+
+    @include below1200inclusive {
+      width: 35px;
+      height: 35px;
+    }
+
+    @include below768inclusive {
+      svg {
+        width: 15px;
+        height: 15px;
+      }
+    }
   }
 }
