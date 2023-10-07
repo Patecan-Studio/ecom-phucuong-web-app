@@ -1,3 +1,9 @@
+@mixin above1440 {
+  @media (min-width: 1441px) {
+    @content;
+  }
+}
+
 @mixin below1440inclusive {
   @media (max-width: 1439px) {
     @content;

@@ -1,4 +1,4 @@
-import { Tabbar } from "@/components/common";
+import { Carousel, Tabbar } from "@/components/common";
 import styles from "./page.module.css";
 import "../styles/common.scss";
 import "../styles/colors.scss";
@@ -9,6 +9,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <Tabbar />
+      <Carousel />
       <div
         style={{ height: "2000px", backgroundColor: "black", color: "white" }}
       ></div>

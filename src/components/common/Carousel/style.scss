@@ -1,0 +1,152 @@
+@import '../../../styles/responsives.scss';
+
+
+.carousel {
+  color: var(--color-black);
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+
+  &--sub {
+    background-color: var(--color-gray-light);
+  }
+
+  &--sub &__buttons {
+    display: none;
+  }
+
+  &--sub &__slides {
+    padding: 30px 0;
+    max-width: 1410px;
+    margin: auto;
+
+    @include below768inclusive {
+      padding: 20px 0;
+    }
+  }
+
+  &--sub &__slide {
+    flex: 0 0 33.3333%;
+    align-items: center;
+    border-left: 1px solid var(--color-gray-less-light);
+
+    h3 {
+      white-space: nowrap;
+    }
+
+    @include above1440 {
+      flex: 0 0 25%;
+
+      &:first-child {
+        border-left: none;
+      }
+    }
+
+    @include below1440inclusive {
+      flex: 0 0 33.3333%;
+    }
+
+    @include below1200inclusive {
+      flex: 0 0 50%;
+    }
+
+    @include below768inclusive {
+      flex: 0 0 100%;
+      border-left: none;
+    }
+  }
+
+  &--sub &__image {
+    width: 20%;
+
+    @include below1440inclusive {
+      width: 40px;
+    }
+
+  }
+
+  &__slides {
+    display: flex;
+  }
+
+  &__slide {
+    flex: 0 0 100%;
+    min-width: 345px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__image {
+    width: 100%;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__text {
+    width: 50%;
+    margin-left: 40px;
+    text-align: start;
+
+    p {
+      color: var(--color-gray);
+    }
+
+    @include below1440inclusive {
+      margin-left: 25px;
+
+      h3 {
+        font-size: 16px;
+      }
+    }
+
+    @include below768inclusive {
+      p {
+        font-size: 13px;
+      }
+    }
+  }
+
+  &__buttons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__prev,
+  &__next {
+    background-color: rgb(236 229 223 / 80%);
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    // TODO: fix transition here, it's not working
+    transition: .2s all ease-in-out;
+
+    &:hover {
+      background-color: var(--color-mikado-yellow);
+    }
+
+    @include below1200inclusive {
+      width: 35px;
+      height: 35px;
+    }
+
+    @include below768inclusive {
+      svg {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+}
