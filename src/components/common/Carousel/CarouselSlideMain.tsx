@@ -1,12 +1,12 @@
-import React, { ReactNode } from 'react'
-import { CarouselSlide } from './types'
+import React, { ReactNode } from "react";
+import { CarouselSlide } from "./types";
 
-const CarouselSlideMain = ({slide}: CarouselSlide) => {
+const CarouselSlideMain = ({ slide }: CarouselSlide) => {
   return (
     <div className="carousel__slide">
-          <div className="carousel__image">{slide?.image as ReactNode}</div>
-        </div>
-  )
-}
+      <div className="carousel__image">{slide?.image as ReactNode}</div>
+    </div>
+  );
+};
 
-export default CarouselSlideMain
+export default CarouselSlideMain;
