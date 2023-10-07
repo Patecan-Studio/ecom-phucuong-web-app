@@ -8,7 +8,11 @@ import CarouselSlides from "./CarouselSlides";
 import CarouselButtons from "./CarouselButtons/CarouselButtons";
 import { CarouselContentProps } from "./types";
 
-const CarouselContent = ({ className, option }: CarouselContentProps) => {
+const CarouselContent = ({
+  className,
+  option,
+  slides,
+}: CarouselContentProps) => {
   const [carouselRef, carouselMethods] = useEmblaCarousel(
     option
     // [Autoplay()]
@@ -19,7 +23,10 @@ const CarouselContent = ({ className, option }: CarouselContentProps) => {
 
   return (
     <div className={`carousel ${className}`} ref={carouselRef}>
-      <CarouselSlides />
+      <CarouselSlides
+        slides={slides}
+        isMainSlides={className.includes("main")}
+      />
       <CarouselButtons
         onPrevClick={handlePrevClick}
         onNextClick={handleNextClick}
