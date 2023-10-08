@@ -1,4 +1,4 @@
-@import '../../../styles/responsives.scss';
+@import "../../../styles/responsives.scss";
 
 .tabbar-container,
 .tabbar--secondary-container {
@@ -19,9 +19,8 @@
   padding-left: 15px;
   padding-right: 15px;
   color: var(--color-black);
-  font-family: 'Mulish Italic', sans-serif;
+  font-family: "Mulish Italic", sans-serif;
   max-width: 1410px;
-
   &__logo {
     display: block;
     padding: 13px 18px 11px 23px;
@@ -104,8 +103,9 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-family: 'Mulish', sans-serif;
+    font-family: "Mulish", sans-serif;
     height: 100%;
+    z-index: 2;
 
     &__item {
       display: flex;
@@ -130,7 +130,7 @@
           }
 
           &::after {
-            content: '';
+            content: "";
             position: absolute;
             bottom: -1px;
             left: 0;
@@ -202,7 +202,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'Mulish', sans-serif;
+    font-family: "Mulish", sans-serif;
     color: var(--color-black);
     background-color: var(--color-gray-light);
     width: 100%;
@@ -223,7 +223,6 @@
     &--secondary {
       max-width: 1140px;
     }
-
   }
   @include below1200inclusive {
     &--secondary {
