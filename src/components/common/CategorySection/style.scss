@@ -1,0 +1,141 @@
+@import "../../../styles/responsives.scss";
+
+.category-section {
+  display: flex;
+  flex-direction: row;
+  height: 535px;
+  position: relative;
+  p,
+  h1,
+  span {
+    color: black;
+  }
+  width: 100vw;
+
+  @include below768inclusive {
+    flex-direction: column-reverse;
+  }
+  @include below414inclusive {
+    background-color: var(--color-mikado-yellow);
+  }
+  &__left-content {
+    min-width: 50%;
+    background-color: var(--color-mikado-yellow);
+    @include below768inclusive {
+      display: none;
+    }
+  }
+
+  &__right-content {
+    min-width: 50%;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    @include below768inclusive {
+      height: 300px;
+    }
+    @include below414inclusive {
+      height: 200px;
+    }
+  }
+
+  &__center-content {
+    @include below768inclusive {
+      background-color: var(--color-mikado-yellow);
+      flex-direction: column;
+      min-width: 100%;
+      position: static;
+    }
+
+    @include below414inclusive {
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+    position: absolute;
+    height: 70%;
+    min-width: 82%;
+    top: 7%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    h1 {
+      font-size: 36px;
+      line-height: 1.2;
+      margin-bottom: 25px;
+      font-weight: 400;
+      @include below768inclusive {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+    }
+    p {
+      font-size: 18px;
+      @include below768inclusive {
+        font-size: 15px;
+        margin-bottom: 10px;
+      }
+    }
+    .left {
+      max-width: 40%;
+      padding-right: 25px;
+      @include below768inclusive {
+        max-width: 95%;
+      }
+    }
+    .right {
+      @include below768inclusive {
+        min-width: 90%;
+      }
+      @include below414inclusive {
+        grid-template-columns: repeat(2, 1fr);
+        min-width: 95%;
+      }
+      height: 100%;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(4, 1fr);
+      width: 100%;
+      height: 75%;
+      .icon-wrapper {
+        width: 100%;
+        padding-bottom: 100%;
+        position: relative;
+        background-color: black;
+        transition: 0.2s all ease-in-out;
+        border-radius: 5px;
+        &:hover {
+          background-color: gray;
+        }
+
+        span {
+          position: absolute;
+          text-align: center;
+          top: 50%;
+          left: 0;
+          right: 0;
+          text-transform: uppercase;
+          font-weight: 600;
+          font-size: 14px;
+          margin-bottom: 10px;
+          color: white;
+          text-shadow: 1px 1px black;
+          transform: translateY(-50%);
+        }
+
+        img {
+          height: 100%;
+          width: 100%;
+          border-radius: 5px;
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          filter: opacity(0.8);
+        }
+      }
+    }
+  }
+}
