@@ -8,7 +8,7 @@
   p,
   h1,
   span {
-    color: black;
+    color: var(--color-text-primary);
   }
   width: 100vw;
 
@@ -17,11 +17,11 @@
     height: fit-content;
   }
   @include below414inclusive {
-    background-color: var(--color-mikado-yellow);
+    background-color: var(--color-primary);
   }
   &__left-content {
     min-width: 50%;
-    background-color: var(--color-mikado-yellow);
+    background-color: var(--color-primary);
     @include below768inclusive {
       display: none;
     }
@@ -44,7 +44,7 @@
 
   &__center-content {
     @include below768inclusive {
-      background-color: var(--color-mikado-yellow);
+      background-color: var(--color-primary);
       flex-direction: column;
       min-width: 100%;
       position: static;

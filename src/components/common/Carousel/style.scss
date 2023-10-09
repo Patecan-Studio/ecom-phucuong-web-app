@@ -1,5 +1,4 @@
-@import '../../../styles/responsives.scss';
-
+@import "../../../styles/responsives.scss";
 
 .carousel {
   color: var(--color-black);
@@ -62,7 +61,6 @@
     @include below1440inclusive {
       width: 40px;
     }
-
   }
 
   &__slides {
@@ -131,10 +129,10 @@
     align-items: center;
     cursor: pointer;
     // TODO: fix transition here, it's not working
-    transition: .2s all ease-in-out;
+    transition: 0.2s all ease-in-out;
 
     &:hover {
-      background-color: var(--color-mikado-yellow);
+      background-color: var(--color-primary);
     }
 
     @include below1200inclusive {

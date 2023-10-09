@@ -27,7 +27,6 @@
     align-items: center;
     gap: 10px;
     padding: 13px 18px 11px 23px;
-    border-left: 1px solid var(--color-platinum);
 
     img {
       max-width: 80px;
@@ -36,7 +35,7 @@
     span {
       font-size: 1.8rem;
       font-weight: 700;
-      color: var(--color-mikado-yellow);
+      color: var(--color-primary);
     }
 
     @include below768inclusive {
@@ -81,7 +80,7 @@
     &__button {
       cursor: pointer;
       border: none;
-      background-color: var(--color-mikado-yellow);
+      background-color: var(--color-primary);
       border-radius: 5px;
       min-width: 50px;
       height: 50px;
@@ -130,11 +129,11 @@
 
       &:hover {
         &:not(.cart) {
-          color: var(--color-mikado-yellow);
+          color: var(--color-primary);
 
           svg {
             path {
-              fill: var(--color-mikado-yellow);
+              fill: var(--color-primary);
             }
           }
 
@@ -145,13 +144,13 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: var(--color-mikado-yellow);
+            background-color: var(--color-primary);
           }
         }
       }
 
       &.cart {
-        background-color: var(--color-mikado-yellow);
+        background-color: var(--color-primary);
       }
 
       @include below768inclusive {
@@ -172,10 +171,12 @@
     &__text {
       margin-top: 5px;
       font-size: 12px;
-
       @include below768inclusive {
         font-size: 7px;
       }
+    }
+    &__text--active {
+      color: var(--color-text-primary);
     }
 
     &__count {
@@ -189,8 +190,8 @@
       display: block;
       width: 19px;
       height: 19px;
-      background: #474747;
-      color: var(--color-mikado-yellow);
+      background: white;
+      color: var(--color-primary);
       text-align: center;
     }
 
@@ -221,7 +222,7 @@
 
     &__item {
       &:hover {
-        color: var(--color-mikado-yellow);
+        color: var(--color-primary);
       }
     }
   }

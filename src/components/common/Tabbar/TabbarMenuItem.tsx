@@ -1,7 +1,12 @@
 import React from "react";
 import { TabbarMenuItemProps } from "./types";
 
-const TabbarMenuItem = ({ className, label, count, icon }: TabbarMenuItemProps) => {
+const TabbarMenuItem = ({
+  className,
+  label,
+  count,
+  icon,
+}: TabbarMenuItemProps) => {
   return (
     <div className={`tabbar__menu__item ${className}`} key={label}>
       {count ? (
