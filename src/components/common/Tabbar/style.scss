@@ -22,12 +22,21 @@
   font-family: "Mulish Italic", sans-serif;
   max-width: 1410px;
   &__logo {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     padding: 13px 18px 11px 23px;
     border-left: 1px solid var(--color-platinum);
 
-    svg {
-      max-width: 150px;
+    img {
+      max-width: 80px;
+    }
+
+    span {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--color-mikado-yellow);
     }
 
     @include below768inclusive {
