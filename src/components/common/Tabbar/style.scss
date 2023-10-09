@@ -32,12 +32,6 @@
       max-width: 80px;
     }
 
-    span {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--color-primary);
-    }
-
     @include below768inclusive {
       border-left: none;
     }
