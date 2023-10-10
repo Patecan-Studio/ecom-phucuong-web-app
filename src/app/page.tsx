@@ -19,7 +19,7 @@ export default function Home() {
       <CategorySection />
       <Products />
       <div
-        style={{ height: "2000px", backgroundColor: "white", color: "black" }}
+      // style={{ height: "2000px", backgroundColor: "white", color: "black" }}
       ></div>
     </main>
   );
