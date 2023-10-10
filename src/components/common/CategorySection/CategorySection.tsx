@@ -3,14 +3,15 @@ import React, { useState } from "react";
 import "./style.scss";
 
 const CategorySection = () => {
-  const [currentLink, setCurrentLink] = useState(
-    "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/outside.png"
-  );
   return (
     <div className="category-section">
       <div className="category-section__left-content"></div>
       <div className="category-section__right-content">
-        <img className="" src={currentLink} alt="main-slide-1" />
+        <img
+          className=""
+          src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/static/phucuong_background_large.webp"
+          alt="main-slide-1"
+        />
       </div>
       <div className="category-section__center-content">
         <div className="left">
@@ -21,91 +22,35 @@ const CategorySection = () => {
           </p>
         </div>
         <div className="right">
-          <div
-            className="icon-wrapper"
-            onMouseEnter={() =>
-              setCurrentLink(
-                "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/outside.png"
-              )
-            }
-          >
+          <div className="icon-wrapper">
             <img src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/outside.png" />
             <span>Ngoài trời</span>
           </div>
-          <div
-            className="icon-wrapper"
-            onMouseEnter={() =>
-              setCurrentLink(
-                "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/living-room.png"
-              )
-            }
-          >
+          <div className="icon-wrapper">
             <img src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/living-room.png" />
             <span>Phòng Khách</span>
           </div>
-          <div
-            className="icon-wrapper"
-            onMouseEnter={() =>
-              setCurrentLink(
-                "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/kitchen.jpg"
-              )
-            }
-          >
+          <div className="icon-wrapper">
             <img src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/kitchen.jpg" />
             <span>Phòng Bếp</span>
           </div>
-          <div
-            className="icon-wrapper"
-            onMouseEnter={() =>
-              setCurrentLink(
-                "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/office.jpg"
-              )
-            }
-          >
+          <div className="icon-wrapper">
             <img src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/office.jpg" />
             <span>Văn Phòng</span>
           </div>
-          <div
-            className="icon-wrapper"
-            onMouseEnter={() =>
-              setCurrentLink(
-                "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/decor.jpg"
-              )
-            }
-          >
+          <div className="icon-wrapper">
             <img src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/decor.jpg" />
             <span>Sản Phẩm Trang Trí</span>
           </div>
-          <div
-            className="icon-wrapper"
-            onMouseEnter={() =>
-              setCurrentLink(
-                "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/bed-room.jpg"
-              )
-            }
-          >
+          <div className="icon-wrapper">
             <img src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/bed-room.jpg" />
             <span>Phòng Ngủ</span>
           </div>
-          <div
-            className="icon-wrapper"
-            onMouseEnter={() =>
-              setCurrentLink(
-                "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/light.jpg"
-              )
-            }
-          >
+          <div className="icon-wrapper">
             <img src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/light.jpg" />
             <span>Giải Pháp Chiếu Sáng</span>
           </div>
-          <div
-            className="icon-wrapper"
-            onMouseEnter={() =>
-              setCurrentLink(
-                "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/mateiral.jpg"
-              )
-            }
-          >
+          <div className="icon-wrapper">
             <img src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/mateiral.jpg" />
             <span>Vật Liệu Hoàn Thiện</span>
           </div>
