@@ -1,7 +1,7 @@
 @import '../../../../styles/responsives.scss';
 
 .product {
-  width: 25%; // needs to delete this before pushing
+  // width: 25%; // needs to delete this before pushing
   border-radius: 5px;
 
   &__image-container {
@@ -44,5 +44,46 @@
 
   &__info {
     background: var(--color-white);
+    font-weight: 300;
+    font-size: 18px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+    border-bottom: 1px solid var(--color-gray-less-light);
+  }
+
+  &__name {
+    margin-bottom: 10px;
+    flex: 0 0 100%;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @include below992inclusive {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__price {
+    font-weight: 700;
+
+    @include below992inclusive {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    &--old {
+      text-decoration: line-through;
+      font-size: 15px;
+      color: var(--color-gray);
+
+      @include below992inclusive {
+        font-size: 11px;
+      }
+    }
   }
 }
