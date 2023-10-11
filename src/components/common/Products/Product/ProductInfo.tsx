@@ -17,8 +17,12 @@ const ProductInfo = () => {
   return (
     <div className="product__info">
       <div className="product__name">Ghế ăn elio - Tribú</div>
-      {discount_price && <h4 className="product__price">{discount_price} đ</h4>}
-      <h4 className={priceClassName}>{price} đ</h4>
+      <div className="product__price-container">
+        {discount_price && (
+          <h4 className="product__price">{discount_price} đ</h4>
+        )}
+        <h4 className={priceClassName}>{price} đ</h4>
+      </div>
     </div>
   );
 };

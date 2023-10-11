@@ -59,12 +59,8 @@
   padding: 0 15px;
   max-width: 1410px;
 
-  @include above1200 {
-    max-width: 1140px;
-  }
-
   @include below1200inclusive {
-    max-width: 960px;
+    max-width: 1140px;
   }
 
   @include below992inclusive {
