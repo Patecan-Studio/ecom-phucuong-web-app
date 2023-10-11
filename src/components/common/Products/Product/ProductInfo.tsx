@@ -1,27 +1,32 @@
 import React from "react";
+import { ProductInfoProps } from "../types";
 
-const ProductInfo = () => {
-  const discount_price = (15000000).toLocaleString("vn", {
+const ProductInfo = ({
+  name,
+  discountPrice,
+  price,
+}: ProductInfoProps) => {
+  const formattedDiscountPrice = discountPrice.toLocaleString("vn", {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   });
-  const price = (20000000).toLocaleString("vn", {
+  const formattedPrice = price.toLocaleString("vn", {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   });
 
-  const priceClassName = discount_price
+  const priceClassName = formattedDiscountPrice
     ? "product__price product__price--old"
     : "product__price";
 
   return (
     <div className="product__info">
-      <div className="product__name">Ghế ăn elio - Tribú</div>
+      <div className="product__name">{name}</div>
       <div className="product__price-container">
-        {discount_price && (
-          <h4 className="product__price">{discount_price} đ</h4>
+        {formattedDiscountPrice && (
+          <h4 className="product__price">{formattedDiscountPrice} đ</h4>
         )}
-        <h4 className={priceClassName}>{price} đ</h4>
+        <h4 className={priceClassName}>{formattedPrice} đ</h4>
       </div>
     </div>
   );

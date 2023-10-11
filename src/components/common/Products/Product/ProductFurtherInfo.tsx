@@ -1,14 +1,15 @@
-import React from 'react'
-import ProductLogo from './ProductLogo'
-import ProductLinks from './ProductLinks'
+import React from "react";
+import ProductLogo from "./ProductLogo";
+import ProductLinks from "./ProductLinks";
+import { ProductFurtherInfoProps } from "../types";
 
-const ProductFurtherInfo = () => {
+const ProductFurtherInfo = ({ brandImage }: ProductFurtherInfoProps) => {
   return (
     <div className="product__further-info">
-      <ProductLogo />
+      <ProductLogo brandImage={brandImage}/>
       <ProductLinks />
     </div>
-  )
-}
+  );
+};
 
-export default ProductFurtherInfo
+export default ProductFurtherInfo;

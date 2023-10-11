@@ -1,11 +1,12 @@
 import React from "react";
 import NextImage from "next/image";
+import { ProductLogoProps } from "../types";
 
-const ProductLogo = () => {
+const ProductLogo = ({brandImage}: ProductLogoProps) => {
   return (
     <a className="product__logo" href="#">
       <NextImage
-        src="/images/product-images/caesar-logo.png"
+        src={brandImage}
         alt="Picture of the author"
         width={0}
         height={0}
