@@ -1,14 +1,14 @@
 import React from 'react'
-import { ProductCard } from './Product'
+import { Product } from './Product'
 
 
 const ProductsContent = () => {
   return (
     <div className="products__content">
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
     </div>
   )
 }

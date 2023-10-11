@@ -3,6 +3,17 @@
 .product {
   border-radius: 5px;
   width: 100%;
+  box-shadow: 0;
+  transition: .2 all ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &:hover &__name {
+    color: var(--color-primary);
+  }
 
   &__image-container {
     padding: 10px;
@@ -14,7 +25,8 @@
     width: 100%;
 
     img {
-      width: 100%;
+      margin: auto;
+      width: 80%;
       height: auto;
     }
   }
@@ -47,7 +59,7 @@
     font-weight: 300;
     font-size: 18px;
     padding: 20px;
-
+    padding-bottom: 0;
   }
 
   &__name {
@@ -55,6 +67,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    transition: .2 all ease-in-out;
 
     @include below992inclusive {
       font-size: 14px;
@@ -89,6 +102,29 @@
         margin-bottom: 8px;
 
       }
+    }
+  }
+
+  &__further-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    padding-top: 0;
+    line-height: 36px;
+
+    @include below992inclusive {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__logo {
+    position: relative;
+    width: 80px;
+    height: 50px;
+
+    @include below992inclusive {
+      width: 50px;
     }
   }
 }

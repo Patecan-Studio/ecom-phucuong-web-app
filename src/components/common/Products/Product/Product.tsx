@@ -1,15 +1,17 @@
 import React from "react";
 import "./style.scss";
-import ProductCardImage from "./ProductImage";
+import ProductImage from "./ProductImage";
 import ProductInfo from "./ProductInfo";
+import ProductFurtherInfo from "./ProductFurtherInfo";
 
-const ProductCard = () => {
+const Product = () => {
   return (
     <div className="product">
-      <ProductCardImage />
+      <ProductImage />
       <ProductInfo />
+      <ProductFurtherInfo />
     </div>
   );
 };
 
-export default ProductCard;
+export default Product;
