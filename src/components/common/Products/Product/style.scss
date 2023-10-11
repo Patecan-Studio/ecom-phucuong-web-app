@@ -69,6 +69,7 @@
 
   &__price {
     font-weight: 700;
+    margin-bottom: 10px;
 
     @include below992inclusive {
       font-size: 13px;
@@ -79,9 +80,11 @@
       text-decoration: line-through;
       font-size: 15px;
       color: var(--color-gray);
-
+      
       @include below992inclusive {
         font-size: 11px;
+        margin-bottom: 8px;
+
       }
     }
   }

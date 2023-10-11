@@ -11,7 +11,7 @@ const ProductInfo = () => {
   });
 
   const priceClassName = discount_price
-    ? "product__price--old"
+    ? "product__price product__price--old"
     : "product__price";
 
   return (
