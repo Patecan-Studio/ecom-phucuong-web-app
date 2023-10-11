@@ -84,9 +84,12 @@
   font-size: 35px;
   font-weight: 600;
   padding-left: 65px;
+  margin-bottom: 40px;
 
   @include below1200inclusive {
     padding-left: 45px;
+    margin-bottom: 30px;
+
 
     &::before {
       width: 30px !important;
@@ -96,6 +99,7 @@
   @include below768inclusive {
     font-size: 30px;
     padding-left: 30px;
+    margin-bottom: 20px;
 
     &::before {
       width: 20px !important;

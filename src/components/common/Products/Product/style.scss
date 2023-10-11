@@ -2,9 +2,12 @@
 
 .product {
   width: 25%; // needs to delete this before pushing
-  padding: 10px;
   border-radius: 5px;
-  background-color: #FAFAFA;
+
+  &__image-container {
+    padding: 10px;
+    background-color: #FAFAFA;
+  }
   
   &__image {
     position: relative;
@@ -22,6 +25,7 @@
     left: 6px;
     display: flex;
     font-size: 14px;
+    white-space: nowrap;
     
     &--label {
       border-radius: 5px;
@@ -38,4 +42,7 @@
     }
   }
 
+  &__info {
+    background: var(--color-white);
+  }
 }
