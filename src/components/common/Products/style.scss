@@ -1,0 +1,12 @@
+@import '../../../styles/responsives.scss';
+@import '../../../styles/common.scss';
+
+.products {
+  color: var(--color-black);
+  margin: auto;
+  @include responsiveContainer;
+
+  &__title {
+    @include containerTitle;
+  }
+}

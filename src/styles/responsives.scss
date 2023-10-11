@@ -28,6 +28,12 @@
   }
 }
 
+@mixin below576inclusive {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+
 @mixin below414inclusive {
   @media (max-width: 414px) {
     @content;
@@ -37,5 +43,66 @@
 @mixin below950inclusive {
   @media (max-width: 950px) {
     @content;
+  }
+}
+
+@mixin below992inclusive {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+
+// ------------ Common Responsive Config ------------
+
+@mixin responsiveContainer {
+  margin: auto;
+  padding: 0 15px;
+  max-width: 1410px;
+
+  @include above1200 {
+    max-width: 1140px;
+  }
+
+  @include below1200inclusive {
+    max-width: 960px;
+  }
+
+  @include below992inclusive {
+    max-width: 960px;
+  }
+
+  @include below768inclusive {
+    max-width: 720px;
+  }
+
+  @include below576inclusive {
+    max-width: 540px;
+  }
+}
+
+@mixin responsiveHeadingH2 {
+  font-size: 35px;
+  font-weight: 600;
+  padding-left: 65px;
+
+  @include below1200inclusive {
+    padding-left: 45px;
+
+    &::before {
+      width: 30px !important;
+    }
+  }
+
+  @include below768inclusive {
+    font-size: 30px;
+    padding-left: 30px;
+
+    &::before {
+      width: 20px !important;
+    }
+  }
+
+  @include below576inclusive {
+    font-size: 24px;
   }
 }

@@ -1,0 +1,22 @@
+@import './responsives.scss';
+
+@mixin containerTitle {
+  display: flex;
+  align-items: center;
+  max-width: 475px;
+  position: relative;
+
+  @include responsiveHeadingH2;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 41px;
+    height: 1px;
+    background-color: #666;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+  }
+}
