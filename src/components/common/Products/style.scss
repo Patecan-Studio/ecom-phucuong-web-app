@@ -3,10 +3,15 @@
 
 .products {
   color: var(--color-black);
-  margin: auto;
   @include responsiveContainer;
 
   &__title {
     @include containerTitle;
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    gap: 10px;
   }
 }

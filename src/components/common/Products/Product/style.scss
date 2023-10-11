@@ -1,0 +1,41 @@
+@import '../../../../styles/responsives.scss';
+
+.product {
+  width: 25%; // needs to delete this before pushing
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #FAFAFA;
+  
+  &__image {
+    position: relative;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__status {
+    position: absolute;
+    top: 8px;
+    left: 6px;
+    display: flex;
+    font-size: 14px;
+    
+    &--label {
+      border-radius: 5px;
+      padding: 0 10px;
+      background: var(--color-primary);
+      color: var(--color-text-primary);
+      margin-right: 8px;
+    }
+
+    &--discount {
+      border-radius: 5px;
+      padding: 0 5px;
+      background: var(--color-gray-less-light);
+    }
+  }
+
+}
