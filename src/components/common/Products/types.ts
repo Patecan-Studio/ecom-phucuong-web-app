@@ -1,9 +1,17 @@
+import EmblaViewportRefType from "embla-carousel-react";
+
 export interface ProductsTitleProps {
   title: string;
 }
 
 export interface ProductsContentProps {
   products: Product[];
+}
+
+export interface ProductsSubContentProps {
+  products: Product[];
+  className: string;
+  productsRef: <ViewportElement extends HTMLElement>(instance: ViewportElement | null) => void;
 }
 
 interface Product {

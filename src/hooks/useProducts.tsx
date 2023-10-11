@@ -56,47 +56,61 @@ export const useProducts = () => {
         brand_image: '/images/product-images/caesar-logo.png',
       }
     },
-    // {
-    //   id: 5,
-    //   product_name: 'Product 5',
-    //   product_images: ['/images/product-images/product-5.png'],
-    //   product_price: 1500000,
-    //   discount_ratio: 0.25,
-    //   discount_price: 1125000,
-    //   is_new: true,
-    //   brand: {
-    //     id: 1,
-    //     brand_name: 'Brand 1',
-    //     brand_image: '/images/product-images/caesar-logo.png',
-    //   }
-    // },
-    // {
-    //   id: 6,
-    //   product_name: 'Product 6',
-    //   product_images: ['/images/product-images/product-6.png'],
-    //   product_price: 1500000,
-    //   discount_ratio: 0.25,
-    //   discount_price: 1125000,
-    //   is_new: true,
-    //   brand: {
-    //     id: 1,
-    //     brand_name: 'Brand 1',
-    //     brand_image: '/images/product-images/caesar-logo.png',
-    //   }
-    // },
-    // {
-    //   id: 7,
-    //   product_name: 'Product 7',
-    //   product_images: ['/images/product-images/product-7.jpg'],
-    //   product_price: 1500000,
-    //   discount_ratio: 0.25,
-    //   discount_price: 1125000,
-    //   is_new: true,
-    //   brand: {
-    //     id: 1,
-    //     brand_name: 'Brand 7',
-    //     brand_image: '/images/product-images/caesar-logo.png',
-    //   }
-    // },
+    {
+      id: 5,
+      product_name: 'Product 5',
+      product_images: ['/images/product-images/product-5.png'],
+      product_price: 1500000,
+      discount_ratio: 0.25,
+      discount_price: 1125000,
+      is_new: true,
+      brand: {
+        id: 1,
+        brand_name: 'Brand 1',
+        brand_image: '/images/product-images/caesar-logo.png',
+      }
+    },
+    {
+      id: 6,
+      product_name: 'Product 6',
+      product_images: ['/images/product-images/product-6.png'],
+      product_price: 1500000,
+      discount_ratio: 0.25,
+      discount_price: 1125000,
+      is_new: true,
+      brand: {
+        id: 1,
+        brand_name: 'Brand 1',
+        brand_image: '/images/product-images/caesar-logo.png',
+      }
+    },
+    {
+      id: 7,
+      product_name: 'Product 7',
+      product_images: ['/images/product-images/product-7.jpg'],
+      product_price: 1500000,
+      discount_ratio: 0.25,
+      discount_price: 1125000,
+      is_new: true,
+      brand: {
+        id: 1,
+        brand_name: 'Brand 7',
+        brand_image: '/images/product-images/caesar-logo.png',
+      }
+    },
+    {
+      id: 8,
+      product_name: 'Product 8',
+      product_images: ['/images/product-images/product-7.jpg'],
+      product_price: 1500000,
+      discount_ratio: 0.25,
+      discount_price: 1125000,
+      is_new: true,
+      brand: {
+        id: 1,
+        brand_name: 'Brand 7',
+        brand_image: '/images/product-images/caesar-logo.png',
+      }
+    },
   ]
 };

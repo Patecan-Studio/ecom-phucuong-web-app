@@ -2,7 +2,6 @@
 
 .product {
   border-radius: 10px;
-  width: 100%;
   transition: all 200ms ease-in-out;
   cursor: pointer;
 
@@ -128,6 +127,10 @@
       width: 55%;
       height: auto;
     }
+
+    @include below992inclusive {
+      display: none;
+    }
   }
 
   &__links {
@@ -149,6 +152,7 @@
 
     svg {
       transition: all 200ms ease-in-out;
+      width: 1vw;
     }
 
     &:hover {

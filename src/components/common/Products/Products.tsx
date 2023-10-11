@@ -9,7 +9,6 @@ const Products = () => {
 
   return (
     <div className="products">
-      <ProductsTitle title="Sản phẩm mới" />
       <ProductsContent products={products} />
     </div>
   );

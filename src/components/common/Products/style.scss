@@ -10,8 +10,25 @@
   }
 
   &__content {
-    width: 100%;
-    display: flex;
-    gap: 35px;
+    &--first {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__sub-content {
+    overflow: hidden;
+    
+    &__items {
+      display: flex;
+    }
+
+    &__item {
+      flex: 0 0 50%;
+      min-width: 0;
+    }
+
+    // &--empty {
+    //   width: 100%;
+    // }
   }
 }

@@ -1,22 +1,52 @@
-import React from "react";
-import { Product } from "./Product";
-import { ProductsContentProps } from "./types";
+"use client";
 
-const ProductsContent = ({products}: ProductsContentProps) => {
+import React from "react";
+import { ProductsContentProps } from "./types";
+import ProductsSubContent from "./ProductsSubContent";
+import useEmblaCarousel from "embla-carousel-react";
+import ProductsTitle from "./ProductsTitle";
+
+const ProductsContent = ({ products }: ProductsContentProps) => {
+  const half = Math.ceil(products.length / 2);
+  const firstHalf = products.slice(0, half);
+  const secondHalf = products.slice(half, products.length);
+
+  const [firstHalfRef, firstHalfMethods] = useEmblaCarousel({
+    loop: true,
+    slidesToScroll: 2,
+  })
+
+  const [secondHalfRef, secondHalfMethods] = useEmblaCarousel({
+    loop: true,
+    slidesToScroll: 2,
+  })
+
+  const handlePrevClick = () => {
+    firstHalfMethods?.scrollPrev();
+    secondHalfMethods?.scrollPrev();
+  }
+
+  const handleNextClick = () => {
+    firstHalfMethods?.scrollNext();
+    secondHalfMethods?.scrollNext();
+  }
+
+
+
   return (
     <div className="products__content">
-      {products.map((product) => (
-        <Product
-          key={product.id}
-          name={product.product_name}
-          image={product.product_images[0]}
-          price={product.product_price}
-          discountRatio={product.discount_ratio}
-          discountPrice={product.discount_price}
-          isNew={product.is_new}
-          brandImage={product.brand.brand_image}
-        />
-      ))}
+      <ProductsTitle title="Sản phẩm mới" />
+      {/* <ProductButtons /> */}
+      <ProductsSubContent
+        products={firstHalf}
+        className="products__content--first"
+        productsRef={firstHalfRef}
+      />
+      <ProductsSubContent
+        products={secondHalf}
+        className="products__content--second"
+        productsRef={secondHalfRef}
+      />
     </div>
   );
 };
