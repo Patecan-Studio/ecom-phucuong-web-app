@@ -1,19 +1,14 @@
 import React from "react";
 import { ProductInfoProps } from "../types";
+import { currencyFormat } from "@/utils/utils";
 
 const ProductInfo = ({
   name,
   discountPrice,
   price,
 }: ProductInfoProps) => {
-  const formattedDiscountPrice = discountPrice.toLocaleString("vn", {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  });
-  const formattedPrice = price.toLocaleString("vn", {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  });
+  const formattedDiscountPrice = currencyFormat(discountPrice);
+  const formattedPrice = currencyFormat(price)
 
   const priceClassName = formattedDiscountPrice
     ? "product__price product__price--old"
