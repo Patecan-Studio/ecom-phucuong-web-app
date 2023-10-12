@@ -7,6 +7,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import ProductsTitle from "./ProductsTitle";
 import ProductsButtons from "./ProductsButtons/ProductsButtons";
 import ProductsNavigation from "./ProductsNavigation/ProductsNavigation";
+import ProductsGuide from "./ProductsGuide";
 
 const ProductsContent = ({ products }: ProductsContentProps) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -58,6 +59,7 @@ const ProductsContent = ({ products }: ProductsContentProps) => {
         selected={selectedIndex}
         onNavigate={handleNavigate}
       />
+      <ProductsGuide />
     </div>
   );
 };
