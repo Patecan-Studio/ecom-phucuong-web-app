@@ -88,6 +88,11 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+
+    @include below768inclusive {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   &__price {
