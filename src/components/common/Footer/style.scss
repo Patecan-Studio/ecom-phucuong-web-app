@@ -14,7 +14,7 @@ $animationSpeed: 40s;
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-250px * 7));
+    transform: translateX(calc(-195px * 4));
   }
 }
 
@@ -22,7 +22,7 @@ $animationSpeed: 40s;
   background-color: white;
   &__slider {
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-    height: 100px;
+    height: 80px;
     margin: auto;
     overflow: hidden;
     position: relative;
@@ -32,9 +32,9 @@ $animationSpeed: 40s;
     &::after {
       @include white-gradient;
       content: "";
-      height: 100px;
+      height: 80px;
+      width: 150px;
       position: absolute;
-      width: 200px;
       z-index: 2;
     }
 
@@ -52,16 +52,108 @@ $animationSpeed: 40s;
     .slide-track {
       animation: scroll $animationSpeed linear infinite;
       display: flex;
-      width: calc(250px * 14);
+      width: calc(195px * 8);
+
+      &:hover {
+        animation-play-state: paused;
+      }
     }
 
     .slide {
-      height: 100px;
-      width: 250px;
+      height: 80px;
+      width: 195px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        height: auto;
+        width: auto;
+        filter: grayscale(1);
+        object-fit: contain;
+        &:hover {
+          filter: unset;
+        }
+      }
+    }
+  }
+
+  &__title {
+    background-color: black;
+    color: white;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title {
+      text-transform: uppercase;
+      font-size: 20px;
+    }
+  }
+
+  &__connection {
+    background-color: #f7f4ef;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 30px;
+
+    &__inputWrapper {
+      height: 50px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: row;
+      .input {
+        background-color: var(--color-white);
+        width: 100%;
+        display: block;
+        border: unset;
+        padding: 10px 0;
+        font-size: 16px;
+        line-height: 20px;
+        padding-left: 30px;
+        border-radius: 5px 0 0 5px;
+        height: 100%;
+      }
+      .inputButton {
+        background-color: black;
+        color: white;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border-radius: 0 5px 5px 0;
+        width: 100px;
+      }
+    }
+
+    &__social {
+      span {
+        font-weight: 500;
+      }
+      .iconWrapper {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        .icon {
+          width: 40px;
+          height: 40px;
+          background-color: white;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
     }
   }
 }
-// Styling
-// .slider {
-
-// }
