@@ -98,4 +98,32 @@ $item-gap: 20px;
   &__next {
     margin-left: 15px;
   }
+
+  &__navigation {
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+    @include below768inclusive {
+      display: flex;
+    }
+  }
+
+  &__dot {
+    margin-right: 10px;
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color-gray-less-light);
+    border: none;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--selected {
+      background-color: var(--color-primary);
+    }
+  }
 }
