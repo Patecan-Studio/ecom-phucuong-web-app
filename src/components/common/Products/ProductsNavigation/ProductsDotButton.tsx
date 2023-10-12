@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const ProductsDotButton = ({ selected, onClick }: any) => (
   <button
@@ -6,6 +6,6 @@ const ProductsDotButton = ({ selected, onClick }: any) => (
     type="button"
     onClick={onClick}
   ></button>
-)
+);
 
-export default ProductsDotButton
+export default ProductsDotButton;

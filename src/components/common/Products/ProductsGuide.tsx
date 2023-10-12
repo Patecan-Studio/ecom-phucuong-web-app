@@ -1,5 +1,5 @@
-import React from 'react'
-import ArrowRightIcon from '../Icons/ArrowRightIcon'
+import React from "react";
+import ArrowRightIcon from "../Icons/ArrowRightIcon";
 
 const ProductsGuide = () => {
   return (
@@ -7,7 +7,7 @@ const ProductsGuide = () => {
       <p>Hướng dẫn đặt hàng</p>
       <ArrowRightIcon />
     </a>
-  )
-}
+  );
+};
 
-export default ProductsGuide
+export default ProductsGuide;
