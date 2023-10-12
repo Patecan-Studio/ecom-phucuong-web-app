@@ -63,3 +63,12 @@ export interface ProductFurtherInfoProps {
 export interface ProductLogoProps {
   brandImage: string;
 }
+
+export interface ProductsButtonsProps {
+  onPrevClick: () => void;
+  onNextClick: () => void;
+}
+
+export interface ProductsButtonProps {
+  onClick: () => void;
+}
