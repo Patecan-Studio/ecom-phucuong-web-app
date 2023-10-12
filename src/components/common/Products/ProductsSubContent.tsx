@@ -4,29 +4,45 @@ import { Product } from "./Product";
 
 const ProductsSubContent = ({
   products,
-  className,
   productsRef,
 }: ProductsSubContentProps) => {
-  const isOdd = products.length % 2 !== 0;
+  const renderProducts = () => {
+    let productsArray = [];
+
+    for (let i = 0; i < products.length; i += 2) {
+      productsArray.push(
+        <div className="products__sub-content__item" key={products[i].id}>
+          <Product
+            name={products[i].product_name}
+            image={products[i].product_images[0]}
+            price={products[i].product_price}
+            discountRatio={products[i].discount_ratio}
+            discountPrice={products[i].discount_price}
+            isNew={products[i].is_new}
+            brandImage={products[i].brand.brand_image}
+          />
+
+          <Product
+            name={products[i + 1].product_name}
+            image={products[i + 1].product_images[0]}
+            price={products[i + 1].product_price}
+            discountRatio={products[i + 1].discount_ratio}
+            discountPrice={products[i + 1].discount_price}
+            isNew={products[i + 1].is_new}
+            brandImage={products[i + 1].brand.brand_image}
+          />
+        </div>
+      );
+    }
+
+    return productsArray;
+  };
 
   return (
-    <div className={`products__sub-content ${className}`} ref={productsRef}>
+    <div className="products__sub-content" ref={productsRef}>
       <div className="products__sub-content__items">
-        {products.map((product) => (
-          <div className="products__sub-content__item" key={product.id}>
-            <Product
-              name={product.product_name}
-              image={product.product_images[0]}
-              price={product.product_price}
-              discountRatio={product.discount_ratio}
-              discountPrice={product.discount_price}
-              isNew={product.is_new}
-              brandImage={product.brand.brand_image}
-            />
-          </div>
-        ))}
+        {renderProducts()}
       </div>
-      {isOdd && <div className="products__sub-content--empty"></div>}
     </div>
   );
 };

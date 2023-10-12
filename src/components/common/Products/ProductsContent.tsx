@@ -7,45 +7,27 @@ import useEmblaCarousel from "embla-carousel-react";
 import ProductsTitle from "./ProductsTitle";
 
 const ProductsContent = ({ products }: ProductsContentProps) => {
-  const half = Math.ceil(products.length / 2);
-  const firstHalf = products.slice(0, half);
-  const secondHalf = products.slice(half, products.length);
-
-  const [firstHalfRef, firstHalfMethods] = useEmblaCarousel({
+  const [contentRef, contentMethods] = useEmblaCarousel({
     loop: true,
-    slidesToScroll: 2,
-  })
-
-  const [secondHalfRef, secondHalfMethods] = useEmblaCarousel({
-    loop: true,
-    slidesToScroll: 2,
+    align: "start",
+    containScroll: "trimSnaps",
   })
 
   const handlePrevClick = () => {
-    firstHalfMethods?.scrollPrev();
-    secondHalfMethods?.scrollPrev();
+    contentMethods?.scrollPrev();
   }
 
   const handleNextClick = () => {
-    firstHalfMethods?.scrollNext();
-    secondHalfMethods?.scrollNext();
+    contentMethods?.scrollNext();
   }
-
-
 
   return (
     <div className="products__content">
       <ProductsTitle title="Sản phẩm mới" />
       {/* <ProductButtons /> */}
       <ProductsSubContent
-        products={firstHalf}
-        className="products__content--first"
-        productsRef={firstHalfRef}
-      />
-      <ProductsSubContent
-        products={secondHalf}
-        className="products__content--second"
-        productsRef={secondHalfRef}
+        products={products}
+        productsRef={contentRef}
       />
     </div>
   );

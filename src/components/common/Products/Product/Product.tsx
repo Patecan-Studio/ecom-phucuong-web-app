@@ -15,10 +15,16 @@ const Product = ({
   brandImage,
 }: ProductProps) => {
   return (
-    <div className="product">
-      <ProductImage isNew={isNew} image={image} discountRatio={discountRatio} />
-      <ProductInfo name={name} discountPrice={discountPrice} price={price} />
-      <ProductFurtherInfo brandImage={brandImage} />
+    <div className="product-container">
+      <div className="product">
+        <ProductImage
+          isNew={isNew}
+          image={image}
+          discountRatio={discountRatio * 100}
+        />
+        <ProductInfo name={name} discountPrice={discountPrice} price={price} />
+        <ProductFurtherInfo brandImage={brandImage} />
+      </div>
     </div>
   );
 };

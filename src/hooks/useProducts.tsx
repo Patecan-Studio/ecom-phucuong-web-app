@@ -112,5 +112,33 @@ export const useProducts = () => {
         brand_image: '/images/product-images/caesar-logo.png',
       }
     },
+    {
+      id: 9,
+      product_name: 'Product 9',
+      product_images: ['/images/product-images/product-7.jpg'],
+      product_price: 1500000,
+      discount_ratio: 0.25,
+      discount_price: 1125000,
+      is_new: true,
+      brand: {
+        id: 1,
+        brand_name: 'Brand 7',
+        brand_image: '/images/product-images/caesar-logo.png',
+      }
+    },
+    {
+      id: 10,
+      product_name: 'Product 10',
+      product_images: ['/images/product-images/product-7.jpg'],
+      product_price: 1500000,
+      discount_ratio: 0.25,
+      discount_price: 1125000,
+      is_new: true,
+      brand: {
+        id: 1,
+        brand_name: 'Brand 7',
+        brand_image: '/images/product-images/caesar-logo.png',
+      }
+    },
   ]
 };

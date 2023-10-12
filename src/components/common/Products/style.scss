@@ -1,6 +1,21 @@
 @import '../../../styles/responsives.scss';
 @import '../../../styles/common.scss';
 
+$item-gap: 20px;
+
+@mixin responsiveProduct {
+  flex: 0 0 25%;
+  min-width: 25%;
+
+  @include below1200inclusive {
+    flex: 0 0 33.3333%;
+  }
+
+  @include below768inclusive {
+    flex: 0 0 50%;
+  }
+}
+
 .products {
   color: var(--color-black);
   @include responsiveContainer;
@@ -17,18 +32,19 @@
 
   &__sub-content {
     overflow: hidden;
-    
+
     &__items {
       display: flex;
     }
 
     &__item {
-      flex: 0 0 50%;
       min-width: 0;
-    }
+      // margin-right: $item-gap;
+      @include responsiveProduct;
 
-    // &--empty {
-    //   width: 100%;
-    // }
+      >div {
+        margin-bottom: 20px;
+      }
+    }
   }
 }

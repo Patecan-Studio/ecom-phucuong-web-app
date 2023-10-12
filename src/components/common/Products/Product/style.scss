@@ -1,9 +1,14 @@
 @import '../../../../styles/responsives.scss';
 
+.product-container {
+  padding: 15px;
+}
+
 .product {
   border-radius: 10px;
   transition: all 200ms ease-in-out;
   cursor: pointer;
+  overflow: hidden;
 
   &:hover {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
@@ -14,13 +19,13 @@
   }
 
   &__image-container {
-    padding: 10px;
     background-color: #FAFAFA;
   }
 
   &__image {
     position: relative;
-    height: 10vw;
+    // height: 10vw;
+    aspect-ratio: 1 / 1;
     display: block;
     display: flex;
     align-items: center;
@@ -160,7 +165,7 @@
     }
 
     &:hover svg {
-      transform: rotate(45deg);
+      transform: rotate(180deg);
     }
   }
 

@@ -10,7 +10,6 @@ export interface ProductsContentProps {
 
 export interface ProductsSubContentProps {
   products: Product[];
-  className: string;
   productsRef: <ViewportElement extends HTMLElement>(instance: ViewportElement | null) => void;
 }
 
