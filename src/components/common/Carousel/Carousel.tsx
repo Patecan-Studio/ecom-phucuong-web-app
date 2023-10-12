@@ -5,6 +5,7 @@ import MoneyHandIcon from "../Icons/MoneyHandIcon";
 import CheckIcon from "../Icons/CheckIcon";
 import TwentyFourHourIcon from "../Icons/TwentyFourHourIcon";
 import PackageIcon from "../Icons/PackageIcon";
+import NextImage from "next/image";
 
 const Carousel = () => {
   const carouselMainOption = {
@@ -35,11 +36,29 @@ const Carousel = () => {
   const mainSLides = [
     {
       id: "1",
-      image: <img src="./images/main-slide-1.jpg" alt="main-slide-1" />,
+      image: (
+        <NextImage
+          src="/images/main-slide-1.jpg"
+          alt="main-slide-1"
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: "100%", height: "auto" }}
+        />
+      ),
     },
     {
       id: "2",
-      image: <img src="./images/main-slide-2.jpg" alt="main-slide-2" />,
+      image: (
+        <NextImage
+          src="/images/main-slide-2.jpg"
+          alt="main-slide-2"
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: "100%", height: "auto" }}
+        />
+      ),
     },
   ];
 
