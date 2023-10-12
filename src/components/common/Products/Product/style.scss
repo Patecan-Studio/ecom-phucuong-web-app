@@ -152,6 +152,10 @@
     @include below992inclusive {
       font-size: 12px;
     }
+
+    svg {
+      min-width: 12px;
+    }
   }
 
   &__cart, &__detail {
