@@ -45,8 +45,10 @@ const Footer = () => {
       <div className="footer__connection">
         {/* logo */}
         <TabbarLogo />
-        {/* search */}
+        {/* input */}
         <div className="footer__connection__inputWrapper">
+          <span>Đăng ký nhận các chương trình hấp dẫn của Showroom Nội thất PHÚ CƯỜNG</span>
+          <div className="inputGroup">
           <input
             className="input"
             type="text"
@@ -56,6 +58,8 @@ const Footer = () => {
             <span>Đăng ký</span>
           </div>
         </div>
+        </div>
+        
         {/* social */}
         <div className="footer__connection__social">
           <span>Kết nối với chúng tôi qua mạng xã hội</span>
