@@ -1,14 +1,14 @@
 import React from "react";
 import { ProductInfoProps } from "../types";
-import { currencyFormat } from "@/utils/utils";
+import { convertToCurrencyFormat } from "@/share/utils/utils";
 
 const ProductInfo = ({
   name,
   discountPrice,
   price,
 }: ProductInfoProps) => {
-  const formattedDiscountPrice = currencyFormat(discountPrice);
-  const formattedPrice = currencyFormat(price)
+  const formattedDiscountPrice = convertToCurrencyFormat(discountPrice);
+  const formattedPrice = convertToCurrencyFormat(price)
 
   const priceClassName = formattedDiscountPrice
     ? "product__price product__price--old"
