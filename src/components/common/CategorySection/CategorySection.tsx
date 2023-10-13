@@ -1,16 +1,15 @@
-"use client";
+// "use client";
 
 import React from "react";
-import NextImage from "next/image";
 import "./style.scss";
+import { CustomImage } from "..";
 
 const CategorySection = () => {
   return (
     <div className="category-section">
       <div className="category-section__left-content"></div>
       <div className="category-section__right-content">
-        <NextImage
-          unoptimized
+        <CustomImage
           src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/static/phucuong_background_large.webp"
           alt="main-slide-1"
           width={0}
@@ -28,8 +27,7 @@ const CategorySection = () => {
         </div>
         <div className="right">
           <div className="icon-wrapper">
-            <NextImage
-              unoptimized
+            <CustomImage
               src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/outside.png"
               alt="main-slide-2"
               width={0}
@@ -39,8 +37,7 @@ const CategorySection = () => {
             <span>Ngoài trời</span>
           </div>
           <div className="icon-wrapper">
-            <NextImage
-              unoptimized
+            <CustomImage
               src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/living-room.png"
               alt="main-slide-1"
               width={0}
@@ -50,8 +47,7 @@ const CategorySection = () => {
             <span>Phòng Khách</span>
           </div>
           <div className="icon-wrapper">
-            <NextImage
-              unoptimized
+            <CustomImage
               src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/kitchen.jpg"
               alt="main-slide-3"
               width={0}
@@ -61,8 +57,7 @@ const CategorySection = () => {
             <span>Phòng Bếp</span>
           </div>
           <div className="icon-wrapper">
-            <NextImage
-              unoptimized
+            <CustomImage
               src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/office.jpg"
               alt="main-slide-4"
               width={0}
@@ -72,8 +67,7 @@ const CategorySection = () => {
             <span>Văn Phòng</span>
           </div>
           <div className="icon-wrapper">
-            <NextImage
-              unoptimized
+            <CustomImage
               src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/decor.jpg"
               alt="main-slide-5"
               width={0}
@@ -83,8 +77,7 @@ const CategorySection = () => {
             <span>Sản Phẩm Trang Trí</span>
           </div>
           <div className="icon-wrapper">
-            <NextImage
-              unoptimized
+            <CustomImage
               src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/bed-room.jpg"
               alt="main-slide-6"
               width={0}
@@ -94,8 +87,7 @@ const CategorySection = () => {
             <span>Phòng Ngủ</span>
           </div>
           <div className="icon-wrapper">
-            <NextImage
-              unoptimized
+            <CustomImage
               src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/light.jpg"
               alt="main-slide-7"
               width={0}
@@ -105,8 +97,7 @@ const CategorySection = () => {
             <span>Giải Pháp Chiếu Sáng</span>
           </div>
           <div className="icon-wrapper">
-            <NextImage
-              unoptimized
+            <CustomImage
               src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/mateiral.jpg"
               alt="main-slide-8"
               width={0}
