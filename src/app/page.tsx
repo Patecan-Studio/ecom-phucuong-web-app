@@ -1,4 +1,9 @@
-import { Carousel, CategorySection, Tabbar } from "@/components/common";
+import {
+  Carousel,
+  CategorySection,
+  Products,
+  Tabbar,
+} from "@/components/common";
 import styles from "./page.module.css";
 import "../styles/common.scss";
 import "../styles/colors.scss";
@@ -12,6 +17,7 @@ export default function Home() {
       <Tabbar />
       <Carousel />
       <CategorySection />
+      <Products />
       <div
         style={{ height: "2000px", backgroundColor: "white", color: "black" }}
       ></div>

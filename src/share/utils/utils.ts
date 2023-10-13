@@ -155,3 +155,9 @@ export const compareString = (a: any, b: any) => {
   }
 };
 
+export const convertToCurrencyFormat = (value: number | string) =>
+  value.toLocaleString("en-US", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
+

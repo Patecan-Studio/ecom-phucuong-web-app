@@ -1,0 +1,170 @@
+@import '../../../styles/responsives.scss';
+@import '../../../styles/common.scss';
+
+$item-gap: 20px;
+
+@mixin responsiveProduct {
+  flex: 0 0 25%;
+  min-width: 25%;
+
+  @include below1200inclusive {
+    flex: 0 0 33.3333%;
+  }
+
+  @include below768inclusive {
+    flex: 0 0 50%;
+  }
+}
+
+.products {
+  color: var(--color-black);
+  @include responsiveContainer;
+
+  &__title {
+    @include containerTitle;
+    margin-bottom: 0 !important;
+  }
+
+  &__content {
+    &--first {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__content {
+    &--top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+
+      @include below992inclusive {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__sub-content {
+    overflow: hidden;
+
+    &__items {
+      display: flex;
+    }
+
+    &__item {
+      min-width: 0;
+      // margin-right: $item-gap;
+      @include responsiveProduct;
+
+      >div {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+  }
+
+  &__next,
+  &__prev {
+    background-color: rgb(236 229 223 / 80%);
+    border-radius: 5px;
+    border: none;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+
+    &:hover {
+      background-color: var(--color-primary);
+    }
+
+    @include below1200inclusive {
+      width: 35px;
+      height: 35px;
+    }
+
+    @include below768inclusive {
+      svg {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  &__next {
+    margin-left: 15px;
+  }
+
+  &__navigation {
+    justify-content: center;
+    align-items: center;
+    display: none;
+    margin-bottom: 30px;
+
+    @include below768inclusive {
+      display: flex;
+    }
+  }
+
+  &__dot {
+    margin-right: 10px;
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color-gray-less-light);
+    border: none;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--selected {
+      background-color: var(--color-primary);
+    }
+  }
+
+  &__guide {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    transition: 0.2s all ease-in-out;
+    background-color: var(--color-gray-less-light);
+    cursor: pointer;
+    width: fit-content;
+    
+    &:hover {
+      color: var(--color-text-primary);
+      background-color: var(--color-primary);
+
+      svg {
+        fill: var(--color-text-primary);
+  
+        line {
+          stroke: var(--color-text-primary);
+        }
+  
+        path {
+          stroke: var(--color-text-primary);
+        }
+      }
+    }
+
+    p {
+      margin-right: 10px;
+    }
+
+    @include below768inclusive {
+      display: flex;
+    }
+  }
+}

@@ -5,12 +5,17 @@
   flex-direction: row;
   height: 43vh;
   position: relative;
+  margin-bottom: 70px;
   p,
   h1,
   span {
     color: var(--color-text-primary);
   }
   width: 100vw;
+  
+  @include below1200inclusive {
+    margin-bottom: 50px;
+  }
 
   @include below768inclusive {
     flex-direction: column-reverse;
@@ -59,7 +64,7 @@
     top: 15%;
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding: 25px;
     h1 {
