@@ -16,7 +16,7 @@ $animationSpeed: 40s;
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-195px * 4));
+    transform: translateX(calc(-195px * 7));
   }
 }
 
@@ -29,7 +29,9 @@ $animationSpeed: 40s;
     overflow: hidden;
     position: relative;
     width: 100%;
-
+    @include below414inclusive {
+      display: none;
+    }
     &::before,
     &::after {
       @include white-gradient;
@@ -37,7 +39,7 @@ $animationSpeed: 40s;
       height: 80px;
       width: 150px;
       position: absolute;
-      z-index: 2;
+      z-index: 1;
     }
 
     &::after {
@@ -54,7 +56,7 @@ $animationSpeed: 40s;
     .slide-track {
       animation: scroll $animationSpeed linear infinite;
       display: flex;
-      width: calc(195px * 8);
+      width: calc(195px * 14);
 
       &:hover {
         animation-play-state: paused;
@@ -87,10 +89,14 @@ $animationSpeed: 40s;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    text-align: center;
+    padding: 30px;
     .title {
       text-transform: uppercase;
       font-size: 20px;
+    }
+    @include below768inclusive {
+      padding: 20px;
     }
   }
 
@@ -107,6 +113,7 @@ $animationSpeed: 40s;
 
     @include below768inclusive {
       flex-wrap: wrap;
+      padding: 20px;
       .tabbar__logo {
         flex: 1 100%;
         display: block;
@@ -126,10 +133,18 @@ $animationSpeed: 40s;
     }
     &__inputWrapper {
       width: 50%;
+      padding: 10px 20px;
+      border-right: 1px solid var(--color-platinum);
+
+      @include below768inclusive {
+        width: 66%;
+        padding: 10px 30px 10px 0;
+      }
 
       @include below414inclusive {
         width: 100%;
-
+        padding: 0;
+        border-right: unset;
       }
       span {
         font-weight: 500;
@@ -172,27 +187,30 @@ $animationSpeed: 40s;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
+      align-items: start;
+      padding-left: 10px;
 
       @include below768inclusive {
-        width: 40%;
+        width: 30%;
+        padding-left: 0;
       }
       @include below414inclusive {
         width: 100%;
-
+        align-items: start;
+        padding-left: 0;
       }
       span {
         font-weight: 600;
-        text-align: center;
       }
       .iconWrapper {
         margin-top: 10px;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
         gap: 10px;
-        text-align: center;
+        flex-wrap: wrap;
+
         .icon {
           width: 40px;
           height: 40px;
@@ -201,6 +219,68 @@ $animationSpeed: 40s;
           display: flex;
           justify-content: center;
           align-items: center;
+        }
+      }
+    }
+  }
+  @mixin itemInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    span {
+      font-size: 0.9rem;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      word-break: break-word;
+    }
+  }
+  &__info {
+    background-color: #f7f4ef;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px;
+    font-size: 20px;
+    @include below768inclusive {
+      justify-content: space-between;
+    }
+    @include below414inclusive {
+      display: none;
+    }
+    .about,
+    .contact,
+    .support {
+      @include itemInfo();
+      max-width: 30%;
+    }
+  }
+
+  &__info--mobile {
+    font-size: 20px;
+    display: none;
+    background-color: #f7f4ef;
+    padding-bottom: 20px;
+    .about,
+    .contact,
+    .support {
+      @include itemInfo();
+    }
+    @include below414inclusive {
+      display: block;
+    }
+    .ant-collapse {
+      .ant-collapse-item {
+        .ant-collapse-content-box {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+        .ant-collapse-header {
+          font-weight: 500;
+          font-size: 1rem;
         }
       }
     }
