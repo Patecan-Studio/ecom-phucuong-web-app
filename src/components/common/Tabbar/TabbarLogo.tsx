@@ -1,10 +1,17 @@
 import React from "react";
-import Logo from "../Icons/Logo";
+import NextImage from "next/image";
 
 const TabbarLogo = () => {
   return (
     <a className="tabbar__logo" href="#">
-      <img src="https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/static/logo_phucuong%20350px.png" />
+      <NextImage
+        src="/images/logo.png"
+        alt="package-icon"
+        width={0}
+        height={0}
+        sizes="100vw"
+        style={{ width: "90%", height: "auto" }}
+      />
     </a>
   );
 };

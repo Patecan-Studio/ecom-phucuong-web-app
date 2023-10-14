@@ -4,5 +4,14 @@ import { CategorySection } from "./CategorySection";
 import { Products } from "./Products";
 import { Footer } from "./Footer";
 import TabbarLogo from "./Tabbar/TabbarLogo";
+import { CustomImage } from "./CustomImage";
 
-export { Tabbar, Carousel, CategorySection, Products, Footer, TabbarLogo };
+export {
+  Tabbar,
+  Carousel,
+  CategorySection,
+  Products,
+  Footer,
+  TabbarLogo,
+  CustomImage,
+};

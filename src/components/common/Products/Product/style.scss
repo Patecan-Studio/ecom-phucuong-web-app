@@ -2,6 +2,10 @@
 
 .product-container {
   padding: 15px;
+
+  @include below768inclusive {
+    padding: 5px;
+  }
 }
 
 .product {
@@ -24,7 +28,6 @@
 
   &__image {
     position: relative;
-    // height: 10vw;
     aspect-ratio: 1 / 1;
     display: block;
     display: flex;
@@ -121,12 +124,24 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
     padding-top: 0;
     line-height: 36px;
 
     @include below992inclusive {
       margin-bottom: 8px;
+    }
+  }
+
+  &__further-info,
+  &__info {
+    padding: 20px;
+
+    @include below992inclusive {
+      padding: 10px;
+    }
+
+    @include below768inclusive {
+      padding: 8px;
     }
   }
 
@@ -154,11 +169,16 @@
     }
 
     svg {
-      min-width: 12px;
+      min-width: 10px;
+
+      @include below576inclusive {
+        display: none;
+      }
     }
   }
 
-  &__cart, &__detail {
+  &__cart,
+  &__detail {
     display: flex;
     align-items: center;
     justify-content: space-between;
