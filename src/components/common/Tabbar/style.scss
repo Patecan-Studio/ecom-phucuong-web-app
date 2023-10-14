@@ -21,6 +21,7 @@
   color: var(--color-black);
   font-family: "Mulish Italic", sans-serif;
   max-width: 1410px;
+
   &__logo {
     margin-right: 15px;
 
@@ -157,10 +158,12 @@
     &__text {
       margin-top: 5px;
       font-size: 12px;
+
       @include below768inclusive {
         font-size: 7px;
       }
     }
+
     &__text--active {
       color: var(--color-text-primary);
     }
@@ -206,10 +209,77 @@
     font-size: 14px;
     color: var(--color-gray);
 
-    &__item {
+    &__link {
+      transition: all 0.2s ease-in-out;
+      width: 100%;
+
       &:hover {
         color: var(--color-primary);
       }
+    }
+
+    &__item {
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      text-align: center;
+      &:first-child {
+        text-align: start;
+      }
+
+      &:last-child {
+        text-align: end;
+      }
+
+      &:hover {
+        .tabbar__dropdown {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 100;
+    background: var(--color-white);
+    white-space: nowrap;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 300%;
+    
+
+    &__item {
+      padding: 15px 30px;
+      border-right: 1px solid var(--color-platinum);
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &__label {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-black);
+      margin-bottom: 10px;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      line-height: 30px;
     }
   }
 
@@ -220,6 +290,7 @@
       max-width: 1140px;
     }
   }
+
   @include below1200inclusive {
     &--secondary {
       display: none;
