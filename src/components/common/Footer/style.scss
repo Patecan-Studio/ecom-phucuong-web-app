@@ -22,6 +22,7 @@ $animationSpeed: 40s;
 
 .footer {
   background-color: white;
+  margin-top: 20px;
   &__slider {
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
     height: 80px;
@@ -110,6 +111,7 @@ $animationSpeed: 40s;
     justify-content: space-between;
     gap: 15px;
     padding: 30px;
+    border-bottom: 1px solid var(--color-platinum);
 
     @include below768inclusive {
       flex-wrap: wrap;
@@ -135,7 +137,10 @@ $animationSpeed: 40s;
       width: 50%;
       padding: 10px 20px;
       border-right: 1px solid var(--color-platinum);
-
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 200px;
       @include below768inclusive {
         width: 66%;
         padding: 10px 30px 10px 0;
@@ -145,6 +150,7 @@ $animationSpeed: 40s;
         width: 100%;
         padding: 0;
         border-right: unset;
+        height: 100%;
       }
       span {
         font-weight: 500;
@@ -242,11 +248,16 @@ $animationSpeed: 40s;
     background-color: #f7f4ef;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: start;
     padding: 20px;
     font-size: 20px;
+    padding-left: 10%;
+    gap: 10%;
+
     @include below768inclusive {
       justify-content: space-between;
+      padding-left: 20px;
+      gap: 7%;
     }
     @include below414inclusive {
       display: none;
@@ -256,6 +267,12 @@ $animationSpeed: 40s;
     .support {
       @include itemInfo();
       max-width: 30%;
+      h3 {
+        white-space: nowrap;
+        @include below768inclusive {
+          font-size: 19px;
+        }
+      }
     }
   }
 
@@ -282,6 +299,21 @@ $animationSpeed: 40s;
           font-weight: 500;
           font-size: 1rem;
         }
+      }
+    }
+  }
+
+  &__license {
+    background-color: #f7f4ef;
+    padding: 0 0 30px 10%;
+    @include below768inclusive {
+      padding-left: 20px;
+    }
+    img {
+      height: 80px;
+
+      @include below414inclusive {
+        height: 60px;
       }
     }
   }

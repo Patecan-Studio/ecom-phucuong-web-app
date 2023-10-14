@@ -52,6 +52,12 @@
   }
 }
 
+@mixin above767below1100 {
+  @media (min-width: 767px) and (max-width: 1100px) {
+    @content;
+  }
+}
+
 // ------------ Common Responsive Config ------------
 
 @mixin responsiveContainer {
@@ -85,7 +91,6 @@
   @include below1200inclusive {
     padding-left: 45px;
     margin-bottom: 30px;
-
 
     &::before {
       width: 30px !important;

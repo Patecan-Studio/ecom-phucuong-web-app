@@ -169,6 +169,15 @@ const Footer = () => {
           defaultActiveKey={["1"]}
         />
       </div>
+      <div className="footer__license">
+        <a
+          href="http://online.gov.vn/Home/WebDetails/87107?AspxAutoDetectCookieSupport=1"
+          rel="noopener"
+          target="_blank"
+        >
+          <img src="./images/license.png" alt="Bộ Công Thương" />
+        </a>
+      </div>
     </div>
   );
 };
