@@ -112,7 +112,7 @@ $animationSpeed: 40s;
     gap: 15px;
     padding: 30px;
     border-bottom: 1px solid var(--color-platinum);
-
+    padding-left: 10%;
     @include below768inclusive {
       flex-wrap: wrap;
       padding: 20px;

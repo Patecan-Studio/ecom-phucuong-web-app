@@ -27,6 +27,7 @@
 
     @include below768inclusive {
       border-left: none;
+      margin-right: 0;
     }
 
     img {
@@ -258,7 +259,6 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     width: 300%;
-    
 
     &__item {
       padding: 15px 30px;
