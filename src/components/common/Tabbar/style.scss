@@ -273,11 +273,13 @@
       font-size: 18px;
       font-weight: 800;
       color: var(--color-black);
+      margin-bottom: 10px;
     }
 
     &__list {
       display: flex;
       flex-direction: column;
+      line-height: 30px;
     }
   }
 
