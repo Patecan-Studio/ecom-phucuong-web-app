@@ -3,7 +3,7 @@ import NextImage from "next/image";
 import ProductStatus from "./ProductStatus";
 import { ProductImageProps } from "../types";
 
-const ProductImage = ({isNew, image, discountRatio}: ProductImageProps) => {
+const ProductImage = ({ isNew, image, discountRatio }: ProductImageProps) => {
   return (
     <div className="product__image-container">
       <a href="#" className="product__image">
@@ -13,6 +13,7 @@ const ProductImage = ({isNew, image, discountRatio}: ProductImageProps) => {
           width={0}
           height={0}
           sizes="100vw"
+          fetchPriority="high"
         />
         {isNew && <ProductStatus discountRatio={discountRatio} />}
       </a>
