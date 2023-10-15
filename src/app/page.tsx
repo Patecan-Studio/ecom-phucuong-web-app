@@ -2,7 +2,6 @@ import {
   Carousel,
   CategorySection,
   Products,
-  Tabbar,
 } from "@/components/common";
 import styles from "./page.module.css";
 import "../styles/common.scss";
@@ -14,7 +13,6 @@ import "../styles/responsives.scss";
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Tabbar />
       <Carousel />
       <CategorySection />
       <Products />
