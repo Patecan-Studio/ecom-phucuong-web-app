@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import { TabbarLogo } from "..";
+import { CustomImage, TabbarLogo } from "..";
 import FacebookIcon from "../Icons/FacebookIcon";
 import YoutubeIcon from "../Icons/YoutubeIcon";
 import InstagramIcon from "../Icons/InstagramIcon";
@@ -55,46 +55,130 @@ const Footer = () => {
       <div className="footer__slider">
         <div className="slide-track">
           <div className="slide">
-            <img src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/image-1.png" />
+            <CustomImage
+              width={0}
+              height={0}
+              sizes="100vw"
+              alt="footer slide 1"
+              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/image-1.png"
+            />
           </div>
           <div className="slide">
-            <img src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/hansgrohe-Euronics-Viet-Nam-2.png" />
+            <CustomImage
+              width={0}
+              height={0}
+              sizes="100vw"
+              alt="footer slide 2"
+              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/hansgrohe-Euronics-Viet-Nam-2.png"
+            />
           </div>
           <div className="slide">
-            <img src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/caesar-logo-1.png" />
+            <CustomImage
+              width={0}
+              height={0}
+              sizes="100vw"
+              alt="footer slide 3"
+              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/caesar-logo-1.png"
+            />
           </div>
           <div className="slide">
-            <img src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/AVALLON-LOGO2_TM_Gray-2.png" />
+            <CustomImage
+              width={0}
+              height={0}
+              sizes="100vw"
+              alt="footer slide 4"
+              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/AVALLON-LOGO2_TM_Gray-2.png"
+            />
           </div>
           <div className="slide">
-            <img src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/92941291_1122254314795138_1554983477768617984_n-removebg-preview-4.png" />
+            <CustomImage
+              width={0}
+              height={0}
+              sizes="100vw"
+              alt="footer slide 5"
+              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/92941291_1122254314795138_1554983477768617984_n-removebg-preview-4.png"
+            />
           </div>
           <div className="slide">
-            <img src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/AVALLON-LOGO2_TM_Gray-2.png" />
+            <CustomImage
+              width={0}
+              height={0}
+              sizes="100vw"
+              alt="footer slide 6"
+              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/AVALLON-LOGO2_TM_Gray-2.png"
+            />
           </div>
           <div className="slide">
-            <img src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/caesar-logo-1.png" />
+            <CustomImage
+              width={0}
+              height={0}
+              sizes="100vw"
+              alt="footer slide 7"
+              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/caesar-logo-1.png"
+            />
           </div>
           <div className="slide">
-            <img src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/hansgrohe-Euronics-Viet-Nam-2.png" />
+            <CustomImage
+              width={0}
+              height={0}
+              sizes="100vw"
+              alt="footer slide 8"
+              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/hansgrohe-Euronics-Viet-Nam-2.png"
+            />
           </div>
           <div className="slide">
-            <img src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/image-1.png" />
+            <CustomImage
+              width={0}
+              height={0}
+              sizes="100vw"
+              alt="footer slide 9"
+              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/image-1.png"
+            />
           </div>
           <div className="slide">
-            <img src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/hansgrohe-Euronics-Viet-Nam-2.png" />
+            <CustomImage
+              width={0}
+              height={0}
+              sizes="100vw"
+              alt="footer slide 10"
+              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/hansgrohe-Euronics-Viet-Nam-2.png"
+            />
           </div>
           <div className="slide">
-            <img src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/caesar-logo-1.png" />
+            <CustomImage
+              width={0}
+              height={0}
+              sizes="100vw"
+              alt="footer slide 11"
+              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/caesar-logo-1.png"
+            />
           </div>
           <div className="slide">
-            <img src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/AVALLON-LOGO2_TM_Gray-2.png" />
+            <CustomImage
+              width={0}
+              height={0}
+              sizes="100vw"
+              alt="footer slide 12"
+              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/AVALLON-LOGO2_TM_Gray-2.png"
+            />
           </div>
           <div className="slide">
-            <img src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/92941291_1122254314795138_1554983477768617984_n-removebg-preview-4.png" />
+            <CustomImage
+              width={0}
+              height={0}
+              sizes="100vw"
+              alt="footer slide 13"
+              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/92941291_1122254314795138_1554983477768617984_n-removebg-preview-4.png"
+            />
           </div>
           <div className="slide">
-            <img src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/AVALLON-LOGO2_TM_Gray-2.png" />
+            <CustomImage
+              width={0}
+              height={0}
+              sizes="100vw"
+              alt="footer slide 14"
+              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/AVALLON-LOGO2_TM_Gray-2.png"
+            />
           </div>
         </div>
       </div>
@@ -175,7 +259,13 @@ const Footer = () => {
           rel="noopener"
           target="_blank"
         >
-          <img src="./images/license.png" alt="Bộ Công Thương" />
+          <CustomImage
+            width={0}
+            height={0}
+            sizes="100vw"
+            src="./images/license.png"
+            alt="Bộ Công Thương"
+          />
         </a>
       </div>
     </div>
