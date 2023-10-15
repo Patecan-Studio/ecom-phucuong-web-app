@@ -49,14 +49,16 @@ const TabbarSecondary = () => {
     <div className="tabbar--secondary-container">
       <div className="tabbar--secondary">
         {menu.map((item) => (
-          <div className="tabbar--secondary__item" key={item.label}>
-            <a className="tabbar--secondary__link" href={item.path}>
-              {item.label}
-            </a>
+          <>
+            <div className="tabbar--secondary__item" key={item.label}>
+              <a className="tabbar--secondary__link" href={item.path}>
+                {item.label}
+              </a>
+            </div>
             {item.dropdownMenu && (
               <TabbarDropdown dropdownMenu={item.dropdownMenu} />
             )}
-          </div>
+          </>
         ))}
       </div>
     </div>
