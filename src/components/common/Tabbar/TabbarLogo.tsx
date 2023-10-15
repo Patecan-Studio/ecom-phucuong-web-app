@@ -11,6 +11,7 @@ const TabbarLogo = () => {
         height={0}
         sizes="100vw"
         style={{ width: "90%", height: "auto" }}
+        priority
       />
     </a>
   );
