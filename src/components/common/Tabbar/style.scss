@@ -16,8 +16,6 @@
   align-items: center;
   background-color: var(--color-white);
   margin: auto;
-  padding-left: 15px;
-  padding-right: 15px;
   color: var(--color-black);
   font-family: "Mulish Italic", sans-serif;
   max-width: 1410px;
@@ -197,7 +195,7 @@
   }
 
   &--secondary {
-    padding: 0 18px;
+    position: relative;
     margin: auto;
     max-width: 1410px;
     display: flex;
@@ -223,7 +221,6 @@
     &__item {
       z-index: 1;
       height: 100%;
-      width: 100%;
       position: relative;
       display: flex;
       align-items: center;
@@ -238,7 +235,7 @@
       }
 
       &:hover {
-        .tabbar__dropdown {
+        +.tabbar__dropdown {
           opacity: 1;
           transform: translateY(0);
         }
@@ -259,7 +256,7 @@
     display: flex;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    width: 300%;
+    width: 100%;
 
     &__item {
       padding: 15px 30px;
