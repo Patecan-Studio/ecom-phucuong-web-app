@@ -130,9 +130,10 @@ $animationSpeed: 40s;
 
     .tabbar__logo {
       width: 25%;
-      img {
-        max-width: 180px;
-      }
+      max-width: 180px;
+      border: none;
+      justify-content: flex-start;
+      padding: 0;
     }
     &__inputWrapper {
       width: 50%;
