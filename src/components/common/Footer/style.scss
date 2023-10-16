@@ -311,6 +311,9 @@ $animationSpeed: 40s;
     @include below768inclusive {
       padding-left: 20px;
     }
+    @include below414inclusive {
+      padding-bottom: 150px;
+    }
 
     img {
       width: 200px;
