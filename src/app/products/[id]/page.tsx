@@ -4,7 +4,7 @@ import "@/styles/colors.scss";
 import "@/styles/fonts.scss";
 import "@/styles/reset.css";
 import "@/styles/responsives.scss";
-import { ProductDescription } from "@/components/common";
+import styles from "./page.module.css";
 import { Overview } from "@/components/composite";
 
 const getProduct = async (id: string) => {
@@ -20,10 +20,11 @@ const getProduct = async (id: string) => {
 };
 
 const Page = async ({ params }: { params: { id: string } }) => {
-  const res = await getProduct(params.id);
+  const productData = await getProduct(params.id);
+
   return (
-    <div>
-      <Overview />
+    <div className={styles.detail}>
+      <Overview data={productData} />
     </div>
   );
 };
