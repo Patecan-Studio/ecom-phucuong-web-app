@@ -5,6 +5,7 @@ import { Products } from "./Products";
 import { Footer } from "./Footer";
 import TabbarLogo from "./Tabbar/TabbarLogo";
 import { CustomImage } from "./CustomImage";
+import { ProductDescription } from "./ProductDescription";
 
 export {
   Tabbar,
@@ -14,4 +15,5 @@ export {
   Footer,
   TabbarLogo,
   CustomImage,
+  ProductDescription,
 };
