@@ -2,6 +2,14 @@ export interface OverviewProps {
   data: Product;
 }
 
+export interface OverviewMainImageProps extends OverviewProps {}
+
+export interface OverviewSubImagesProps {
+  data: Product;
+  isActiveItem: (index: number) => string;
+  onClick: (index: number) => void;
+}
+
 interface Product {
   resultCode: string;
   resultMessage: string;
@@ -25,7 +33,7 @@ interface Product {
   image: {
     imageName: string;
     imageUrl: string;
-  }
+  };
 }
 
 interface ProductBrand {
