@@ -2,7 +2,12 @@ export interface OverviewProps {
   data: Product;
 }
 
-export interface OverviewMainImageProps extends OverviewProps {}
+export interface OverviewMainImagesProps extends OverviewProps {
+  onOpenModal: () => void;
+}
+export interface OverviewModalProps extends OverviewProps {
+  onClose: () => void;
+}
 
 export interface OverviewSubImagesProps {
   data: Product;

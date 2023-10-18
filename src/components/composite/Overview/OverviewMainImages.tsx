@@ -1,10 +1,10 @@
 import React, { forwardRef } from "react";
 import type { ForwardedRef } from "react";
 import { CustomImage } from "@/components/common";
-import { OverviewMainImageProps } from "./types";
+import { OverviewMainImagesProps } from "./types";
 
 const OverviewMainImagesInner = (
-  { data }: OverviewMainImageProps,
+  { data, onOpenModal }: OverviewMainImagesProps,
   ref: ForwardedRef<HTMLDivElement>
 ) => {
   return (
@@ -17,6 +17,7 @@ const OverviewMainImagesInner = (
           width={0}
           height={0}
           sizes="100vw"
+          onClick={onOpenModal}
         />
         <CustomImage
           // src={data.product_images[0]}
@@ -26,6 +27,7 @@ const OverviewMainImagesInner = (
           width={0}
           height={0}
           sizes="100vw"
+          onClick={onOpenModal}
         />
         <CustomImage
           src={data.product_images[0]}
@@ -34,6 +36,7 @@ const OverviewMainImagesInner = (
           width={0}
           height={0}
           sizes="100vw"
+          onClick={onOpenModal}
         />
         <CustomImage
           src={data.product_images[0]}
@@ -42,6 +45,7 @@ const OverviewMainImagesInner = (
           width={0}
           height={0}
           sizes="100vw"
+          onClick={onOpenModal}
         />
         <CustomImage
           src={data.product_images[0]}
@@ -50,6 +54,7 @@ const OverviewMainImagesInner = (
           width={0}
           height={0}
           sizes="100vw"
+          onClick={onOpenModal}
         />
         <CustomImage
           src={data.product_images[0]}
@@ -58,6 +63,7 @@ const OverviewMainImagesInner = (
           width={0}
           height={0}
           sizes="100vw"
+          onClick={onOpenModal}
         />
         <CustomImage
           src={data.product_images[0]}
@@ -66,6 +72,7 @@ const OverviewMainImagesInner = (
           width={0}
           height={0}
           sizes="100vw"
+          onClick={onOpenModal}
         />
         <CustomImage
           src={data.product_images[0]}
@@ -74,6 +81,7 @@ const OverviewMainImagesInner = (
           width={0}
           height={0}
           sizes="100vw"
+          onClick={onOpenModal}
         />
         <CustomImage
           src={data.product_images[0]}
@@ -82,6 +90,7 @@ const OverviewMainImagesInner = (
           width={0}
           height={0}
           sizes="100vw"
+          onClick={onOpenModal}
         />
       </div>
     </div>
