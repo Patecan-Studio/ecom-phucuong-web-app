@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import type { ForwardedRef } from "react";
 import { CustomImage } from "@/components/common";
-import { OverviewProps, OverviewSubImagesProps } from "./types";
+import { OverviewSubImagesProps } from "./types";
 
 const OverviewMainImagesInner = (
   { data, isActiveItem, onClick }: OverviewSubImagesProps,

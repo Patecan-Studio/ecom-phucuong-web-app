@@ -25,9 +25,7 @@ const useOverview = () => {
   };
 
   const isActiveItem = (index: number) => {
-    return index === selectedIndex
-      ? "overview__image__item--active"
-      : "";
+    return index === selectedIndex ? "overview__image__item--active" : "";
   };
 
   return {
@@ -35,7 +33,7 @@ const useOverview = () => {
     subCarouselRef,
     handleSubCarouselClick,
     isActiveItem,
-  }
+  };
 };
 
 export default useOverview;
