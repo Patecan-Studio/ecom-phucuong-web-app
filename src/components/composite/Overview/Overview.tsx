@@ -9,7 +9,7 @@ const Overview = ({ data }: OverviewProps) => {
 
   return <div className="overview">
     <div className="overview__left">
-      <OverviewImage src={data.image.imageUrl} />
+      <OverviewImage data={data} />
     </div>
     <div className="overview__right">RIGHT</div>
   </div>;
