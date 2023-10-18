@@ -3,12 +3,30 @@
 .overview {
   @include responsiveContainer;
   display: flex;
-  justify-content: space-between;
-  background-color: red;
   width: 100%;
+  padding: 45px;
+  gap: 45px;
+  background-color: var(--color-white);
+  font-family: Mulish, serif;
+
+  &__left {
+    width: 38%;
+
+    @include below1440inclusive {
+      width: 50%;
+    }
+  }
+
+  &__right {
+    width: 62%;
+
+    @include below1440inclusive {
+      width: 50%;
+    }
+  }
 
   &__image {
-    width: 38%;
+    width: 100%;
     background: var(--color-white);
     display: flex;
     flex-direction: column;
@@ -57,6 +75,11 @@
       position: absolute;
       top: 0;
       right: 0;
+
+      @include below576inclusive {
+        right: unset;
+        left: 0;
+      }
     }
 
     &--main {
@@ -65,6 +88,7 @@
 
     &__list {
       display: flex;
+      align-items: center;
     }
 
     &--sub &__item {
@@ -84,6 +108,81 @@
       &--active {
         border: 1px solid var(--color-primary) !important;
       }
+    }
+  }
+
+  &__info {
+    width: 100%;
+    background-color: var(--color-gray-light);
+    padding: 25px;
+  }
+
+  &__name {
+    border-bottom: 1px solid var(--color-gray-less-light);
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 500;
+    padding-bottom: 15px;
+  }
+
+  &__prices {
+    display: flex;
+    flex-direction: column;
+    font-weight: 800;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--color-gray-less-light);
+    margin-bottom: 20px;
+  }
+
+  &__discountPrice {
+    position: relative;
+    width: fit-content;
+    font-size: 30px;
+    font-weight: 800;
+  }
+
+  &__discountPercentage {
+    position: absolute;
+    top: 5px;
+    right: -140px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: var(--color-primary);
+    color: var(--color-text-primary);
+
+    span {
+      font-weight: 800;
+    }
+  }
+
+  &__price {
+    font-size: 14px;
+    color: rgb(102, 102, 102);
+    font-weight: 800;
+  }
+
+  &__identify {
+    display: flex;
+  }
+
+  &__code {
+    padding-right: 20px;
+    border-right: 2px solid var(--color-gray-less-light);
+
+    span {
+      font-weight: 800;
+      color: rgb(102, 102, 102);
+    }
+  }
+
+  &__brand {
+    padding-left: 20px;
+
+    span {
+      font-weight: 800;
+      color: rgb(102, 102, 102);
     }
   }
 }

@@ -44,7 +44,7 @@ interface Product {
 interface ProductBrand {
   _id: string;
   brand_name: string;
-  image_list: ProductImage[];
+  brand_logoUrl: string;
 }
 
 interface ProductImage {
@@ -64,4 +64,13 @@ interface ProductVariant {
 interface ProductColor {
   value: string;
   label: string;
+}
+
+export interface OverviewInfoProps {
+  name: string;
+  price: number;
+  discountPrice: number;
+  discountPercentage: number;
+  productCode: string;
+  brand: string;
 }
