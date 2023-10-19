@@ -6,6 +6,7 @@ import { OverviewProps } from "./types";
 import OverviewImage from "./OverviewImage";
 import OverviewInfo from "./OverviewInfo";
 import OverviewInteract from "./OverviewInteract";
+import OverviewQuantity from "./OverviewQuantity";
 
 const Overview = ({ data }: OverviewProps) => {
   return (
@@ -23,6 +24,7 @@ const Overview = ({ data }: OverviewProps) => {
           brand={data.product_brand?.brand_name}
         />
         <OverviewInteract />
+        <OverviewQuantity />
       </div>
     </div>
   );

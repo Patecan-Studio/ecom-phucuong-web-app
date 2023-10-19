@@ -183,6 +183,7 @@
     &__about {
       border-bottom: 1px solid var(--color-gray-less-light);
       padding-bottom: 10px;
+      margin-bottom: 20px;
 
       &__title {
         font-size: 14px;
@@ -218,6 +219,71 @@
       &__reset {
         color: red;
         text-align: end;
+        cursor: pointer;
+        &:hover {
+          color: rgb(242, 179, 179);
+        }
+      }
+    }
+
+    &__quantity {
+      display: flex;
+      gap: 40px;
+      white-space: nowrap;
+      align-items: center;
+
+      &__title {
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      &__input {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        border: 1px solid var(--color-gray-less-light);
+        border-radius: 5px;
+      }
+
+      &__value {
+        flex: 1;
+        flex-shrink: unset;
+        height: 46px;
+        line-height: 46px;
+        background-color: transparent;
+        font-weight: 500;
+        font-size: 18px;
+        text-align: center;
+        border: unset;
+      }
+
+      &__decrease, &__increase {
+        cursor: pointer;
+        background-color: var(--color-gray-less-light);
+        border: unset;
+        font-size: 27px;
+        width: 46px;
+        height: 46px;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          background-color: var(--color-gray-light);
+        }
+      }
+
+      &__decrease {
+        position: relative;
+        &::before, &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 14px;
+          height: 1px;
+          background-color: var(--color-black);
+        }
       }
     }
   }
