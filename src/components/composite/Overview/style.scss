@@ -220,6 +220,7 @@
         color: red;
         text-align: end;
         cursor: pointer;
+
         &:hover {
           color: rgb(242, 179, 179);
         }
@@ -231,6 +232,7 @@
       gap: 40px;
       white-space: nowrap;
       align-items: center;
+      margin-bottom: 30px;
 
       &__title {
         font-size: 14px;
@@ -257,7 +259,8 @@
         border: unset;
       }
 
-      &__decrease, &__increase {
+      &__decrease,
+      &__increase {
         cursor: pointer;
         background-color: var(--color-gray-less-light);
         border: unset;
@@ -273,7 +276,9 @@
 
       &__decrease {
         position: relative;
-        &::before, &::after {
+
+        &::before,
+        &::after {
           content: '';
           display: block;
           position: absolute;
@@ -284,6 +289,59 @@
           height: 1px;
           background-color: var(--color-black);
         }
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &__button {
+      border: unset;
+      width: 100%;
+      padding: 15px;
+      background: var(--color-primary);
+      color: var(--color-text-primary);
+      font-weight: 900;
+      border-radius: 5px;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      span {
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      &:hover {
+        transform: scale(0.95);
+      }
+    }
+
+    &__call {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      &--bold {
+        font-weight: 800 !important;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      &__number {
+        font-size: 14px;
+        color: var(--color-primary);
+        font-weight: 800;
       }
     }
   }

@@ -7,6 +7,7 @@ import OverviewImage from "./OverviewImage";
 import OverviewInfo from "./OverviewInfo";
 import OverviewInteract from "./OverviewInteract";
 import OverviewQuantity from "./OverviewQuantity";
+import OverviewButtons from "./OverviewButtons";
 
 const Overview = ({ data }: OverviewProps) => {
   return (
@@ -25,6 +26,7 @@ const Overview = ({ data }: OverviewProps) => {
         />
         <OverviewInteract />
         <OverviewQuantity />
+        <OverviewButtons />
       </div>
     </div>
   );
