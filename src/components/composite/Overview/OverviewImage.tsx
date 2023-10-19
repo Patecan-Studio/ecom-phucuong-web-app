@@ -15,6 +15,8 @@ const OverviewImage = ({ data }: OverviewProps) => {
     handleCloseModal,
     handleOpenModal,
     isOpenModal,
+    handleModalClickPrev,
+    handleModalClickNext,
   } = useOverview();
 
   return (
@@ -35,6 +37,8 @@ const OverviewImage = ({ data }: OverviewProps) => {
           data={data}
           ref={modalCarouselRef}
           onClose={handleCloseModal}
+          onClickPrev={handleModalClickPrev}
+          onClickNext={handleModalClickNext}
         />
       )}
     </div>

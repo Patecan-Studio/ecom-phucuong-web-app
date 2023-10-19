@@ -42,9 +42,11 @@
       &--modal {
         max-width: 750px;
         width: 70%;
+        margin: 0 10%;
 
         @include below768inclusive {
           width: 90%;
+          margin: 0;
         }
 
         @include below576inclusive {
@@ -76,10 +78,32 @@
         position: absolute;
         top: 0;
         right: 0;
+      }
 
-        @include below576inclusive {
-          right: unset;
-          left: 0;
+      &--modal-next,
+      &--modal-prev {
+        background-color: rgb(236 229 223 / 80%);
+        border-radius: 5px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        // TODO: fix transition here, it's not working
+        transition: 0.2s all ease-in-out;
+
+        &:hover {
+          background-color: var(--color-primary);
+        }
+
+        @include below1200inclusive {
+          width: 35px;
+          height: 35px;
+        }
+
+        @include below768inclusive {
+          display: none;
         }
       }
 

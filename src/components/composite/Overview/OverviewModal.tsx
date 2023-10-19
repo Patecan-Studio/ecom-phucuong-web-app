@@ -1,18 +1,36 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 import type { ForwardedRef } from "react";
 import { CustomImage } from "@/components/common";
 import { OverviewModalProps } from "./types";
 import CloseIcon from "@/components/common/Icons/CloseIcon";
+import ArrowLeftIcon from "@/components/common/Icons/ArrowLeftIcon";
+import ArrowRightIcon from "@/components/common/Icons/ArrowRightIcon";
 
 const OverviewModalInner = (
-  { data, onClose }: OverviewModalProps,
+  { data, onClose, onClickNext, onClickPrev }: OverviewModalProps,
   ref: ForwardedRef<HTMLDivElement>
 ) => {
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (!(e.target as HTMLElement).closest(".overview__image--modal")) {
+        onClose();
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [])
+
   return (
     <div className="overview__image--modal-container">
       <div className="overview__image--modal-close">
         <CloseIcon onClick={onClose} />
       </div>
+      <button className="overview__image--modal-prev" onClick={onClickPrev}>
+        <ArrowLeftIcon />
+      </button>
       <div ref={ref} className="overview__image--modal">
         <div className="overview__image__list">
           <CustomImage
@@ -104,6 +122,9 @@ const OverviewModalInner = (
           />
         </div>
       </div>
+      <button className="overview__image--modal-next" onClick={onClickNext}>
+        <ArrowRightIcon />
+      </button>
     </div>
   );
 };

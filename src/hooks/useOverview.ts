@@ -44,6 +44,14 @@ const useOverview = () => {
     setIsOpenModal(false);
   };
 
+  const handleModalClickNext = () => {
+    modalCarouselMethods?.scrollNext();
+  }
+
+  const handleModalClickPrev = () => {
+    modalCarouselMethods?.scrollPrev();
+  }
+
   return {
     mainCarouselRef,
     subCarouselRef,
@@ -53,6 +61,8 @@ const useOverview = () => {
     handleOpenModal,
     handleCloseModal,
     isOpenModal,
+    handleModalClickNext,
+    handleModalClickPrev
   };
 };
 

@@ -7,6 +7,8 @@ export interface OverviewMainImagesProps extends OverviewProps {
 }
 export interface OverviewModalProps extends OverviewProps {
   onClose: () => void;
+  onClickPrev: () => void;
+  onClickNext: () => void;
 }
 
 export interface OverviewSubImagesProps {
