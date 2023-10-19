@@ -5,9 +5,9 @@ import "./style.scss";
 import { OverviewProps } from "./types";
 import OverviewImage from "./OverviewImage";
 import OverviewInfo from "./OverviewInfo";
+import OverviewInteract from "./OverviewInteract";
 
 const Overview = ({ data }: OverviewProps) => {
-  console.log(data);
   return (
     <div className="overview">
       <div className="overview__left">
@@ -22,6 +22,7 @@ const Overview = ({ data }: OverviewProps) => {
           productCode={data.product_code}
           brand={data.product_brand?.brand_name}
         />
+        <OverviewInteract />
       </div>
     </div>
   );
