@@ -10,9 +10,15 @@ const OverviewModalInner = (
   { data, onClose, onClickNext, onClickPrev }: OverviewModalProps,
   ref: ForwardedRef<HTMLDivElement>
 ) => {
-
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
+      if (
+        (e.target as HTMLElement).closest(".overview__image--modal-prev") ||
+        (e.target as HTMLElement).closest(".overview__image--modal-next")
+      ) {
+        return;
+      }
+
       if (!(e.target as HTMLElement).closest(".overview__image--modal")) {
         onClose();
       }
@@ -21,7 +27,7 @@ const OverviewModalInner = (
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [])
+  }, []);
 
   return (
     <div className="overview__image--modal-container">
