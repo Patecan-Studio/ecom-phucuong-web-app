@@ -74,3 +74,7 @@ export interface OverviewInfoProps {
   productCode: string;
   brand: string;
 }
+
+export interface OverviewPolicyProps {
+  className: string;
+}

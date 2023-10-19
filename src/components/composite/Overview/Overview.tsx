@@ -8,12 +8,14 @@ import OverviewInfo from "./OverviewInfo";
 import OverviewInteract from "./OverviewInteract";
 import OverviewQuantity from "./OverviewQuantity";
 import OverviewButtons from "./OverviewButtons";
+import OverviewPolicy from "./OverviewPolicy";
 
 const Overview = ({ data }: OverviewProps) => {
   return (
     <div className="overview">
       <div className="overview__left">
         <OverviewImage data={data} />
+        <OverviewPolicy className="on-mobile" />
       </div>
       <div className="overview__right">
         <OverviewInfo
@@ -24,9 +26,16 @@ const Overview = ({ data }: OverviewProps) => {
           productCode={data.product_code}
           brand={data.product_brand?.brand_name}
         />
-        <OverviewInteract />
-        <OverviewQuantity />
-        <OverviewButtons />
+        <div className="overview__order">
+          <div className="overview__order__left">
+            <OverviewInteract />
+            <OverviewQuantity />
+            <OverviewButtons />
+          </div>
+          <div className="overview__order__right">
+            <OverviewPolicy className="on-desktop" />
+          </div>
+        </div>
       </div>
     </div>
   );
