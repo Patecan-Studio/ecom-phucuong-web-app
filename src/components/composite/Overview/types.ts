@@ -30,11 +30,11 @@ interface Product {
   product_images: string[];
   product_slug: string;
   product_variants: ProductVariant[];
-  sku: string;
-  price: number;
-  discountPercentage: number;
-  discountPrice: number;
-  quantity: number;
+  product_code: string;
+  product_price: number;
+  product_discountPercentage: number;
+  product_discountPrice: number;
+  product_quantity: number;
   image: {
     imageName: string;
     imageUrl: string;
