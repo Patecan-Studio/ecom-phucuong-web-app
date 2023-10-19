@@ -322,6 +322,11 @@
       &:hover {
         transform: scale(0.95);
       }
+
+      &:nth-child(2) {
+        color: var(--color-black);
+        background: var(--color-gray-less-light);
+      }
     }
 
     &__call {
