@@ -9,9 +9,20 @@
     background-color: var(--color-white);
     font-family: Mulish, serif;
 
+    @include below992inclusive {
+      flex-direction: column;
+      padding: 20px;
+      gap: 20px;
+    }
+
     &__left {
       width: 70%;
       padding: 40px;
+
+      @include below992inclusive {
+        width: 100%;
+        padding: 0;
+      }
     }
 
     &__image {
@@ -369,6 +380,10 @@
         &.on-desktop {
           display: none;
         }
+      }
+
+      @include below992inclusive {
+        display: none;
       }
 
       &__item {
