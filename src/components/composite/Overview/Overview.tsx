@@ -53,7 +53,7 @@ const Overview = ({ data }: any) => {
 
   useEffect(() => {
     handleVariantChange();
-  }, [selectedMaterial, selectedColor, handleVariantChange]);
+  }, [selectedMaterial, selectedColor]);
 
   const handleResetVariant = () => {
     setOverviewData(JSON.parse(JSON.stringify(data.product_variants[0])));
