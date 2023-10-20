@@ -12,8 +12,6 @@ import OverviewAbout from "./OverviewAbout";
 
 // TODO: leave to any for now
 const Overview = ({ data }: any) => {
-  console.log("data", data);
-
   const [overviewData, setOverviewData] = React.useState(
     JSON.parse(JSON.stringify(data.product_variants[0]))
   );
@@ -35,12 +33,40 @@ const Overview = ({ data }: any) => {
         )
     );
 
+  const [selectedMaterial, setSelectedMaterial] = React.useState(materials[0]);
+  const [selectedColor, setSelectedColor] = React.useState(colors[0].value);
+
   const length = data.product_length + data.product_size_unit[0];
   const height = data.product_height + data.product_size_unit[0];
   const width = data.product_width + data.product_size_unit[0];
   const weight = data.product_weight.value + data.product_weight.unit[0];
 
-  console.log("overviewData", overviewData);
+  const handleVariantChange = () => {
+    const newOverviewData = data.product_variants.find(
+      (item: any) =>
+        item.material === selectedMaterial || item.color === selectedColor
+    );
+    setOverviewData(newOverviewData);
+  };
+
+  const handleResetVariant = () => {
+    setOverviewData(JSON.parse(JSON.stringify(data.product_variants[0])));
+    setSelectedMaterial(materials[0]);
+    setSelectedColor(colors[0].value);
+  };
+
+  const handleSelectMaterial = (material: any) => {
+    setSelectedMaterial(material);
+    handleVariantChange();
+  };
+
+  const handleSelectColor = (colorValue: any) => {
+    setSelectedColor(colorValue);
+    handleVariantChange();
+  };
+
+  console.log("selectedMaterial", selectedMaterial);
+  console.log("selectedColor", selectedColor);
 
   return (
     <div className="overview">
@@ -60,6 +86,11 @@ const Overview = ({ data }: any) => {
         <div className="overview__order">
           <div className="overview__order__left">
             <OverviewAbout
+              onResetVariant={handleResetVariant}
+              onMaterialSelect={handleSelectMaterial}
+              onColorSelect={handleSelectColor}
+              selectedMaterial={selectedMaterial}
+              selectedColor={selectedColor}
               materials={materials}
               colors={colors}
               length={length}

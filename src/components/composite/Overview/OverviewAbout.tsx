@@ -1,7 +1,19 @@
 import React from "react";
 import "./style.scss";
 
-const OverviewAbout = ({ materials, colors, width, length, height, weight }: any) => {
+const OverviewAbout = ({
+  materials,
+  colors,
+  width,
+  length,
+  height,
+  weight,
+  onResetVariant,
+  onMaterialSelect,
+  onColorSelect,
+  selectedMaterial,
+  selectedColor,
+}: any) => {
   return (
     <div className="overview__about">
       <div>
@@ -11,7 +23,13 @@ const OverviewAbout = ({ materials, colors, width, length, height, weight }: any
         <h5 className="overview__about__list__title">Chất liệu</h5>
         <div className="overview__about__items">
           {materials.map((item: any) => (
-            <p className="overview__about__item" key={item}>
+            <p
+              className={`overview__about__item ${
+                selectedMaterial === item && "active"
+              }`}
+              key={item}
+              onClick={() => onMaterialSelect(item)}
+            >
               {item}
             </p>
           ))}
@@ -21,7 +39,13 @@ const OverviewAbout = ({ materials, colors, width, length, height, weight }: any
         <h5 className="overview__about__list__title">Màu sắc</h5>
         <div className="overview__about__items">
           {colors.map((item: any) => (
-            <div className="overview__about__item" key={item.value}>
+            <div
+              className={`overview__about__item ${
+                selectedColor === item.value && "active"
+              }`}
+              key={item.value}
+              onClick={() => onColorSelect(item.value)}
+            >
               <div
                 className="square-color"
                 style={{
@@ -61,7 +85,9 @@ const OverviewAbout = ({ materials, colors, width, length, height, weight }: any
         </div>
       </div>
 
-      <div className="overview__about__reset">Reset</div>
+      <div className="overview__about__reset" onClick={onResetVariant}>
+        Reset
+      </div>
     </div>
   );
 };
