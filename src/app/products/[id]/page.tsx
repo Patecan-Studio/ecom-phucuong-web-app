@@ -22,7 +22,6 @@ const getProduct = async (id: string) => {
 
 const Page = async ({ params }: { params: { id: string } }) => {
   const productData = await getProduct(params.id);
-  console.log("productData", productData);
 
   return (
     <div className={styles.detail}>
