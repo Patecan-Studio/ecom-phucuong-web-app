@@ -285,6 +285,11 @@
         &.active {
           border: 1px solid var(--color-primary);
         }
+
+        &.no-border {
+          border: none;
+          cursor: unset;
+        }
       }
 
       &__reset {

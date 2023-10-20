@@ -63,25 +63,25 @@ const OverviewAbout = ({
       <div className="overview__about__list">
         <h5 className="overview__about__list__title">Chiều dài</h5>
         <div className="overview__about__items">
-          <p className="overview__about__item">{length}</p>
+          <p className="overview__about__item no-border">{length}</p>
         </div>
       </div>
       <div className="overview__about__list">
         <h5 className="overview__about__list__title">Chiều rộng</h5>
         <div className="overview__about__items">
-          <p className="overview__about__item">{width}</p>
+          <p className="overview__about__item no-border">{width}</p>
         </div>
       </div>
       <div className="overview__about__list">
         <h5 className="overview__about__list__title">Chiều cao</h5>
         <div className="overview__about__items">
-          <p className="overview__about__item">{height}</p>
+          <p className="overview__about__item no-border">{height}</p>
         </div>
       </div>
       <div className="overview__about__list">
         <h5 className="overview__about__list__title">Cân nặng</h5>
         <div className="overview__about__items">
-          <p className="overview__about__item">{weight}</p>
+          <p className="overview__about__item no-border">{weight}</p>
         </div>
       </div>
 
