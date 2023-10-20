@@ -110,7 +110,7 @@ const Overview = ({ data }: any) => {
               weight={weight}
             />
             <OverviewQuantity
-              isIncreaseDisabled={selectedQuantity === overviewData.quantity}
+              isIncreaseDisabled={selectedQuantity === (overviewData?.quantity || 0)}
               isDecreaseDisabled={selectedQuantity === 1}
               quantity={selectedQuantity}
               onIncrease={handleIncreaseQuantity}
