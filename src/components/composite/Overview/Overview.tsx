@@ -18,6 +18,8 @@ const Overview = ({ data }: any) => {
     JSON.parse(JSON.stringify(data.product_variants[0]))
   );
 
+  console.log("overviewData", overviewData);
+
   return (
     <div className="overview">
       <div className="overview__left">
