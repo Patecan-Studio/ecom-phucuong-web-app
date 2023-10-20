@@ -5,10 +5,10 @@ import "./style.scss";
 import { OverviewProps } from "./types";
 import OverviewImage from "./OverviewImage";
 import OverviewInfo from "./OverviewInfo";
-import OverviewInteract from "./OverviewInteract";
 import OverviewQuantity from "./OverviewQuantity";
 import OverviewButtons from "./OverviewButtons";
 import OverviewPolicy from "./OverviewPolicy";
+import OverviewAbout from "./OverviewAbout";
 
 const Overview = ({ data }: OverviewProps) => {
   return (
@@ -28,7 +28,7 @@ const Overview = ({ data }: OverviewProps) => {
         />
         <div className="overview__order">
           <div className="overview__order__left">
-            <OverviewInteract />
+            <OverviewAbout />
             <OverviewQuantity />
             <OverviewButtons />
           </div>
