@@ -28,7 +28,6 @@ const Page = async ({ params }: { params: { id: string } }) => {
     <div className={styles.detail}>
       <Overview data={productData} />
       <ProductDescription
-        shortDesc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl sed aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nisl eu nunc. Sed vitae nisl euismod, aliquam nisl sed, aliquam nisl. Sed vitae nisl euismod, aliquam nisl sed, aliquam nisl."
         longDesc={productData.product_description}
         productName={productData.product_name}
         brand={productData.product_brand.brand_name}

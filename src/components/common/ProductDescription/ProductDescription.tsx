@@ -4,7 +4,6 @@ import { CustomImage } from "..";
 import "./style.scss";
 import { ReadMoreProps } from "./types";
 
-
 const ProductDescription: React.FC<ReadMoreProps> = ({
   longDesc,
   shortDesc,
@@ -17,7 +16,9 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
     setExpanded(!expanded);
   };
 
-  const displayText = expanded ? longDesc : longDesc.slice(0, maxChars).concat("...");
+  const displayText = expanded
+    ? longDesc
+    : longDesc.slice(0, maxChars).concat("...");
   const readMoreButton = (
     <div>
       {longDesc.length > maxChars && (
@@ -33,11 +34,13 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
       <div className="product-description__content">
         <div className="left">
           <h1>Mô tả sản phẩm</h1>
-          <span className="short-desc">
-            {shortDesc}
+          <span className="short-desc">{shortDesc && shortDesc}</span>
+          <span className="about-desc">
+            Về {productName} của {brand}
           </span>
-          <span className="about-desc">Về {productName} của {brand}</span>
-          <span className="long-desc">{displayText}</span>
+          <span className="long-desc">
+            {displayText ? displayText : "Hiện tại sản phẩm chưa có mô tả nào"}
+          </span>
           {readMoreButton}
         </div>
         <div className="right">

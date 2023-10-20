@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react";
 import type { ForwardedRef } from "react";
 import { CustomImage } from "@/components/common";
-import { OverviewMainImagesProps } from "./types";
 
 const OverviewMainImagesInner = (
   { data, onOpenModal }: any,
