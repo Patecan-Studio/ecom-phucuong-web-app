@@ -1,4 +1,4 @@
-"use client"; // need to delete this
+"use client";
 
 import React from "react";
 import "./style.scss";

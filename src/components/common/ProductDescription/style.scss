@@ -1,9 +1,12 @@
 @import "../../../styles/responsives.scss";
 
 .product-description {
-  background-color: #f7f4ef;
+  background-color: var(--color-white);
   padding: 20px;
   text-align: justify;
+
+  @include responsiveContainer;
+
   &__header {
     background-color: var(--color-primary);
     width: fit-content;
@@ -17,14 +20,17 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
+
     @include below768inclusive {
       flex-direction: column;
     }
+
     .left {
       width: 55%;
       display: flex;
       flex-direction: column;
       gap: 10px;
+
       @include below768inclusive {
         width: 100%;
       }
@@ -33,9 +39,11 @@
       .long-desc {
         color: #5e5e5e;
       }
+
       .about-desc {
         font-weight: 700;
       }
+
       .read-more::before {
         width: 40px;
         height: 40px;
@@ -60,16 +68,20 @@
         text-transform: uppercase;
         transition: 0.2s all ease-in-out;
         cursor: pointer;
+
         &:hover {
           color: var(--color-primary);
+
           &::before {
             transform: rotate(45deg);
           }
         }
       }
     }
+
     .right {
       width: 40%;
+
       @include below768inclusive {
         width: 100%;
       }
