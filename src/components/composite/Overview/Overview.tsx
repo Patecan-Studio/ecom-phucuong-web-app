@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.scss";
 import { OverviewProps } from "./types";
 import OverviewImage from "./OverviewImage";
@@ -35,6 +35,7 @@ const Overview = ({ data }: any) => {
 
   const [selectedMaterial, setSelectedMaterial] = React.useState(materials[0]);
   const [selectedColor, setSelectedColor] = React.useState(colors[0].value);
+  const [selectedQuantity, setSelectedQuantity] = React.useState(1);
 
   const length = data.product_length + data.product_size_unit[0];
   const height = data.product_height + data.product_size_unit[0];
@@ -44,10 +45,14 @@ const Overview = ({ data }: any) => {
   const handleVariantChange = () => {
     const newOverviewData = data.product_variants.find(
       (item: any) =>
-        item.material === selectedMaterial || item.color === selectedColor
+        item.material === selectedMaterial && item.color.value === selectedColor
     );
     setOverviewData(newOverviewData);
   };
+
+  useEffect(() => {
+    handleVariantChange();
+  }, [selectedMaterial, selectedColor]);
 
   const handleResetVariant = () => {
     setOverviewData(JSON.parse(JSON.stringify(data.product_variants[0])));
@@ -57,12 +62,20 @@ const Overview = ({ data }: any) => {
 
   const handleSelectMaterial = (material: any) => {
     setSelectedMaterial(material);
-    handleVariantChange();
   };
 
   const handleSelectColor = (colorValue: any) => {
     setSelectedColor(colorValue);
-    handleVariantChange();
+  };
+
+  const handleDecreaseQuantity = () => {
+    if (selectedQuantity === 1) return;
+    setSelectedQuantity((prev) => prev - 1);
+  };
+
+  const handleIncreaseQuantity = () => {
+    if (selectedQuantity === overviewData.quantity) return;
+    setSelectedQuantity((prev) => prev + 1);
   };
 
   return (
@@ -74,11 +87,11 @@ const Overview = ({ data }: any) => {
       <div className="overview__right">
         <OverviewInfo
           name={data.product_name}
-          price={overviewData.price}
-          discountPrice={overviewData.discount_price}
-          discountPercentage={overviewData.discount_percentage}
-          productCode={overviewData.sku}
-          brand={data.product_brand?.brand_name}
+          price={overviewData?.price || 0}
+          discountPrice={overviewData?.discount_price || 0}
+          discountPercentage={overviewData?.discount_percentage || 0}
+          productCode={overviewData?.sku || ""}
+          brand={data.product_brand?.brand_name || ""}
         />
         <div className="overview__order">
           <div className="overview__order__left">
@@ -95,7 +108,12 @@ const Overview = ({ data }: any) => {
               height={height}
               weight={weight}
             />
-            <OverviewQuantity quantity={overviewData.quantity} />
+            <OverviewQuantity
+              quantity={overviewData?.quantity || 0}
+              selectedQuantity={selectedQuantity}
+              onIncrease={handleIncreaseQuantity}
+              onDecrease={handleDecreaseQuantity}
+            />
             <OverviewButtons />
           </div>
           <div className="overview__order__right">

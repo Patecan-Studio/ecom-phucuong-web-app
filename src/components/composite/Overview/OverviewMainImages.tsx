@@ -9,7 +9,7 @@ const OverviewMainImagesInner = (
   return (
     <div ref={ref} className="overview__image--main">
       <div className="overview__image__list">
-        {data.image_list.map((image: any) => (
+        {data?.image_list.map((image: any) => (
           <CustomImage
             key={image._id}
             src={image.imageUrl}
