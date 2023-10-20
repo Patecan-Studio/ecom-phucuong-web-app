@@ -65,9 +65,6 @@ const Overview = ({ data }: any) => {
     handleVariantChange();
   };
 
-  console.log("selectedMaterial", selectedMaterial);
-  console.log("selectedColor", selectedColor);
-
   return (
     <div className="overview">
       <div className="overview__left">
