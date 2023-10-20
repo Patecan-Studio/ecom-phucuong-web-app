@@ -35,6 +35,11 @@ const Overview = ({ data }: any) => {
         )
     );
 
+  const length = data.product_length + data.product_size_unit[0];
+  const height = data.product_height + data.product_size_unit[0];
+  const width = data.product_width + data.product_size_unit[0];
+  const weight = data.product_weight.value + data.product_weight.unit[0];
+
   console.log("overviewData", overviewData);
 
   return (
@@ -54,8 +59,15 @@ const Overview = ({ data }: any) => {
         />
         <div className="overview__order">
           <div className="overview__order__left">
-            <OverviewAbout materials={materials} colors={colors}/>
-            <OverviewQuantity quantity={5} />
+            <OverviewAbout
+              materials={materials}
+              colors={colors}
+              length={length}
+              width={width}
+              height={height}
+              weight={weight}
+            />
+            <OverviewQuantity quantity={overviewData.quantity} />
             <OverviewButtons />
           </div>
           <div className="overview__order__right">

@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 
-const OverviewAbout = ({ materials, colors }: any) => {
+const OverviewAbout = ({ materials, colors, width, length, height, weight }: any) => {
   return (
     <div className="overview__about">
       <div>
@@ -37,22 +37,27 @@ const OverviewAbout = ({ materials, colors }: any) => {
         </div>
       </div>
       <div className="overview__about__list">
-        <h5 className="overview__about__list__title">Kích thước</h5>
+        <h5 className="overview__about__list__title">Chiều dài</h5>
         <div className="overview__about__items">
-          <p className="overview__about__item">C 80cm</p>
-          <p className="overview__about__item">D 220cm</p>
-          <p className="overview__about__item">R 160</p>
-          <p className="overview__about__item">R 170</p>
+          <p className="overview__about__item">{length}</p>
         </div>
       </div>
       <div className="overview__about__list">
-        <h5 className="overview__about__list__title">Kiểu dáng</h5>
+        <h5 className="overview__about__list__title">Chiều rộng</h5>
         <div className="overview__about__items">
-          <p className="overview__about__item">Chữ nhật</p>
-          <p className="overview__about__item">Hình divòn</p>
-          <p className="overview__about__item">Hình vuông</p>
-          <p className="overview__about__item">Hình tam giác</p>
-          <p className="overview__about__item">Elio Armchair</p>
+          <p className="overview__about__item">{width}</p>
+        </div>
+      </div>
+      <div className="overview__about__list">
+        <h5 className="overview__about__list__title">Chiều cao</h5>
+        <div className="overview__about__items">
+          <p className="overview__about__item">{height}</p>
+        </div>
+      </div>
+      <div className="overview__about__list">
+        <h5 className="overview__about__list__title">Cân nặng</h5>
+        <div className="overview__about__items">
+          <p className="overview__about__item">{weight}</p>
         </div>
       </div>
 
