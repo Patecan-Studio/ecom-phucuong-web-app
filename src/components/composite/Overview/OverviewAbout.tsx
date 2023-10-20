@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 
-const OverviewAbout = () => {
+const OverviewAbout = ({ materials, colors }: any) => {
   return (
     <div className="overview__about">
       <div>
@@ -10,10 +10,30 @@ const OverviewAbout = () => {
       <div className="overview__about__list">
         <h5 className="overview__about__list__title">Chất liệu</h5>
         <div className="overview__about__items">
-          <p className="overview__about__item">Da công nghiệp</p>
-          <p className="overview__about__item">Da nông nghiệp</p>
-          <p className="overview__about__item">Da thương nghiệp</p>
-          <p className="overview__about__item">Da tạo nghiệp</p>
+          {materials.map((item: any) => (
+            <p className="overview__about__item" key={item}>
+              {item}
+            </p>
+          ))}
+        </div>
+      </div>
+      <div className="overview__about__list">
+        <h5 className="overview__about__list__title">Màu sắc</h5>
+        <div className="overview__about__items">
+          {colors.map((item: any) => (
+            <div className="overview__about__item" key={item.value}>
+              <div
+                className="square-color"
+                style={{
+                  background: item.value,
+                  width: "12px",
+                  height: "12px",
+                  borderRadius: "3px",
+                }}
+              ></div>
+              {item.label}
+            </div>
+          ))}
         </div>
       </div>
       <div className="overview__about__list">
@@ -35,16 +55,7 @@ const OverviewAbout = () => {
           <p className="overview__about__item">Elio Armchair</p>
         </div>
       </div>
-      <div className="overview__about__list">
-        <h5 className="overview__about__list__title">Màu sắc</h5>
-        <div className="overview__about__items">
-          <p className="overview__about__item">Đen</p>
-          <p className="overview__about__item">divắng</p>
-          <p className="overview__about__item">Xanh</p>
-          <p className="overview__about__item">Đỏ</p>
-          <p className="overview__about__item">Vàng</p>
-        </div>
-      </div>
+
       <div className="overview__about__reset">Reset</div>
     </div>
   );
