@@ -9,6 +9,7 @@ const OverviewInfo = ({
   discountPercentage,
   productCode,
   brand,
+  quantity,
 }: any) => {
   return (
     <div className="overview__info">
@@ -31,6 +32,9 @@ const OverviewInfo = ({
         <div className="overview__brand">
           Thương hiệu: <span>{brand}</span>
         </div>
+      </div>
+      <div className="overview__quantity--info">
+        Số lượng còn lại: {quantity}
       </div>
     </div>
   );

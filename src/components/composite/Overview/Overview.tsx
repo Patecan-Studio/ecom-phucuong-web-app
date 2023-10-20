@@ -93,6 +93,7 @@ const Overview = ({ data }: any) => {
           discountPercentage={overviewData?.discount_percentage || 0}
           productCode={overviewData?.sku || ""}
           brand={data.product_brand?.brand_name || ""}
+          quantity={overviewData?.quantity || 0}
         />
         <div className="overview__order">
           <div className="overview__order__left">
