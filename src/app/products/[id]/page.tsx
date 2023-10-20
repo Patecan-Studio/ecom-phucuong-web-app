@@ -9,7 +9,7 @@ import { ProductDescription } from "@/components/common";
 const Page = () => {
   return (
     <div>
-      <ProductDescription />
+      product detail page
     </div>
   );
 };
