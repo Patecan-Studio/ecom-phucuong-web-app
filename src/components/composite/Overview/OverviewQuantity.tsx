@@ -5,8 +5,7 @@ const OverviewQuantity = ({
   quantity,
   onDecrease,
   onIncrease,
-  isIncreaseDisabled,
-  isDecreasedDisable,
+  isDisabled
 }: any) => {
   return (
     <div className="overview__quantity">
@@ -15,7 +14,7 @@ const OverviewQuantity = ({
         <button
           className="overview__quantity__decrease"
           onClick={onDecrease}
-          disabled={isDecreasedDisable}
+          disabled={isDisabled}
         ></button>
         <input
           className="overview__quantity__value"
@@ -25,7 +24,7 @@ const OverviewQuantity = ({
         <button
           className="overview__quantity__increase"
           onClick={onIncrease}
-          disabled={isIncreaseDisabled}
+          disabled={isDisabled}
         >
           +
         </button>
