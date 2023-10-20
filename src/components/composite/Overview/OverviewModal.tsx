@@ -27,7 +27,7 @@ const OverviewModalInner = (
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, []);
+  }, [onClose]);
 
   return (
     <div className="overview__image--modal-container">
