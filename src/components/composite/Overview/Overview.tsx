@@ -48,6 +48,7 @@ const Overview = ({ data }: any) => {
         item.material === selectedMaterial && item.color.value === selectedColor
     );
     setOverviewData(newOverviewData);
+    setSelectedQuantity(1)
   };
 
   useEffect(() => {
@@ -109,8 +110,9 @@ const Overview = ({ data }: any) => {
               weight={weight}
             />
             <OverviewQuantity
-              quantity={overviewData?.quantity || 0}
-              selectedQuantity={selectedQuantity}
+              isIncreaseDisabled={selectedQuantity === overviewData.quantity}
+              isDecreaseDisabled={selectedQuantity === 1}
+              quantity={selectedQuantity}
               onIncrease={handleIncreaseQuantity}
               onDecrease={handleDecreaseQuantity}
             />
