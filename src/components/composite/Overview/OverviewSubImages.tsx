@@ -4,7 +4,7 @@ import { CustomImage } from "@/components/common";
 import { OverviewSubImagesProps } from "./types";
 
 const OverviewMainImagesInner = (
-  { data, isActiveItem, onClick }: OverviewSubImagesProps,
+  { data, isActiveItem, onClick }: any,
   ref: ForwardedRef<HTMLDivElement>
 ) => {
   return (

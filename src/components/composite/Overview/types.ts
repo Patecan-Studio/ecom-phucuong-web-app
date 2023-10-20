@@ -2,6 +2,23 @@ export interface OverviewProps {
   data: Product;
 }
 
+export interface OverviewImageProps {
+  overviewData: {
+    color: {
+      label: string;
+      value: string;
+    };
+    discountPercentage: number;
+    discountPrice: number;
+    image_list: ProductImage[];
+    material: string;
+    price: number;
+    quantity: number;
+    sku: string;
+    _id: string;
+  }
+}
+
 export interface OverviewMainImagesProps extends OverviewProps {
   onOpenModal: () => void;
 }
@@ -52,6 +69,7 @@ interface ProductBrand {
 interface ProductImage {
   imageName: string;
   imageUrl: string;
+  _id: string;
 }
 
 interface ProductCategories extends ProductBrand {}
@@ -79,4 +97,8 @@ export interface OverviewInfoProps {
 
 export interface OverviewPolicyProps {
   className: string;
+}
+
+export interface OverviewQuantityProps {
+  quantity: number;
 }

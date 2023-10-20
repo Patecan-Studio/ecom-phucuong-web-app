@@ -7,7 +7,7 @@ import ArrowLeftIcon from "@/components/common/Icons/ArrowLeftIcon";
 import ArrowRightIcon from "@/components/common/Icons/ArrowRightIcon";
 
 const OverviewModalInner = (
-  { data, onClose, onClickNext, onClickPrev }: OverviewModalProps,
+  { data, onClose, onClickNext, onClickPrev }: any,
   ref: ForwardedRef<HTMLDivElement>
 ) => {
   useEffect(() => {

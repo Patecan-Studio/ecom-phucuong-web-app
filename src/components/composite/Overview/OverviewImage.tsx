@@ -1,11 +1,11 @@
 import React from "react";
-import { OverviewProps } from "./types";
+import { OverviewImageProps, OverviewProps } from "./types";
 import useOverview from "@/hooks/useOverview";
 import OverviewMainImages from "./OverviewMainImages";
 import OverviewSubImages from "./OverviewSubImages";
 import OverviewModal from "./OverviewModal";
 
-const OverviewImage = ({ data }: OverviewProps) => {
+const OverviewImage = ({ overviewData }: any) => {
   const {
     mainCarouselRef,
     subCarouselRef,
@@ -22,19 +22,19 @@ const OverviewImage = ({ data }: OverviewProps) => {
   return (
     <div className="overview__image">
       <OverviewMainImages
-        data={data}
+        data={overviewData}
         ref={mainCarouselRef}
         onOpenModal={handleOpenModal}
       />
       <OverviewSubImages
-        data={data}
+        data={overviewData}
         ref={subCarouselRef}
         onClick={handleSubCarouselClick}
         isActiveItem={isActiveItem}
       />
       {isOpenModal && (
         <OverviewModal
-          data={data}
+          data={overviewData}
           ref={modalCarouselRef}
           onClose={handleCloseModal}
           onClickPrev={handleModalClickPrev}

@@ -9,7 +9,7 @@ const OverviewInfo = ({
   discountPercentage,
   productCode,
   brand,
-}: OverviewInfoProps) => {
+}: any) => {
   return (
     <div className="overview__info">
       <h1 className="overview__name">{name}</h1>

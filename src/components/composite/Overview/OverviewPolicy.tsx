@@ -5,7 +5,7 @@ import TwentyFourHourIcon from "@/components/common/Icons/TwentyFourHourIcon";
 import React from "react";
 import { OverviewPolicyProps } from "./types";
 
-const OverviewPolicy = ({ className }: OverviewPolicyProps) => {
+const OverviewPolicy = ({ className }: any) => {
   const policies = [
     {
       id: "1",
