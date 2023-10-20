@@ -122,10 +122,10 @@ svg {
 /*******************
  Useful table styles
  *******************/
-table {
+/* table {
   table-layout: fixed;
   width: 100%;
-}
+} */
 
 /*******************
  The hidden attribute

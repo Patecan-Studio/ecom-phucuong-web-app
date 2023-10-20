@@ -4,7 +4,6 @@ import dayjs from "dayjs";
 import { IApiResponse } from "../interface";
 import { API_STATUS, FORMAT_DATE, NOTIFICATION_TYPE } from "../constant";
 
-
 export const isSuccessResponse = (responseData: IApiResponse<any>) => {
   return responseData && responseData.status === API_STATUS.SUCCESS;
 };
@@ -31,7 +30,7 @@ export const handleServerError = (serverError: any) => {
 export const openNotification = (
   type: NOTIFICATION_TYPE,
   msg: string,
-  description?: string,
+  description?: string
 ) => {
   notification.open({
     message: msg,
@@ -63,8 +62,17 @@ export const convertToNumber = (value: any): string => {
   return isNaN(numberValue as any) ? "" : numberValue.toString();
 };
 
-export const formatNumber = (value: string | number, maximumFractionDigits = 0, minimumFractionDigits = 0) => {
-  if (_.isNil(value) || value === "" || (typeof(value) === "number" && isNaN(value)) || (value && typeof(value) === 'string' && _.trim(value).length === 0)) {
+export const formatNumber = (
+  value: string | number,
+  maximumFractionDigits = 0,
+  minimumFractionDigits = 0
+) => {
+  if (
+    _.isNil(value) ||
+    value === "" ||
+    (typeof value === "number" && isNaN(value)) ||
+    (value && typeof value === "string" && _.trim(value).length === 0)
+  ) {
     return "";
   }
 
@@ -72,7 +80,7 @@ export const formatNumber = (value: string | number, maximumFractionDigits = 0, 
 
   if (newValue === "0") {
     return newValue;
-  } 
+  }
 
   return new Intl.NumberFormat("ja-JP", {
     minimumFractionDigits,
@@ -155,9 +163,11 @@ export const compareString = (a: any, b: any) => {
   }
 };
 
-export const convertToCurrencyFormat = (value: number | string) =>
-  value.toLocaleString("en-US", {
+export const convertToCurrencyFormat = (value: number | string) => {
+  if (value === null || value === undefined) return "";
+
+  return value.toLocaleString("en-US", {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   });
-
+};

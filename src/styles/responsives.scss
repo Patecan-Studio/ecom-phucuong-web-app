@@ -62,22 +62,21 @@
 
 @mixin responsiveContainer {
   margin: auto;
-  padding: 0 15px;
   max-width: 1410px;
 
-  @include below1200inclusive {
+  @include below1440inclusive {
     max-width: 1140px;
   }
 
-  @include below992inclusive {
+  @include below1200inclusive {
     max-width: 960px;
   }
 
-  @include below768inclusive {
+  @include below992inclusive {
     max-width: 720px;
   }
 
-  @include below576inclusive {
+  @include below768inclusive() {
     max-width: 540px;
   }
 }
