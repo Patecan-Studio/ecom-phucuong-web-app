@@ -48,7 +48,7 @@ const Overview = ({ data }: any) => {
         item.material === selectedMaterial && item.color.value === selectedColor
     );
     setOverviewData(newOverviewData);
-    setSelectedQuantity(1)
+    setSelectedQuantity(1);
   };
 
   useEffect(() => {

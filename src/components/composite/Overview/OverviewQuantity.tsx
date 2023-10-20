@@ -5,7 +5,7 @@ const OverviewQuantity = ({
   quantity,
   onDecrease,
   onIncrease,
-  isDisabled
+  isDisabled,
 }: any) => {
   return (
     <div className="overview__quantity">
