@@ -3,20 +3,7 @@ export interface OverviewProps {
 }
 
 export interface OverviewImageProps {
-  overviewData: {
-    color: {
-      label: string;
-      value: string;
-    };
-    discountPercentage: number;
-    discountPrice: number;
-    image_list: ProductImage[];
-    material: string;
-    price: number;
-    quantity: number;
-    sku: string;
-    _id: string;
-  }
+  overviewData: Product;
 }
 
 export interface OverviewMainImagesProps extends OverviewProps {
@@ -40,7 +27,7 @@ interface Product {
   resultCode: string;
   resultMessage: string;
   _id: string;
-  
+
   product_name: string;
   product_description: string;
   product_brand: ProductBrand;
@@ -117,6 +104,7 @@ export interface OverviewInfoProps {
   discountPercentage: number;
   productCode: string;
   brand: string;
+  quantity: number;
 }
 
 export interface OverviewPolicyProps {
@@ -125,4 +113,21 @@ export interface OverviewPolicyProps {
 
 export interface OverviewQuantityProps {
   quantity: number;
+  onIncrease: () => void;
+  onDecrease: () => void;
+  isDisabled: boolean;
+}
+
+export interface OverviewAboutProps {
+  materials: string[];
+  colors: ProductColor[];
+  width: string;
+  height: string;
+  length: string;
+  weight: string;
+  onResetVariant: () => void;
+  onMaterialSelect: (material: string) => void;
+  onColorSelect: (color: string) => void;
+  selectedMaterial: string;
+  selectedColor: string;
 }

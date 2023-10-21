@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.scss";
+import { OverviewAboutProps } from "./types";
 
 const OverviewAbout = ({
   materials,
@@ -13,7 +14,7 @@ const OverviewAbout = ({
   onColorSelect,
   selectedMaterial,
   selectedColor,
-}: any) => {
+}: OverviewAboutProps) => {
   return (
     <div className="overview__about">
       <div>
