@@ -1,4 +1,5 @@
 .detail {
   position: relative;
   background-color: var(--color-gray-light);
+  padding-bottom: 30px;
 }

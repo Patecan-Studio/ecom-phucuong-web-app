@@ -4,7 +4,7 @@
   background-color: var(--color-white);
   padding: 20px;
   text-align: justify;
-
+  margin-bottom: 30px;
   @include responsiveContainer;
 
   &__header {
@@ -81,7 +81,11 @@
 
     .right {
       width: 40%;
-
+      max-height: 300px;
+      img {
+        height: 300px;
+        object-fit: contain;
+      }
       @include below768inclusive {
         width: 100%;
       }

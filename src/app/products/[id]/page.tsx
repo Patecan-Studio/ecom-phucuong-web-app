@@ -22,7 +22,7 @@ const getProduct = async (id: string) => {
 
 const Page = async ({ params }: { params: { id: string } }) => {
   const productData = await getProduct(params.id);
-
+  console.log(productData);
   return (
     <div className={styles.detail}>
       <Overview data={productData} />
@@ -30,6 +30,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
         longDesc={productData.product_description}
         productName={productData.product_name}
         brand={productData.product_brand.brand_name}
+        imgURL={productData.product_variants[0].image_list[0].imageUrl}
       />
     </div>
   );

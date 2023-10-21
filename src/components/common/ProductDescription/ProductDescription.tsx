@@ -10,6 +10,7 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
   brand,
   productName,
   maxChars = 100,
+  imgURL,
 }) => {
   const [expanded, setExpanded] = useState(false);
   const toggleReadMore = () => {
@@ -48,9 +49,9 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: "100%", height: "auto" }}
+            style={{ width: "100%", height: "300px" }}
             alt=""
-            src={"/images/product-images/product-3.png"}
+            src={imgURL}
           />
         </div>
       </div>
