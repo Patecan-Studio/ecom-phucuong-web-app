@@ -87,12 +87,12 @@ const Overview = ({ data }: any) => {
       </div>
       <div className="overview__right">
         <OverviewInfo
-          name={data.product_name}
+          name={overviewData ? data.product_name : "Hiện tại sản phẩm này chưa có"}
           price={overviewData?.price || 0}
           discountPrice={overviewData?.discount_price || 0}
           discountPercentage={overviewData?.discount_percentage || 0}
           productCode={overviewData?.sku || ""}
-          brand={data.product_brand?.brand_name || ""}
+          brand={overviewData ? (data.product_brand?.brand_name || "") : ""}
           quantity={overviewData?.quantity || 0}
         />
         <div className="overview__order">
