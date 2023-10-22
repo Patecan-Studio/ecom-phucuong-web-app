@@ -9,7 +9,8 @@ import ProductsButtons from "./ProductsButtons/ProductsButtons";
 import ProductsNavigation from "./ProductsNavigation/ProductsNavigation";
 import ProductsGuide from "./ProductsGuide";
 
-const ProductsContent = ({ products }: ProductsContentProps) => {
+const ProductsContent = ({ productsTitle, products }: ProductsContentProps) => {
+  console.log("test", products);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [contentRef, contentMethods] = useEmblaCarousel({
     loop: true,
@@ -47,7 +48,7 @@ const ProductsContent = ({ products }: ProductsContentProps) => {
   return (
     <div className="products__content">
       <div className="products__content--top">
-        <ProductsTitle title="Sản phẩm mới" />
+        <ProductsTitle title={productsTitle} />
         <ProductsButtons
           onPrevClick={handlePrevClick}
           onNextClick={handleNextClick}

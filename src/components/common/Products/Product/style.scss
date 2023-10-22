@@ -1,21 +1,27 @@
-@import '../../../../styles/responsives.scss';
+@import "../../../../styles/responsives.scss";
 
 .product-container {
   padding: 15px;
-
+  border-radius: 16px;
+  height: 100%;
   @include below768inclusive {
     padding: 5px;
   }
 }
 
 .product {
+  height: 100%;
   border-radius: 10px;
   transition: all 200ms ease-in-out;
   cursor: pointer;
   overflow: hidden;
-
+  border-radius: 16px;
+  background: #e0e0e0;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.3);
   &:hover {
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),
+      0px 4px 8px 3px rgba(0, 0, 0, 0.15);
   }
 
   &:hover &__name {
@@ -23,7 +29,8 @@
   }
 
   &__image-container {
-    background-color: #FAFAFA;
+    background-color: #fafafa;
+    height: 48%;
   }
 
   &__image {
@@ -34,10 +41,14 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-
+    height: 100%;
+    width: -webkit-fill-available;
     img {
-      width: 80%;
+      width: 100%;
       height: auto;
+      object-fit: cover;
+      object-position: bottom;
+      height: -webkit-fill-available;
     }
   }
 
@@ -47,7 +58,7 @@
     left: 15px;
     display: flex;
     font-size: 14px;
-    white-space: nowrap;
+    white-space: break-spaces;
 
     &--label {
       border-radius: 5px;
@@ -70,6 +81,20 @@
     font-size: 18px;
     padding: 20px;
     padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25%;
+
+    @include below768inclusive {
+      padding: 0 8px;
+    }
+    @include below992inclusive {
+      height: 29%;
+    }
+    @include below576inclusive {
+      height: 34%;
+    }
   }
 
   &__name {
@@ -78,7 +103,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     transition: all 200ms ease-in-out;
-
+    white-space: unset;
     @include below992inclusive {
       font-size: 14px;
       margin-bottom: 8px;
@@ -86,7 +111,6 @@
   }
 
   &__price-container {
-    border-bottom: 1px solid var(--color-gray-less-light);
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -115,7 +139,6 @@
       @include below992inclusive {
         font-size: 11px;
         margin-bottom: 8px;
-
       }
     }
   }
@@ -123,12 +146,12 @@
   &__further-info {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     padding-top: 0;
     line-height: 36px;
 
-    @include below992inclusive {
-      margin-bottom: 8px;
+    @include below768inclusive {
+      padding: 0 8px;
     }
   }
 
@@ -139,17 +162,13 @@
     @include below992inclusive {
       padding: 10px;
     }
-
-    @include below768inclusive {
-      padding: 8px;
-    }
   }
 
   &__logo {
     position: relative;
-
+    width: 70%;
     img {
-      width: 55%;
+      width: 70%;
       height: auto;
     }
 

@@ -2,47 +2,30 @@ import React from "react";
 import { ProductsSubContentProps } from "./types";
 import { Product } from "./Product";
 
-const ProductsSubContent = ({
-  products,
-  productsRef,
-}: ProductsSubContentProps) => {
+const ProductsSubContent = ({ products, productsRef }: any) => {
   const renderProducts = () => {
-    let productsArray = [];
-
-    for (let i = 0; i < products.length; i += 2) {
-      productsArray.push(
-        <div className="products__sub-content__item" key={products[i].id}>
+    return products?.map((product: any, index: number) => {
+      const productComponent = (
+        <div className="products__sub-content__item" key={index}>
           <Product
-            name={products[i].product_name}
-            image={products[i].product_images[0]}
-            price={products[i].product_price}
-            discountRatio={products[i].discount_ratio}
-            discountPrice={products[i].discount_price}
-            isNew={products[i].is_new}
-            brandImage={products[i].brand.brand_image}
-          />
-
-          <Product
-            name={products[i + 1].product_name}
-            image={products[i + 1].product_images[0]}
-            price={products[i + 1].product_price}
-            discountRatio={products[i + 1].discount_ratio}
-            discountPrice={products[i + 1].discount_price}
-            isNew={products[i + 1].is_new}
-            brandImage={products[i + 1].brand.brand_image}
+            name={product.product_name}
+            image={product.image.imageUrl}
+            price={product.price}
+            discountRatio={product.discount_percentage}
+            discountPrice={product.discount_price}
+            isNew={true}
+            brandImage={product.product_banner_image.imageUrl}
           />
         </div>
       );
-    }
 
-    return productsArray;
+      return productComponent;
+    });
   };
 
   return (
     <div className="products__sub-content" ref={productsRef}>
-      <div className="products__sub-content__items">
-        {renderProducts()}
-      </div>
+      <div className="products__sub-content__items">{renderProducts()}</div>
     </div>
   );
 };

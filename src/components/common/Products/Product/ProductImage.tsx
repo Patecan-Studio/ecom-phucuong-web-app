@@ -16,7 +16,7 @@ const ProductImage = ({ isNew, image, discountRatio }: ProductImageProps) => {
           fetchPriority="high"
           loading="eager"
         />
-        {isNew && <ProductStatus discountRatio={discountRatio} />}
+        <ProductStatus isNew={isNew} discountRatio={discountRatio} />
       </a>
     </div>
   );

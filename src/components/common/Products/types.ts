@@ -6,19 +6,22 @@ export interface ProductsTitleProps {
 
 export interface ProductsContentProps {
   products: Product[];
+  productsTitle: string;
 }
 
 export interface ProductsSubContentProps {
   products: Product[];
-  productsRef: <ViewportElement extends HTMLElement>(instance: ViewportElement | null) => void;
+  productsRef: <ViewportElement extends HTMLElement>(
+    instance: ViewportElement | null
+  ) => void;
 }
 
-interface Product {
+export interface Product {
   id: number;
   product_name: string;
-  product_price: number;
+  price: number;
   product_images: string[];
-  discount_ratio: number;
+  discount_percentage: number;
   discount_price: number;
   is_new: boolean;
   brand: Brand;
@@ -54,6 +57,7 @@ export interface ProductImageProps {
 
 export interface ProductStatusProps {
   discountRatio: number;
+  isNew: boolean;
 }
 
 export interface ProductFurtherInfoProps {
@@ -71,4 +75,8 @@ export interface ProductsButtonsProps {
 
 export interface ProductsButtonProps {
   onClick: () => void;
+}
+
+export interface ProductsProps {
+  categoryName: string;
 }

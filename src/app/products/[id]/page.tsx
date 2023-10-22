@@ -14,6 +14,7 @@ const getProduct = async (id: string) => {
       `${process.env.SITE_DOMAIN}/api/v1/products/${id}`
     );
     const data = await response.json();
+
     return data;
   } catch (error) {
     console.log(error);
