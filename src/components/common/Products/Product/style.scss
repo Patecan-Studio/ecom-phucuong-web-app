@@ -1,4 +1,4 @@
-@import '../../../../styles/responsives.scss';
+@import "../../../../styles/responsives.scss";
 
 .product-container {
   padding: 15px;
@@ -23,7 +23,7 @@
   }
 
   &__image-container {
-    background-color: #FAFAFA;
+    background-color: #fafafa;
   }
 
   &__image {
@@ -47,7 +47,7 @@
     left: 15px;
     display: flex;
     font-size: 14px;
-    white-space: nowrap;
+    white-space: break-spaces;
 
     &--label {
       border-radius: 5px;
@@ -78,7 +78,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     transition: all 200ms ease-in-out;
-
+    white-space: unset;
     @include below992inclusive {
       font-size: 14px;
       margin-bottom: 8px;
@@ -115,7 +115,6 @@
       @include below992inclusive {
         font-size: 11px;
         margin-bottom: 8px;
-
       }
     }
   }
@@ -147,9 +146,9 @@
 
   &__logo {
     position: relative;
-
+    width: 70%;
     img {
-      width: 55%;
+      width: 70%;
       height: auto;
     }
 

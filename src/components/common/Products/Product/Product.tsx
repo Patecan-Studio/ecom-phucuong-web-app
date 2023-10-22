@@ -20,7 +20,7 @@ const Product = ({
         <ProductImage
           isNew={isNew}
           image={image}
-          discountRatio={discountRatio * 100}
+          discountRatio={discountRatio}
         />
         <ProductInfo name={name} discountPrice={discountPrice} price={price} />
         <ProductFurtherInfo brandImage={brandImage} />

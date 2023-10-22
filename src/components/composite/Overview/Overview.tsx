@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import "./style.scss";
-import { OverviewProps } from "./types";
 import OverviewImage from "./OverviewImage";
 import OverviewInfo from "./OverviewInfo";
 import OverviewQuantity from "./OverviewQuantity";
@@ -88,12 +87,14 @@ const Overview = ({ data }: OverviewProps) => {
       </div>
       <div className="overview__right">
         <OverviewInfo
-          name={overviewData ? data.product_name : "Hiện tại sản phẩm này chưa có"}
+          name={
+            overviewData ? data.product_name : "Hiện tại sản phẩm này chưa có"
+          }
           price={overviewData?.price || 0}
           discountPrice={overviewData?.discount_price || 0}
           discountPercentage={overviewData?.discount_percentage || 0}
           productCode={overviewData?.sku || ""}
-          brand={overviewData ? (data.product_brand?.brand_name || "") : ""}
+          brand={overviewData ? data.product_brand?.brand_name || "" : ""}
           quantity={overviewData?.quantity || 0}
         />
         <div className="overview__order">

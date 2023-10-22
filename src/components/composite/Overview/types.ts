@@ -40,7 +40,7 @@ interface Product {
   product_slug: string;
   product_variants: ProductVariant[];
   product_code: string;
-  product_price: number;
+  price: number;
   product_discountPercentage: number;
   product_discountPrice: number;
   product_quantity: number;
