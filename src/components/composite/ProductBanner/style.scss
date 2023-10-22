@@ -1,0 +1,41 @@
+@import '@/styles/responsives.scss';
+
+
+.product-banner-container {
+  width: 100%;
+  background: var(--color-gray-secondary);
+  margin-bottom: 30px;
+}
+
+.product-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+
+  @include responsiveContainer;
+
+  &__left, &__right {
+    width: 50%;
+    height: 100%;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+  
+  &__description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-weight: 300;
+  }
+
+  &__image {
+    padding: 40px 0;
+  }
+}
