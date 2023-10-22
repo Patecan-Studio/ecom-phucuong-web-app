@@ -130,4 +130,6 @@ export interface OverviewAboutProps {
   onColorSelect: (color: string) => void;
   selectedMaterial: string;
   selectedColor: string;
+  isShowMaterial: boolean;
+  isShowColor: boolean;
 }

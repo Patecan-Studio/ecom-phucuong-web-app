@@ -31,6 +31,9 @@ const Overview = ({ data }: OverviewProps) => {
         )
     );
 
+  const isShowMaterial = overviewData.material !== null;
+  const isShowColor = overviewData.color.label !== null;
+
   const [selectedMaterial, setSelectedMaterial] = useState(materials[0]);
   const [selectedColor, setSelectedColor] = useState(colors[0].value);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
@@ -109,6 +112,8 @@ const Overview = ({ data }: OverviewProps) => {
               width={width}
               height={height}
               weight={weight}
+              isShowMaterial={isShowMaterial}
+              isShowColor={isShowColor}
             />
             <OverviewQuantity
               isDisabled={overviewData === undefined}
