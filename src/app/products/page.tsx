@@ -27,7 +27,7 @@ const Page = async () => {
   return (
     <div className={styles.products}>
       <ProductBanner
-        name={category.category_name}
+        title={category.category_name}
         description={category.category_description}
         image={category.category_images[0].imageUrl}
       />
