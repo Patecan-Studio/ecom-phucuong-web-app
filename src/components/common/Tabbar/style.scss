@@ -21,7 +21,7 @@
   max-width: 1410px;
 
   &__logo {
-    max-width: 80px;
+    max-width: 220px;
     border-right: 1px solid var(--color-platinum);
     display: flex;
     justify-content: center;
@@ -31,7 +31,6 @@
     @include below1440inclusive {
       padding: 5px;
       padding-left: 0;
-      max-width: 100px;
     }
 
     @include below1200inclusive {
