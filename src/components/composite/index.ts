@@ -1,3 +1,4 @@
 import { Overview } from "./Overview";
+import { Banner } from "./Banner";
 
-export { Overview };
+export { Overview, Banner };
