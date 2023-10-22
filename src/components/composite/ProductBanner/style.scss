@@ -35,6 +35,7 @@
     font-size: 40px;
     font-weight: 900;
     text-transform: uppercase;
+    margin-bottom: 10px;
 
     @include below768inclusive {
       font-size: 20px;
