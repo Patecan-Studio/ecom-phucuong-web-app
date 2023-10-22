@@ -3,8 +3,6 @@ import "./style.scss";
 import ProductsContent from "./ProductsContent";
 
 const getProducts = async (category: string) => {
-  console.log(category);
-
   try {
     const response = await fetch(
       `${process.env.SITE_DOMAIN}/api/v1/products?category=${category}`

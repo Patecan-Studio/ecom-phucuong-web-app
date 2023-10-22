@@ -10,7 +10,6 @@ import ProductsNavigation from "./ProductsNavigation/ProductsNavigation";
 import ProductsGuide from "./ProductsGuide";
 
 const ProductsContent = ({ productsTitle, products }: ProductsContentProps) => {
-  console.log("test", products);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [contentRef, contentMethods] = useEmblaCarousel({
     loop: true,

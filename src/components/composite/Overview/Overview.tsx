@@ -12,7 +12,6 @@ import { OverviewProps } from "./types";
 
 // TODO: leave to any for now
 const Overview = ({ data }: OverviewProps) => {
-  console.log(data);
   const [overviewData, setOverviewData] = React.useState(
     JSON.parse(JSON.stringify(data.product_variants[0]))
   );

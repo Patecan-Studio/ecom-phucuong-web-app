@@ -22,7 +22,7 @@ const OverviewInfo = ({
           </div>
         </div>
         <div className="overview__price">
-          Giá niêm _price--old: {price}
+          Giá niêm yết: &nbsp;
           {convertToCurrencyFormat(price)} đ
         </div>
       </div>

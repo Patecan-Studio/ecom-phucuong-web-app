@@ -41,6 +41,7 @@ export interface ProductProps {
   discountPrice: number;
   isNew: boolean;
   brandImage: string;
+  productSlug: string;
 }
 
 export interface ProductInfoProps {
@@ -53,6 +54,7 @@ export interface ProductImageProps {
   image: string;
   isNew: boolean;
   discountRatio: number;
+  productSlug: string;
 }
 
 export interface ProductStatusProps {
