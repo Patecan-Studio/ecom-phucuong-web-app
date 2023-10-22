@@ -8,6 +8,7 @@ import OverviewQuantity from "./OverviewQuantity";
 import OverviewButtons from "./OverviewButtons";
 import OverviewPolicy from "./OverviewPolicy";
 import OverviewAbout from "./OverviewAbout";
+import { OverviewProps } from "./types";
 
 // TODO: leave to any for now
 const Overview = ({ data }: OverviewProps) => {
@@ -18,9 +19,7 @@ const Overview = ({ data }: OverviewProps) => {
 
   const materials = data.product_variants
     .map((item) => item.material)
-    .filter(
-      (value, index, self) => self.indexOf(value) === index
-    );
+    .filter((value, index, self) => self.indexOf(value) === index);
 
   const colors = data.product_variants
     .map((item) => item.color)
