@@ -37,10 +37,10 @@ const Overview = ({ data }: OverviewProps) => {
   const [selectedColor, setSelectedColor] = useState(colors[0].value);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
-  const length = data.product_length + data.product_size_unit[0];
-  const height = data.product_height + data.product_size_unit[0];
-  const width = data.product_width + data.product_size_unit[0];
-  const weight = data.product_weight.value + data.product_weight.unit[0];
+  const length = data.product_length + data.product_size_unit;
+  const height = data.product_height + data.product_size_unit;
+  const width = data.product_width + data.product_size_unit;
+  const weight = data.product_weight.value + data.product_weight.unit;
 
   const handleVariantChange = () => {
     const newOverviewData = data.product_variants.find(
