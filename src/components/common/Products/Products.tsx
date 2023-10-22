@@ -2,9 +2,13 @@ import React from "react";
 import "./style.scss";
 import ProductsContent from "./ProductsContent";
 
-const getProducts = async () => {
+const getProducts = async (category: string) => {
+  console.log(category);
+
   try {
-    const response = await fetch(`${process.env.SITE_DOMAIN}/api/v1/products`);
+    const response = await fetch(
+      `${process.env.SITE_DOMAIN}/api/v1/products?category=${category}`
+    );
     const data = await response.json();
 
     return data;
@@ -13,12 +17,15 @@ const getProducts = async () => {
   }
 };
 
-const Products = async () => {
-  const data = await getProducts();
+const Products = async ({ category, productsTitle }: any) => {
+  const data = await getProducts(category);
 
   return (
     <div className="products">
-      <ProductsContent products={data.items} />
+      <ProductsContent
+        productsTitle={productsTitle ? productsTitle : "Sản Phẩm"}
+        products={data.items}
+      />
     </div>
   );
 };

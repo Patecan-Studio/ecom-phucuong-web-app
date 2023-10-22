@@ -6,6 +6,7 @@ export interface ProductsTitleProps {
 
 export interface ProductsContentProps {
   products: Product[];
+  productsTitle: string;
 }
 
 export interface ProductsSubContentProps {

@@ -31,7 +31,10 @@ const Page = async () => {
         description={category.category_description}
         image={category.category_images[0].imageUrl}
       />
-      <Products />
+      <Products
+        productsTitle="Sản phẩm"
+        category={"653213a532d913fecc48e3fc"}
+      />
     </div>
   );
 };
