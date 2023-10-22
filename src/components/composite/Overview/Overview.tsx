@@ -15,7 +15,6 @@ const Overview = ({ data }: OverviewProps) => {
     JSON.parse(JSON.stringify(data.product_variants[0]))
   );
 
-  console.log('overviewData', overviewData)
   const materials = data.product_variants
     .map((item) => item.material)
     .filter((value, index, self) => self.indexOf(value) === index);
