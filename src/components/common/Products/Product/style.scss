@@ -95,6 +95,9 @@
     @include below576inclusive {
       height: 34%;
     }
+    @include below1200inclusive {
+      height: 30%;
+    }
   }
 
   &__name {
