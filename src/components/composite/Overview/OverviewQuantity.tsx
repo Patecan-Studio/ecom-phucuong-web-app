@@ -6,7 +6,7 @@ const OverviewQuantity = ({
   onDecrease,
   onIncrease,
   isDisabled,
-}: any) => {
+}: OverviewQuantityProps) => {
   return (
     <div className="overview__quantity">
       <h4 className="overview__quantity__title">SỐ LƯỢNG</h4>

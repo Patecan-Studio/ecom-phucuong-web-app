@@ -10,7 +10,7 @@ const OverviewInfo = ({
   productCode,
   brand,
   quantity,
-}: any) => {
+}: OverviewInfoProps) => {
   return (
     <div className="overview__info">
       <h1 className="overview__name">{name}</h1>

@@ -121,6 +121,11 @@
         margin-bottom: 50px;
       }
 
+      &--main &__list {
+        width: 350px;
+        height: 500px;
+      }
+
       &__list {
         display: flex;
         align-items: center;

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import { OverviewProps } from "./types";
 import OverviewImage from "./OverviewImage";
@@ -11,31 +11,32 @@ import OverviewPolicy from "./OverviewPolicy";
 import OverviewAbout from "./OverviewAbout";
 
 // TODO: leave to any for now
-const Overview = ({ data }: any) => {
+const Overview = ({ data }: OverviewProps) => {
+  console.log(data);
   const [overviewData, setOverviewData] = React.useState(
     JSON.parse(JSON.stringify(data.product_variants[0]))
   );
 
   const materials = data.product_variants
-    .map((item: any) => item.material)
+    .map((item) => item.material)
     .filter(
-      (value: any, index: any, self: any) => self.indexOf(value) === index
+      (value, index, self) => self.indexOf(value) === index
     );
 
   const colors = data.product_variants
-    .map((item: any) => item.color)
+    .map((item) => item.color)
     .filter(
-      (item: any, index: number, self: any) =>
+      (item, index, self) =>
         index ===
         self.findIndex(
-          (sub_item: any) =>
+          (sub_item) =>
             sub_item.label === item.label && sub_item.value === item.value
         )
     );
 
-  const [selectedMaterial, setSelectedMaterial] = React.useState(materials[0]);
-  const [selectedColor, setSelectedColor] = React.useState(colors[0].value);
-  const [selectedQuantity, setSelectedQuantity] = React.useState(1);
+  const [selectedMaterial, setSelectedMaterial] = useState(materials[0]);
+  const [selectedColor, setSelectedColor] = useState(colors[0].value);
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   const length = data.product_length + data.product_size_unit[0];
   const height = data.product_height + data.product_size_unit[0];
@@ -44,7 +45,7 @@ const Overview = ({ data }: any) => {
 
   const handleVariantChange = () => {
     const newOverviewData = data.product_variants.find(
-      (item: any) =>
+      (item) =>
         item.material === selectedMaterial && item.color.value === selectedColor
     );
     setOverviewData(newOverviewData);
@@ -61,11 +62,11 @@ const Overview = ({ data }: any) => {
     setSelectedColor(colors[0].value);
   };
 
-  const handleSelectMaterial = (material: any) => {
+  const handleSelectMaterial = (material: string) => {
     setSelectedMaterial(material);
   };
 
-  const handleSelectColor = (colorValue: any) => {
+  const handleSelectColor = (colorValue: string) => {
     setSelectedColor(colorValue);
   };
 

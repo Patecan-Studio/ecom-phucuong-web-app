@@ -1,11 +1,11 @@
 import React from "react";
-import { OverviewImageProps, OverviewProps } from "./types";
+import { OverviewImageProps } from "./types";
 import useOverview from "@/hooks/useOverview";
 import OverviewMainImages from "./OverviewMainImages";
 import OverviewSubImages from "./OverviewSubImages";
 import OverviewModal from "./OverviewModal";
 
-const OverviewImage = ({ overviewData }: any) => {
+const OverviewImage = ({ overviewData }: OverviewImageProps) => {
   const {
     mainCarouselRef,
     subCarouselRef,

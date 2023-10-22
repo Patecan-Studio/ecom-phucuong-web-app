@@ -3,20 +3,7 @@ export interface OverviewProps {
 }
 
 export interface OverviewImageProps {
-  overviewData: {
-    color: {
-      label: string;
-      value: string;
-    };
-    discountPercentage: number;
-    discountPrice: number;
-    image_list: ProductImage[];
-    material: string;
-    price: number;
-    quantity: number;
-    sku: string;
-    _id: string;
-  }
+  overviewData: Product;
 }
 
 export interface OverviewMainImagesProps extends OverviewProps {
@@ -35,13 +22,16 @@ export interface OverviewSubImagesProps {
 }
 
 interface Product {
+  createdAt: string;
+  updatedAt: string;
   resultCode: string;
   resultMessage: string;
   _id: string;
+
   product_name: string;
   product_description: string;
-  product_type: string;
   product_brand: ProductBrand;
+  product_type: string;
   product_categories: ProductCategories;
   product_materials: string[];
   product_colors: string[];
@@ -54,6 +44,18 @@ interface Product {
   product_discountPercentage: number;
   product_discountPrice: number;
   product_quantity: number;
+  product_isActive: boolean;
+  product_height: string;
+  product_length: string;
+  product_width: string;
+  product_weight: {
+    value: string;
+    unit: string[];
+  };
+  product_size_unit: string[];
+  product_material: string[];
+  product_status: string;
+
   image: {
     imageName: string;
     imageUrl: string;
@@ -72,16 +74,25 @@ interface ProductImage {
   _id: string;
 }
 
-interface ProductCategories extends ProductBrand {}
-
-interface ProductVariant {
-  variant_sku: string;
-  variant_color: ProductColor;
-  variant_material: string;
-  variant_price: number;
+interface ProductCategories {
+  _id: string;
+  category_name: string;
+  category_logoUrl: string;
 }
 
-interface ProductColor {
+interface ProductVariant {
+  _id: string;
+  sku: string;
+  color: ProductColor;
+  material: string;
+  price: number;
+  quantity: number;
+  discount_price: number;
+  discount_percentage: number;
+  image_list: ProductImage[];
+}
+
+export interface ProductColor {
   value: string;
   label: string;
 }
@@ -93,6 +104,7 @@ export interface OverviewInfoProps {
   discountPercentage: number;
   productCode: string;
   brand: string;
+  quantity: number;
 }
 
 export interface OverviewPolicyProps {
@@ -101,4 +113,21 @@ export interface OverviewPolicyProps {
 
 export interface OverviewQuantityProps {
   quantity: number;
+  onIncrease: () => void;
+  onDecrease: () => void;
+  isDisabled: boolean;
+}
+
+export interface OverviewAboutProps {
+  materials: string[];
+  colors: ProductColor[];
+  width: string;
+  height: string;
+  length: string;
+  weight: string;
+  onResetVariant: () => void;
+  onMaterialSelect: (material: string) => void;
+  onColorSelect: (color: string) => void;
+  selectedMaterial: string;
+  selectedColor: string;
 }
