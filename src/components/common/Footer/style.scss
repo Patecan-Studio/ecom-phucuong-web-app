@@ -130,6 +130,7 @@ $animationSpeed: 40s;
 
     .tabbar__logo {
       width: 25%;
+      min-width: 180px;
       max-width: 270px;
       border: none;
       justify-content: flex-start;
