@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
 import TabbarDropdown from "./TabbarDropdown";
+import Link from "next/link";
 
 const TabbarSecondary = () => {
   const menu = [
     {
       label: "Sản phẩm",
-      path: "/",
+      path: "/products",
       dropdownMenu: [
         {
           label: "Di văng",
@@ -51,9 +52,9 @@ const TabbarSecondary = () => {
         {menu.map((item) => (
           <div key={item.label}>
             <div className="tabbar--secondary__item">
-              <a className="tabbar--secondary__link" href={item.path}>
+              <Link className="tabbar--secondary__link" href={item.path}>
                 {item.label}
-              </a>
+              </Link>
             </div>
             {item.dropdownMenu && (
               <TabbarDropdown dropdownMenu={item.dropdownMenu} />

@@ -8,12 +8,22 @@ import styles from "./page.module.css";
 import { Products } from "@/components/common";
 import { ProductBanner } from "@/components/composite";
 
-const categoryId = "6532144232d913fecc48e400";
+const defaultCategory = {
+  category_name: "Tất cả sản phẩm",
+  category_images: [
+    {
+      imageName: "Tất cả sản phẩm",
+      imageUrl:
+        "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/category/Living-room-in-amagansett-beach-house.webp",
+      _id: "6532144232d913fecc48e401",
+    },
+  ],
+};
 
 const getCategory = async (id: string) => {
   try {
     const response = await fetch(
-      `${process.env.SITE_DOMAIN}/api/v1/categories/${categoryId}`
+      `${process.env.SITE_DOMAIN}/api/v1/categories/${id}`
     );
     const data = await response.json();
     return data;
@@ -22,8 +32,16 @@ const getCategory = async (id: string) => {
   }
 };
 
-const Page = async () => {
-  const category = await getCategory(categoryId);
+const Page = async ({
+  searchParams,
+}: {
+  searchParams: { category: string };
+}) => {
+  console.log(searchParams);
+
+  const category = searchParams.category
+    ? await getCategory(searchParams.category)
+    : defaultCategory;
   return (
     <div className={styles.products}>
       <ProductBanner
@@ -32,8 +50,8 @@ const Page = async () => {
         image={category.category_images[0].imageUrl}
       />
       <Products
-        productsTitle="Sản phẩm"
-        category={"653213a532d913fecc48e3fc"}
+        productsTitle={category.category_name}
+        category={searchParams.category ? searchParams.category : "all"}
       />
     </div>
   );
