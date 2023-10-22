@@ -10,12 +10,12 @@ import OverviewPolicy from "./OverviewPolicy";
 import OverviewAbout from "./OverviewAbout";
 import { OverviewProps } from "./types";
 
-// TODO: leave to any for now
 const Overview = ({ data }: OverviewProps) => {
   const [overviewData, setOverviewData] = React.useState(
     JSON.parse(JSON.stringify(data.product_variants[0]))
   );
 
+  console.log('overviewData', overviewData)
   const materials = data.product_variants
     .map((item) => item.material)
     .filter((value, index, self) => self.indexOf(value) === index);
@@ -31,8 +31,8 @@ const Overview = ({ data }: OverviewProps) => {
         )
     );
 
-  const isShowMaterial = overviewData.material !== null;
-  const isShowColor = overviewData.color.label !== null;
+  const isShowMaterial = overviewData?.material !== null;
+  const isShowColor = overviewData?.color.label !== null;
 
   const [selectedMaterial, setSelectedMaterial] = useState(materials[0]);
   const [selectedColor, setSelectedColor] = useState(colors[0].value);
