@@ -53,7 +53,11 @@ const ProductsContent = ({ productsTitle, products }: ProductsContentProps) => {
           onNextClick={handleNextClick}
         />
       </div>
-      <ProductsSubContent products={products} productsRef={contentRef} />
+      {products.length ? (
+        <ProductsSubContent products={products} productsRef={contentRef} />
+      ) : (
+        <h2>Hiện chưa có sản phẩm</h2>
+      )}
       <ProductsNavigation
         scrollSnaps={contentMethods?.scrollSnapList() || []}
         selected={selectedIndex}

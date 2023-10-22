@@ -17,7 +17,6 @@ const getProducts = async (category: string) => {
 
 const Products = async ({ category, productsTitle }: any) => {
   const data = await getProducts(category);
-
   return (
     <div className="products">
       <ProductsContent

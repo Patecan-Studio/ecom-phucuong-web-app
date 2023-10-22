@@ -37,8 +37,6 @@ const Page = async ({
 }: {
   searchParams: { category: string };
 }) => {
-  console.log(searchParams);
-
   const category = searchParams.category
     ? await getCategory(searchParams.category)
     : defaultCategory;
