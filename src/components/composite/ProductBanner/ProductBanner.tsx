@@ -19,6 +19,7 @@ const ProductBanner = ({ title, description, image }: ProductBannerProps) => {
               width={0}
               height={0}
               sizes="100vw"
+              priority
               style={{ width: "100%", height: "auto" }}
             />
           </div>
