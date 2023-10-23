@@ -10,8 +10,6 @@ const ProductsSubContent = ({ products, productsRef }: any) => {
     setIsClient(true);
   }, []);
   const renderProducts = () => {
-    if (!products) return <div>Loading ...</div>
-
     return products.map((product: any, index: number) => {
       const productComponent = (
         <div className="products__sub-content__item" key={index}>

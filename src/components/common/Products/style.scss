@@ -21,6 +21,10 @@ $item-gap: 20px;
   padding-top: 20px;
   @include responsiveContainer;
 
+  @include below768inclusive {
+    padding: 0 15px;
+  }
+
   &__title {
     @include containerTitle;
     margin-bottom: 0 !important;
@@ -46,12 +50,12 @@ $item-gap: 20px;
   }
 
   &__sub-content {
-    overflow: hidden;
     &__items {
       display: grid;
+      gap: 15px;
       grid-template-columns: repeat(4, 1fr);
 
-      @include below992inclusive {
+      @include below768inclusive {
         grid-template-columns: repeat(2, 1fr);
       }
     }
