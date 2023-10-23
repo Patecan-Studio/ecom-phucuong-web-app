@@ -96,6 +96,9 @@
       height: 34%;
     }
     @include below1200inclusive {
+      height: 28%;
+    }
+    @include below1440inclusive {
       height: 30%;
     }
   }

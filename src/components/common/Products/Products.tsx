@@ -5,7 +5,9 @@ import ProductsContent from "./ProductsContent";
 const getProducts = async (category: string) => {
   try {
     const response = await fetch(
-      `${process.env.SITE_DOMAIN}/api/v1/products?category=${category}`
+      `${process.env.SITE_DOMAIN}/api/v1/products?category=${
+        category ? category : "all"
+      }`
     );
     const data = await response.json();
 
