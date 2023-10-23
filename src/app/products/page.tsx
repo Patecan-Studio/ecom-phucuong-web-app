@@ -35,7 +35,7 @@ const getCategory = async (id: string) => {
 const Page = async ({
   searchParams,
 }: {
-  searchParams: { category: string, page: number };
+  searchParams: { category: string, page: number, q: string };
 }) => {
   const category = searchParams.category
     ? await getCategory(searchParams.category)
@@ -50,6 +50,8 @@ const Page = async ({
       <Products
         productsTitle={category.category_name}
         category={searchParams.category ? searchParams.category : "all"}
+        q={searchParams.q ? searchParams.q : ""}
+        page={searchParams.page ? searchParams.page : 1}
         pageSize={8}
       />
     </div>
