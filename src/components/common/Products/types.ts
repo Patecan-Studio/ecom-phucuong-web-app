@@ -7,6 +7,7 @@ export interface ProductsTitleProps {
 export interface ProductsContentProps {
   products: Product[];
   productsTitle: string;
+  totalPage: number;
 }
 
 export interface ProductsSubContentProps {

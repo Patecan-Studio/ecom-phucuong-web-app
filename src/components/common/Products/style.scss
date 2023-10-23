@@ -21,6 +21,10 @@ $item-gap: 20px;
   padding-top: 20px;
   @include responsiveContainer;
 
+  @include below768inclusive {
+    padding: 0 15px;
+  }
+
   &__title {
     @include containerTitle;
     margin-bottom: 0 !important;
@@ -46,20 +50,13 @@ $item-gap: 20px;
   }
 
   &__sub-content {
-    overflow: hidden;
-    padding: 10px;
-
     &__items {
-      display: flex;
-    }
+      display: grid;
+      gap: 15px;
+      grid-template-columns: repeat(4, 1fr);
 
-    &__item {
-      min-width: 0;
-      // margin-right: $item-gap;
-      @include responsiveProduct;
-
-      > div {
-        margin-bottom: 20px;
+      @include below768inclusive {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   }
@@ -99,28 +96,29 @@ $item-gap: 20px;
   }
 
   &__next {
-    margin-left: 15px;
+    margin-left: 25px;
   }
 
   &__navigation {
     justify-content: center;
     align-items: center;
-    display: none;
-    margin-bottom: 30px;
-
-    @include below768inclusive {
-      display: flex;
-    }
+    display: flex;
+    margin-top: 40px;
   }
 
   &__dot {
-    margin-right: 10px;
+    margin-right: 20px;
+    margin-bottom: 40px;
     cursor: pointer;
-    width: 12px;
-    height: 12px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     background-color: var(--color-gray-less-light);
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-text-primary);
 
     &:last-child {
       margin-right: 0;
