@@ -11,7 +11,7 @@ export default function Home({
       <Carousel />
       <CategorySection />
       <Products
-        page={searchParams.page}
+        page={searchParams.page ? searchParams.page : 1}
         category={searchParams.category ? searchParams.category : "all"}
         pageSize={8}
       />
