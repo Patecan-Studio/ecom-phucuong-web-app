@@ -1,12 +1,20 @@
 import { Carousel, CategorySection, Products } from "@/components/common";
 import styles from "./page.module.css";
 
-export default function Home() {
+export default function Home({
+  searchParams,
+}: {
+  searchParams: { category: string; page: number };
+}) {
   return (
     <main className={styles.main}>
       <Carousel />
       <CategorySection />
-      <Products />
+      <Products
+        page={searchParams.page}
+        category={searchParams.category ? searchParams.category : "all"}
+        pageSize={8}
+      />
       <div
         style={{
           backgroundColor: "white",

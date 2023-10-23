@@ -1,20 +1,18 @@
-"use client";
-
 import React from "react";
 import "./style.scss";
 import ProductsContent from "./ProductsContent";
-import { useSearchParams } from "next/navigation";
 
 const getProducts = async (
   category: string,
-  page: number
+  page: number,
+  pageSize: number
 ) => {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/products?
         category=${category ? category : "all"}
         &page=${page}
-        &page_size=8
+        &page_size=${pageSize}
       `
     );
     const data = await response.json();
@@ -24,10 +22,9 @@ const getProducts = async (
   }
 };
 
-const Products = async ({ category, productsTitle }: any) => {
-  const searchParams = useSearchParams();
-  const page = Number(searchParams.get("page")) || 1;
-  const data = await getProducts(category, page);
+const Products = async ({ category, productsTitle, page, pageSize }: any) => {
+  const currentPage = page ? page : 1;
+  const data = await getProducts(category, currentPage, pageSize);
   const totalPage = data.total_page;
   return (
     <div className="products">

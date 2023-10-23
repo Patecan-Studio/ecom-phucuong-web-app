@@ -9,19 +9,23 @@ import ProductsNavigation from "./ProductsNavigation/ProductsNavigation";
 import ProductsGuide from "./ProductsGuide";
 import useQueryParams from "@/hooks/useQueryParams";
 
-const ProductsContent = ({ productsTitle, products, totalPage }: ProductsContentProps) => {
+const ProductsContent = ({
+  productsTitle,
+  products,
+  totalPage,
+}: ProductsContentProps) => {
   const { queryParams, setQueryParams } = useQueryParams<{ page: number }>();
   const [selectedPage, setSelectedPage] = useState(
     Number(queryParams.get("page")) || 1
   );
 
   const handlePrevClick = () => {
-    if (selectedPage === 1) return;
+    if (selectedPage <= 1) return;
     setSelectedPage((prev) => prev - 1);
     setQueryParams({ page: selectedPage - 1 });
   };
   const handleNextClick = () => {
-    if (selectedPage === products.length - 1) return;
+    if (selectedPage >= products.length) return;
     setSelectedPage((prev) => prev + 1);
     setQueryParams({ page: selectedPage + 1 });
   };
