@@ -43,7 +43,7 @@ const ProductsContent = ({
           onNextClick={handleNextClick}
         />
       </div>
-      {products.length ? (
+      {products.length >= 1 ? (
         <ProductsSubContent products={products} />
       ) : (
         <h2>Hiện chưa có sản phẩm</h2>

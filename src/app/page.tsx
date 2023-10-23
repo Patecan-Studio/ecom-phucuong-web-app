@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 export default function Home({
   searchParams,
 }: {
-  searchParams: { category: string; page: number };
+  searchParams: { category: string; page: number, q: string };
 }) {
   return (
     <main className={styles.main}>
@@ -14,6 +14,7 @@ export default function Home({
         page={searchParams.page ? searchParams.page : 1}
         category={searchParams.category ? searchParams.category : "all"}
         pageSize={8}
+        q={searchParams.q ? searchParams.q : ""}
       />
       <div
         style={{

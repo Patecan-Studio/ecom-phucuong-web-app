@@ -5,7 +5,8 @@ import ProductsContent from "./ProductsContent";
 const getProducts = async (
   category: string,
   page: number,
-  pageSize: number
+  pageSize: number,
+  q: string,
 ) => {
   try {
     const response = await fetch(
@@ -13,6 +14,7 @@ const getProducts = async (
         category=${category ? category : "all"}
         &page=${page}
         &page_size=${pageSize}
+        &q=${q}
       `
     );
     const data = await response.json();
@@ -22,9 +24,9 @@ const getProducts = async (
   }
 };
 
-const Products = async ({ category, productsTitle, page, pageSize }: any) => {
+const Products = async ({ category, productsTitle, page, pageSize, q }: any) => {
   const currentPage = page ? page : 1;
-  const data = await getProducts(category, currentPage, pageSize);
+  const data = await getProducts(category, currentPage, pageSize, q);
   const totalPage = data.total_page;
   return (
     <div className="products">
