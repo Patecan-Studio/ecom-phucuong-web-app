@@ -38,7 +38,14 @@ const Overview = ({ data }: OverviewProps) => {
   const colors = isShowColor
     ? data.product_variants
         .map((item) => item.color)
-        .filter((value, index, self) => self.indexOf(value) === index)
+        .filter(
+          (item, index, self) =>
+            index ===
+            self.findIndex(
+              (sub_item) =>
+                sub_item.label === item.label && sub_item.value === item.value
+            )
+        )
     : [];
 
   const length = data.product_length + data.product_size_unit;
