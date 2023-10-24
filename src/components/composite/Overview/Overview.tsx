@@ -15,34 +15,31 @@ const Overview = ({ data }: OverviewProps) => {
     JSON.parse(JSON.stringify(data.product_variants[0]))
   );
 
-  const isShowMaterial = overviewData?.material !== null;
-  const isShowColor = overviewData?.color !== null;
-
-  const materials = !isShowMaterial
-    ? []
-    : data.product_variants
-        .map((item) => item.material)
-        .filter((value, index, self) => self.indexOf(value) === index);
-
-  const colors = !isShowColor
-    ? []
-    : data.product_variants
-        .map((item) => item.color)
-        .filter(
-          (item, index, self) =>
-            index ===
-            self.findIndex(
-              (sub_item) =>
-                sub_item.label === item.label && sub_item.value === item.value
-            )
-        );
-
   const [selectedMaterial, setSelectedMaterial] = useState(
-    materials?.[0] || ""
+    overviewData?.material || ""
   );
-  const [selectedColor, setSelectedColor] = useState(colors?.[0]?.value || "");
-
+  const [selectedColor, setSelectedColor] = useState(
+    overviewData?.color?.value || ""
+  );
   const [selectedQuantity, setSelectedQuantity] = useState(1);
+
+  const isShowMaterial = overviewData?.material
+    ? overviewData.material !== "null" && overviewData.material !== null
+    : false;
+  const isShowColor = overviewData?.color
+    ? overviewData.color !== "null" && overviewData.color !== null
+    : false;
+
+  const materials = isShowMaterial
+    ? data.product_variants
+        .map((item) => item.material)
+        .filter((value, index, self) => self.indexOf(value) === index)
+    : [];
+  const colors = isShowColor
+    ? data.product_variants
+        .map((item) => item.color)
+        .filter((value, index, self) => self.indexOf(value) === index)
+    : [];
 
   const length = data.product_length + data.product_size_unit;
   const height = data.product_height + data.product_size_unit;
@@ -50,20 +47,16 @@ const Overview = ({ data }: OverviewProps) => {
   const weight = data.product_weight.value + data.product_weight.unit;
 
   const handleVariantChange = () => {
-    const newOverviewData = data.product_variants.find((item) => {
-      if (isShowColor && isShowMaterial) {
-        return (
-          item.color.value === selectedColor &&
-          item.material === selectedMaterial
-        );
-      }
-    });
+    const newOverviewData = data.product_variants.find(
+      (item) =>
+        item.color.value === selectedColor && item.material === selectedMaterial
+    );
     setOverviewData(newOverviewData);
     setSelectedQuantity(1);
   };
 
   useEffect(() => {
-    handleVariantChange();
+    isShowColor && isShowMaterial && handleVariantChange();
   }, [selectedMaterial, selectedColor]);
 
   const handleResetVariant = () => {

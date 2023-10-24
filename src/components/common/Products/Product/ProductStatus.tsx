@@ -5,7 +5,7 @@ const ProductStatus = ({ isNew, discountRatio }: ProductStatusProps) => {
   return (
     <div className="product__status">
       {isNew && <p className="product__status--label">Mới</p>}
-      <p className="product__status--discount">{`- ${discountRatio}%`}</p>
+      <p className="product__status--discount">{`- ${discountRatio * 100}%`}</p>
     </div>
   );
 };
