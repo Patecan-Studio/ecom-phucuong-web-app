@@ -10,9 +10,9 @@ const getDropdownProducts = async (q: string) => {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/products?
-      q=${q}
       page=1
       &page_size=4
+      &q=${q}
       `
     );
     const data = await response.json();
@@ -59,7 +59,6 @@ const TabbarSearch = () => {
       const data = await getDropdownProducts(debounceInputValue);
       setDropdownProducts(data.items);
     };
-    console.log("debounceInputValue", debounceInputValue);
     if (debounceInputValue.length > 0) {
       getDropdownProductsData();
     } else {

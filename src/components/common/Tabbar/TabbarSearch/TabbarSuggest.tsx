@@ -17,12 +17,12 @@ const TabbarSuggest = ({ products, isDisplay }: any) => {
         >
           <NextImage
             src={product.image.imageUrl}
-            alt={product.name}
             priority
             width={0}
             height={0}
             sizes="100vw"
             style={{ width: "40px", height: "auto" }}
+            alt={product.product_name}
           />
           <div className="tabbar__suggest__info">
             <div className="tabbar__suggest__name">{product.product_name}</div>
