@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm install --package-log-only && next build",
+    "build": "rm -rf .next && npm install --package-log-only && next build",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install"
