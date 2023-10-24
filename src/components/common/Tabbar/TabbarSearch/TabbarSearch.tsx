@@ -52,7 +52,7 @@ const TabbarSearch = () => {
       setDebounceInputValue(inputValue);
     }, 500);
     return () => clearTimeout(delayInputTimeoutId);
-  }, [inputValue, 500]);
+  }, [inputValue]);
 
   useEffect(() => {
     const getDropdownProductsData = async () => {
