@@ -15,26 +15,33 @@ const Overview = ({ data }: OverviewProps) => {
     JSON.parse(JSON.stringify(data.product_variants[0]))
   );
 
-  const materials = data.product_variants
-    .map((item) => item.material)
-    .filter((value, index, self) => self.indexOf(value) === index);
-
-  const colors = data.product_variants
-    .map((item) => item.color)
-    .filter(
-      (item, index, self) =>
-        index ===
-        self.findIndex(
-          (sub_item) =>
-            sub_item.label === item.label && sub_item.value === item.value
-        )
-    );
-
   const isShowMaterial = overviewData?.material !== null;
-  const isShowColor = overviewData?.color.label !== null;
+  const isShowColor = overviewData?.color !== null;
 
-  const [selectedMaterial, setSelectedMaterial] = useState(materials[0]);
-  const [selectedColor, setSelectedColor] = useState(colors[0].value);
+  const materials = !isShowMaterial
+    ? []
+    : data.product_variants
+        .map((item) => item.material)
+        .filter((value, index, self) => self.indexOf(value) === index);
+
+  const colors = !isShowColor
+    ? []
+    : data.product_variants
+        .map((item) => item.color)
+        .filter(
+          (item, index, self) =>
+            index ===
+            self.findIndex(
+              (sub_item) =>
+                sub_item.label === item.label && sub_item.value === item.value
+            )
+        );
+
+  const [selectedMaterial, setSelectedMaterial] = useState(
+    materials?.[0] || ""
+  );
+  const [selectedColor, setSelectedColor] = useState(colors?.[0]?.value || "");
+
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   const length = data.product_length + data.product_size_unit;
@@ -43,10 +50,14 @@ const Overview = ({ data }: OverviewProps) => {
   const weight = data.product_weight.value + data.product_weight.unit;
 
   const handleVariantChange = () => {
-    const newOverviewData = data.product_variants.find(
-      (item) =>
-        item.material === selectedMaterial && item.color.value === selectedColor
-    );
+    const newOverviewData = data.product_variants.find((item) => {
+      if (isShowColor && isShowMaterial) {
+        return (
+          item.color.value === selectedColor &&
+          item.material === selectedMaterial
+        );
+      }
+    });
     setOverviewData(newOverviewData);
     setSelectedQuantity(1);
   };
