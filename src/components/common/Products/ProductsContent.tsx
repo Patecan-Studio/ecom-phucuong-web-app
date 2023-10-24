@@ -25,7 +25,7 @@ const ProductsContent = ({
     setQueryParams({ page: selectedPage - 1 });
   };
   const handleNextClick = () => {
-    if (selectedPage >= products.length) return;
+    if (selectedPage >= totalPage) return;
     setSelectedPage((prev) => prev + 1);
     setQueryParams({ page: selectedPage + 1 });
   };
