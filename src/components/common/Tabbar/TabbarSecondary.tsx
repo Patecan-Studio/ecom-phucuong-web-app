@@ -10,7 +10,7 @@ const TabbarSecondary = () => {
       path: "/products",
       dropdownMenu: [
         {
-          label: "Di văng",
+          label: "Phòng khách",
           list: [
             { name: "Ghế sofa 2 và 3 chỗ ngồi", path: "/" },
             { name: "Ghế sofa mô đun", path: "/" },
@@ -18,7 +18,7 @@ const TabbarSecondary = () => {
           ],
         },
         {
-          label: "Ghế ngồi",
+          label: "Phòng ngủ",
           list: [
             { name: "Chiếc ghế bành", path: "/" },
             { name: "Chiếc tựa", path: "/" },
@@ -29,7 +29,7 @@ const TabbarSecondary = () => {
           ],
         },
         {
-          label: "Bàn & tủ",
+          label: "Phòng ăn",
           list: [
             { name: "Bàn cafe", path: "/" },
             { name: "Bàn trà", path: "/" },
