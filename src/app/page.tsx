@@ -1,21 +1,21 @@
-import {
-  Carousel,
-  CategorySection,
-  Products,
-} from "@/components/common";
+import { Carousel, CategorySection, Products } from "@/components/common";
 import styles from "./page.module.css";
-import "../styles/common.scss";
-import "../styles/colors.scss";
-import "../styles/fonts.scss";
-import "../styles/reset.css";
-import "../styles/responsives.scss";
 
-export default function Home() {
+export default function Home({
+  searchParams,
+}: {
+  searchParams: { category: string; page: number, q: string };
+}) {
   return (
     <main className={styles.main}>
       <Carousel />
       <CategorySection />
-      <Products />
+      <Products
+        page={searchParams.page ? searchParams.page : 1}
+        category={searchParams.category ? searchParams.category : "all"}
+        pageSize={8}
+        q={searchParams.q ? searchParams.q : ""}
+      />
       <div
         style={{
           backgroundColor: "white",

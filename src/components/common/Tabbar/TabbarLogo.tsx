@@ -1,9 +1,10 @@
 import React from "react";
 import NextImage from "next/image";
+import Link from "next/link";
 
 const TabbarLogo = () => {
   return (
-    <a className="tabbar__logo" href="#">
+    <Link className="tabbar__logo" href="/">
       <NextImage
         src="/images/logo.png"
         alt="package-icon"
@@ -13,7 +14,7 @@ const TabbarLogo = () => {
         style={{ width: "90%", height: "auto" }}
         priority
       />
-    </a>
+    </Link>
   );
 };
 

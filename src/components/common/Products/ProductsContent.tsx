@@ -3,61 +3,55 @@
 import React, { useState } from "react";
 import { ProductsContentProps } from "./types";
 import ProductsSubContent from "./ProductsSubContent";
-import useEmblaCarousel from "embla-carousel-react";
 import ProductsTitle from "./ProductsTitle";
 import ProductsButtons from "./ProductsButtons/ProductsButtons";
 import ProductsNavigation from "./ProductsNavigation/ProductsNavigation";
 import ProductsGuide from "./ProductsGuide";
+import useQueryParams from "@/hooks/useQueryParams";
 
-const ProductsContent = ({ products }: ProductsContentProps) => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [contentRef, contentMethods] = useEmblaCarousel({
-    loop: true,
-    align: "start",
-    containScroll: "trimSnaps",
-  });
-
-  contentMethods?.on("select", () => {
-    setSelectedIndex(contentMethods.selectedScrollSnap());
-  });
+const ProductsContent = ({
+  productsTitle,
+  products,
+  totalPage,
+}: ProductsContentProps) => {
+  const { queryParams, setQueryParams } = useQueryParams<{ page: number }>();
+  const [selectedPage, setSelectedPage] = useState(
+    Number(queryParams.get("page")) || 1
+  );
 
   const handlePrevClick = () => {
-    contentMethods?.scrollPrev();
-    setSelectedIndex((index) =>
-      index === 0
-        ? (contentMethods?.scrollSnapList() || []).length - 1
-        : index - 1
-    );
+    if (selectedPage <= 1) return;
+    setSelectedPage((prev) => prev - 1);
+    setQueryParams({ page: selectedPage - 1 });
   };
-
   const handleNextClick = () => {
-    contentMethods?.scrollNext();
-    setSelectedIndex((index) =>
-      index === (contentMethods?.scrollSnapList() || []).length - 1
-        ? 0
-        : index + 1
-    );
+    if (selectedPage >= totalPage) return;
+    setSelectedPage((prev) => prev + 1);
+    setQueryParams({ page: selectedPage + 1 });
   };
-
-  const handleNavigate = (index: number) => {
-    contentMethods?.scrollTo(index);
-    setSelectedIndex(index);
+  const handleSelect = (page: number) => {
+    setSelectedPage(page);
+    setQueryParams({ page });
   };
 
   return (
     <div className="products__content">
       <div className="products__content--top">
-        <ProductsTitle title="Sản phẩm mới" />
+        <ProductsTitle title={productsTitle} />
         <ProductsButtons
           onPrevClick={handlePrevClick}
           onNextClick={handleNextClick}
         />
       </div>
-      <ProductsSubContent products={products} productsRef={contentRef} />
+      {products.length >= 1 ? (
+        <ProductsSubContent products={products} />
+      ) : (
+        <h2>Hiện chưa có sản phẩm</h2>
+      )}
       <ProductsNavigation
-        scrollSnaps={contentMethods?.scrollSnapList() || []}
-        selected={selectedIndex}
-        onNavigate={handleNavigate}
+        selected={selectedPage}
+        onNavigate={handleSelect}
+        totalPage={totalPage}
       />
       <ProductsGuide />
     </div>

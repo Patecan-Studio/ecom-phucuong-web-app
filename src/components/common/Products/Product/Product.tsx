@@ -13,6 +13,7 @@ const Product = ({
   discountPrice,
   isNew,
   brandImage,
+  productSlug,
 }: ProductProps) => {
   return (
     <div className="product-container">
@@ -20,7 +21,8 @@ const Product = ({
         <ProductImage
           isNew={isNew}
           image={image}
-          discountRatio={discountRatio * 100}
+          discountRatio={discountRatio}
+          productSlug={productSlug}
         />
         <ProductInfo name={name} discountPrice={discountPrice} price={price} />
         <ProductFurtherInfo brandImage={brandImage} />

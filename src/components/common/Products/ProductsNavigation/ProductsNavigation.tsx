@@ -1,14 +1,17 @@
 import React from "react";
 import ProductsDotButton from "./ProductsDotButton";
 
-const ProductsNavigation = ({ scrollSnaps, selected, onNavigate }: any) => {
+const ProductsNavigation = ({ selected, onNavigate, totalPage }: any) => {
+  const pageArray = Array.from({ length: totalPage }, (_, index) => index + 1);
+
   return (
     <div className="products__navigation">
-      {scrollSnaps.map((snap: any, index: any) => (
+      {pageArray.map((_, index: number) => (
         <ProductsDotButton
-          key={snap}
-          selected={index === selected}
-          onClick={() => onNavigate(index)}
+          key={index}
+          selected={index + 1 === selected}
+          value={index + 1}
+          onClick={() => onNavigate(index + 1)}
         />
       ))}
     </div>

@@ -14,53 +14,59 @@ const OverviewAbout = ({
   onColorSelect,
   selectedMaterial,
   selectedColor,
+  isShowMaterial,
+  isShowColor,
 }: OverviewAboutProps) => {
   return (
     <div className="overview__about">
       <div>
         <h4 className="overview__about__title">VỀ SẢN PHẨM</h4>
       </div>
-      <div className="overview__about__list">
-        <h5 className="overview__about__list__title">Chất liệu</h5>
-        <div className="overview__about__items">
-          {materials.map((item: any) => (
-            <p
-              className={`overview__about__item ${
-                selectedMaterial === item && "active"
-              }`}
-              key={item}
-              onClick={() => onMaterialSelect(item)}
-            >
-              {item}
-            </p>
-          ))}
+      {isShowMaterial && (
+        <div className="overview__about__list">
+          <h5 className="overview__about__list__title">Chất liệu</h5>
+          <div className="overview__about__items">
+            {materials.map((item: any) => (
+              <p
+                className={`overview__about__item ${
+                  selectedMaterial === item && "active"
+                }`}
+                key={item}
+                onClick={() => onMaterialSelect(item)}
+              >
+                {item}
+              </p>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="overview__about__list">
-        <h5 className="overview__about__list__title">Màu sắc</h5>
-        <div className="overview__about__items">
-          {colors.map((item: any) => (
-            <div
-              className={`overview__about__item ${
-                selectedColor === item.value && "active"
-              }`}
-              key={item.value}
-              onClick={() => onColorSelect(item.value)}
-            >
+      )}
+      {isShowColor && (
+        <div className="overview__about__list">
+          <h5 className="overview__about__list__title">Màu sắc</h5>
+          <div className="overview__about__items">
+            {colors.map((item: any) => (
               <div
-                className="square-color"
-                style={{
-                  background: item.value,
-                  width: "12px",
-                  height: "12px",
-                  borderRadius: "3px",
-                }}
-              ></div>
-              {item.label}
-            </div>
-          ))}
+                className={`overview__about__item ${
+                  selectedColor === item.value && "active"
+                }`}
+                key={item.value}
+                onClick={() => onColorSelect(item.value)}
+              >
+                <div
+                  className="square-color"
+                  style={{
+                    background: item.value,
+                    width: "12px",
+                    height: "12px",
+                    borderRadius: "3px",
+                  }}
+                ></div>
+                {item.label}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
       <div className="overview__about__list">
         <h5 className="overview__about__list__title">Chiều dài</h5>
         <div className="overview__about__items">
