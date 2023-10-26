@@ -11,9 +11,8 @@ const nextConfig = {
       ],
     },
   ],
-
   images: {
-    domains: ["nuwwaqzrwtilsxbajubq.supabase.co"]
+    domains: ["nuwwaqzrwtilsxbajubq.supabase.co","pos.nvncdn.net"]
   },
 };
 
