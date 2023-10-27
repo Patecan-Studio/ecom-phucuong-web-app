@@ -10,11 +10,16 @@ export interface TabbarDropdownProps {
 }
 
 interface DropdownItem {
-  label: string;
+  label: DropdownParentItem;
   list: DropdownSubItem[];
 }
 
 interface DropdownSubItem {
+  name: string;
+  path: string;
+}
+
+interface DropdownParentItem {
   name: string;
   path: string;
 }
