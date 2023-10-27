@@ -23,7 +23,7 @@ const defaultCategory = {
 const getCategory = async (id: string) => {
   try {
     const response = await fetch(
-      `${process.env.SITE_DOMAIN}/api/v1/categories/${id}`
+      `${process.env.SITE_DOMAIN}/api/v1/categories/${id}?timestamp=${Date.now()}`
     );
     const data = await response.json();
     return data;

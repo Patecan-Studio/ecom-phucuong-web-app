@@ -11,7 +11,7 @@ import { ProductDescription } from "@/components/common";
 const getProduct = async (id: string) => {
   try {
     const response = await fetch(
-      `${process.env.SITE_DOMAIN}/api/v1/products/${id}`
+      `${process.env.SITE_DOMAIN}/api/v1/products/${id}?timestamp=${Date.now()}`
     );
     const data = await response.json();
 
