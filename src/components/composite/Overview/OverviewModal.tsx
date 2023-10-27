@@ -48,7 +48,7 @@ const OverviewModalInner = (
               width={0}
               height={0}
               sizes="100vw"
-              preload={false}
+              preload="false"
             />
           ))}
         </div>

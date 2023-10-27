@@ -23,7 +23,7 @@ const OverviewMainImagesInner = (
               sizes="100vw"
               style={{ width: "100%", height: "auto" }}
               onClick={() => onClick(index)}
-              preload={false}
+              preload="false"
             />
           </div>
         ))}

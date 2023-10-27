@@ -13,6 +13,7 @@ const getProducts = async (
             `${process.env.NEXT_PUBLIC_API_URL}/products?category=${category?category: "all"}&page=${page}&page_size=${pageSize}&q=${q}`
         );
         const data = await response.json();
+        console.log(data)
         return data;
     } catch (error) {
         console.log(error);

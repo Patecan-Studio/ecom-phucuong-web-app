@@ -19,7 +19,7 @@ const OverviewMainImagesInner = (
             height={0}
             sizes="100vw"
             onClick={onOpenModal}
-            preload={false}
+            preload="false"
           />
         ))}
       </div>
