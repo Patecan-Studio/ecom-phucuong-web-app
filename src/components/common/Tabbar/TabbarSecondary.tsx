@@ -13,46 +13,9 @@ const TabbarSecondary = () => {
     const menu = [
         {label: "Sản phẩm mới", path: createCategoryPath('')},
         {
-            label: "Sản phẩm",
-            path: "/products",
-            dropdownMenu: [
-                {
-                    label: "Phòng khách",
-                    list: [
-                        {name: "Ghế sofa 2 và 3 chỗ ngồi", path: createCategoryPath('')},
-                        {name: "Ghế sofa mô đun", path: createCategoryPath('')},
-                        {name: "Giường sofa", path: createCategoryPath('')},
-                    ],
-                },
-                {
-                    label: "Phòng ngủ",
-                    list: [
-                        {name: "Chiếc ghế bành", path: createCategoryPath('')},
-                        {name: "Chiếc tựa", path: createCategoryPath('')},
-                        {name: "Tình yêu ghế", path: createCategoryPath('')},
-                        {name: "Băng ghế", path: createCategoryPath('')},
-                        {name: "Giường ban ngày", path: createCategoryPath('')},
-                        {name: "Ghế điều dưỡng", path: createCategoryPath('')},
-                    ],
-                },
-                {
-                    label: "Phòng ăn",
-                    list: [
-                        {name: "Bàn cafe", path: createCategoryPath('')},
-                        {name: "Bàn trà", path: createCategoryPath('')},
-                        {name: "Bàn ăn", path: createCategoryPath('')},
-                        {name: "Bàn bên", path: createCategoryPath('')},
-                        {name: "Tủ và kệ sách", path: createCategoryPath('')},
-                        {name: "Tủ và quầy bar", path: createCategoryPath('')},
-                        {name: "Bảng điều khiển", path: createCategoryPath('')},
-                    ],
-                },
-            ],
-        },
-        {
             label: "Nội thất", path: createCategoryPath(''), dropdownMenu: [
                 {
-                    label: "Phòng khách",
+                    label: {name: "Phòng khách", path: createCategoryPath('653b4c7085e86f091c56cb06')},
                     list: [
                         {name: "Ghế sofa", path: createCategoryPath('653b4ce985e86f091c56cb0a')},
                         {name: "Ghế thư giãn", path: createCategoryPath('653b4d0085e86f091c56cb0e')},
@@ -65,7 +28,7 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Phòng ngủ",
+                    label: {name: "Phòng ngủ", path: createCategoryPath('653b4e0d85e86f091c56cb2a')},
                     list: [
                         {name: "Giường", path: createCategoryPath('653b4e1a85e86f091c56cb2e')},
                         {name: "Tab đầu giường", path: createCategoryPath('653b4e2885e86f091c56cb32')},
@@ -75,7 +38,7 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Phòng ăn",
+                    label: {name: "Phòng ăn", path:createCategoryPath('653b4e6385e86f091c56cb42')},
                     list: [
                         {name: "Bàn ăn", path:createCategoryPath('653b4e7485e86f091c56cb46')},
                         {name: "Ghế ăn", path: createCategoryPath('653b4e8485e86f091c56cb4a')},
@@ -85,7 +48,7 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Phòng làm việc",
+                    label: {name: "Phòng làm việc", path: createCategoryPath('653b4eb685e86f091c56cb5a')},
                     list: [
                         {name: "Bàn làm việc", path: createCategoryPath('653b4ec485e86f091c56cb5e')},
                         {name: "Bàn nâng hạ", path: createCategoryPath('653b4ed385e86f091c56cb62')},
@@ -96,7 +59,7 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Sofa",
+                    label: {name: "Sofa", path: createCategoryPath('653b4f1d85e86f091c56cb76')},
                     list: [
                         {name: "Sofa đơn", path: createCategoryPath('653b4f2b85e86f091c56cb7a')},
                         {name: "Sofa băng", path: createCategoryPath('653b4f3785e86f091c56cb7e')},
@@ -107,7 +70,7 @@ const TabbarSecondary = () => {
                 },
 
                 {
-                    label: "Module tủ bếp",
+                    label: {name: "Module tủ bếp", path: createCategoryPath('653b4f7585e86f091c56cb8e')},
                     list: [
                         {name: "Tủ bếp trên", path: createCategoryPath('653b4f8185e86f091c56cb92')},
                         {name: "Tủ bếp dưới", path: createCategoryPath('653b4f8c85e86f091c56cb96')},
@@ -122,7 +85,7 @@ const TabbarSecondary = () => {
         {
             label: "Thiết bị vệ sinh", path: createCategoryPath(''), dropdownMenu: [
                 {
-                    label: "Bồn cầu",
+                    label: {name: "Bồn cầu", path: createCategoryPath('653b556090f7fb2f9cfdd170')},
                     list: [
                         {name: "Bồn cầu liền khối", path: createCategoryPath('653b558e90f7fb2f9cfdd174')},
                         {name: "Bồn cầu 2 khối", path: createCategoryPath('653b55b690f7fb2f9cfdd178')},
@@ -133,11 +96,11 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Bồn tiểu nam",
+                    label: {name: "Bồn tiểu nam", path: createCategoryPath('653b561090f7fb2f9cfdd18c')},
                     list: [],
                 },
                 {
-                    label: "Lavabo",
+                    label: {name: "Lavabo", path: createCategoryPath('653b561e90f7fb2f9cfdd190')},
                     list: [
                         {name: "Lavabo treo tường", path: createCategoryPath('653b563890f7fb2f9cfdd194')},
                         {name: "Lavabo đặt bàn", path: createCategoryPath('653b564590f7fb2f9cfdd198')},
@@ -145,11 +108,11 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Vòi lavabo",
+                    label: {name: "Vòi lavabo", path: createCategoryPath('653b566790f7fb2f9cfdd1a0')},
                     list: [],
                 },
                 {
-                    label: "Vòi sen",
+                    label: {name: "Vòi sen", path: createCategoryPath('653b567390f7fb2f9cfdd1a4')},
                     list: [
                         {name: "Vòi sen chậu rửa mặt", path: createCategoryPath('653b568f90f7fb2f9cfdd1a8')},
                         {name: "Sen tắm", path: createCategoryPath('653b56e890f7fb2f9cfdd1ac')},
@@ -160,7 +123,7 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Bồn tắm",
+                    label: {name: "Bồn tắm", path: createCategoryPath('653b5c6b90f7fb2f9cfdd258')},
                     list: [
                         {name: "Bồn tắm nằm", path: createCategoryPath('653b5c8790f7fb2f9cfdd25c')},
                         {name: "Bồn tắm Massage", path: createCategoryPath('653b5c9690f7fb2f9cfdd260')},
@@ -168,7 +131,7 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Năp bồn cầu",
+                    label: {name: "Năp bồn cầu", path: createCategoryPath('653b5cb890f7fb2f9cfdd268')},
                     list: [],
                 },
             ]
@@ -176,14 +139,14 @@ const TabbarSecondary = () => {
         {
             label: "Điện máy gia dụng", path: createCategoryPath(''), dropdownMenu: [
                 {
-                    label: "Điện tử",
+                    label: {name: "Điện tử", path: createCategoryPath('653b5ddf90f7fb2f9cfdd26c')},
                     list: [
                         {name: "Tivi", path: createCategoryPath('653b5dfa90f7fb2f9cfdd270')},
                         {name: "Loa", path: createCategoryPath('653b5e1490f7fb2f9cfdd274')},
                     ],
                 },
                 {
-                    label: "Điện lạnh",
+                    label: {name: "Điện lạnh", path: createCategoryPath('653b5e7a90f7fb2f9cfdd278')},
                     list: [
                         {name: "Tủ Lạnh", path: createCategoryPath('653b5e9790f7fb2f9cfdd27c')},
                         {name: "Máy giặt", path: createCategoryPath('653b5ea290f7fb2f9cfdd280')},
@@ -193,11 +156,11 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Điều hòa",
+                    label:{name: "Điều hòa", path: createCategoryPath('653b5edd90f7fb2f9cfdd290')},
                     list: [],
                 },
                 {
-                    label: "Điện gia dụng",
+                    label: {name: "Điện gia dụng", path: createCategoryPath('653b5ee990f7fb2f9cfdd294')},
                     list: [
                         {name: "Quạt treo tường", path: createCategoryPath('653b5f0390f7fb2f9cfdd298')},
                         {name: "Quạt cây", path: createCategoryPath('653b5f1590f7fb2f9cfdd29c')},
@@ -212,7 +175,7 @@ const TabbarSecondary = () => {
         {
             label: "Thiết bị bếp", path: createCategoryPath(''), dropdownMenu: [
                 {
-                    label: "Bếp",
+                    label: {name: "Bếp", path: createCategoryPath('653b5f5590f7fb2f9cfdd2b0')},
                     list: [
                         {name: "Bếp điện", path: createCategoryPath('653b610390f7fb2f9cfdd32c')},
                         {name: "Bếp từ", path: createCategoryPath('653b610f90f7fb2f9cfdd330')},
@@ -226,7 +189,7 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Phụ kiện bếp",
+                    label: {name: "Phụ kiện bếp", path: createCategoryPath('653b5f6190f7fb2f9cfdd2b4')},
                     list: [
                         {name: "Giá bát đũa", path: createCategoryPath('653b617790f7fb2f9cfdd350')},
                         {name: "Giá xoong nồi", path: createCategoryPath('653b618790f7fb2f9cfdd354')},
@@ -238,7 +201,7 @@ const TabbarSecondary = () => {
         {
             label: "Vật liệu hoàn thiện", path: createCategoryPath(''), dropdownMenu: [
                 {
-                    label: "Gạch ốp lát",
+                    label: {name: "Gạch ốp lát", path: createCategoryPath('653b5f7090f7fb2f9cfdd2b8')},
                     list: [
                         {name: "Gạch giả gỗ", path: createCategoryPath('653b61e590f7fb2f9cfdd35c')},
                         {name: "Gạch giả đá", path: createCategoryPath('653b61f690f7fb2f9cfdd360')},
@@ -248,7 +211,7 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Gạch trang trí",
+                    label: {name: "Gạch trang trí", path: createCategoryPath('653b5f7d90f7fb2f9cfdd2bc')},
                     list: [
                         {name: "Gạch bê tông 3D", path: createCategoryPath('653b623190f7fb2f9cfdd370')},
                         {name: "Gạch bông", path: createCategoryPath('653b623b90f7fb2f9cfdd374')},
@@ -258,7 +221,7 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Đá",
+                    label: {name: "Đá", path: createCategoryPath('653b5f8d90f7fb2f9cfdd2c0')},
                     list: [
                         {name: "Đá sân vườn", path: createCategoryPath('653b628f90f7fb2f9cfdd384')},
                         {name: "Đá ốp tường", path: createCategoryPath('653b629990f7fb2f9cfdd388')},
@@ -266,20 +229,20 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Sơn",
+                    label: {name: "Sơn", path: createCategoryPath('653b5f9890f7fb2f9cfdd2c4')},
                     list: [
                         {name: "Sơn lót", path: createCategoryPath('653b62ba90f7fb2f9cfdd390')},
                         {name: "Bột bả Dulux", path: createCategoryPath('653b62c590f7fb2f9cfdd394')}
                     ],
                 },
                 {
-                    label: "Gỗ công nghiệp",
+                    label: {name: "Gỗ công nghiệp", path: createCategoryPath('653b5fa990f7fb2f9cfdd2c8')},
                     list: [
                         {name: "Gỗ MDF", path: createCategoryPath('653b62d590f7fb2f9cfdd398')},
                         {name: "Gỗ MFC", path: createCategoryPath('653b62df90f7fb2f9cfdd39c')}
                     ],
                 }, {
-                    label: "Sàn và tường",
+                    label: {name: "Sàn và tường", path: createCategoryPath('653b5fb490f7fb2f9cfdd2cc')},
                     list: [
                         {name: "Sàn gác lửng", path: createCategoryPath('653b62f290f7fb2f9cfdd3a0')},
                         {name: "Sàn nâng", path: createCategoryPath('653b62fd90f7fb2f9cfdd3a4')},
@@ -293,30 +256,30 @@ const TabbarSecondary = () => {
         {
             label: "Phụ kiện trang trí", path: createCategoryPath(''), dropdownMenu: [
                 {
-                    label: "Kệ treo tường",
+                    label: {name: "Kệ treo tường", path: createCategoryPath('653b5fc590f7fb2f9cfdd2d0')},
                     list: [],
                 },
                 {
-                    label: "Thảm",
+                    label: {name: "Thảm", path: createCategoryPath('653b5fd090f7fb2f9cfdd2d4')},
                     list: [],
                 },
                 {
-                    label: "Đệm ngồi",
+                    label: {name: "Đệm ngồi", path: createCategoryPath('653b5fdc90f7fb2f9cfdd2d8')},
                     list: [],
                 },
                 {
-                    label: "Gương",
+                    label: {name: "Gương", path: createCategoryPath('653b5fe990f7fb2f9cfdd2dc')},
                     list: [],
                 },
                 {
-                    label: "Tranh treo tường",
+                    label: {name: "Tranh treo tường", path: createCategoryPath('653b5ff590f7fb2f9cfdd2e0')},
                     list: [],
                 }, {
-                    label: "Rèm",
+                    label: {name: "Rèm", path: createCategoryPath('653b600290f7fb2f9cfdd2e4')},
                     list: [],
                 },
                 {
-                    label: "Phụ kiện khác",
+                    label: {name: "Phụ kiện khác", path: createCategoryPath('653b600e90f7fb2f9cfdd2e8')},
                     list: [],
                 },
             ]
@@ -324,13 +287,13 @@ const TabbarSecondary = () => {
         {
             label: "Đèn trang trí", path: createCategoryPath(''), dropdownMenu: [
                 {
-                    label: "Đèn chiếu sáng nội thất",
+                    label: {name: "Đèn chiếu sáng nội thất", path: createCategoryPath('653b601e90f7fb2f9cfdd2ec')},
                     list: [
                         {name: "Đèn năng lượng mặt trời", path: createCategoryPath('653b633790f7fb2f9cfdd3b4')}
                     ],
                 },
                 {
-                    label: "Đèn chiếu sáng ngoại thất",
+                    label: {name: "Đèn chiếu sáng ngoại thất", path: createCategoryPath('653b602a90f7fb2f9cfdd2f0')},
                     list: [
                         {name: "Đèn âm đất", path: createCategoryPath('653b634390f7fb2f9cfdd3b8')},
                         {name: "Đèn âm nước", path: createCategoryPath('653b634f90f7fb2f9cfdd3bc')},
@@ -340,7 +303,7 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Đèn trang trí nội thất",
+                    label: {name: "Đèn trang trí nội thất", path: createCategoryPath('653b603890f7fb2f9cfdd2f4')},
                     list: [
                         {name: "Đèn bàn - sàn ", path: createCategoryPath('653b638090f7fb2f9cfdd3cc')},
                         {name: "Đèn sân vườn", path: createCategoryPath('653b638b90f7fb2f9cfdd3d0')},
@@ -356,7 +319,7 @@ const TabbarSecondary = () => {
         {
             label: "Chăn ga gói nệm", path: createCategoryPath(''), dropdownMenu: [
                 {
-                    label: "Sản phẩm ga",
+                    label: {name: "Sản phẩm ga", path: createCategoryPath('653b604990f7fb2f9cfdd2f8')},
                     list: [
                         {name: "Ga chun", path: createCategoryPath('')},
                         {name: "Ga chun chần", path: createCategoryPath('')},
@@ -364,7 +327,7 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Sản phẩm chăn",
+                    label: {name: "Sản phẩm chăn", path: createCategoryPath('653b605690f7fb2f9cfdd2fc')},
                     list: [
                         {name: "Chăn hè", path: createCategoryPath('')},
                         {name: "Vỏ chăn", path: createCategoryPath('')},
@@ -372,19 +335,19 @@ const TabbarSecondary = () => {
                     ],
                 },
                 {
-                    label: "Sản phẩm gối",
+                    label: {name: "Sản phẩm gối", path: createCategoryPath('653b606490f7fb2f9cfdd300')},
                     list: [
                         {name: "Gối tựa", path: createCategoryPath('')},
                         {name: "Vỏ gối", path: createCategoryPath('')}
                     ],
                 }, {
-                    label: "Sản phẩm ruột",
+                    label: {name: "Sản phẩm ruột", path: createCategoryPath('653b606f90f7fb2f9cfdd304')},
                     list: [
                         {name: "Ruột gối", path: createCategoryPath('')},
                         {name: "Ruột chăn", path: createCategoryPath('')}
                     ],
                 }, {
-                    label: "Sản phẩm nệm",
+                    label: {name: "Sản phẩm nệm", path: createCategoryPath('653b607a90f7fb2f9cfdd308')},
                     list: [
                         {name: "Nệm cao su thiên nhiên", path: createCategoryPath('')},
                         {name: "Nệm cao su liên kết", path: createCategoryPath('')},
@@ -401,13 +364,13 @@ const TabbarSecondary = () => {
         {
             label: "Trẻ em", path: createCategoryPath(''), dropdownMenu: [
                 {
-                    label: "Bàn học sinh",
+                    label: {name: "Bàn học sinh", path: createCategoryPath('653b608b90f7fb2f9cfdd30c')},
                     list: []
                 }, {
-                    label: "Ghế học sinh",
+                    label: {name: "Ghế học sinh", path: createCategoryPath('653b609790f7fb2f9cfdd310')},
                     list: []
                 }, {
-                    label: "Giường trẻ em",
+                    label: {name: "Giường trẻ em", path: createCategoryPath('653b60a190f7fb2f9cfdd314')},
                     list: []
                 }
             ]
@@ -415,19 +378,19 @@ const TabbarSecondary = () => {
         {
             label: "Thiết kế - Thi Công", path: createCategoryPath(''), dropdownMenu: [
                 {
-                    label: "Nhà ở",
+                    label: {name: "Nhà ở", path: createCategoryPath('653b60b190f7fb2f9cfdd318')},
                     list: []
                 }, {
-                    label: "Văn phòng",
+                    label: {name: "Văn phòng", path: createCategoryPath('653b60bb90f7fb2f9cfdd31c')},
                     list: []
                 }, {
-                    label: "Giáo dục",
+                    label: {name: "Giáo dục", path: createCategoryPath('653b60c790f7fb2f9cfdd320')},
                     list: []
                 }, {
-                    label: "Y tế",
+                    label: {name: "Y tế", path: createCategoryPath('653b60d190f7fb2f9cfdd324')},
                     list: []
                 }, {
-                    label: "Chung cư",
+                    label: {name: "Chung cư", path: createCategoryPath('653b60dc90f7fb2f9cfdd328')},
                     list: []
                 }
             ]
