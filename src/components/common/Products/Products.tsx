@@ -29,7 +29,7 @@ const Products = async ({ category, productsTitle, page, pageSize, q }: any) => 
   const data = await getProducts(category, currentPage, pageSize, q);
   const totalPage = data.total_page;
   return (
-    <div className="products">
+    <div className="products font-bold">
       <ProductsContent
         productsTitle={productsTitle ? productsTitle : "Sản Phẩm"}
         products={data.items}
