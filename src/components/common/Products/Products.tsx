@@ -10,7 +10,7 @@ const getProducts = async (
 ) => {
     try {
         const response = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/products?category=${category ? category : "all"}&page=${page}&page_size=${pageSize}&q=${q}`
+            `https://ecom-phucuong-inventory-develop.up.railway.app/api/v1/products?category=653b4c7085e86f091c56cb06&page=1&page_size=8&q=`
         );
         const data = await response.json();
         return data;
