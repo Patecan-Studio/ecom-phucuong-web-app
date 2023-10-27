@@ -9,11 +9,7 @@ import TabbarSuggest from "./TabbarSuggest";
 const getDropdownProducts = async (q: string) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/products?
-      page=1
-      &page_size=4
-      &q=${q}
-      `
+      `${process.env.NEXT_PUBLIC_API_URL}/products?page=1&page_size=4&q=${q}`
     );
     const data = await response.json();
     return data;
