@@ -13,7 +13,6 @@ const getProducts = async (
             `${process.env.NEXT_PUBLIC_API_URL}/products?category=${category?category: "all"}&page=${page}&page_size=${pageSize}&q=${q}`
         );
         const data = await response.json();
-        console.log(data)
         return data;
     } catch (error) {
         console.log(error);
@@ -23,6 +22,9 @@ const getProducts = async (
 const Products = async ({category, productsTitle, page, pageSize, q}: any) => {
     const currentPage = page ? page : 1;
     const data = await getProducts(category, currentPage, pageSize, q);
+    console.log("=============================================================")
+    console.log(data)
+    console.log("=============================================================")
     const totalPage = data.total_page;
     return (
         <div className="products font-bold">

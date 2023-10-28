@@ -9,7 +9,17 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#fa211c', // Replace with your desired primary color
+        secondary: '#ec2029', // Replace with your desired primary color
+        thirdary: '#931a1d', // Replace with your desired primary color
+      },
+    },
+    fontFamily: {
+      custom: ['SFUFuturaRegular', 'sans'],
+
+    }
   },
   plugins: [],
 }

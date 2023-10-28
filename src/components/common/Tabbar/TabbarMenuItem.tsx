@@ -8,7 +8,7 @@ const TabbarMenuItem = ({
   icon,
 }: TabbarMenuItemProps) => {
   return (
-    <div className={`tabbar__menu__item ${className}`} key={label}>
+    <div className={`tabbar__menu__item ${className}` } key={label}>
       {count ? (
         <>
           <div className="tabbar__menu__icon">

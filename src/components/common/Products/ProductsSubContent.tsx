@@ -17,12 +17,12 @@ const ProductsSubContent = ({ products, productsRef }: any) => {
             <Link href={`/products/${product._id}`}>
               <Product
                 name={product.product_name}
-                image={product.image.imageUrl}
+                image={product.product_banner_image}
                 price={product.price}
                 discountRatio={product.discount_percentage}
                 discountPrice={product.discount_price}
                 isNew={true}
-                brandImage={product.product_banner_image.imageUrl}
+                brandImage={product.product_brand.brand_logoUrl || "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/static/logo_phucuong_new"}
                 productSlug={product._id}
               />
             </Link>
