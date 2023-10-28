@@ -28,7 +28,7 @@ const TabbarMenu = () => {
       label: "Giỏ hàng",
       icon: <CartIcon />,
       path: "/",
-      className: "cart tabbar__menu__text--active",
+      className: "tabbar__menu__text--active",
       count: "0",
     },
   ];
@@ -38,7 +38,7 @@ const TabbarMenu = () => {
       {menu.map((item) => (
         <TabbarMenuItem
           key={item.label}
-          className={item.className || ""}
+          className={ `text-white ${item.className || ""}`}
           count={item.count}
           label={item.label}
           icon={item.icon}

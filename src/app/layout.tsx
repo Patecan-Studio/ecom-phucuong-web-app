@@ -7,6 +7,9 @@ import "../styles/colors.scss";
 import "../styles/fonts.scss";
 import "../styles/reset.css";
 import "../styles/responsives.scss";
+import SaleBanner from "@/components/common/SaleBanner/SaleBanner";
+import {Overview} from "@/components/composite";
+import React from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -26,6 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
+        <SaleBanner data={"\n" +
+            "                    Tận hưởng ưu đãi giảm giá 20% cho Toàn bộ sản phẩm Ghế nồi Phòng Khách từ Sofa, Sofa Giường, Ghế\n" +
+            "                    Bành đến Ghế Đồn. Ngày kết thức: 29/10/2023"}/>
         <Tabbar />
         {children}
         <Footer />

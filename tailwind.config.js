@@ -12,8 +12,9 @@ module.exports = {
     extend: {
       colors: {
         primary: '#fa211c', // Replace with your desired primary color
-        secondary: '#ec2029', // Replace with your desired primary color
-        thirdary: '#931a1d', // Replace with your desired primary color
+        primary_1: '#ec2029', // Replace with your desired primary color
+        primary_2: '#d91f26',
+        secondary: '#931a1d', // Replace with your desired primary color
       },
     },
     fontFamily: {

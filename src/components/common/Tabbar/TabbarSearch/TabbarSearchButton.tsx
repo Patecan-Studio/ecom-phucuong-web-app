@@ -3,7 +3,7 @@
 
   const TabbarSearchButton = ({ onClick }: any) => {
     return (
-      <button className="tabbar__search__button" type="button" onClick={onClick}>
+      <button className="tabbar__search__button bg-primary_2" type="button" onClick={onClick}>
         <SearchIcon />
       </button>
     );

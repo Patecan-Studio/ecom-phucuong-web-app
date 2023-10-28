@@ -1,3 +1,7 @@
+export interface SaleBannerProps {
+  data: string;
+}
+
 export interface OverviewProps {
   data: Product;
 }
