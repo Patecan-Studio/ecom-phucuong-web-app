@@ -35,7 +35,7 @@ const about = (
 const infoItems: CollapseProps["items"] = [
   {
     key: "1",
-    label: "Phú Cường",
+    label: "Phú Cường Home",
     children: about,
   },
   {

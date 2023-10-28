@@ -10,13 +10,14 @@ import "../styles/responsives.scss";
 import SaleBanner from "@/components/common/SaleBanner/SaleBanner";
 import {Overview} from "@/components/composite";
 import React from "react";
+import ProductCardSlider from "@/components/common/CategorySlider/CategorySlider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   icons: {
     icon: "/icon.png",
   },
-  title: "Phú Cường Group",
+  title: "Phú Cường Home",
   description:
     "Tập đoàn Phú Cường (Phu Cuong Group) được thành lập đầu năm 2009 với vai trò nhà đầu tư tài chính của các công ty thành viên trong tập đoàn, với tổng số vốn điều lệ hơn 3.500 tỷ đồng (tương đương 170 triệu USD).",
 };

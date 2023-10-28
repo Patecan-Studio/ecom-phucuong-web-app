@@ -18,10 +18,11 @@
   margin: auto;
   color: var(--color-black);
   font-family: "Mulish Italic", sans-serif;
-  max-width: 1410px;
+  max-width: 100%;
 
   &__logo {
     max-width: 220px;
+    margin-left: 5em;
     border-right: 1px solid var(--color-platinum);
     display: flex;
     justify-content: center;

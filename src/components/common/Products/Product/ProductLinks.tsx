@@ -5,7 +5,7 @@ const ProductLinks = () => {
   return (
     <div className="product__links">
       <a className="product__cart" href="#">
-        Thêm vào giỏ hàng
+        Xem chi tiết
         <PlusSignIcon />
       </a>
     </div>
