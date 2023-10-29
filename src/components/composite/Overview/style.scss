@@ -18,7 +18,7 @@
 
   &__left {
     width: 50%;
-    padding: 40px;
+    padding: 0;
 
     @include below992inclusive {
       width: 100%;
@@ -27,7 +27,7 @@
   }
 
   &__image {
-    width: 80%;
+    width: 90%;
     background: var(--color-white);
     display: flex;
     flex-direction: column;
@@ -36,11 +36,11 @@
     margin-bottom: 50px;
 
     @include below992inclusive {
-      width: 50%;
+      width: 85%;
     }
 
     @include below768inclusive {
-      width: 70%;
+      width: 100%;
     }
 
     &--main,
@@ -139,6 +139,10 @@
       height: 80px;
       display: flex;
       align-items: center;
+
+      @include below992inclusive {
+        height: 120px;
+      }
     }
 
     &__item {
