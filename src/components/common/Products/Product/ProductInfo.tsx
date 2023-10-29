@@ -2,13 +2,9 @@ import React from "react";
 import { ProductInfoProps } from "../types";
 import { convertToCurrencyFormat } from "@/share/utils/utils";
 
-const ProductInfo = ({
-  name,
-  discountPrice,
-  price,
-}: ProductInfoProps) => {
+const ProductInfo = ({ name, discountPrice, price }: ProductInfoProps) => {
   const formattedDiscountPrice = convertToCurrencyFormat(discountPrice);
-  const formattedPrice = convertToCurrencyFormat(price)
+  const formattedPrice = convertToCurrencyFormat(price);
 
   const priceClassName = formattedDiscountPrice
     ? "product__price product__price--old"
@@ -21,7 +17,9 @@ const ProductInfo = ({
         {formattedDiscountPrice && (
           <h4 className="product__price">{formattedDiscountPrice} đ</h4>
         )}
-        <h4 className={priceClassName}>{formattedPrice} đ</h4>
+        {formattedDiscountPrice !== formattedPrice && (
+          <h4 className={priceClassName}>{formattedPrice} đ</h4>
+        )}
       </div>
     </div>
   );
