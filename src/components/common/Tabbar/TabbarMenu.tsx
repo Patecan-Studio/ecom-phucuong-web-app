@@ -28,7 +28,7 @@ const TabbarMenu = () => {
       label: "Giỏ hàng",
       icon: <CartIcon />,
       path: "/",
-      className: "tabbar__menu__text--active",
+      className: "tabbar__menu__text--active bg-black",
       count: "0",
     },
   ];

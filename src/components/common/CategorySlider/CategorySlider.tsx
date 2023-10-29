@@ -18,6 +18,16 @@ const CategorySlider: React.FC = () => {
             path: "/",
         },
         {
+            label: "Bếp",
+            imageUrl: "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/static/category-images/bep.png",
+            path: "/",
+        },
+        {
+            label: "Ghế Gaming",
+            imageUrl: "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/static/category-images/ghe_gaming.jpeg",
+            path: "/",
+        },
+        {
             label: "Phụ kiện cho bé",
             imageUrl: "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/static/category-images/phu_kien_cho_be.jpeg",
             path: "/",
@@ -30,6 +40,11 @@ const CategorySlider: React.FC = () => {
         {
             label: "Nội thất phòng khách",
             imageUrl: "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/static/category-images/noi_that_phong_khach.png",
+            path: "/",
+        },
+        {
+            label: "Đèn",
+            imageUrl: "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/static/category-images/den.jpeg",
             path: "/",
         },
         {
@@ -86,7 +101,7 @@ const CategorySlider: React.FC = () => {
                     onNextClick={scrollRight}
                 />
             </div>
-            <div className="max-w-screen bg-gray-200 rounded-2xl">
+            <div className="max-w-screen bg-[#F1F1F1] rounded-2xl">
                 <div ref={sliderRef} className="flex space-x-8 overflow-x-hidden">
                     {categories.map((item) => (
                         <CategoryCard
