@@ -113,7 +113,7 @@ $item-gap: 20px;
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background-color: var(--color-gray-less-light);
+    background-color: var(--color-gray-less-light) !important;
     border: none;
     display: flex;
     justify-content: center;
@@ -125,7 +125,7 @@ $item-gap: 20px;
     }
 
     &--selected {
-      background-color: var(--color-primary);
+      background-color: var(--color-primary) !important;
     }
   }
 
