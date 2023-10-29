@@ -85,7 +85,8 @@ const Overview = ({ data }: OverviewProps) => {
   const handleVariantChange = () => {
     const newOverviewData = data.product_variants.find(
       (item) =>
-        item.color.value === selectedColor && item.material === selectedMaterial
+        item.color?.value === selectedColor &&
+        item.material === selectedMaterial
     );
     if (newOverviewData) {
       setOverviewData(newOverviewData);
@@ -95,7 +96,7 @@ const Overview = ({ data }: OverviewProps) => {
 
   const handleVariantChangeMaterialNull = () => {
     const newOverviewData = data.product_variants.find(
-      (item) => item.color.value === selectedColor
+      (item) => item.color?.value === selectedColor
     );
     setOverviewData(newOverviewData);
     setSelectedQuantity(1);
