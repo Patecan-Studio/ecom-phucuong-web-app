@@ -22,7 +22,10 @@ const ProductsSubContent = ({ products, productsRef }: any) => {
                 discountRatio={product.discount_percentage}
                 discountPrice={product.discount_price}
                 isNew={true}
-                brandImage={product.product_brand.brand_logoUrl || "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/static/logo_phucuong_new"}
+                brandImage={
+                  product.product_brand?.brand_logoUrl ||
+                  "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/static/logo_phucuong_new"
+                }
                 productSlug={product._id}
               />
             </Link>
