@@ -7,7 +7,7 @@ import Link from "next/link";
 const ProductImage = ({
   isNew,
   image,
-  discountRatio,
+  discountPercentage,
   productSlug,
 }: ProductImageProps) => {
   return (
@@ -23,7 +23,7 @@ const ProductImage = ({
           fetchPriority="high"
           loading="eager"
         />
-        <ProductStatus isNew={isNew} discountRatio={discountRatio} />
+        <ProductStatus isNew={isNew} discountPercentage={discountPercentage} />
         {/* </a> */}
       </Link>
     </div>

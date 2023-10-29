@@ -19,7 +19,7 @@ const ProductsSubContent = ({ products, productsRef }: any) => {
                 name={product.product_name}
                 image={product.product_banner_image}
                 price={product.price}
-                discountRatio={product.discount_percentage}
+                discountPercentage={product.discount_percentage}
                 discountPrice={product.discount_price}
                 isNew={true}
                 brandImage={

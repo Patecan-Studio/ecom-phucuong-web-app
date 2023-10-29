@@ -9,7 +9,7 @@ const Product = ({
   name,
   image,
   price,
-  discountRatio,
+  discountPercentage,
   discountPrice,
   isNew,
   brandImage,
@@ -21,7 +21,7 @@ const Product = ({
         <ProductImage
           isNew={isNew}
           image={image}
-          discountRatio={discountRatio}
+          discountPercentage={discountPercentage}
           productSlug={productSlug}
         />
         <ProductInfo name={name} discountPrice={discountPrice} price={price} />
