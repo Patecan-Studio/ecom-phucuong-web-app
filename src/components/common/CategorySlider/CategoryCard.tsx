@@ -1,13 +1,13 @@
 import React from 'react';
 
-interface ProductCardProps {
+interface CategoryCardProps {
     imageUrl: string;
     altText: string;
     productName: string;
 
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({
+const CategoryCard: React.FC<CategoryCardProps> = ({
                                                      imageUrl,
                                                      altText,
                                                      productName,
@@ -27,4 +27,4 @@ const ProductCard: React.FC<ProductCardProps> = ({
     );
 };
 
-export default ProductCard;
+export default CategoryCard;

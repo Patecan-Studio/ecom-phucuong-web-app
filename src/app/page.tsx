@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import SaleBanner from "@/components/common/SaleBanner/SaleBanner";
 import ProductCardSlider from "@/components/common/CategorySlider/CategorySlider";
 import React from "react";
+import CategorySlider from "@/components/common/CategorySlider/CategorySlider";
 
 export default function Home({
                                  searchParams,
@@ -20,7 +21,7 @@ export default function Home({
                 pageSize={8}
                 q={searchParams.q ? searchParams.q : ""}
             />
-            <ProductCardSlider/>
+            <CategorySlider/>
             <div
                 style={{
                     backgroundColor: "white",

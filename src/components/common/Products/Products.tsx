@@ -10,7 +10,7 @@ const getProducts = async (
 ) => {
     try {
         const response = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/products?category=${category?category: "all"}&page=${page}&page_size=${pageSize}&q=${q}`
+            `${process.env.NEXT_PUBLIC_API_URL}/products?category=${category?category: "all"}&page=${page}&page_size=${pageSize}&q=${q}&time=${new Date().getTime()}`
         );
         const data = await response.json();
         return data;

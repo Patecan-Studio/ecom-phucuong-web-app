@@ -1,14 +1,11 @@
 "use client";
 import React, {useRef} from 'react';
-import ProductCard from "@/components/common/CategorySlider/CategoryCard";
-import ProductSliderButton from "@/components/common/CategorySlider/ProductSliderButton";
-import LogoIcon from "@/components/common/Icons/LogoIcon";
 import ProductsTitle from "@/components/common/Products/ProductsTitle";
 import ProductsButtons from "@/components/common/Products/ProductsButtons/ProductsButtons";
-import Link from "next/link";
-import TabbarDropdown from "@/components/common/Tabbar/TabbarDropdown";
+import CategoryCard from "@/components/common/CategorySlider/CategoryCard";
 
-const ProductSlider: React.FC = () => {
+
+const CategorySlider: React.FC = () => {
     const categories = [
         {
             label: "Giường",
@@ -92,7 +89,7 @@ const ProductSlider: React.FC = () => {
             <div className="max-w-screen bg-gray-200 rounded-2xl">
                 <div ref={sliderRef} className="flex space-x-8 overflow-x-hidden">
                     {categories.map((item) => (
-                        <ProductCard
+                        <CategoryCard
                             key={item.label}
                             imageUrl={item.imageUrl}
                             altText={item.label}
@@ -107,4 +104,4 @@ const ProductSlider: React.FC = () => {
      );
 };
 
-export default ProductSlider;
+export default CategorySlider;
