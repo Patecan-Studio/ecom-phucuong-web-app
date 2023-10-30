@@ -414,7 +414,7 @@ const TabbarSecondary = () => {
                 {menu.map((item) => (
                     <div key={item.label}>
                         <div className="tabbar--secondary__item">
-                            <Link className="tabbar--secondary__link tracking-tight text-black" href={item.path}>
+                            <Link className="tabbar--secondary__link tracking-tight" href={item.path}>
                                 {item.label}
                             </Link>
                         </div>

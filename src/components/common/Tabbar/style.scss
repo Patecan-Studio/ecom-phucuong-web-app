@@ -228,9 +228,10 @@
 
   &--secondary {
     background-color: var(--color-primary);
+    padding: 0 20px;
     position: relative;
     margin: auto;
-    max-width: 1410px;
+    // max-width: 1410px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -338,10 +339,6 @@
 
   @include below1440inclusive {
     max-width: 1140px;
-
-    &--secondary {
-      max-width: 1140px;
-    }
   }
 
   @include below1200inclusive {
