@@ -1,0 +1,5 @@
+@import "@/styles/responsives.scss";
+
+.category-slider {
+  @include responsiveContainer;
+}
