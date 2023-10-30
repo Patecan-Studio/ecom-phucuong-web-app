@@ -4,6 +4,7 @@ import SaleBanner from "@/components/common/SaleBanner/SaleBanner";
 import ProductCardSlider from "@/components/common/CategorySlider/CategorySlider";
 import React from "react";
 import CategorySlider from "@/components/common/CategorySlider/CategorySlider";
+import { Blog } from "@/components/composite";
 
 export default function Home({
                                  searchParams,
@@ -22,12 +23,7 @@ export default function Home({
                 q={searchParams.q ? searchParams.q : ""}
             />
             <CategorySlider/>
-            <div
-                style={{
-                    backgroundColor: "white",
-                    color: "black",
-                }}
-            ></div>
+            <Blog />
         </main>
     );
 }

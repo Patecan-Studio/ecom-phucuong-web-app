@@ -3,6 +3,7 @@ import React, {useRef} from 'react';
 import ProductsTitle from "@/components/common/Products/ProductsTitle";
 import ProductsButtons from "@/components/common/Products/ProductsButtons/ProductsButtons";
 import CategoryCard from "@/components/common/CategorySlider/CategoryCard";
+import './styles.scss'
 
 
 const CategorySlider: React.FC = () => {
@@ -93,7 +94,7 @@ const CategorySlider: React.FC = () => {
 
 
     return (
-        <div className={"mx-4"}>
+        <div className="category-slider mx-4 mb-8">
             <div className="products__content--top">
                 <ProductsTitle title={"Khám phá sản phẩm"} />
                 <ProductsButtons
