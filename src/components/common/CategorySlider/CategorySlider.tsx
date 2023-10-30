@@ -34,7 +34,7 @@ const CategorySlider: React.FC = () => {
         },
         {
             label: "Nệm",
-            imageUrl: `https://n${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/nem.jpeg`,
+            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/nem.jpeg`,
             path: "/",
         },
         {
