@@ -32,7 +32,6 @@ const TabbarSecondary = () => {
                     list: [
                         {name: "Giường", path: createCategoryPath('653b4e1a85e86f091c56cb2e')},
                         {name: "Tab đầu giường", path: createCategoryPath('653b4e2885e86f091c56cb32')},
-                        {name: "Hộp lưu trữ", path: createCategoryPath('653b4e3885e86f091c56cb36')},
                         {name: "Bàn trang điểm", path: createCategoryPath('653b4e4885e86f091c56cb3a')},
                         {name: "Tủ quần áo", path: createCategoryPath('653b4e5485e86f091c56cb3e')}
                     ],
