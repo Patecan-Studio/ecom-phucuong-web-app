@@ -87,11 +87,11 @@ const TabbarSecondary = () => {
                 {
                     label: {name: "Bồn cầu", path: createCategoryPath('653b556090f7fb2f9cfdd170')},
                     list: [
-                        {name: "Bồn cầu liền khối", path: createCategoryPath('653b558e90f7fb2f9cfdd174')},
+                        {name: "Bồn cầu 1 khối", path: createCategoryPath('653b558e90f7fb2f9cfdd174')},
                         {name: "Bồn cầu 2 khối", path: createCategoryPath('653b55b690f7fb2f9cfdd178')},
                         {name: "Bồn cầu xả thẳng", path: createCategoryPath('653b55c590f7fb2f9cfdd17c')},
                         {name: "Bồn cầu xả xoáy", path: createCategoryPath('653b55d490f7fb2f9cfdd180')},
-                        {name: "Bồn cầu xả vành rim", path: createCategoryPath('653b55e690f7fb2f9cfdd184')},
+                        {name: "Bồn cầu xả thông minh", path: createCategoryPath('653b55e690f7fb2f9cfdd184')},
                         {name: "Bồn cầu treo tường", path: createCategoryPath('653b55ff90f7fb2f9cfdd188')},
                         {name: "Năp bồn cầu", path: createCategoryPath('653b5cb890f7fb2f9cfdd268')}
                     ],
@@ -397,13 +397,10 @@ const TabbarSecondary = () => {
         {
             label: "Dịch vụ", path: createCategoryPath(''), dropdownMenu: [
                 {
-                    label: {name: "Nhà ở", path: createCategoryPath('653b60b190f7fb2f9cfdd318')},
-                    list: []
-                }, {
                     label: {name: "Bảo hành", path: createCategoryPath('653f7a38b1f514ff31bcddb4')},
                     list: []
                 }, {
-                    label: {name: "Bảo hành", path: createCategoryPath('653f7a4db1f514ff31bcddb5')},
+                    label: {name: "Bảo trì", path: createCategoryPath('653f7a4db1f514ff31bcddb5')},
                     list: []
                 }, {
                     label: {name: "Vệ sinh", path: createCategoryPath('653f7a60b1f514ff31bcddb6')},
