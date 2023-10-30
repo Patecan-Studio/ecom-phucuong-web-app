@@ -204,6 +204,12 @@
     span {
       font-weight: 800;
     }
+
+    @include below576inclusive {
+      position: unset;
+      margin-bottom: 10px;
+      width: fit-content;
+    }
   }
 
   &__price {
