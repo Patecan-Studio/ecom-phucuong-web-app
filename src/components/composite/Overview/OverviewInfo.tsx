@@ -13,7 +13,6 @@ const OverviewInfo = ({
   quantity,
   categories,
 }: OverviewInfoProps) => {
-  console.log("OverviewInfo", categories);
   return (
     <div className="overview__info">
       <h1 className="overview__name">{name}</h1>
