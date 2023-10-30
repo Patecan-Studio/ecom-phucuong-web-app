@@ -22,7 +22,7 @@ const TabbarSecondary = () => {
                         {name: "Bàn góc", path: createCategoryPath('653b4d1385e86f091c56cb12')},
                         {name: "Bàn trà", path: createCategoryPath('653b4d2485e86f091c56cb16')},
                         {name: "Bàn coffee", path: createCategoryPath('653b4d3785e86f091c56cb1a')},
-                        {name: "Table side", path: createCategoryPath('653b4d4685e86f091c56cb1e')},
+                        {name: "Side Table", path: createCategoryPath('653b4d4685e86f091c56cb1e')},
                         {name: "Kệ tivi", path: createCategoryPath('653b4d5d85e86f091c56cb22')},
                         {name: "Tủ đa năng", path: createCategoryPath('653b4d6b85e86f091c56cb26')},
                     ],
