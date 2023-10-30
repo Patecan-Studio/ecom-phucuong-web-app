@@ -2,6 +2,7 @@ import React from "react";
 import './styles.scss'
 import BlogTitle from "./BlogTitle";
 import BlogContentDesktop from "./BlogContentDesktop";
+import BlogContentMobile from "./BlogContentMobile";
 
 
 // always get only top 3 items
@@ -36,6 +37,7 @@ const Blog = () => {
   return <div className="blog">
     <BlogTitle title="Tin tức & sự kiện"/>
     <BlogContentDesktop blogs={blogList} blogType={blogList[0].type}/>
+    <BlogContentMobile blogs={blogList} blogType={blogList[0].type}/>
   </div>;
 };
 

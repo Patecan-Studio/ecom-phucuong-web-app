@@ -14,6 +14,109 @@
       justify-content: space-between;
       margin-top: 50px;
       height: 700px;
+
+      @include below1200inclusive {
+        display: none;
+      }
+    }
+
+    &--mobile {
+      display: none;
+      background-color: var(--color-gray-light);
+
+      @include below1200inclusive {
+        display: block;
+      }
+
+      @include below768inclusive {
+        background-color: var(--color-white);
+      }
+
+      .blog__item {
+        display: flex;
+        align-items: center;
+
+        &:nth-child(2) {
+          flex-direction: row-reverse;
+        }
+
+        @include below768inclusive {
+          flex-direction: column;
+
+          &:nth-child(2) {
+            flex-direction: column;
+          }
+        }
+      }
+    }
+  }
+
+  &__item {
+    @include below768inclusive {
+      margin-bottom: 20px;
+    }    
+
+    &__texts {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 38px 30px 50px;
+      background-color: var(--color-gray-light);
+      width: 50%;
+      height: 100%;
+
+      @include below992inclusive {
+        padding: 20px 30px;
+      }
+
+      @include below768inclusive {
+        width: 100%;
+      }
+    }
+
+    &__type {
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    &__date {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__title {
+      max-width: 270px;
+      padding-right: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      font-weight: 700;
+      font-size: 22px;
+      margin-bottom: 25px;
+    }
+
+    &__image {
+      width: 50%;
+      cursor: pointer;
+      overflow: hidden;
+      
+      @include below768inclusive {
+        width: 100%;
+      }
+
+      img {
+        transition: all 0.2s ease-in-out;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
     }
   }
 
@@ -28,17 +131,9 @@
       &__image {
         width: 100%;
         height: 100%;
-        cursor: pointer;
-        overflow: hidden;
-        
+
         img {
-          transition: all 0.2s ease-in-out;
           width: 100%;
-          height: 100%;
-          object-fit: cover;
-          &:hover {
-            transform: scale(1.1);
-          }
         }
       }
 
@@ -48,15 +143,11 @@
         position: absolute;
         left: 0;
         bottom: 0;
-        padding: 40px 38px 30px 50px;
-        width: 50%;
         height: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
 
         svg {
           fill: var(--color-white);
+
           path {
             stroke: var(--color-white);
           }
@@ -67,29 +158,8 @@
         }
       }
 
-      &__type {
-        text-transform: uppercase;
-        margin-bottom: 25px;
-      }
-
       &__title {
         text-transform: uppercase;
-        max-width: 270px;
-        padding-right: 10px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        font-weight: 700;
-        font-size: 22px;
-        margin-bottom: 25px;
-      }
-
-      &__date {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
       }
     }
   }
@@ -106,54 +176,6 @@
 
       &:last-child {
         flex-direction: row-reverse;
-      }
-
-      &__image {
-        height: 100%;
-        width: 50%;
-        cursor: pointer;
-        overflow: hidden;
-        
-        img {
-          transition: all 0.2s ease-in-out;
-          height: 100%;
-          object-fit: cover;
-          &:hover {
-            transform: scale(1.1);
-          }
-        }
-      }
-      
-      &__texts {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 40px 38px 30px 50px;
-      }
-
-      &__type {
-        text-transform: uppercase;
-        margin-bottom: 25px;
-      }
-
-      &__title {
-        max-width: 270px;
-        padding-right: 10px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        font-weight: 700;
-        font-size: 22px;
-        margin-bottom: 25px;
-      }
-
-      &__date {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
       }
     }
   }
