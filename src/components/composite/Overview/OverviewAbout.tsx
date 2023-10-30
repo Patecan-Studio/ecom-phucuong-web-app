@@ -91,7 +91,7 @@ const OverviewAbout = ({
                 </div>
             </div>
         )}
-        {weight.match(/\d+/) && length.match(/\d+/)![0] !== '0' && (
+        {weight.match(/\d+/) && weight.match(/\d+/)![0] !== '0' && (
             <div className="overview__about__list">
                 <h5 className="overview__about__list__title">Trọng lượng</h5>
                 <div className="overview__about__items">
