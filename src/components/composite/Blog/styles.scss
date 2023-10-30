@@ -1,0 +1,52 @@
+@import "@/styles/responsives.scss";
+@import "@/styles/common.scss";
+
+.blog {
+  @include responsiveContainer;
+
+  &__title {
+    @include containerTitle;
+  }
+
+  &__content {
+    &--desktop {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+    }
+  }
+
+  &__left {
+    border: 1px solid red;
+    width: 50%;
+
+    .blog__item {
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      &__image {
+        width: 100%;
+        height: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &__texts {
+        background-color: var(--color-white);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+  &__right {
+    border: 1px solid blue;
+    width: 50%;
+  }
+}

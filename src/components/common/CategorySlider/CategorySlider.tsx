@@ -93,7 +93,7 @@ const CategorySlider: React.FC = () => {
 
 
     return (
-        <div className={"mx-4"}>
+        <div className={"mx-4 mb-8"}>
             <div className="products__content--top">
                 <ProductsTitle title={"Khám phá sản phẩm"} />
                 <ProductsButtons
