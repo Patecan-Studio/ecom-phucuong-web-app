@@ -6,50 +6,50 @@ const categoryList = [
   {
     imgUrl:
       "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/outside.png",
-    cateName: "Ngoài trời",
-    id: "6535548433cf7373f9c93881",
+    cateName: "Sofa",
+    id: "653b4f1d85e86f091c56cb76",
   },
   {
     imgUrl:
       "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/living-room.png",
     cateName: "Phòng Khách",
-    id: "653554ac33cf7373f9c93885",
+    id: "653b4c7085e86f091c56cb06",
   },
   {
     imgUrl:
       "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/kitchen.jpg",
     cateName: "Phòng Bếp",
-    id: "653554c933cf7373f9c93889",
+    id: "653b5f5590f7fb2f9cfdd2b0",
   },
   {
     imgUrl:
       "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/office.jpg",
-    cateName: "Văn Phòng",
-    id: "653554f333cf7373f9c9388d",
+    cateName: "Phòng làm việc",
+    id: "653b4eb685e86f091c56cb5a",
   },
   {
     imgUrl:
       "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/decor.jpg",
-    cateName: "Sản Phẩm Trang Trí",
-    id: "6535551033cf7373f9c93891",
+    cateName: "Phụ kiện khác",
+    id: "653b600e90f7fb2f9cfdd2e8",
   },
   {
     imgUrl:
       "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/bed-room.jpg",
     cateName: "Phòng Ngủ",
-    id: "6535552d33cf7373f9c93895",
+    id: "653b4e0d85e86f091c56cb2a",
   },
   {
     imgUrl:
       "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/light.jpg",
-    cateName: "Giải Pháp Chiếu Sáng",
-    id: "6535555333cf7373f9c93899",
+    cateName: "Đèn trang trí nội thất",
+    id: "653b603890f7fb2f9cfdd2f4",
   },
   {
     imgUrl:
       "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/homepage/mateiral.jpg",
-    cateName: "Vật Liệu Hoàn Thiện",
-    id: "6535557833cf7373f9c9389d",
+    cateName: "Gạch trang trí",
+    id: "653b5f7d90f7fb2f9cfdd2bc",
   },
 ];
 const CategorySection = () => {
