@@ -244,6 +244,27 @@
     }
   }
 
+  &__categories {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-gray-less-light);
+    margin-bottom: 20px;
+  }
+
+  &__category {
+    padding: 0 10px;
+    border-right: 2px solid var(--color-gray-less-light);
+
+    &:hover {
+      color: var(--color-primary);
+    }
+
+    &:last-child {
+      border-right: unset;
+    }
+  }
+
   &__order {
     display: flex;
     gap: 20px;

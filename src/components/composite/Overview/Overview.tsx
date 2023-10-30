@@ -37,6 +37,9 @@ const Overview = ({ data }: OverviewProps) => {
   const [overviewData, setOverviewData] = React.useState(
     JSON.parse(JSON.stringify(data.product_variants[0]))
   );
+
+  const [categories, setCategories] = useState(data.product_categories);
+
   const [enabledButtons, setEnabledButtons] = useState({});
   let dictionary: { [key: string]: string[] } = Object.create(null);
 
@@ -167,6 +170,7 @@ const Overview = ({ data }: OverviewProps) => {
           productCode={overviewData?.sku || ""}
           brand={overviewData ? data.product_brand?.brand_name || "" : ""}
           quantity={overviewData?.quantity || 0}
+          categories={categories.slice(0, 3)}
         />
         <div className="overview__order">
           <div className="overview__order__left">

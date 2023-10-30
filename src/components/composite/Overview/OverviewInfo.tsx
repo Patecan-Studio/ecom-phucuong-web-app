@@ -1,6 +1,7 @@
 import React from "react";
 import { OverviewInfoProps } from "./types";
 import { convertToCurrencyFormat } from "@/share/utils/utils";
+import Link from "next/link";
 
 const OverviewInfo = ({
   name,
@@ -10,7 +11,9 @@ const OverviewInfo = ({
   productCode,
   brand,
   quantity,
+  categories,
 }: OverviewInfoProps) => {
+  console.log("OverviewInfo", categories);
   return (
     <div className="overview__info">
       <h1 className="overview__name">{name}</h1>
@@ -34,6 +37,20 @@ const OverviewInfo = ({
           Thương hiệu: <span>{brand}</span>
         </div>
       </div>
+
+      <div className="overview__categories">
+        Loại sản phẩm:
+        {categories.map((category) => (
+          <Link
+            href={`/products?category=${category._id}`}
+            className="overview__category"
+            key={category._id}
+          >
+            {category.category_name}
+          </Link>
+        ))}
+      </div>
+
       <div className="overview__quantity--info">
         Số lượng còn lại: {quantity}
       </div>

@@ -36,7 +36,7 @@ interface Product {
   product_description: string;
   product_brand: ProductBrand;
   product_type: string;
-  product_categories: ProductCategories;
+  product_categories: ProductCategories[];
   product_materials: string[];
   product_colors: string[];
   product_banner_image: string;
@@ -109,6 +109,7 @@ export interface OverviewInfoProps {
   productCode: string;
   brand: string;
   quantity: number;
+  categories: ProductCategories[];
 }
 
 export interface OverviewPolicyProps {
