@@ -10,26 +10,31 @@ const blogList = [
   {
     id: 1,
     type: "Xu hướng và phong cách",
-    title: "5 gợi ý thiết kế nội thất hiện đại sang trọng cho căn hộ của bạn",
+    title: "Lấy cảm hứng từ vẻ đẹp tự nhiên của cỏ cây kết hợp với phong cách Tây Âu tạo nên một văn phòng có ấn tượng đặc biệt. Mỗi nơi đều biết cách tỏa sáng, tự làm nổi bật theo cách riêng của mình.\n" +
+        "\n" +
+        "Nơi làm việc không còn đơn điệu nhàm chán bằng cách sử dụng cây xanh décor. Các chậu cây mini xanh mướt đặt trên giá ngăn vừa mang đến vẻ đẹp cho không gian vừa giúp chia tách không gian hợp lý. ",
     link: "https://www.google.com/",
-    image: "https://picsum.photos/390/300",
-    date: "10, tháng 05, 2022",
+    image: "https://crafurni.com/wp-content/uploads/2023/07/Equilibrio-entre-vida-privada-y-trabajo.png",
+    date: "14, tháng 07, 2023",
   },
   {
     id: 2,
     type: "Xu hướng và phong cách",
-    title: "Gặp gỡ thương hiệu cao cấp, nội thất ngoài trời, chỉ có tại Buildy",
+    title: "Các đường thẳng đứng mang lại cho mọi người cảm giác đối xứng thị giác thẩm mỹ. Với đệm mềm và lưng vừa phải, tiện dụng và phù hợp với mọi người. Trong khi người tiêu dùng thưởng thức các món ngon tại nhà hàng đồng thời cũng có thể cảm nhận được sự thoải mái trong cơ thể từ ghế ăn Crane.",
     link: "https://www.google.com/",
-    image: "https://picsum.photos/390/300",
-    date: "10, tháng 05, 2022",
+    image: "https://crafurni.com/wp-content/uploads/2023/04/z4252844864982_861036e34395972797109a3517e64da5.jpg",
+    date: "10, tháng 04, 2023",
   },
   {
     id: 3,
     type: "Xu hướng và phong cách",
-    title: "Khám phá xu hướng nội thất mây – nét Việt Nam đương đại",
+    title: " Với thiết kế cho phép ánh sáng chiếu trực tiếp vào sảnh,làm cho ánh sáng mặt trời có tầm nhìn tự nhiên.\n" +
+        "\n" +
+        "Với sự khéo léo của ghế Rabbit và Travertine. Nó xác định lại ranh giới của vật liệu và không gian, truyền tải vẻ đẹp, kết cấu của nghề thủ công.\n" +
+        "\n",
     link: "https://www.google.com/",
-    image: "https://picsum.photos/390/300",
-    date: "10, tháng 05, 2022",
+    image: "https://crafurni.com/wp-content/uploads/2023/04/z4252845805005_44e425514a086678593a459637da0e95.jpg",
+    date: "10, tháng 05, 2023",
   },
 ]
 
