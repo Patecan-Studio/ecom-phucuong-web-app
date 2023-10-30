@@ -3,6 +3,7 @@ import React, {useRef} from 'react';
 import ProductsTitle from "@/components/common/Products/ProductsTitle";
 import ProductsButtons from "@/components/common/Products/ProductsButtons/ProductsButtons";
 import CategoryCard from "@/components/common/CategorySlider/CategoryCard";
+import './styles.scss'
 
 
 const CategorySlider: React.FC = () => {
@@ -34,7 +35,7 @@ const CategorySlider: React.FC = () => {
         },
         {
             label: "Nệm",
-            imageUrl: `https://n${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/nem.jpeg`,
+            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/nem.jpeg`,
             path: "/",
         },
         {
@@ -93,7 +94,7 @@ const CategorySlider: React.FC = () => {
 
 
     return (
-        <div className={"mx-4"}>
+        <div className="category-slider mx-4 mb-8">
             <div className="products__content--top">
                 <ProductsTitle title={"Khám phá sản phẩm"} />
                 <ProductsButtons
