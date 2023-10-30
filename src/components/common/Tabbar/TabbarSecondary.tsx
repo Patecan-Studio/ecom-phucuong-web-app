@@ -93,6 +93,7 @@ const TabbarSecondary = () => {
                         {name: "Bồn cầu xả xoáy", path: createCategoryPath('653b55d490f7fb2f9cfdd180')},
                         {name: "Bồn cầu xả vành rim", path: createCategoryPath('653b55e690f7fb2f9cfdd184')},
                         {name: "Bồn cầu treo tường", path: createCategoryPath('653b55ff90f7fb2f9cfdd188')},
+                        {name: "Năp bồn cầu", path: createCategoryPath('653b5cb890f7fb2f9cfdd268')}
                     ],
                 },
                 {
@@ -129,10 +130,6 @@ const TabbarSecondary = () => {
                         {name: "Bồn tắm Massage", path: createCategoryPath('653b5c9690f7fb2f9cfdd260')},
                         {name: "Bồn tắm đứng", path: createCategoryPath('653b5ca690f7fb2f9cfdd264')}
                     ],
-                },
-                {
-                    label: {name: "Năp bồn cầu", path: createCategoryPath('653b5cb890f7fb2f9cfdd268')},
-                    list: [],
                 },
             ]
         },
@@ -241,16 +238,7 @@ const TabbarSecondary = () => {
                         {name: "Gỗ MDF", path: createCategoryPath('653b62d590f7fb2f9cfdd398')},
                         {name: "Gỗ MFC", path: createCategoryPath('653b62df90f7fb2f9cfdd39c')}
                     ],
-                }, {
-                    label: {name: "Sàn và tường", path: createCategoryPath('653b5fb490f7fb2f9cfdd2cc')},
-                    list: [
-                        {name: "Sàn gác lửng", path: createCategoryPath('653b62f290f7fb2f9cfdd3a0')},
-                        {name: "Sàn nâng", path: createCategoryPath('653b62fd90f7fb2f9cfdd3a4')},
-                        {name: "Tường chịu ẩm chống cháy", path: createCategoryPath('653b630790f7fb2f9cfdd3a8')},
-                        {name: "Tường chống cháy", path: createCategoryPath('653b631190f7fb2f9cfdd3ac')},
-                        {name: "Tường ốp tấm vân gỗ", path: createCategoryPath('653b631d90f7fb2f9cfdd3b0')}
-                    ],
-                },
+                }
             ]
         },
         {
@@ -392,7 +380,35 @@ const TabbarSecondary = () => {
                 }, {
                     label: {name: "Chung cư", path: createCategoryPath('653b60dc90f7fb2f9cfdd328')},
                     list: []
+                },
+                {
+                    label: {name: "Khách sạn", path: createCategoryPath('653f7994b1f514ff31bcddb1')},
+                    list: []
+                },{
+                    label: {name: "Villa", path: createCategoryPath('653f79cbb1f514ff31bcddb2')},
+                    list: []
+                },
+                {
+                    label: {name: "Nhà máy", path: createCategoryPath('653f79e3b1f514ff31bcddb3')},
+                    list: []
                 }
+            ]
+        },
+        {
+            label: "Dịch vụ", path: createCategoryPath(''), dropdownMenu: [
+                {
+                    label: {name: "Nhà ở", path: createCategoryPath('653b60b190f7fb2f9cfdd318')},
+                    list: []
+                }, {
+                    label: {name: "Bảo hành", path: createCategoryPath('653f7a38b1f514ff31bcddb4')},
+                    list: []
+                }, {
+                    label: {name: "Bảo hành", path: createCategoryPath('653f7a4db1f514ff31bcddb5')},
+                    list: []
+                }, {
+                    label: {name: "Vệ sinh", path: createCategoryPath('653f7a60b1f514ff31bcddb6')},
+                    list: []
+                },
             ]
         },
     ];
