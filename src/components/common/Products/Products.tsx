@@ -22,9 +22,6 @@ const getProducts = async (
 const Products = async ({category, productsTitle, page, pageSize, q}: any) => {
     const currentPage = page ? page : 1;
     const data = await getProducts(category, currentPage, pageSize, q);
-    console.log("=============================================================")
-    console.log(data)
-    console.log("=============================================================")
     const totalPage = data.total_page;
     return (
         <div className="products font-bold">
