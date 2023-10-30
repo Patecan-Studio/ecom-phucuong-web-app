@@ -14,7 +14,7 @@ const defaultCategory = {
     {
       imageName: "Tất cả sản phẩm",
       imageUrl:
-        "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/category/Living-room-in-amagansett-beach-house.webp",
+        `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/category/Living-room-in-amagansett-beach-house.webp`,
       _id: "6532144232d913fecc48e401",
     },
   ],

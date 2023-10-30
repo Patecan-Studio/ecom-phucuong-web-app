@@ -24,7 +24,7 @@ const ProductsSubContent = ({ products, productsRef }: any) => {
                 isNew={true}
                 brandImage={
                   product.product_brand?.brand_logoUrl ||
-                  "https://nuwwaqzrwtilsxbajubq.supabase.co/storage/v1/object/public/images/static/logo_phucuong_new"
+                  `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/logo_phucuong_new`
                 }
                 productSlug={product._id}
               />
