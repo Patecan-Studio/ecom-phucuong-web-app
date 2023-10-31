@@ -14,7 +14,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
 
                                                  }) => {
     return (
-        <div className="flex-none w-48 hover:bg-white transition duration-300 ease-in-out m-2 rounded-2xl">
+        <div className="category-card flex-none w-48 rounded-2xl">
             <div className="p-2 rounded-lg overflow-hidden flex-none">
 
                     <img src={imageUrl} alt={altText} />
