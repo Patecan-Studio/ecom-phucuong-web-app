@@ -4,3 +4,22 @@
   @include responsiveContainer;
   margin-bottom: 50px;
 }
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: var(--color-white);
+  transition: all 0.3s ease-in-out;
+  padding: 10px;
+
+  &:hover {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  img {
+    border-radius: 10px;
+  }
+}
