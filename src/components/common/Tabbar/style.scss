@@ -3,13 +3,15 @@
 .tabbar-container,
 .tabbar--secondary-container {
   width: 100%;
+
 }
 
 .tabbar--secondary-container {
   width: 100%;
   border-top: 1px solid var(--color-platinum);
-  background-color: var(--color-primary);
+  background-color: var(--color-gray-secondary);
 }
+
 
 .tabbar {
   display: flex;
@@ -210,7 +212,7 @@
   }
 
   &--secondary {
-    background-color: var(--color-primary);
+    background-color: var(--color-gray-secondary);
     padding: 0 20px;
     position: relative;
     margin: auto;
@@ -232,11 +234,11 @@
     &__link {
       transition: all 0.2s ease-in-out;
       width: 100%;
-      color: var(--color-text-primary);
+      color: var(--color-text-black);
     }
 
     &__item {
-      background-color: var(--color-primary);
+      background-color: var(--color-gray-secondary);
       z-index: 1;
       height: 100%;
       position: relative;
