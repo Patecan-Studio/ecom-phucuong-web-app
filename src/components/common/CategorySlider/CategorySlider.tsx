@@ -10,47 +10,47 @@ const CategorySlider: React.FC = () => {
     const categories = [
         {
             label: "Giường",
-            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/giuong.jpeg`,
+            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL || 'djwgwcdcgfsknzddrchp'}.supabase.co/storage/v1/object/public/images/static/category-images/giuong.jpeg`,
             path: "/",
         },
         {
             label: "Sofa",
-            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/sofa.png`,
+            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL || 'djwgwcdcgfsknzddrchp'}.supabase.co/storage/v1/object/public/images/static/category-images/sofa.png`,
             path: "/",
         },
         {
             label: "Bếp",
-            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/bep.png`,
+            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL || 'djwgwcdcgfsknzddrchp'}.supabase.co/storage/v1/object/public/images/static/category-images/bep.png`,
             path: "/",
         },
         {
             label: "Ghế Gaming",
-            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/ghe_gaming.jpeg`,
+            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL || 'djwgwcdcgfsknzddrchp'}.supabase.co/storage/v1/object/public/images/static/category-images/ghe_gaming.jpeg`,
             path: "/",
         },
         {
             label: "Phụ kiện cho bé",
-            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/phu_kien_cho_be.jpeg`,
+            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL || 'djwgwcdcgfsknzddrchp'}.supabase.co/storage/v1/object/public/images/static/category-images/phu_kien_cho_be.jpeg`,
             path: "/",
         },
         {
             label: "Nệm",
-            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/nem.jpeg`,
+            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL || 'djwgwcdcgfsknzddrchp'}.supabase.co/storage/v1/object/public/images/static/category-images/nem.jpeg`,
             path: "/",
         },
         {
             label: "Nội thất phòng khách",
-            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/noi_that_phong_khach.png`,
+            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL || 'djwgwcdcgfsknzddrchp'}.supabase.co/storage/v1/object/public/images/static/category-images/noi_that_phong_khach.png`,
             path: "/",
         },
         {
             label: "Đèn",
-            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/den.jpeg`,
+            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL || 'djwgwcdcgfsknzddrchp'}.supabase.co/storage/v1/object/public/images/static/category-images/den.jpeg`,
             path: "/",
         },
         {
             label: "Ghế bành",
-            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/ghe_banh.png`,
+            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL || 'djwgwcdcgfsknzddrchp'}.supabase.co/storage/v1/object/public/images/static/category-images/ghe_banh.png`,
             path: "/",
         },
         {
@@ -60,7 +60,7 @@ const CategorySlider: React.FC = () => {
         },
         {
             label: "Tủ quần áo",
-            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/tu_quan_ao.jpeg`,
+            imageUrl: `https://${process.env.SUPABSE_STORAGE_URL || 'djwgwcdcgfsknzddrchp'}.supabase.co/storage/v1/object/public/images/static/category-images/tu_quan_ao.jpeg`,
             path: "/",
         },
 
