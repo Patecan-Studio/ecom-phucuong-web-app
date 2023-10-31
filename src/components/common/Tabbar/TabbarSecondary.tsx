@@ -62,7 +62,7 @@ const TabbarSecondary = () => {
                         {name: "Sofa đơn", path: createCategoryPath('653b4f2b85e86f091c56cb7a')},
                         {name: "Sofa băng", path: createCategoryPath('653b4f3785e86f091c56cb7e')},
                         {name: "Sofa góc", path:createCategoryPath('653b4f4485e86f091c56cb82')},
-                        {name: "Sofa bed", path: createCategoryPath('653b4f5085e86f091c56cb86')},
+                        {name: "Sofa Giường", path: createCategoryPath('653b4f5085e86f091c56cb86')},
                         {name: "Đôn sofa", path: createCategoryPath('653b4f5c85e86f091c56cb8a')}
                     ],
                 },
@@ -91,7 +91,7 @@ const TabbarSecondary = () => {
                         {name: "Bồn cầu xả xoáy", path: createCategoryPath('653b55d490f7fb2f9cfdd180')},
                         {name: "Bồn cầu xả thông minh", path: createCategoryPath('653b55e690f7fb2f9cfdd184')},
                         {name: "Bồn cầu treo tường", path: createCategoryPath('653b55ff90f7fb2f9cfdd188')},
-                        {name: "Năp bồn cầu", path: createCategoryPath('653b5cb890f7fb2f9cfdd268')}
+                        {name: "Nắp bồn cầu", path: createCategoryPath('653b5cb890f7fb2f9cfdd268')}
                     ],
                 },
                 {
@@ -176,11 +176,36 @@ const TabbarSecondary = () => {
                         {name: "Bếp từ", path: createCategoryPath('653b610f90f7fb2f9cfdd330')},
                         {name: "Bếp gas", path: createCategoryPath('653b611c90f7fb2f9cfdd334')},
                         {name: "Bếp kết hợp", path: createCategoryPath('653b612790f7fb2f9cfdd338')},
-                        {name: "Hút mùi", path: createCategoryPath('653b613390f7fb2f9cfdd33c')},
-                        {name: "Lò vi sóng", path: createCategoryPath('653b614390f7fb2f9cfdd340')},
-                        {name: "Lò nướng", path: createCategoryPath('653b615090f7fb2f9cfdd344')},
-                        {name: "Máy rửa chén", path: createCategoryPath('653b615a90f7fb2f9cfdd348')},
-                        {name: "Máy sấy chén", path: createCategoryPath('653b616690f7fb2f9cfdd34c')}
+                    ],
+                },
+                {
+                    label: {name: "Hút mùi", path: createCategoryPath('653b613390f7fb2f9cfdd33c')},
+                    list: [
+
+                    ],
+                },
+                {
+                    label: {name: "Lò vi sóng", path: createCategoryPath('653b614390f7fb2f9cfdd340')},
+                    list: [
+
+                    ],
+                },
+                {
+                    label: {name: "Lò nướng", path: createCategoryPath('653b615090f7fb2f9cfdd344')},
+                    list: [
+
+                    ],
+                },
+                {
+                    label: {name: "Máy rửa chén", path: createCategoryPath('653b615a90f7fb2f9cfdd348')},
+                    list: [
+
+                    ],
+                },
+                {
+                    label:  {name: "Máy sấy chén", path: createCategoryPath('653b616690f7fb2f9cfdd34c')},
+                    list: [
+
                     ],
                 },
                 {
