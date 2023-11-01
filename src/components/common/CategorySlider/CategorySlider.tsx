@@ -95,6 +95,7 @@ const CategorySlider: React.FC = () => {
     if (!slider) return;
 
     if (slider.scrollLeft === slider.scrollWidth - slider.clientWidth) return;
+    if (slider.scrollLeft === 0) return;
 
     const positiveDiff = Math.abs(positionDiff.current);
     const firstChildWidth = slider.children[0].clientWidth;

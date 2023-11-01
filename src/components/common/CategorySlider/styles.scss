@@ -3,6 +3,14 @@
 .category-slider-container {
   @include responsiveContainer;
   margin-bottom: 50px;
+
+  @include below768inclusive {
+    padding: 0 15px;
+
+    button {
+      display: none;
+    }
+  }
 }
 
 .category-slider {
@@ -66,22 +74,4 @@
   &__text {
     text-align: center;
   }
-
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // justify-content: flex-start;
-  // cursor: pointer;
-  // overflow: hidden;
-  // background-color: var(--color-white);
-  // transition: all 0.3s ease-in-out;
-  // padding: 10px;
-
-  // &:hover {
-  //   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-  // }
-
-  // img {
-  //   border-radius: 10px;
-  // }
 }
