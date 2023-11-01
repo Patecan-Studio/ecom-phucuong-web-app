@@ -8,7 +8,7 @@ import "../styles/fonts.scss";
 import "../styles/reset.css";
 import "../styles/responsives.scss";
 import SaleBanner from "@/components/common/SaleBanner/SaleBanner";
-import {Overview} from "@/components/composite";
+import { Overview } from "@/components/composite";
 import React from "react";
 import ProductCardSlider from "@/components/common/CategorySlider/CategorySlider";
 const inter = Inter({ subsets: ["latin"] });
@@ -30,9 +30,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
-        <SaleBanner data={"\n" +
+        <SaleBanner
+          data={
+            "\n" +
             "                    Tận hưởng ưu đãi giảm giá 20% cho Toàn bộ sản phẩm Ghế nồi Phòng Khách từ Sofa, Sofa Giường, Ghế\n" +
-            "                    Bành đến Ghế Đồn. Ngày kết thức: 29/10/2023"}/>
+            "                    Bành đến Ghế Đồn. Ngày kết thức: 29/10/2023"
+          }
+        />
         <Tabbar />
         {children}
         <Footer />
