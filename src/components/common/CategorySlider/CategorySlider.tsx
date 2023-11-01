@@ -90,10 +90,29 @@ const CategorySlider: React.FC = () => {
   const prevScrollLeft = useRef(0);
   const positionDiff = useRef(0);
 
-  const widthToScroll = (sliderRef.current?.children[0].clientWidth || 0) + 16; // 16 is the margin between cards
+  const autoSlide = () => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    if (slider.scrollLeft === slider.scrollWidth - slider.clientWidth) return;
+
+    const positiveDiff = Math.abs(positionDiff.current);
+    const firstChildWidth = slider.children[0].clientWidth;
+    const valDiff = firstChildWidth - positiveDiff;
+
+    if (slider.scrollLeft < prevScrollLeft.current) {
+      slider.style.scrollBehavior = "smooth";
+      slider.scrollLeft -=
+        positiveDiff > firstChildWidth / 2 ? valDiff : -positiveDiff;
+    } else {
+      slider.style.scrollBehavior = "smooth";
+      slider.scrollLeft +=
+        positiveDiff > firstChildWidth / 2 ? valDiff : -positiveDiff;
+    }
+    slider.style.scrollBehavior = "auto";
+  };
 
   const handleDragging = (e: any) => {
-    e.preventDefault();
     const slider = sliderRef.current;
     positionDiff.current = (e.pageX || e.touches[0].pageX) - prevPageX.current;
     if (slider && isDragging) {
@@ -102,48 +121,35 @@ const CategorySlider: React.FC = () => {
   };
 
   const handleMouseDown = (e: any) => {
-    e.preventDefault();
+    if (sliderRef.current) sliderRef.current.style.scrollBehavior = "auto";
     prevPageX.current = e.pageX || e.touches[0].pageX;
     prevScrollLeft.current = sliderRef.current?.scrollLeft || 0;
-
     setIsDragging(true);
   };
 
   const handleMouseUp = () => {
+    if (sliderRef.current) sliderRef.current.style.scrollBehavior = "auto";
+    if (isDragging) autoSlide();
     setIsDragging(false);
   };
 
   const handlePrevClick = () => {
     if (sliderRef.current) {
-      sliderRef.current.scrollLeft -= widthToScroll;
+      sliderRef.current.style.scrollBehavior = "smooth";
+      sliderRef.current.scrollLeft -=
+        (sliderRef.current?.children[0].clientWidth || 0);
     }
   };
 
   const handleNextClick = () => {
     if (sliderRef.current) {
-      sliderRef.current.scrollLeft += widthToScroll;
+      sliderRef.current.style.scrollBehavior = "smooth";
+      sliderRef.current.scrollLeft +=
+        (sliderRef.current?.children[0].clientWidth || 0);
     }
   };
 
   return (
-    // <div className="category-slider mx-4 mb-8">
-    //   <div className="products__content--top">
-    //     <ProductsTitle title={"Khám phá sản phẩm"} />
-    //     <ProductsButtons onPrevClick={scrollLeft} onNextClick={scrollRight} />
-    //   </div>
-    //   <div className="max-w-screen bg-[#F1F1F1] rounded-2xl">
-    //     <div ref={sliderRef} className="flex space-x-8 overflow-x-hidden p-5">
-    //       {categories.map((item) => (
-    //         <CategoryCard
-    //           key={item.label}
-    //           imageUrl={item.imageUrl}
-    //           altText={item.label}
-    //           productName={item.label}
-    //         />
-    //       ))}
-    //     </div>
-    //   </div>
-    // </div>
     <div className="category-slider-container">
       <div className="products__content--top">
         <ProductsTitle title={"Khám phá sản phẩm"} />
