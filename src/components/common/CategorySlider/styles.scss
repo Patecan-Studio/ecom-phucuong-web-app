@@ -1,6 +1,81 @@
 @import "@/styles/responsives.scss";
 
-.category-slider {
+.category-slider-container {
   @include responsiveContainer;
   margin-bottom: 50px;
+
+  @include below768inclusive {
+    padding: 0 15px;
+
+    button {
+      display: none;
+    }
+  }
+}
+
+.category-slider {
+  background-color: var(--color-gray-light);
+  border-radius: 10px;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+  touch-action: none;
+
+  &.dragging {
+    cursor: grab;
+
+    img {
+      pointer-events: none;
+    }
+  }
+}
+
+.category-card {
+  display: inline-block;
+  width: calc((100% / 5));
+  padding: 32px 16px;
+  
+  &__content {
+    padding: 32px 16px;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    &:hover {
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+
+  @include below992inclusive {
+    width: calc((100% / 3));
+  }
+
+  @include below768inclusive {
+    width: calc((100% / 2));
+  }
+
+  @include below414inclusive {
+    width: calc((100% / 1));
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  img {
+    height: 100%;
+    object-fit: cover;
+    margin: auto;
+    margin-bottom: 16px;
+    border-radius: 10px;
+  }
+
+  &__text {
+    text-align: center;
+    white-space: wrap;
+  }
 }

@@ -318,6 +318,12 @@
       align-items: center;
       gap: 10px;
 
+      &[disabled] {
+        background-color: var(--color-gray-light);
+        color: var(--color-gray-less-light);
+        cursor: not-allowed;
+      }
+
       &:hover {
         border: 1px solid var(--color-primary);
       }

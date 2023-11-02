@@ -137,4 +137,7 @@ export interface OverviewAboutProps {
   selectedColor: string;
   isShowMaterial: boolean;
   isShowColor: boolean;
+  dictionary: {
+    [key: string]: string[];
+  };
 }
