@@ -172,9 +172,8 @@ const CategorySlider: React.FC = () => {
         onTouchEnd={handleMouseUp}
       >
         {categories.map((item) => (
-          <Link href={item.path}>
+          <Link key={item.label} href={item.path}>
             <CategoryCard
-              key={item.label}
               imageUrl={item.imageUrl}
               altText={item.label}
               productName={item.label}
