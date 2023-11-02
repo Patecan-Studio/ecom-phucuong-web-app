@@ -40,7 +40,6 @@ const Overview = ({ data }: OverviewProps) => {
 
   const [categories, setCategories] = useState(data.product_categories);
 
-  const [enabledButtons, setEnabledButtons] = useState({});
   let dictionary: { [key: string]: string[] } = Object.create(null);
 
   const [selectedMaterial, setSelectedMaterial] = useState(
@@ -50,6 +49,12 @@ const Overview = ({ data }: OverviewProps) => {
     overviewData?.color?.value || ""
   );
   const [selectedQuantity, setSelectedQuantity] = useState(1);
+
+  useEffect(() => {
+    if (dictionary[selectedMaterial][0] !== selectedColor) {
+      setSelectedColor(dictionary[selectedMaterial][0]);
+    }
+  }, [selectedMaterial])
 
   const isShowMaterial = overviewData?.material
     ? overviewData.material !== "null" && overviewData.material !== null
@@ -188,6 +193,7 @@ const Overview = ({ data }: OverviewProps) => {
               weight={weight}
               isShowMaterial={isShowMaterial}
               isShowColor={isShowColor}
+              dictionary={dictionary}
             />
             <OverviewQuantity
               isDisabled={overviewData === undefined}

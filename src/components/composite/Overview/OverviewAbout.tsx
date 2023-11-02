@@ -16,6 +16,7 @@ const OverviewAbout = ({
   selectedColor,
   isShowMaterial,
   isShowColor,
+  dictionary,
 }: OverviewAboutProps) => {
   return (
     <div className="overview__about">
@@ -27,7 +28,7 @@ const OverviewAbout = ({
           <h5 className="overview__about__list__title">Chất liệu</h5>
           <div className="overview__about__items">
             {materials.map((item: any) => (
-              <p
+              <button
                 className={`overview__about__item ${
                   selectedMaterial === item && "active"
                 }`}
@@ -35,7 +36,7 @@ const OverviewAbout = ({
                 onClick={() => onMaterialSelect(item)}
               >
                 {item}
-              </p>
+              </button>
             ))}
           </div>
         </div>
@@ -45,12 +46,15 @@ const OverviewAbout = ({
           <h5 className="overview__about__list__title">Màu sắc</h5>
           <div className="overview__about__items">
             {colors.map((item: any) => (
-              <div
+              <button
                 className={`overview__about__item ${
-                  selectedColor === item.value && "active"
+                  selectedColor === item.value &&
+                  dictionary[item.value].includes(selectedMaterial) &&
+                  "active"
                 }`}
                 key={item.value}
                 onClick={() => onColorSelect(item.value)}
+                disabled={!dictionary[item.value].includes(selectedMaterial)}
               >
                 <div
                   className="square-color"
@@ -62,7 +66,7 @@ const OverviewAbout = ({
                   }}
                 ></div>
                 {item.label}
-              </div>
+              </button>
             ))}
           </div>
         </div>

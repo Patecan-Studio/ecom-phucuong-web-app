@@ -20,6 +20,7 @@ $item-gap: 20px;
   color: var(--color-black);
   padding-top: 20px;
   @include responsiveContainer;
+  margin-bottom: 30px;
 
   @include below768inclusive {
     padding: 0 15px;
