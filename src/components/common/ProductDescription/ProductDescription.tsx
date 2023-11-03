@@ -39,9 +39,15 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
           <span className="about-desc">
             Về {productName} của {brand}
           </span>
-          <span className="long-desc">
-            {displayText ? displayText : "Hiện tại sản phẩm chưa có mô tả nào"}
-          </span>
+          <div
+            className="long-desc"
+            dangerouslySetInnerHTML={{
+              __html: longDesc
+                ? longDesc
+                : "Hiện tại sản phẩm chưa có mô tả nào",
+            }}
+          />
+
           {readMoreButton}
         </div>
         <div className="right">

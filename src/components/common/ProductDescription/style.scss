@@ -7,6 +7,79 @@
   margin-bottom: 30px;
   @include responsiveContainer;
 
+  ul,
+  ol {
+    padding-left: 20px;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  .ql-size-huge {
+    font-size: 2.5em;
+  }
+
+  .ql-size-large {
+    font-size: 1.5em;
+  }
+
+  .ql-size-small {
+    font-size: 0.75em;
+  }
+
+  .ql-align-center {
+    text-align: center;
+  }
+
+  .ql-align-justify {
+    text-align: justify;
+  }
+
+  .ql-align-right {
+    text-align: right;
+  }
+
+  .ql-align-left {
+    text-align: left;
+  }
+
+  .ql-indent-1 {
+    padding-left: 1em;
+  }
+
+  .ql-indent-2 {
+    padding-left: 2em;
+  }
+
+  .ql-indent-3 {
+    padding-left: 3em;
+  }
+
+  .ql-indent-4 {
+    padding-left: 4em;
+  }
+
+  .ql-indent-5 {
+    padding-left: 5em;
+  }
+
+  .ql-indent-6 {
+    padding-left: 6em;
+  }
+
+  .ql-indent-7 {
+    padding-left: 7em;
+  }
+
+  .ql-indent-8 {
+    padding-left: 8em;
+  }
+
   &__header {
     background-color: var(--color-primary);
     width: fit-content;
@@ -82,10 +155,12 @@
     .right {
       width: 40%;
       max-height: 300px;
+
       img {
         height: 300px;
         object-fit: contain;
       }
+
       @include below768inclusive {
         width: 100%;
       }
