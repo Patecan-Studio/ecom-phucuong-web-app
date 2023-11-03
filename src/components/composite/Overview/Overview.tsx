@@ -51,8 +51,8 @@ const Overview = ({ data }: OverviewProps) => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   useEffect(() => {
-    if (dictionary[selectedMaterial][0] !== selectedColor) {
-      setSelectedColor(dictionary[selectedMaterial][0]);
+    if (dictionary[selectedMaterial]?.[0] !== selectedColor) {
+      setSelectedColor(dictionary[selectedMaterial]?.[0]);
     }
   }, [selectedMaterial])
 
