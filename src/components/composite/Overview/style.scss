@@ -265,6 +265,12 @@
     }
   }
 
+  &__warranty {
+    padding: 10px 0 20px;
+    border-bottom: 1px solid var(--color-gray-less-light);
+    margin-bottom: 20px;
+  }
+
   &__order {
     display: flex;
     gap: 20px;

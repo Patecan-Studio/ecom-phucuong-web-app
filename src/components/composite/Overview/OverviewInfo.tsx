@@ -12,6 +12,7 @@ const OverviewInfo = ({
   brand,
   quantity,
   categories,
+  warranty,
 }: OverviewInfoProps) => {
   return (
     <div className="overview__info">
@@ -48,6 +49,10 @@ const OverviewInfo = ({
             {category.category_name}
           </Link>
         ))}
+      </div>
+
+      <div className="overview__warranty">
+        Bảo hành: <span>{warranty || 0} tháng</span>
       </div>
 
       <div className="overview__quantity--info">

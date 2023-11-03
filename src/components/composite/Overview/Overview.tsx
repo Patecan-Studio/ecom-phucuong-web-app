@@ -89,6 +89,7 @@ const Overview = ({ data }: OverviewProps) => {
   const height = data.product_height + data.product_size_unit;
   const width = data.product_width + data.product_size_unit;
   const weight = data.product_weight?.value + data.product_weight?.unit;
+  const warranty = data.product_warranty;
 
   const handleVariantChange = () => {
     const newOverviewData = data.product_variants.find(
@@ -176,6 +177,7 @@ const Overview = ({ data }: OverviewProps) => {
           brand={overviewData ? data.product_brand?.brand_name || "" : ""}
           quantity={overviewData?.quantity || 0}
           categories={categories.slice(0, 3)}
+          warranty={warranty}
         />
         <div className="overview__order">
           <div className="overview__order__left">
