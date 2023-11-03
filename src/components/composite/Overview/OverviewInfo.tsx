@@ -3,6 +3,7 @@ import { OverviewInfoProps } from "./types";
 import { convertToCurrencyFormat } from "@/share/utils/utils";
 import Link from "next/link";
 
+
 const OverviewInfo = ({
   name,
   price,
