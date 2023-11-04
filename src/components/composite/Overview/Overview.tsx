@@ -183,7 +183,7 @@ const Overview = ({ data }: OverviewProps) => {
           discountPrice={overviewData?.discount_price || 0}
           discountPercentage={overviewData?.discount_percentage || 0}
           productCode={overviewData?.sku || ""}
-          brandImage={overviewData ? data.product_brand?.brand_logoUrl || "" : ""}
+          brand={overviewData ? data.product_brand?.brand_name || "" : ""}
           quantity={overviewData?.quantity || 0}
           categories={categories.slice(0, 3)}
         />
