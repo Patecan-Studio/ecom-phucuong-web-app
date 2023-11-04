@@ -34,7 +34,6 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
       <div className="product-description__header">Mô tả sản phẩm</div>
       <div className="product-description__content">
         <div className="left">
-          <h1>Mô tả sản phẩm</h1>
           <span className="short-desc">{shortDesc && shortDesc}</span>
           <span className="about-desc">
             Về {productName} của {brand}
@@ -50,7 +49,7 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
 
           {readMoreButton}
         </div>
-        <div className="right">
+        {/* <div className="right">
           <CustomImage
             width={0}
             height={0}
@@ -59,7 +58,7 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
             alt=""
             src={imgURL}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
