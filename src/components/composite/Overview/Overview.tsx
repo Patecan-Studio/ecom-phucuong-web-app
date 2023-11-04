@@ -58,17 +58,24 @@ const Overview = ({ data }: OverviewProps) => {
     ? overviewData.color !== "null" && overviewData.color !== null
     : false;
 
+  console.log("isShowMaterial: "+isShowMaterial)
+  console.log("isShowColor: "+isShowColor)
+
   if (isShowMaterial && isShowColor) {
     dictionary = doubleDictionary(data.product_variants);
+    //console.log("dictionary: "+dictionary)
   }
 
   useEffect(() => {
-    if(isShowMaterial){
+    if(isShowMaterial && isShowColor) {
       if (dictionary[selectedMaterial][0] !== selectedColor) {
         setSelectedColor(dictionary[selectedMaterial][0]);
       }
     }
   }, [selectedMaterial])
+
+
+
 
   const materials = isShowMaterial
     ? data.product_variants
