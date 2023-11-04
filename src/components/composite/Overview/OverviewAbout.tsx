@@ -75,7 +75,7 @@ const OverviewAbout = ({
         ) : (
           <>
             <h5 className="overview__about__list__title">Màu sắc</h5>
-            <p className="overview__about__item--null">Màu như hình</p>
+            <p className="overview__about__item--null">Màu như hình, hoặc chọn màu theo yêu cầu</p>
           </>
         )}
       </div>
