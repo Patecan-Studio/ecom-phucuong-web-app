@@ -11,8 +11,7 @@ const OverviewInfo = ({
   productCode,
   brand,
   quantity,
-  categories,
-  brandImage,
+  categories
 }: OverviewInfoProps) => {
   return (
     <div className="overview__info">
