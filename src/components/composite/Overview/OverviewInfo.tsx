@@ -3,7 +3,6 @@ import { OverviewInfoProps } from "./types";
 import { convertToCurrencyFormat } from "@/share/utils/utils";
 import Link from "next/link";
 
-
 const OverviewInfo = ({
   name,
   price,
@@ -14,6 +13,7 @@ const OverviewInfo = ({
   quantity,
   categories,
   warranty,
+  brandImage,
 }: OverviewInfoProps) => {
   return (
     <div className="overview__info">

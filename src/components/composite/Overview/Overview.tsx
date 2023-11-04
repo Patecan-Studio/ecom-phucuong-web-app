@@ -64,9 +64,21 @@ const Overview = ({ data }: OverviewProps) => {
     ? overviewData.color !== "null" && overviewData.color !== null
     : false;
 
+  console.log("isShowMaterial: " + isShowMaterial);
+  console.log("isShowColor: " + isShowColor);
+
   if (isShowMaterial && isShowColor) {
     dictionary = doubleDictionary(data.product_variants);
+    //console.log("dictionary: "+dictionary)
   }
+
+  useEffect(() => {
+    if (isShowMaterial && isShowColor) {
+      if (dictionary[selectedMaterial][0] !== selectedColor) {
+        setSelectedColor(dictionary[selectedMaterial][0]);
+      }
+    }
+  }, [selectedMaterial]);
 
   const materials = isShowMaterial
     ? data.product_variants
@@ -175,7 +187,9 @@ const Overview = ({ data }: OverviewProps) => {
           discountPrice={overviewData?.discount_price || 0}
           discountPercentage={overviewData?.discount_percentage || 0}
           productCode={overviewData?.sku || ""}
-          brand={overviewData ? data.product_brand?.brand_name || "" : ""}
+          brandImage={
+            overviewData ? data.product_brand?.brand_logoUrl || "" : ""
+          }
           quantity={overviewData?.quantity || 0}
           categories={categories.slice(0, 3)}
           warranty={warranty}

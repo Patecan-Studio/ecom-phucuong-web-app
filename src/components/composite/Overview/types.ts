@@ -108,10 +108,11 @@ export interface OverviewInfoProps {
   discountPrice: number;
   discountPercentage: number;
   productCode: string;
-  brand: string;
+  brand?: string;
   quantity: number;
   categories: ProductCategories[];
   warranty: number;
+  brandImage: string;
 }
 
 export interface OverviewPolicyProps {
