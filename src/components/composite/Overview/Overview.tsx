@@ -68,12 +68,12 @@ const Overview = ({ data }: OverviewProps) => {
   }
 
   useEffect(() => {
-    if (isShowMaterial && isShowColor) {
+    if(isShowMaterial && isShowColor) {
       if (dictionary[selectedMaterial][0] !== selectedColor) {
         setSelectedColor(dictionary[selectedMaterial][0]);
       }
     }
-  }, [selectedMaterial]);
+  }, [selectedMaterial])
 
   const materials = isShowMaterial
     ? data.product_variants

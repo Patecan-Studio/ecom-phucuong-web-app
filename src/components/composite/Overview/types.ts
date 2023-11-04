@@ -112,7 +112,6 @@ export interface OverviewInfoProps {
   quantity: number;
   categories: ProductCategories[];
   warranty: number;
-  brandImage: string;
 }
 
 export interface OverviewPolicyProps {

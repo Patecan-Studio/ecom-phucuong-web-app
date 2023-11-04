@@ -13,7 +13,6 @@ const OverviewInfo = ({
   quantity,
   categories,
   warranty,
-  brandImage,
 }: OverviewInfoProps) => {
   return (
     <div className="overview__info">
