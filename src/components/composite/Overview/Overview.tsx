@@ -50,11 +50,6 @@ const Overview = ({ data }: OverviewProps) => {
   );
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
-  useEffect(() => {
-    if (dictionary[selectedMaterial][0] !== selectedColor) {
-      setSelectedColor(dictionary[selectedMaterial][0]);
-    }
-  }, [selectedMaterial])
 
   const isShowMaterial = overviewData?.material
     ? overviewData.material !== "null" && overviewData.material !== null
@@ -66,6 +61,14 @@ const Overview = ({ data }: OverviewProps) => {
   if (isShowMaterial && isShowColor) {
     dictionary = doubleDictionary(data.product_variants);
   }
+
+  useEffect(() => {
+    if(isShowMaterial){
+      if (dictionary[selectedMaterial][0] !== selectedColor) {
+        setSelectedColor(dictionary[selectedMaterial][0]);
+      }
+    }
+  }, [selectedMaterial])
 
   const materials = isShowMaterial
     ? data.product_variants
@@ -173,7 +176,7 @@ const Overview = ({ data }: OverviewProps) => {
           discountPrice={overviewData?.discount_price || 0}
           discountPercentage={overviewData?.discount_percentage || 0}
           productCode={overviewData?.sku || ""}
-          brand={overviewData ? data.product_brand?.brand_name || "" : ""}
+          brandImage={overviewData ? data.product_brand?.brand_logoUrl || "" : ""}
           quantity={overviewData?.quantity || 0}
           categories={categories.slice(0, 3)}
         />
