@@ -278,7 +278,7 @@
     background-color: var(--color-gray-light);
 
     &__left {
-      width: 60%;
+      width: 100%;
 
       @include below1440inclusive {
         width: 100%;

@@ -226,9 +226,9 @@ const Overview = ({ data }: OverviewProps) => {
             />
             <OverviewButtons />
           </div>
-          <div className="overview__order__right">
+          {/* <div className="overview__order__right">
             <OverviewPolicy className="on-desktop" />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
