@@ -51,11 +51,6 @@ const Overview = ({ data }: OverviewProps) => {
   );
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
-  useEffect(() => {
-    if (dictionary[selectedMaterial]?.[0] !== selectedColor) {
-      setSelectedColor(dictionary[selectedMaterial]?.[0]);
-    }
-  }, [selectedMaterial]);
 
   const isShowMaterial = overviewData?.material
     ? overviewData.material !== "null" && overviewData.material !== null
@@ -187,9 +182,7 @@ const Overview = ({ data }: OverviewProps) => {
           discountPrice={overviewData?.discount_price || 0}
           discountPercentage={overviewData?.discount_percentage || 0}
           productCode={overviewData?.sku || ""}
-          brandImage={
-            overviewData ? data.product_brand?.brand_logoUrl || "" : ""
-          }
+          brand={overviewData ? data.product_brand?.brand_name || "" : ""}
           quantity={overviewData?.quantity || 0}
           categories={categories.slice(0, 3)}
           warranty={warranty}
