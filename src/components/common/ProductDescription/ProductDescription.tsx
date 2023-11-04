@@ -19,10 +19,10 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
 
   const displayText = expanded
     ? longDesc
-    : longDesc.slice(0, maxChars).concat("...");
+    : (longDesc || "").slice(0, maxChars).concat("...");
   const readMoreButton = (
     <div>
-      {longDesc.length > maxChars && (
+      {(longDesc || "").length > maxChars && (
         <span className="read-more" onClick={toggleReadMore}>
           {expanded ? "Ẩn bớt" : "Xem thêm"}
         </span>
@@ -39,9 +39,15 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
           <span className="about-desc">
             Về {productName} của {brand}
           </span>
-          <span className="long-desc">
-            {displayText ? displayText : "Hiện tại sản phẩm chưa có mô tả nào"}
-          </span>
+          <div
+            className="long-desc"
+            dangerouslySetInnerHTML={{
+              __html: displayText
+                ? displayText
+                : "Hiện tại sản phẩm chưa có mô tả nào",
+            }}
+          />
+
           {readMoreButton}
         </div>
         <div className="right">

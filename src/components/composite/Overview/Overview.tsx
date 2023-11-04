@@ -9,6 +9,7 @@ import OverviewButtons from "./OverviewButtons";
 import OverviewPolicy from "./OverviewPolicy";
 import OverviewAbout from "./OverviewAbout";
 import { OverviewProps } from "./types";
+import { ProductDescription } from "@/components/common";
 
 function doubleDictionary(t: any) {
   const dictionary: { [key: string]: string[] } = Object.create(null);
@@ -51,10 +52,10 @@ const Overview = ({ data }: OverviewProps) => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   useEffect(() => {
-    if (dictionary[selectedMaterial][0] !== selectedColor) {
-      setSelectedColor(dictionary[selectedMaterial][0]);
+    if (dictionary[selectedMaterial]?.[0] !== selectedColor) {
+      setSelectedColor(dictionary[selectedMaterial]?.[0]);
     }
-  }, [selectedMaterial])
+  }, [selectedMaterial]);
 
   const isShowMaterial = overviewData?.material
     ? overviewData.material !== "null" && overviewData.material !== null
@@ -89,6 +90,7 @@ const Overview = ({ data }: OverviewProps) => {
   const height = data.product_height + data.product_size_unit;
   const width = data.product_width + data.product_size_unit;
   const weight = data.product_weight?.value + data.product_weight?.unit;
+  const warranty = data.product_warranty;
 
   const handleVariantChange = () => {
     const newOverviewData = data.product_variants.find(
@@ -176,6 +178,13 @@ const Overview = ({ data }: OverviewProps) => {
           brand={overviewData ? data.product_brand?.brand_name || "" : ""}
           quantity={overviewData?.quantity || 0}
           categories={categories.slice(0, 3)}
+          warranty={warranty}
+        />
+        <ProductDescription
+          longDesc={data.product_description}
+          productName={data.product_name}
+          brand={data.product_brand?.brand_name}
+          imgURL={data.product_variants?.[0].image_list[0].imageUrl}
         />
         <div className="overview__order">
           <div className="overview__order__left">

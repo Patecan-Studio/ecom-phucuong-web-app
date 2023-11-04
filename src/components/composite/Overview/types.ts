@@ -64,6 +64,7 @@ interface Product {
     imageName: string;
     imageUrl: string;
   };
+  product_warranty: number;
 }
 
 interface ProductBrand {
@@ -110,6 +111,7 @@ export interface OverviewInfoProps {
   brand: string;
   quantity: number;
   categories: ProductCategories[];
+  warranty: number;
 }
 
 export interface OverviewPolicyProps {
