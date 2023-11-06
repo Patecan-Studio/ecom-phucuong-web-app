@@ -114,10 +114,6 @@ export interface OverviewInfoProps {
   warranty: number;
 }
 
-export interface OverviewPolicyProps {
-  className: string;
-}
-
 export interface OverviewQuantityProps {
   quantity: number;
   onIncrease: () => void;

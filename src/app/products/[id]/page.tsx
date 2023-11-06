@@ -26,12 +26,12 @@ const Page = async ({ params }: { params: { id: string } }) => {
   return (
     <div className={styles.detail}>
       <Overview data={productData.data} />
-      {/* <ProductDescription
+      <ProductDescription
         longDesc={productData.data.product_description}
         productName={productData.data.product_name}
         brand={productData.data.product_brand?.brand_name}
         imgURL={productData.data.product_variants[0].image_list[0].imageUrl}
-      /> */}
+      />
     </div>
   );
 };

@@ -17,9 +17,8 @@
   }
 
   &__left {
-    width: 55%;
     padding: 0;
-
+    width: 50%;
     @include below992inclusive {
       width: 100%;
       padding: 0;
@@ -27,28 +26,20 @@
   }
 
   &__right {
-    width: 40%;
+    width: 50%;
     @include below992inclusive {
       width: 100%;
     }
   }
 
   &__image {
-    width: 90%;
+    width: 100%;
     background: var(--color-white);
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: auto;
     margin-bottom: 50px;
-
-    @include below992inclusive {
-      width: 85%;
-    }
-
-    @include below768inclusive {
-      width: 100%;
-    }
 
     &--main,
     &--sub,
@@ -497,23 +488,17 @@
     padding: 15px;
     box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
     background-color: var(--color-white);
-    width: 80%;
-    @include below1440inclusive {
-      &.on-desktop {
-        display: none;
-      }
-    }
-
-    @include below992inclusive {
-      display: none;
-    }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 
     &__item {
       display: flex;
       gap: 10px;
-      font-size: 12px;
-      padding: 15px 0;
+      padding: 15px;
       border-bottom: 1px solid var(--color-gray-less-light);
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+      align-items: center;
 
       &:last-child {
         border-bottom: unset;

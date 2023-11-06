@@ -3,9 +3,8 @@ import MoneyHandIcon from "@/components/common/Icons/MoneyHandIcon";
 import PackageIcon from "@/components/common/Icons/PackageIcon";
 import TwentyFourHourIcon from "@/components/common/Icons/TwentyFourHourIcon";
 import React from "react";
-import { OverviewPolicyProps } from "./types";
 
-const OverviewPolicy = ({ className }: OverviewPolicyProps) => {
+const OverviewPolicy = () => {
   const policies = [
     {
       id: "1",
@@ -34,7 +33,7 @@ const OverviewPolicy = ({ className }: OverviewPolicyProps) => {
   ];
 
   return (
-    <div className={`overview__policy ${className}`}>
+    <div className="overview__policy">
       {policies.map((policy) => (
         <div className="overview__policy__item" key={policy.id}>
           <div className="overview__policy__image">{policy.icon}</div>

@@ -9,7 +9,7 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
   shortDesc,
   brand,
   productName,
-  maxChars = 100,
+  maxChars = 200,
   imgURL,
 }) => {
   const [expanded, setExpanded] = useState(false);
@@ -49,7 +49,7 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
 
           {readMoreButton}
         </div>
-        {/* <div className="right">
+        <div className="right">
           <CustomImage
             width={0}
             height={0}
@@ -58,7 +58,7 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
             alt=""
             src={imgURL}
           />
-        </div> */}
+        </div>
       </div>
     </div>
   );
