@@ -32,7 +32,7 @@
   }
 
   &__image {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 
     &__list {
       display: flex;
@@ -44,6 +44,7 @@
       cursor: pointer;
       position: relative;
       height: 500px;
+      background-color: var(--color-gray-light);
 
       &--active {
         border: 1px solid var(--color-primary) !important;
@@ -63,7 +64,13 @@
     }
 
     &--main {
-      margin-bottom: 50px;
+      margin-bottom: 30px;
+    }
+
+    &--main &__item {
+      img {
+        padding: 30px;
+      }
     }
 
     &--sub {
@@ -79,6 +86,10 @@
       height: 80px;
       display: flex;
       align-items: center;
+
+      img {
+        padding: 10px;
+      }
     }
 
     &--modal {
