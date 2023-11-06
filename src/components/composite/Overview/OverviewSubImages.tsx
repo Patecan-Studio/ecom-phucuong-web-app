@@ -18,10 +18,7 @@ const OverviewMainImagesInner = (
             <CustomImage
               src={image.imageUrl}
               alt="Editor Desktop"
-              width={0}
-              height={0}
-              sizes="100vw"
-              style={{ width: "100%", height: "auto" }}
+              fill
               onClick={() => onClick(index)}
               preload="false"
             />

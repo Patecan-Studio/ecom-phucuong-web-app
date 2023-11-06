@@ -62,12 +62,14 @@
       overflow: hidden;
     }
 
-    &--main &__list {
-      height: 500px;
-    }
-
     &--main {
       margin-bottom: 50px;
+    }
+
+    &--sub {
+      @include below992inclusive {
+        margin: auto;
+      }
     }
 
     &--sub &__item {
@@ -77,10 +79,6 @@
       height: 80px;
       display: flex;
       align-items: center;
-
-      @include below992inclusive {
-        height: 120px;
-      }
     }
 
     &--modal {
