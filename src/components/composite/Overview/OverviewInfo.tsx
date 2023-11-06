@@ -18,9 +18,7 @@ const OverviewInfo = ({
     <div className="overview__info">
       <h1 className="overview__name">{name}</h1>
       <div className="overview__prices">
-        <div className="overview__price">
-          {convertToCurrencyFormat(price)}đ
-        </div>
+        <div className="overview__price">{convertToCurrencyFormat(price)}đ</div>
         <div className="overview__discountPrice">
           {convertToCurrencyFormat(discountPrice)}đ
           <div className="overview__discountPercentage">
@@ -32,8 +30,14 @@ const OverviewInfo = ({
         <div className="overview__code">
           Mã sản phẩm: <span>{productCode}</span>
         </div>
+        <div className="overview__warranty">
+          Bảo hành: <span>{warranty || 0} tháng</span>
+        </div>
         <div className="overview__brand">
           Thương hiệu: <span>{brand}</span>
+        </div>
+        <div className="overview__quantity--info">
+          Số lượng còn lại: {quantity}
         </div>
       </div>
 
@@ -48,14 +52,6 @@ const OverviewInfo = ({
             {category.category_name}
           </Link>
         ))}
-      </div>
-
-      <div className="overview__warranty">
-        Bảo hành: <span>{warranty || 0} tháng</span>
-      </div>
-
-      <div className="overview__quantity--info">
-        Số lượng còn lại: {quantity}
       </div>
     </div>
   );

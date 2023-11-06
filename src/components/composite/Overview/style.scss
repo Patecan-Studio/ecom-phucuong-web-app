@@ -18,6 +18,7 @@
 
   &__left {
     width: 40%;
+
     @include below992inclusive {
       width: 100%;
       padding: 0;
@@ -26,6 +27,7 @@
 
   &__right {
     width: 60%;
+
     @include below992inclusive {
       width: 100%;
     }
@@ -221,15 +223,15 @@
   }
 
   &__identify {
-    display: flex;
-    padding-bottom: 20px;
     margin-bottom: 10px;
     border-bottom: 1px solid var(--color-gray-less-light);
+    row-gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 20px;
   }
 
   &__code {
-    padding-right: 20px;
-    border-right: 2px solid var(--color-gray-less-light);
 
     span {
       font-weight: 800;
@@ -238,7 +240,6 @@
   }
 
   &__brand {
-    padding-left: 20px;
 
     span {
       font-weight: 800;
@@ -249,9 +250,7 @@
   &__categories {
     display: flex;
     flex-wrap: wrap;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--color-gray-less-light);
-    margin-bottom: 20px;
+    padding-top: 10px;
   }
 
   &__category {
@@ -265,12 +264,6 @@
     &:last-child {
       border-right: unset;
     }
-  }
-
-  &__warranty {
-    padding: 10px 0 20px;
-    border-bottom: 1px solid var(--color-gray-less-light);
-    margin-bottom: 20px;
   }
 
   &__order {
@@ -297,6 +290,8 @@
       font-size: 14px;
       font-weight: 900;
       margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
     }
 
     &__list {
@@ -357,11 +352,17 @@
       color: red;
       text-align: end;
       cursor: pointer;
+      font-weight: 500;
 
       &:hover {
         color: rgb(242, 179, 179);
       }
     }
+  }
+
+  &__specifications {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   &__quantity {
@@ -393,7 +394,7 @@
       text-align: center;
       border: unset;
       width: 15%;
-      width: 80%;
+      width: 100%;
     }
 
     &__decrease,
@@ -431,14 +432,14 @@
 
   &__buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 10px;
   }
 
   &__button {
+    flex: 1;
     border: unset;
-    width: 100%;
     padding: 15px;
     background: var(--color-primary);
     color: var(--color-text-primary);
@@ -451,6 +452,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     span {
       font-size: 12px;
@@ -468,8 +470,10 @@
   }
 
   &__call {
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
 
     &--bold {
@@ -490,7 +494,6 @@
 
   &__policy {
     padding: 15px;
-    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
     background-color: var(--color-white);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
