@@ -32,18 +32,55 @@
   }
 
   &__image {
-    width: 100%;
-    background: var(--color-white);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
     margin-bottom: 50px;
+
+    &__list {
+      display: flex;
+      align-items: center;
+    }
+
+    &__item {
+      flex: 0 0 100%;
+      cursor: pointer;
+      position: relative;
+      height: 500px;
+
+      &--active {
+        border: 1px solid var(--color-primary) !important;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
 
     &--main,
     &--sub,
     &--modal {
       overflow: hidden;
+    }
+
+    &--main &__list {
+      height: 500px;
+    }
+
+    &--main {
+      margin-bottom: 50px;
+    }
+
+    &--sub &__item {
+      flex: 0 0 calc(25% - 10px);
+      margin-right: 10px;
+      border: 1px solid var(--color-gray-less-light);
+      height: 80px;
+      display: flex;
+      align-items: center;
+
+      @include below992inclusive {
+        height: 120px;
+      }
     }
 
     &--modal {
@@ -53,11 +90,10 @@
 
       @include below768inclusive {
         width: 65%;
-        margin: 0;
       }
 
       @include below576inclusive {
-        width: 100%;
+        width: 90%;
       }
     }
 
@@ -79,9 +115,6 @@
       border-radius: 2px;
       background-color: rgba(0, 0, 0, 0.561);
       cursor: pointer;
-    }
-
-    &--modal-close {
       position: absolute;
       top: 0;
       right: 0;
@@ -99,59 +132,22 @@
       cursor: pointer;
       transition: 0.2s all ease-in-out;
 
-      &--main &__list {
-        width: 350px;
-        height: 500px;
-      }
-
-      &__list {
-        display: flex;
-        align-items: center;
-      }
-
       @include below1200inclusive {
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
       }
 
-      @include below768inclusive {
+      @include below992inclusive {
         display: none;
       }
     }
 
-    &--main {
-      margin-bottom: 50px;
+    &--modal-next {
+      margin-left: 30px;
     }
 
-    &__list {
-      display: flex;
-      align-items: center;
-    }
-
-    &--sub &__item {
-      flex: 0 0 calc(25% - 10px);
-      margin-right: 10px;
-      border: 1px solid var(--color-gray-less-light);
-      height: 80px;
-      display: flex;
-      align-items: center;
-
-      @include below992inclusive {
-        height: 120px;
-      }
-    }
-
-    &__item {
-      flex: 0 0 100%;
-      min-width: 0;
-      width: 100%;
-      height: auto;
-      cursor: pointer;
-      object-fit: contain;
-
-      &--active {
-        border: 1px solid var(--color-primary) !important;
-      }
+    &--modal-prev {
+      margin-right: 30px;
     }
   }
 
