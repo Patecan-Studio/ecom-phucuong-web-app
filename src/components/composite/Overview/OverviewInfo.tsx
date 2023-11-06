@@ -18,15 +18,14 @@ const OverviewInfo = ({
     <div className="overview__info">
       <h1 className="overview__name">{name}</h1>
       <div className="overview__prices">
+        <div className="overview__price">
+          {convertToCurrencyFormat(price)}đ
+        </div>
         <div className="overview__discountPrice">
-          {convertToCurrencyFormat(discountPrice)} đ
+          {convertToCurrencyFormat(discountPrice)}đ
           <div className="overview__discountPercentage">
             Tiết kiệm: <span>{discountPercentage}%</span>
           </div>
-        </div>
-        <div className="overview__price">
-          Giá niêm yết: &nbsp;
-          {convertToCurrencyFormat(price)} đ
         </div>
       </div>
       <div className="overview__identify">
