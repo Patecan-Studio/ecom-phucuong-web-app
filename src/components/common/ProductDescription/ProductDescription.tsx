@@ -17,9 +17,10 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
     setExpanded(!expanded);
   };
 
-  const displayText = expanded
+  const displayText = longDesc.length < maxChars || expanded
     ? longDesc
     : (longDesc || "").slice(0, maxChars).concat("...");
+    
   const readMoreButton = (
     <div>
       {(longDesc || "").length > maxChars && (
@@ -51,10 +52,7 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
         </div>
         <div className="right">
           <CustomImage
-            width={0}
-            height={0}
-            sizes="100vw"
-            style={{ width: "100%", height: "300px" }}
+            fill
             alt=""
             src={imgURL}
           />
