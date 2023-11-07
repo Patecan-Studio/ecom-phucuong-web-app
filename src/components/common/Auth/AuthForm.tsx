@@ -24,7 +24,7 @@ const AuthForm = () => {
             },
           },
         }}
-        providers={["google", "facebook", "twitter"]}
+        providers={["google"]}
       />
     </div>
   );
