@@ -17,8 +17,12 @@ const ProductInfo = ({ name, discountPrice, price }: ProductInfoProps) => {
         {formattedDiscountPrice && (
           <h4 className="product__price">{formattedDiscountPrice} đ</h4>
         )}
-        {formattedDiscountPrice !== formattedPrice && (
+        {formattedDiscountPrice !== formattedPrice ? (
           <h4 className={priceClassName}>{formattedPrice} đ</h4>
+        ) : (
+          <h4 className={priceClassName} style={{ color: "white" }}>
+            {formattedPrice} đ
+          </h4>
         )}
       </div>
     </div>

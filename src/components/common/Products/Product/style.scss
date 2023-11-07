@@ -1,10 +1,5 @@
 @import "../../../../styles/responsives.scss";
 
-.product-container {
-  border-radius: 16px;
-  height: 100%;
-}
-
 .product {
   height: 100%;
   border-radius: 10px;
@@ -12,7 +7,7 @@
   cursor: pointer;
   overflow: hidden;
   border-radius: 16px;
-  background: #e0e0e0;
+  background: var(--color-gray-light);
   box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15),
     0px 1px 2px 0px rgba(0, 0, 0, 0.3);
   &:hover {
@@ -73,7 +68,7 @@
 
   &__info {
     background: var(--color-white);
-    font-weight: 300;
+    font-weight: 500;
     font-size: 18px;
     padding: 20px;
     padding-bottom: 0;
@@ -81,29 +76,19 @@
     flex-direction: column;
     justify-content: space-between;
 
-
-    @include below768inclusive {
-      padding: 0 8px;
-    }
-    @include below992inclusive {
-      height: 29%;
-    }
-    @include below576inclusive {
-      height: 34%;
-    }
-    @include below1200inclusive {
-      height: 28%;
-    }
-    @include below1440inclusive {
-      height: 30%;
-    }
   }
 
   &__name {
     margin-bottom: 10px;
     transition: all 200ms ease-in-out;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+
     @include below992inclusive {
-      font-size: 14px;
+      font-size: 16px;
       margin-bottom: 8px;
     }
   }
@@ -111,21 +96,23 @@
   &__price-container {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-end;
 
-    @include below768inclusive {
+    @include below1440inclusive {
       flex-direction: column;
       align-items: flex-start;
     }
   }
 
   &__price {
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 800;
     margin-bottom: 10px;
 
     @include below992inclusive {
-      font-size: 13px;
+      font-size: 18px;
       margin-bottom: 8px;
     }
 
@@ -135,7 +122,7 @@
       color: var(--color-gray);
 
       @include below992inclusive {
-        font-size: 11px;
+        font-size: 15px;
         margin-bottom: 8px;
       }
     }
@@ -147,6 +134,7 @@
     align-items: start;
     padding-top: 0;
     line-height: 36px;
+    gap: 20px;
 
     @include below768inclusive {
       padding: 0 8px;
@@ -156,21 +144,20 @@
   &__further-info,
   &__info {
     padding: 20px;
-
-    @include below992inclusive {
-      padding: 10px;
-    }
   }
 
   &__logo {
     position: relative;
-    width: 70%;
+    width: 50%;
+    height: 80px;
+    background-color: var(--color-white);
     img {
-      width: 70%;
+      width: 100%;
       height: auto;
+      object-fit: contain;
     }
 
-    @include below992inclusive {
+    @include below768inclusive {
       display: none;
     }
   }
@@ -178,19 +165,18 @@
   &__links {
     display: flex;
     flex-direction: column;
-    font-size: 14px;
-    width: 100%;
+    font-size: 16px;
 
     @include below992inclusive {
-      font-size: 12px;
+      font-size: 14px;
+    }
+
+    @include below768inclusive {
+      width: 100%;
     }
 
     svg {
       min-width: 10px;
-
-      @include below576inclusive {
-        display: none;
-      }
     }
   }
 
@@ -199,7 +185,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-width: 135px;
+    white-space: nowrap;
+    gap: 10px;
 
     svg {
       transition: all 200ms ease-in-out;
@@ -213,9 +200,5 @@
     &:hover svg {
       transform: rotate(180deg);
     }
-  }
-
-  &__cart {
-    border-bottom: 1px dashed var(--color-gray-less-light);
   }
 }
