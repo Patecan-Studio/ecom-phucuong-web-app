@@ -33,9 +33,11 @@ const OverviewInfo = ({
         <div className="overview__brand">
           <img src={brand} />
         </div>
-        <div className="overview__warranty">
-          Bảo hành: <span>{warranty || 0} tháng</span>
-        </div>
+        {warranty !== "0" && (
+          <div className="overview__warranty">
+            Bảo hành: <span>{warranty} tháng</span>
+          </div>
+        )}
         <div className="overview__quantity--info">
           Số lượng còn lại: {quantity}
         </div>
