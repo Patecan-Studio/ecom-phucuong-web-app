@@ -498,6 +498,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    margin-bottom: 20px;
 
     &__item {
       display: flex;
