@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import ProductsTitle from "@/components/common/Products/ProductsTitle";
 import ProductsButtons from "@/components/common/Products/ProductsButtons/ProductsButtons";
 import CategoryCard from "@/components/common/CategorySlider/CategoryCard";
@@ -100,7 +100,7 @@ const CategorySlider: React.FC = () => {
 
     const positiveDiff = Math.abs(positionDiff.current);
     const firstChildWidth = slider.children[0].clientWidth;
-    const multiplier = Math.ceil(positiveDiff / firstChildWidth);
+    const multiplier = Math.round(positiveDiff / firstChildWidth);
     const valDiff = firstChildWidth * multiplier - positiveDiff;
 
     if (slider.scrollLeft < prevScrollLeft.current) {
@@ -128,7 +128,9 @@ const CategorySlider: React.FC = () => {
     prevPageX.current = e.pageX || e.touches[0].pageX;
     prevScrollLeft.current = sliderRef.current?.scrollLeft || 0;
     if (positionDiff.current !== 0) {
-      setIsDragging(true);
+      setTimeout(() => {
+        setIsDragging(true);
+      }, 100)
     }
     positionDiff.current = 0;
   };
@@ -178,6 +180,7 @@ const CategorySlider: React.FC = () => {
       >
         {categories.map((item) => (
           <CategoryCard
+            key={item.label}
             imageUrl={item.imageUrl}
             altText={item.label}
             productName={item.label}

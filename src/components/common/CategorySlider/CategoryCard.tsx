@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React from "react";
 
 interface CategoryCardProps {
@@ -17,12 +16,13 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
   path,
   isDragging,
 }) => {
-  const router = useRouter();
   return (
     <div className="category-card">
       <div className="category-card__content">
-        <Link href={path}
+        <Link
+          href={path}
           draggable={false}
+          style={{ pointerEvents: isDragging ? "none" : "auto" }}
         >
           <img
             className="category-card__image"
@@ -30,7 +30,9 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
             alt={altText}
             draggable={false}
           />
-          <h2 className="category-card__text">{productName}</h2>
+          <h2 className="category-card__text" draggable={false}>
+            {productName}
+          </h2>
         </Link>
       </div>
     </div>
