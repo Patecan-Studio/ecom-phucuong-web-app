@@ -241,11 +241,11 @@
   }
 
   &__brand {
-    word-break: break-all;
-    span {
-      font-weight: 800;
-      color: rgb(102, 102, 102);
-    }
+    img {
+      width: 80px;
+      height: auto;
+      object-fit: contain;
+    }    
   }
 
   &__categories {
