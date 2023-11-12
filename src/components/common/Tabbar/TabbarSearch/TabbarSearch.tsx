@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import TabbarSearchInput from "./TabbarSearchInput";
 import TabbarSearchButton from "./TabbarSearchButton";
 import { usePathname, useRouter } from "next/navigation";
 import TabbarSuggest from "./TabbarSuggest";
 
-const getDropdownProducts = async (q: string) => {
+const getDropdownProductsByKeyword = async (q: string) => {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/products?page=1&page_size=4&q=${q}`
@@ -18,7 +18,20 @@ const getDropdownProducts = async (q: string) => {
   }
 };
 
+const getDropdownProducts = async () => {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/products?page=1&page_size=4`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const TabbarSearch = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const [inputValue, setInputValue] = useState("");
   const [debounceInputValue, setDebounceInputValue] = useState("");
   const [dropdownProducts, setDropdownProducts] = useState([]);
@@ -51,12 +64,12 @@ const TabbarSearch = () => {
   }, [inputValue]);
 
   useEffect(() => {
-    const getDropdownProductsData = async () => {
-      const data = await getDropdownProducts(debounceInputValue);
+    const getDropdownProductsByKeywordData = async () => {
+      const data = await getDropdownProductsByKeyword(debounceInputValue);
       setDropdownProducts(data.items);
     };
     if (debounceInputValue.length > 0) {
-      getDropdownProductsData();
+      getDropdownProductsByKeywordData();
     } else {
       setDropdownProducts([]);
     }
@@ -71,9 +84,25 @@ const TabbarSearch = () => {
     setInputValue(e.target.value);
   };
 
+  const handleClick = async (e: any) => {
+    const data = await getDropdownProducts();
+    setDropdownProducts(data.items);
+  };
+
+  const handleClose = () => {
+    if (dropdownProducts.length > 0) {
+      setDropdownProducts([]);
+    }
+  };
+
   return (
     <form className="tabbar__search" onSubmit={handleSearchParams}>
-      <TabbarSearchInput value={inputValue} onChange={handleChange} />
+      <TabbarSearchInput
+        value={inputValue}
+        onChange={handleChange}
+        onClick={handleClick}
+        onClose={handleClose}
+      />
       <TabbarSearchButton onClick={handleSearchParams} />
       <TabbarSuggest
         products={dropdownProducts}
