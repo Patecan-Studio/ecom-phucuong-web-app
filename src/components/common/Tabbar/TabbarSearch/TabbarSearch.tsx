@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import TabbarSearchInput from "./TabbarSearchInput";
 import TabbarSearchButton from "./TabbarSearchButton";
 import { usePathname, useRouter } from "next/navigation";
@@ -18,10 +18,12 @@ const getDropdownProductsByKeyword = async (q: string) => {
   }
 };
 
-const getDropdownProducts = async () => {
+const getDropdownProducts = async (page_size?: any) => {
+  const pageSizeQuery = page_size ? `&page_size=${page_size}` : "";
+
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/products?page=1&page_size=4`
+      `${process.env.NEXT_PUBLIC_API_URL}/products?page=1&${pageSizeQuery}`
     );
     const data = await response.json();
     return data;
@@ -31,7 +33,6 @@ const getDropdownProducts = async () => {
 };
 
 const TabbarSearch = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
   const [inputValue, setInputValue] = useState("");
   const [debounceInputValue, setDebounceInputValue] = useState("");
   const [dropdownProducts, setDropdownProducts] = useState([]);
@@ -85,7 +86,7 @@ const TabbarSearch = () => {
   };
 
   const handleClick = async (e: any) => {
-    const data = await getDropdownProducts();
+    const data = await getDropdownProducts(4);
     setDropdownProducts(data.items);
   };
 

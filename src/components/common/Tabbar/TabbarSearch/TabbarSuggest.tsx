@@ -9,6 +9,9 @@ const TabbarSuggest = ({ products, isDisplay }: any) => {
       className="tabbar__suggest"
       style={{ display: isDisplay ? "block" : "none" }}
     >
+      <h3 className="tabbar__suggest__item tabbar__suggest--title">
+        Sản phẩm gợi ý
+      </h3>
       {(products || []).map((product: any) => (
         <Link
           href={`/products/${product._id}`}
@@ -32,6 +35,7 @@ const TabbarSuggest = ({ products, isDisplay }: any) => {
           </div>
         </Link>
       ))}
+      <Link className="tabbar__suggest__item tabbar__suggest--all" href="/products">Xem tất cả</Link>
     </div>
   );
 };

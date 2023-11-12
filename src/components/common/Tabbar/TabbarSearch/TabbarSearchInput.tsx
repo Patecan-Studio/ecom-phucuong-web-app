@@ -1,23 +1,16 @@
 import React, { useEffect } from "react";
 
 const TabbarSearchInput = ({ value, onChange, onClick, onClose }: any) => {
-
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (
-        (e.target as HTMLElement).closest(".overview__image--modal-prev") ||
-        (e.target as HTMLElement).closest(".overview__image--modal-next")
-      ) {
-        return;
-      }
-
-      if (!(e.target as HTMLElement).closest(".overview__image--modal")) {
+      if (!(e.target as HTMLElement).closest(".tabbar__search")) {
         onClose();
       }
-    }
-
+    };
     document.addEventListener("click", handleClickOutside);
-  }, [])
+
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [onClose]);
 
   return (
     <input
