@@ -4,7 +4,6 @@ import ProductsTitle from "@/components/common/Products/ProductsTitle";
 import ProductsButtons from "@/components/common/Products/ProductsButtons/ProductsButtons";
 import CategoryCard from "@/components/common/CategorySlider/CategoryCard";
 import "./styles.scss";
-import Link from "next/link";
 
 const categories = [
   {
@@ -72,7 +71,9 @@ const categories = [
   },
   {
     label: "Tranh treo tường",
-    imageUrl: `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/tranh_khung_anh.jpeg`,
+    imageUrl: `https://${
+      process.env.SUPABSE_STORAGE_URL || "djwgwcdcgfsknzddrchp"
+    }.supabase.co/storage/v1/object/public/images/static/category-images/tranh_khung_anh.jpeg`,
     path: "/products?category=653b5ff590f7fb2f9cfdd2e0",
   },
   {
@@ -94,13 +95,13 @@ const CategorySlider: React.FC = () => {
   const autoSlide = () => {
     const slider = sliderRef.current;
     if (!slider) return;
-
     if (slider.scrollLeft === slider.scrollWidth - slider.clientWidth) return;
     if (slider.scrollLeft === 0) return;
 
     const positiveDiff = Math.abs(positionDiff.current);
     const firstChildWidth = slider.children[0].clientWidth;
-    const valDiff = firstChildWidth - positiveDiff;
+    const multiplier = Math.round(positiveDiff / firstChildWidth);
+    const valDiff = firstChildWidth * multiplier - positiveDiff;
 
     if (slider.scrollLeft < prevScrollLeft.current) {
       slider.style.scrollBehavior = "smooth";
@@ -126,13 +127,19 @@ const CategorySlider: React.FC = () => {
     if (sliderRef.current) sliderRef.current.style.scrollBehavior = "auto";
     prevPageX.current = e.pageX || e.touches[0].pageX;
     prevScrollLeft.current = sliderRef.current?.scrollLeft || 0;
-    setIsDragging(true);
+    if (positionDiff.current !== 0) {
+      setTimeout(() => {
+        setIsDragging(true);
+      }, 100)
+    }
+    positionDiff.current = 0;
   };
 
   const handleMouseUp = () => {
     if (sliderRef.current) sliderRef.current.style.scrollBehavior = "auto";
     if (isDragging) autoSlide();
     setIsDragging(false);
+    positionDiff.current = 0;
   };
 
   const handlePrevClick = () => {
@@ -172,13 +179,14 @@ const CategorySlider: React.FC = () => {
         onTouchEnd={handleMouseUp}
       >
         {categories.map((item) => (
-          <Link key={item.label} href={item.path}>
-            <CategoryCard
-              imageUrl={item.imageUrl}
-              altText={item.label}
-              productName={item.label}
-            />
-          </Link>
+          <CategoryCard
+            key={item.label}
+            imageUrl={item.imageUrl}
+            altText={item.label}
+            productName={item.label}
+            path={item.path}
+            isDragging={isDragging}
+          />
         ))}
       </div>
     </div>

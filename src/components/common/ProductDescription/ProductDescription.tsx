@@ -9,7 +9,7 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
   shortDesc,
   brand,
   productName,
-  maxChars = 200,
+  maxChars = 100,
   imgURL,
 }) => {
   const [expanded, setExpanded] = useState(false);
