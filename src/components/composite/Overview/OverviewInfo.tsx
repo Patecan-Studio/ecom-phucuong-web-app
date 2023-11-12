@@ -31,7 +31,10 @@ const OverviewInfo = ({
             </div>
           </>
         ) : (
-          <div className="overview__price">
+          <div
+            className="overview__price"
+            style={{ color: "black", textDecoration: "none" }}
+          >
             {convertToCurrencyFormat(price)}đ
           </div>
         )}
