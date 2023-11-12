@@ -17,8 +17,7 @@
   }
 
   &__left {
-    width: 55%;
-    padding: 0;
+    width: 40%;
 
     @include below992inclusive {
       width: 100%;
@@ -27,33 +26,72 @@
   }
 
   &__right {
-    width: 40%;
+    width: 60%;
+
     @include below992inclusive {
       width: 100%;
     }
   }
 
   &__image {
-    width: 90%;
-    background: var(--color-white);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 
-    @include below992inclusive {
-      width: 85%;
+    &__list {
+      display: flex;
+      align-items: center;
     }
 
-    @include below768inclusive {
-      width: 100%;
+    &__item {
+      flex: 0 0 100%;
+      cursor: pointer;
+      position: relative;
+      height: 500px;
+      background-color: var(--color-gray-light);
+
+      &--active {
+        border: 1px solid var(--color-primary) !important;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
     }
 
     &--main,
     &--sub,
     &--modal {
       overflow: hidden;
+    }
+
+    &--main {
+      margin-bottom: 30px;
+    }
+
+    &--main &__item {
+      img {
+        padding: 30px;
+      }
+    }
+
+    &--sub {
+      @include below992inclusive {
+        margin: auto;
+      }
+    }
+
+    &--sub &__item {
+      flex: 0 0 calc(25% - 10px);
+      margin-right: 10px;
+      border: 1px solid var(--color-gray-less-light);
+      height: 80px;
+      display: flex;
+      align-items: center;
+
+      img {
+        padding: 10px;
+      }
     }
 
     &--modal {
@@ -63,11 +101,10 @@
 
       @include below768inclusive {
         width: 65%;
-        margin: 0;
       }
 
       @include below576inclusive {
-        width: 100%;
+        width: 90%;
       }
     }
 
@@ -89,9 +126,6 @@
       border-radius: 2px;
       background-color: rgba(0, 0, 0, 0.561);
       cursor: pointer;
-    }
-
-    &--modal-close {
       position: absolute;
       top: 0;
       right: 0;
@@ -107,62 +141,24 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      // TODO: fix transition here, it's not working
       transition: 0.2s all ease-in-out;
 
-      &--main &__list {
-        width: 350px;
-        height: 500px;
-      }
-
-      &__list {
-        display: flex;
-        align-items: center;
-      }
-
       @include below1200inclusive {
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
       }
 
-      @include below768inclusive {
+      @include below992inclusive {
         display: none;
       }
     }
 
-    &--main {
-      margin-bottom: 50px;
+    &--modal-next {
+      margin-left: 30px;
     }
 
-    &__list {
-      display: flex;
-      align-items: center;
-    }
-
-    &--sub &__item {
-      flex: 0 0 calc(25% - 10px);
-      margin-right: 10px;
-      border: 1px solid var(--color-gray-less-light);
-      height: 80px;
-      display: flex;
-      align-items: center;
-
-      @include below992inclusive {
-        height: 120px;
-      }
-    }
-
-    &__item {
-      flex: 0 0 100%;
-      min-width: 0;
-      width: 100%;
-      height: auto;
-      cursor: pointer;
-      object-fit: contain;
-
-      &--active {
-        border: 1px solid var(--color-primary) !important;
-      }
+    &--modal-prev {
+      margin-right: 30px;
     }
   }
 
@@ -183,24 +179,25 @@
 
   &__prices {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     font-weight: 800;
     padding-bottom: 15px;
     border-bottom: 1px solid var(--color-gray-less-light);
     margin-bottom: 20px;
+    gap: 20px;
   }
 
   &__discountPrice {
     position: relative;
     width: fit-content;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
   &__discountPercentage {
-    position: absolute;
-    top: 5px;
-    right: -140px;
     font-size: 13px;
     font-weight: 500;
     padding: 5px 10px;
@@ -220,22 +217,23 @@
   }
 
   &__price {
-    font-size: 14px;
+    font-size: 25px;
     color: rgb(102, 102, 102);
-    font-weight: 800;
+    text-decoration: line-through;
   }
 
   &__identify {
-    display: flex;
-    padding-bottom: 20px;
     margin-bottom: 10px;
     border-bottom: 1px solid var(--color-gray-less-light);
+    row-gap: 10px;
+    column-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 20px;
   }
 
   &__code {
-    padding-right: 20px;
-    border-right: 2px solid var(--color-gray-less-light);
-
+    word-break: break-all;
     span {
       font-weight: 800;
       color: rgb(102, 102, 102);
@@ -243,28 +241,26 @@
   }
 
   &__brand {
-    padding-left: 20px;
-
-    span {
-      font-weight: 800;
-      color: rgb(102, 102, 102);
-    }
+    img {
+      width: 80px;
+      height: auto;
+      object-fit: contain;
+    }    
   }
 
   &__categories {
     display: flex;
     flex-wrap: wrap;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--color-gray-less-light);
-    margin-bottom: 20px;
+    padding-top: 10px;
   }
 
   &__category {
     padding: 0 10px;
     border-right: 2px solid var(--color-gray-less-light);
+    color: var(--color-primary);
 
     &:hover {
-      color: var(--color-primary);
+      color: var(--color-black);
     }
 
     &:last-child {
@@ -272,17 +268,10 @@
     }
   }
 
-  &__warranty {
-    padding: 10px 0 20px;
-    border-bottom: 1px solid var(--color-gray-less-light);
-    margin-bottom: 20px;
-  }
-
   &__order {
     display: flex;
     gap: 20px;
     padding: 20px;
-    background-color: var(--color-gray-light);
 
     &__left {
       width: 100%;
@@ -302,6 +291,8 @@
       font-size: 14px;
       font-weight: 900;
       margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
     }
 
     &__list {
@@ -362,11 +353,17 @@
       color: red;
       text-align: end;
       cursor: pointer;
+      font-weight: 500;
 
       &:hover {
         color: rgb(242, 179, 179);
       }
     }
+  }
+
+  &__specifications {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   &__quantity {
@@ -398,7 +395,7 @@
       text-align: center;
       border: unset;
       width: 15%;
-      width: 80%;
+      width: 100%;
     }
 
     &__decrease,
@@ -436,14 +433,14 @@
 
   &__buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 10px;
   }
 
   &__button {
+    flex: 1;
     border: unset;
-    width: 100%;
     padding: 15px;
     background: var(--color-primary);
     color: var(--color-text-primary);
@@ -456,6 +453,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     span {
       font-size: 12px;
@@ -473,8 +471,10 @@
   }
 
   &__call {
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
 
     &--bold {
@@ -494,26 +494,20 @@
   }
 
   &__policy {
-    padding: 15px;
-    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
     background-color: var(--color-white);
-    width: 80%;
-    @include below1440inclusive {
-      &.on-desktop {
-        display: none;
-      }
-    }
-
-    @include below992inclusive {
-      display: none;
-    }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
 
     &__item {
       display: flex;
       gap: 10px;
-      font-size: 12px;
-      padding: 15px 0;
+      padding: 15px;
       border-bottom: 1px solid var(--color-gray-less-light);
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+      align-items: center;
+      font-size: 12px;
 
       &:last-child {
         border-bottom: unset;

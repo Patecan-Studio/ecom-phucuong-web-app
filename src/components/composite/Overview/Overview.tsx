@@ -51,7 +51,6 @@ const Overview = ({ data }: OverviewProps) => {
   );
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
-
   const isShowMaterial = overviewData?.material
     ? overviewData.material !== "null" && overviewData.material !== null
     : false;
@@ -59,21 +58,17 @@ const Overview = ({ data }: OverviewProps) => {
     ? overviewData.color !== "null" && overviewData.color !== null
     : false;
 
-  console.log("isShowMaterial: " + isShowMaterial);
-  console.log("isShowColor: " + isShowColor);
-
   if (isShowMaterial && isShowColor) {
     dictionary = doubleDictionary(data.product_variants);
-    //console.log("dictionary: "+dictionary)
   }
 
   useEffect(() => {
-    if(isShowMaterial && isShowColor) {
+    if (isShowMaterial && isShowColor) {
       if (dictionary[selectedMaterial][0] !== selectedColor) {
         setSelectedColor(dictionary[selectedMaterial][0]);
       }
     }
-  }, [selectedMaterial])
+  }, [selectedMaterial]);
 
   const materials = isShowMaterial
     ? data.product_variants
@@ -171,7 +166,13 @@ const Overview = ({ data }: OverviewProps) => {
     <div className="overview">
       <div className="overview__left">
         <OverviewImage overviewData={overviewData} />
-        <OverviewPolicy className="on-mobile" />
+        <OverviewPolicy />
+        <ProductDescription
+          longDesc={data.product_description}
+          productName={data.product_name}
+          brand={data.product_brand?.brand_name}
+          imgURL={data.product_variants[0].image_list[0].imageUrl}
+        />
       </div>
       <div className="overview__right">
         <OverviewInfo
@@ -182,16 +183,10 @@ const Overview = ({ data }: OverviewProps) => {
           discountPrice={overviewData?.discount_price || 0}
           discountPercentage={overviewData?.discount_percentage || 0}
           productCode={overviewData?.sku || ""}
-          brand={overviewData ? data.product_brand?.brand_name || "" : ""}
+          brand={overviewData ? data.product_brand?.brand_logoUrl || "" : ""}
           quantity={overviewData?.quantity || 0}
           categories={categories.slice(0, 3)}
           warranty={warranty}
-        />
-        <ProductDescription
-          longDesc={data.product_description}
-          productName={data.product_name}
-          brand={data.product_brand?.brand_name}
-          imgURL={data.product_variants?.[0].image_list[0].imageUrl}
         />
         <div className="overview__order">
           <div className="overview__order__left">
@@ -219,9 +214,6 @@ const Overview = ({ data }: OverviewProps) => {
             />
             <OverviewButtons />
           </div>
-          {/* <div className="overview__order__right">
-            <OverviewPolicy className="on-desktop" />
-          </div> */}
         </div>
       </div>
     </div>

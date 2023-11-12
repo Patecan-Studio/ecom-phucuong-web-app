@@ -9,9 +9,7 @@ const ProductLogo = ({ brandImage }: ProductLogoProps) => {
       <NextImage
         src={brandImage}
         alt="Picture of the author"
-        width={0}
-        height={0}
-        sizes="100vw"
+        fill
       />
     </Link>
   );

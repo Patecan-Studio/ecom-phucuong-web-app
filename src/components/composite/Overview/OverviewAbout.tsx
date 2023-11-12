@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { OverviewAboutProps } from "./types";
+import OverviewSpecifications from "./OverviewSpecifications";
 
 const OverviewAbout = ({
   materials,
@@ -20,8 +21,11 @@ const OverviewAbout = ({
 }: OverviewAboutProps) => {
   return (
     <div className="overview__about">
-      <div>
-        <h4 className="overview__about__title">VỀ SẢN PHẨM</h4>
+      <div className="overview__about__title">
+        <h4>VỀ SẢN PHẨM</h4>
+        <div className="overview__about__reset" onClick={onResetVariant}>
+          Reset
+        </div>
       </div>
       {isShowMaterial && (
         <div className="overview__about__list">
@@ -46,74 +50,50 @@ const OverviewAbout = ({
           <>
             <h5 className="overview__about__list__title">Màu sắc</h5>
             <div className="overview__about__items">
-                {(colors.map((item: any) => (
-                        <button
-                            className={`overview__about__item ${
-                                selectedColor === item.value &&
-                                dictionary[item.value]?.includes(selectedMaterial) &&
-                                "active"
-                            }`}
-                            key={item.value}
-                            onClick={() => onColorSelect(item.value)}
-                            disabled={dictionary[item.value] === undefined ? false : !dictionary[item.value].includes(selectedMaterial)}
-                        >
-                            <div
-                                className="square-color"
-                                style={{
-                                    background: item.value,
-                                    width: "12px",
-                                    height: "12px",
-                                    borderRadius: "3px",
-                                }}
-                            ></div>
-                            {item.label}
-                        </button>
-                    ))
-                )}
+              {colors.map((item: any) => (
+                <button
+                  className={`overview__about__item ${
+                    selectedColor === item.value &&
+                    dictionary[item.value]?.includes(selectedMaterial) &&
+                    "active"
+                  }`}
+                  key={item.value}
+                  onClick={() => onColorSelect(item.value)}
+                  disabled={
+                    dictionary[item.value] === undefined
+                      ? false
+                      : !dictionary[item.value].includes(selectedMaterial)
+                  }
+                >
+                  <div
+                    className="square-color"
+                    style={{
+                      background: item.value,
+                      width: "12px",
+                      height: "12px",
+                      borderRadius: "3px",
+                    }}
+                  ></div>
+                  {item.label}
+                </button>
+              ))}
             </div>
           </>
         ) : (
           <>
             <h5 className="overview__about__list__title">Màu sắc</h5>
-            <p className="overview__about__item--null">Màu như hình, hoặc chọn màu theo yêu cầu</p>
+            <p className="overview__about__item--null">
+              Màu như hình, hoặc chọn màu theo yêu cầu
+            </p>
           </>
         )}
       </div>
-      {height.match(/\d+/) && parseFloat(height) !== 0 && (
-        <div className="overview__about__list">
-          <h5 className="overview__about__list__title">Chiều cao</h5>
-          <div className="overview__about__items">
-            <p className="overview__about__item no-border">{height}</p>
-          </div>
-        </div>
-      )}
-      {width.match(/\d+/) && parseFloat(width) !== 0 && (
-        <div className="overview__about__list">
-          <h5 className="overview__about__list__title">Chiều rộng</h5>
-          <div className="overview__about__items">
-            <p className="overview__about__item no-border">{width}</p>
-          </div>
-        </div>
-      )}
-      {length.match(/\d+/) && parseFloat(length) !== 0 && (
-        <div className="overview__about__list">
-          <h5 className="overview__about__list__title">Chiều dài</h5>
-          <div className="overview__about__items">
-            <p className="overview__about__item no-border">{length}</p>
-          </div>
-        </div>
-      )}
-      {weight.match(/\d+/) && parseFloat(weight) !== 0 && (
-        <div className="overview__about__list">
-          <h5 className="overview__about__list__title">Trọng lượng</h5>
-          <div className="overview__about__items">
-            <p className="overview__about__item no-border">{weight}</p>
-          </div>
-        </div>
-      )}
-      <div className="overview__about__reset" onClick={onResetVariant}>
-        Reset
-      </div>
+      <OverviewSpecifications
+        height={height}
+        width={width}
+        weight={weight}
+        length={length}
+      />
     </div>
   );
 };
