@@ -17,7 +17,6 @@
   background-color: var(--color-gray-light);
   border-radius: 10px;
   white-space: nowrap;
-  cursor: pointer;
   overflow: hidden;
   touch-action: none;
 
@@ -50,7 +49,7 @@
   }
   
 
-  @include below992inclusive {
+  @include below1200inclusive {
     width: calc((100% / 3));
   }
 

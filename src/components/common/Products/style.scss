@@ -53,10 +53,10 @@ $item-gap: 20px;
   &__sub-content {
     &__items {
       display: grid;
-      gap: 15px;
+      gap: 30px;
       grid-template-columns: repeat(4, 1fr);
 
-      @include below768inclusive {
+      @include below992inclusive {
         grid-template-columns: repeat(2, 1fr);
       }
     }
