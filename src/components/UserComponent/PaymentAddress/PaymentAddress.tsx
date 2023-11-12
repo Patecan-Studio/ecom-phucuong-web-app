@@ -105,7 +105,7 @@ const PaymentAddress = () => {
               Địa chỉ email
               <input type="text" id="email" name="email" />
             </label>
-            <input className="submit-btn" type="submit" value="Submit" />
+            <input className="submit-btn" type="submit" value="Lưu" />
           </form>
         </div>
       </div>
