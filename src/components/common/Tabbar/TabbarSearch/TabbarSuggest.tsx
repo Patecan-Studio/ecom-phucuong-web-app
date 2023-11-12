@@ -30,7 +30,7 @@ const TabbarSuggest = ({ products, isDisplay }: any) => {
           <div className="tabbar__suggest__info">
             <div className="tabbar__suggest__name">{product.product_name}</div>
             <div className="tabbar__suggest__price">
-              {convertToCurrencyFormat(product.price)}
+              {convertToCurrencyFormat(product.price)}đ
             </div>
           </div>
         </Link>
