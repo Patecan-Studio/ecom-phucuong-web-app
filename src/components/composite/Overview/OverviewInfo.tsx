@@ -18,13 +18,26 @@ const OverviewInfo = ({
     <div className="overview__info">
       <h1 className="overview__name">{name}</h1>
       <div className="overview__prices">
-        <div className="overview__price">{convertToCurrencyFormat(price)}đ</div>
-        <div className="overview__discountPrice">
-          {convertToCurrencyFormat(discountPrice)}đ
-          <div className="overview__discountPercentage">
-            Tiết kiệm: <span>{discountPercentage}%</span>
+        {discountPercentage > 0 ? (
+          <>
+            <div className="overview__price">
+              {convertToCurrencyFormat(price)}đ
+            </div>
+            <div className="overview__discountPrice">
+              {convertToCurrencyFormat(discountPrice)}đ
+              <div className="overview__discountPercentage">
+                Tiết kiệm: <span>{discountPercentage}%</span>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div
+            className="overview__price"
+            style={{ color: "black", textDecoration: "none" }}
+          >
+            {convertToCurrencyFormat(price)}đ
           </div>
-        </div>
+        )}
       </div>
       <div className="overview__identify">
         <div className="overview__code">
@@ -33,7 +46,7 @@ const OverviewInfo = ({
         <div className="overview__brand">
           <img src={brand} />
         </div>
-        {warranty !== "0" && (
+        {warranty && warranty !== "0" && (
           <div className="overview__warranty">
             Bảo hành: <span>{warranty} tháng</span>
           </div>
