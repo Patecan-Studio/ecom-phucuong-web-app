@@ -9,7 +9,8 @@ const OverviewInfo = ({
   discountPrice,
   discountPercentage,
   productCode,
-  brand,
+  brandImage,
+  brandName,
   quantity,
   categories,
   warranty,
@@ -44,7 +45,8 @@ const OverviewInfo = ({
           Mã sản phẩm: <span>{productCode}</span>
         </div>
         <div className="overview__brand">
-          <img src={brand} />
+          Thương hiệu: <span>{brandName}</span>
+          <img src={brandImage} />
         </div>
         {warranty && warranty !== "0" && (
           <div className="overview__warranty">
