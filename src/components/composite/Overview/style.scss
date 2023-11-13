@@ -271,6 +271,7 @@
     display: flex;
     gap: 20px;
     padding: 20px;
+    padding-bottom: 0;
 
     &__left {
       width: 100%;
@@ -282,9 +283,6 @@
   }
 
   &__about {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
     &__title {
       font-size: 14px;
       font-weight: 900;
@@ -360,27 +358,38 @@
   }
 
   &__specifications {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     border-bottom: 1px solid var(--color-gray-less-light);
+    padding: 5px;
     padding-bottom: 10px;
     margin-bottom: 20px;
 
-    h5 {
-      margin: 0;
-
-      // add ":" to the end of the title
+    &__title {
       &::after {
-        content: ":";
+        content: ':';
         margin-left: 1px;
       }
     }
 
-    p {
-      font-weight: bold;
+    h5 {
+      margin: 0;
     }
 
-    > div {
+    p {
+      margin-left: 5px;
+
+      &::after {
+        content: ',';
+      }
+
+      &:last-child {
+        &::after {
+          content: '';
+        }
+      }
+    }
+
+    >div {
       margin: 0;
     }
   }
@@ -391,7 +400,7 @@
       gap: 40px;
       white-space: nowrap;
       align-items: center;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
       align-items: flex-start;
     }
 
@@ -459,6 +468,8 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
+    padding: 20px;
+    padding-top: 0;
   }
 
   &__button {

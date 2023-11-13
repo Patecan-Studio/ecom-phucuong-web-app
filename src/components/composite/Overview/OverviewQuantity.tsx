@@ -1,6 +1,5 @@
 import React from "react";
 import { OverviewQuantityProps } from "./types";
-import OverviewButtons from "./OverviewButtons";
 
 const OverviewQuantity = ({
   quantity,
@@ -31,7 +30,6 @@ const OverviewQuantity = ({
             +
           </button>
         </div>
-        <OverviewButtons />
       </div>
     </div>
   );

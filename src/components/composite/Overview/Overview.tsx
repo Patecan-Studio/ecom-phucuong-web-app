@@ -8,6 +8,7 @@ import OverviewQuantity from "./OverviewQuantity";
 import OverviewPolicy from "./OverviewPolicy";
 import OverviewAbout from "./OverviewAbout";
 import { OverviewProps } from "./types";
+import OverviewButtons from "./OverviewButtons";
 
 function doubleDictionary(t: any) {
   const dictionary: { [key: string]: string[] } = Object.create(null);
@@ -206,6 +207,7 @@ const Overview = ({ data }: OverviewProps) => {
             />
           </div>
         </div>
+        <OverviewButtons />
       </div>
     </div>
   );
