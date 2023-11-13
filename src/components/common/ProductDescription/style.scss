@@ -4,7 +4,13 @@
   background-color: var(--color-white);
   text-align: justify;
   margin-bottom: 30px;
+  padding: 45px;
+  padding-top: 0px;
   @include responsiveContainer;
+
+  * {
+    text-align: start;
+  }
 
   ul,
   ol {
