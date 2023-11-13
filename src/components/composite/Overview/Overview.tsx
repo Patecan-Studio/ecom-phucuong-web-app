@@ -5,11 +5,10 @@ import "./style.scss";
 import OverviewImage from "./OverviewImage";
 import OverviewInfo from "./OverviewInfo";
 import OverviewQuantity from "./OverviewQuantity";
-import OverviewButtons from "./OverviewButtons";
 import OverviewPolicy from "./OverviewPolicy";
 import OverviewAbout from "./OverviewAbout";
 import { OverviewProps } from "./types";
-import { ProductDescription } from "@/components/common";
+import OverviewButtons from "./OverviewButtons";
 
 function doubleDictionary(t: any) {
   const dictionary: { [key: string]: string[] } = Object.create(null);
@@ -167,12 +166,6 @@ const Overview = ({ data }: OverviewProps) => {
       <div className="overview__left">
         <OverviewImage overviewData={overviewData} />
         <OverviewPolicy />
-        <ProductDescription
-          longDesc={data.product_description}
-          productName={data.product_name}
-          brand={data.product_brand?.brand_name}
-          imgURL={data.product_variants[0].image_list[0].imageUrl}
-        />
       </div>
       <div className="overview__right">
         <OverviewInfo
@@ -183,7 +176,8 @@ const Overview = ({ data }: OverviewProps) => {
           discountPrice={overviewData?.discount_price || 0}
           discountPercentage={overviewData?.discount_percentage || 0}
           productCode={overviewData?.sku || ""}
-          brand={overviewData ? data.product_brand?.brand_logoUrl || "" : ""}
+          brandImage={overviewData ? data.product_brand?.brand_logoUrl || "" : ""}
+          brandName={overviewData ? data.product_brand?.brand_name || "" : ""}
           quantity={overviewData?.quantity || 0}
           categories={categories.slice(0, 3)}
           warranty={warranty}
@@ -212,9 +206,9 @@ const Overview = ({ data }: OverviewProps) => {
               onIncrease={handleIncreaseQuantity}
               onDecrease={handleDecreaseQuantity}
             />
-            <OverviewButtons />
           </div>
         </div>
+        <OverviewButtons />
       </div>
     </div>
   );
