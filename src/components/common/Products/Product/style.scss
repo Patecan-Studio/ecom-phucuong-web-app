@@ -139,6 +139,7 @@
 
     @include below768inclusive {
       padding: 0 8px;
+      height: unset;
     }
   }
 
