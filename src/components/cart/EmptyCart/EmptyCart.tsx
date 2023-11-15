@@ -5,7 +5,7 @@ export default function EmptyCart() {
 
     return (
         <div className={styles.empty}>
-            <img src={"../../../../../images/cart/EmptyCart.png"} alt={""}/>
+            <img src={"../../../images/cart/empty.png"} alt={""}/>
             <h1>Cart is empty</h1>
 
             <Link href={"/browse"}>

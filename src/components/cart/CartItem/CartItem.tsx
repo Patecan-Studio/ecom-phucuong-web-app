@@ -4,20 +4,22 @@ import {AiOutlineDelete} from "react-icons/ai";
 import {MdOutlineKeyboardArrowRight} from "react-icons/md";
 import {useAppDispatch} from "@/store/store";
 import {addToCart, deleteProduct, removeFromCart} from "@/store/cartSlice";
-import {useEffect, useState} from "react";
+import {Dispatch, SetStateAction, useEffect, useState} from "react";
 
-export default function CartItem({product, qty, selected, setSelected}) {
+interface CartItemProps {
+    product: any;
+    qty: number;
+    selected: any[];
+    setSelected: Dispatch<SetStateAction<any[]>>;
+}
 
-    console.log(product.variant);
+export default function CartItem({product, qty, selected, setSelected}: CartItemProps) {
 
     const [active, setActive] = useState(selected.find((p) => p._uid == product._uid));
 
     useEffect(() => {
         const check = selected.find((p) => p._uid == product._uid);
         setActive(check);
-        selected.forEach((p) => {
-            console.log(p);
-        });
     }, [selected]);
 
 
@@ -74,60 +76,56 @@ export default function CartItem({product, qty, selected, setSelected}) {
                 ></div>
 
                 <img src={product.variant.image_list[0].imageUrl}/>
-                {/*<div className={styles.col}>*/}
-                {/*    <div className={styles.grid}>*/}
-                {/*        <h1>*/}
-                {/*            {product.name.length > 50 ? `${product.name.slice(0, 50)}...` : product.name}*/}
-                {/*        </h1>*/}
-                {/*        <div style={{zIndex: '2'}}>*/}
-                {/*            <BsHeart></BsHeart>*/}
-                {/*        </div>*/}
-                {/*        <div*/}
-                {/*            style={{zIndex: '2'}}*/}
-                {/*            onClick={()=> deleteProductFromCart(product._uid)}*/}
-                {/*        >*/}
-                {/*            <AiOutlineDelete/>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*    <div className={styles.product__color}>*/}
-                {/*        <img src={product.color.image} alt={""}/>*/}
-                {/*        {*/}
-                {/*            product.size && <span><b>{product.size.size}</b></span>*/}
-                {/*        }*/}
-                {/*        {*/}
-                {/*            product.price && <span>{product.price.toFixed(2)}</span>*/}
-                {/*        }*/}
-                {/*        <MdOutlineKeyboardArrowRight/>*/}
-                {/*    </div>*/}
-                {/*    <div className={styles.product__priceQty}>*/}
-                {/*        <div className={styles.product__priceQty_price}>*/}
-                {/*      <span className={styles.price}>*/}
-                {/*        {(product.price * qty).toFixed(2)}$*/}
-                {/*      </span>*/}
-                {/*            {product.price !== product.priceBeforeDiscounted && (*/}
-                {/*                <span className={styles.priceBefore}>*/}
-                {/*          {product.priceBeforeDiscounted}$*/}
-                {/*        </span>*/}
-                {/*            )}*/}
-                {/*            {product.discount > 0 && (*/}
-                {/*                <span className={styles.discount}>-{product.discount}%</span>*/}
-                {/*            )}*/}
-                {/*        </div>*/}
-                {/*        <div className={styles.product__priceQty_qty}>*/}
-                {/*            <button*/}
-                {/*                disabled={qty < 2}*/}
-                {/*                onClick={() => updateQty("minus")}>*/}
-                {/*                -*/}
-                {/*            </button>*/}
-                {/*            <span>{qty}</span>*/}
-                {/*            <button*/}
-                {/*                disabled={qty == product.quantity}*/}
-                {/*                onClick={() => updateQty("plus")}>*/}
-                {/*                +*/}
-                {/*            </button>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
+                <div className={styles.col}>
+                    <div className={styles.grid}>
+                        <h1>
+                            {product.product_name.length > 50 ? `${product.product_name.slice(0, 50)}...` : product.product_name}
+                        </h1>
+                        <div style={{zIndex: '2'}}>
+                            <BsHeart></BsHeart>
+                        </div>
+                        <div
+                            style={{zIndex: '2'}}
+                            onClick={()=> deleteProductFromCart(product._uid)}>
+                            <AiOutlineDelete/>
+                        </div>
+                    </div>
+                    <div className={styles.product__color}>
+                        <img src={product.variant.image_list[0].imageUrl} alt={""}/>
+                        {
+                            product.variant.material && <span>{product.variant.material}</span>
+                        }
+                        <MdOutlineKeyboardArrowRight/>
+                    </div>
+                    <div className={styles.product__priceQty}>
+                        <div className={styles.product__priceQty_price}>
+                      <span className={styles.price}>
+                        {(product.variant.discount_price * qty).toFixed(2)}$
+                      </span>
+                            {product.variant.discount_price !== product.variant.price &&
+                                (<span className={styles.priceBefore}>
+                                    {product.variant.price}$
+                                </span>)
+                            }
+                            {product.variant.discount_percentage > 0 && (
+                                <span className={styles.discount}>-{product.variant.discount_percentage}%</span>
+                            )}
+                        </div>
+                        <div className={styles.product__priceQty_qty}>
+                            <button
+                                disabled={qty < 2}
+                                onClick={() => updateQty("minus")}>
+                                -
+                            </button>
+                            <span>{qty}</span>
+                            <button
+                                disabled={qty == product.quantity}
+                                onClick={() => updateQty("plus")}>
+                                +
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

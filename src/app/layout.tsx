@@ -11,8 +11,7 @@ import "../styles/reset.css";
 import "../styles/responsives.scss";
 import SaleBanner from "@/components/common/SaleBanner/SaleBanner";
 import {ReduxProviders} from "@/components/Provider";
-import CartHeaders from "@/components/cart_temp/CartHeaders";
-import {useEffect, useState} from "react";
+
 import {persistor} from "@/store/store";
 
 const inter = Inter({subsets: ["latin"]});
@@ -34,7 +33,6 @@ export default function RootLayout({
             }
         />
         <ReduxProviders>
-            <CartHeaders/>
             <Tabbar/>
             {children}
         </ReduxProviders>
