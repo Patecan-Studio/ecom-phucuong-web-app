@@ -9,7 +9,6 @@ const AuthForm = () => {
     supabaseUrl: process.env.NEXT_PUBLIC_PROJECT_URL,
     supabaseKey: process.env.NEXT_PUBLIC_ANON_API_KEY,
   });
-  const callbackUrl = `${window.location.origin}/auth/callback`;
 
   return (
     <div className="auth">
@@ -27,7 +26,7 @@ const AuthForm = () => {
           },
         }}
         providers={["google"]}
-        redirectTo={callbackUrl}
+        redirectTo="http://localhost:3000/auth/callback"
       />
     </div>
   );
