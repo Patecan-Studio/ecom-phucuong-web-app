@@ -64,6 +64,7 @@ interface Product {
     imageName: string;
     imageUrl: string;
   };
+  product_warranty: string;
 }
 
 interface ProductBrand {
@@ -107,13 +108,11 @@ export interface OverviewInfoProps {
   discountPrice: number;
   discountPercentage: number;
   productCode: string;
-  brand: string;
+  brandImage?: string;
+  brandName?: string;
   quantity: number;
   categories: ProductCategories[];
-}
-
-export interface OverviewPolicyProps {
-  className: string;
+  warranty: string;
 }
 
 export interface OverviewQuantityProps {
@@ -137,4 +136,7 @@ export interface OverviewAboutProps {
   selectedColor: string;
   isShowMaterial: boolean;
   isShowColor: boolean;
+  dictionary: {
+    [key: string]: string[];
+  };
 }

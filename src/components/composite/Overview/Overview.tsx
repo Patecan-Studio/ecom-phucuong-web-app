@@ -5,10 +5,10 @@ import "./style.scss";
 import OverviewImage from "./OverviewImage";
 import OverviewInfo from "./OverviewInfo";
 import OverviewQuantity from "./OverviewQuantity";
-import OverviewButtons from "./OverviewButtons";
 import OverviewPolicy from "./OverviewPolicy";
 import OverviewAbout from "./OverviewAbout";
 import { OverviewProps } from "./types";
+import OverviewButtons from "./OverviewButtons";
 
 function doubleDictionary(t: any) {
   const dictionary: { [key: string]: string[] } = Object.create(null);
@@ -40,7 +40,6 @@ const Overview = ({ data }: OverviewProps) => {
 
   const [categories, setCategories] = useState(data.product_categories);
 
-  const [enabledButtons, setEnabledButtons] = useState({});
   let dictionary: { [key: string]: string[] } = Object.create(null);
 
   const [selectedMaterial, setSelectedMaterial] = useState(
@@ -61,6 +60,14 @@ const Overview = ({ data }: OverviewProps) => {
   if (isShowMaterial && isShowColor) {
     dictionary = doubleDictionary(data.product_variants);
   }
+
+  useEffect(() => {
+    if (isShowMaterial && isShowColor) {
+      if (dictionary[selectedMaterial][0] !== selectedColor) {
+        setSelectedColor(dictionary[selectedMaterial][0]);
+      }
+    }
+  }, [selectedMaterial]);
 
   const materials = isShowMaterial
     ? data.product_variants
@@ -84,6 +91,7 @@ const Overview = ({ data }: OverviewProps) => {
   const height = data.product_height + data.product_size_unit;
   const width = data.product_width + data.product_size_unit;
   const weight = data.product_weight?.value + data.product_weight?.unit;
+  const warranty = data.product_warranty;
 
   const handleVariantChange = () => {
     const newOverviewData = data.product_variants.find(
@@ -157,7 +165,7 @@ const Overview = ({ data }: OverviewProps) => {
     <div className="overview">
       <div className="overview__left">
         <OverviewImage overviewData={overviewData} />
-        <OverviewPolicy className="on-mobile" />
+        <OverviewPolicy />
       </div>
       <div className="overview__right">
         <OverviewInfo
@@ -168,9 +176,11 @@ const Overview = ({ data }: OverviewProps) => {
           discountPrice={overviewData?.discount_price || 0}
           discountPercentage={overviewData?.discount_percentage || 0}
           productCode={overviewData?.sku || ""}
-          brand={overviewData ? data.product_brand?.brand_name || "" : ""}
+          brandImage={overviewData ? data.product_brand?.brand_logoUrl || "" : ""}
+          brandName={overviewData ? data.product_brand?.brand_name || "" : ""}
           quantity={overviewData?.quantity || 0}
           categories={categories.slice(0, 3)}
+          warranty={warranty}
         />
         <div className="overview__order">
           <div className="overview__order__left">
@@ -188,6 +198,7 @@ const Overview = ({ data }: OverviewProps) => {
               weight={weight}
               isShowMaterial={isShowMaterial}
               isShowColor={isShowColor}
+              dictionary={dictionary}
             />
             <OverviewQuantity
               isDisabled={overviewData === undefined}
@@ -195,12 +206,9 @@ const Overview = ({ data }: OverviewProps) => {
               onIncrease={handleIncreaseQuantity}
               onDecrease={handleDecreaseQuantity}
             />
-            <OverviewButtons />
-          </div>
-          <div className="overview__order__right">
-            <OverviewPolicy className="on-desktop" />
           </div>
         </div>
+        <OverviewButtons />
       </div>
     </div>
   );

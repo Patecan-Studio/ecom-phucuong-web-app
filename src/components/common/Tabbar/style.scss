@@ -19,10 +19,10 @@
   color: var(--color-black);
   font-family: "Mulish Italic", sans-serif;
   max-width: 100%;
+  padding: 0 5em;
 
   &__logo {
     max-width: 220px;
-    margin-left: 5em;
     border-right: 1px solid var(--color-platinum);
     display: flex;
     justify-content: center;
@@ -112,6 +112,29 @@
     flex-direction: column;
     padding: 15px;
     gap: 20px;
+
+    &--title {
+      font-weight: 700;
+      box-shadow: none !important;
+
+      pointer-events: none !important;
+    }
+
+    &--all {
+      padding: 15px;
+      box-shadow: none !important;
+      width: fit-content;
+      margin: 20px auto 0;
+
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 5px;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background-color: black !important;
+      }
+    }
 
     &__item {
       display: flex;
@@ -281,6 +304,7 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     width: 100%;
+    z-index: -1;
 
     &:hover {
       opacity: 1;

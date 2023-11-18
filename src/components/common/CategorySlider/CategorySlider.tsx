@@ -11,75 +11,77 @@ const categories = [
     imageUrl: `https://${
       process.env.SUPABSE_STORAGE_URL || "djwgwcdcgfsknzddrchp"
     }.supabase.co/storage/v1/object/public/images/static/category-images/giuong.jpeg`,
-    path: "/",
+    path: "/products?category=653b4e1a85e86f091c56cb2e",
   },
   {
     label: "Sofa",
     imageUrl: `https://${
       process.env.SUPABSE_STORAGE_URL || "djwgwcdcgfsknzddrchp"
     }.supabase.co/storage/v1/object/public/images/static/category-images/sofa.png`,
-    path: "/",
+    path: "/products?category=653b4f1d85e86f091c56cb76",
   },
   {
     label: "Bếp",
     imageUrl: `https://${
       process.env.SUPABSE_STORAGE_URL || "djwgwcdcgfsknzddrchp"
     }.supabase.co/storage/v1/object/public/images/static/category-images/bep.png`,
-    path: "/",
+    path: "/products?category=653b5f5590f7fb2f9cfdd2b0",
   },
   {
     label: "Ghế Gaming",
     imageUrl: `https://${
       process.env.SUPABSE_STORAGE_URL || "djwgwcdcgfsknzddrchp"
     }.supabase.co/storage/v1/object/public/images/static/category-images/ghe_gaming.jpeg`,
-    path: "/",
+    path: "/products?category=653b4efb85e86f091c56cb6e",
   },
   {
     label: "Phụ kiện cho bé",
     imageUrl: `https://${
       process.env.SUPABSE_STORAGE_URL || "djwgwcdcgfsknzddrchp"
     }.supabase.co/storage/v1/object/public/images/static/category-images/phu_kien_cho_be.jpeg`,
-    path: "/",
+    path: "/products?category=653b60a190f7fb2f9cfdd314",
   },
   {
     label: "Nệm",
     imageUrl: `https://${
       process.env.SUPABSE_STORAGE_URL || "djwgwcdcgfsknzddrchp"
     }.supabase.co/storage/v1/object/public/images/static/category-images/nem.jpeg`,
-    path: "/",
+    path: "/products?category=653b607a90f7fb2f9cfdd308",
   },
   {
     label: "Nội thất phòng khách",
     imageUrl: `https://${
       process.env.SUPABSE_STORAGE_URL || "djwgwcdcgfsknzddrchp"
     }.supabase.co/storage/v1/object/public/images/static/category-images/noi_that_phong_khach.png`,
-    path: "/",
+    path: "/products?category=653b4c7085e86f091c56cb06",
   },
   {
     label: "Đèn",
     imageUrl: `https://${
       process.env.SUPABSE_STORAGE_URL || "djwgwcdcgfsknzddrchp"
     }.supabase.co/storage/v1/object/public/images/static/category-images/den.jpeg`,
-    path: "/",
+    path: "/products?category=653b603890f7fb2f9cfdd2f4",
   },
   {
     label: "Ghế bành",
     imageUrl: `https://${
       process.env.SUPABSE_STORAGE_URL || "djwgwcdcgfsknzddrchp"
     }.supabase.co/storage/v1/object/public/images/static/category-images/ghe_banh.png`,
-    path: "/",
+    path: "/products?category=653b4ce985e86f091c56cb0a",
   },
   {
     label: "Tranh treo tường",
-    imageUrl: `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/category-images/tranh_khung_anh.jpeg`,
-    path: "/",
+    imageUrl: `https://${
+      process.env.SUPABSE_STORAGE_URL || "djwgwcdcgfsknzddrchp"
+    }.supabase.co/storage/v1/object/public/images/static/category-images/tranh_khung_anh.jpeg`,
+    path: "/products?category=653b5ff590f7fb2f9cfdd2e0",
   },
   {
     label: "Tủ quần áo",
     imageUrl: `https://${
       process.env.SUPABSE_STORAGE_URL || "djwgwcdcgfsknzddrchp"
     }.supabase.co/storage/v1/object/public/images/static/category-images/tu_quan_ao.jpeg`,
-    path: "/",
+    path: "/products?category=653b4e5485e86f091c56cb3e",
   },
 ];
 
@@ -93,13 +95,13 @@ const CategorySlider: React.FC = () => {
   const autoSlide = () => {
     const slider = sliderRef.current;
     if (!slider) return;
-
     if (slider.scrollLeft === slider.scrollWidth - slider.clientWidth) return;
     if (slider.scrollLeft === 0) return;
 
     const positiveDiff = Math.abs(positionDiff.current);
     const firstChildWidth = slider.children[0].clientWidth;
-    const valDiff = firstChildWidth - positiveDiff;
+    const multiplier = Math.round(positiveDiff / firstChildWidth);
+    const valDiff = firstChildWidth * multiplier - positiveDiff;
 
     if (slider.scrollLeft < prevScrollLeft.current) {
       slider.style.scrollBehavior = "smooth";
@@ -125,20 +127,26 @@ const CategorySlider: React.FC = () => {
     if (sliderRef.current) sliderRef.current.style.scrollBehavior = "auto";
     prevPageX.current = e.pageX || e.touches[0].pageX;
     prevScrollLeft.current = sliderRef.current?.scrollLeft || 0;
-    setIsDragging(true);
+    if (positionDiff.current !== 0) {
+      setTimeout(() => {
+        setIsDragging(true);
+      }, 100)
+    }
+    positionDiff.current = 0;
   };
 
   const handleMouseUp = () => {
     if (sliderRef.current) sliderRef.current.style.scrollBehavior = "auto";
     if (isDragging) autoSlide();
     setIsDragging(false);
+    positionDiff.current = 0;
   };
 
   const handlePrevClick = () => {
     if (sliderRef.current) {
       sliderRef.current.style.scrollBehavior = "smooth";
       sliderRef.current.scrollLeft -=
-        (sliderRef.current?.children[0].clientWidth || 0);
+        sliderRef.current?.children[0].clientWidth || 0;
     }
   };
 
@@ -146,7 +154,7 @@ const CategorySlider: React.FC = () => {
     if (sliderRef.current) {
       sliderRef.current.style.scrollBehavior = "smooth";
       sliderRef.current.scrollLeft +=
-        (sliderRef.current?.children[0].clientWidth || 0);
+        sliderRef.current?.children[0].clientWidth || 0;
     }
   };
 
@@ -176,6 +184,8 @@ const CategorySlider: React.FC = () => {
             imageUrl={item.imageUrl}
             altText={item.label}
             productName={item.label}
+            path={item.path}
+            isDragging={isDragging}
           />
         ))}
       </div>
