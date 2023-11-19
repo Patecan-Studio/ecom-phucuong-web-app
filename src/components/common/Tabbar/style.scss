@@ -3,7 +3,6 @@
 .tabbar-container,
 .tabbar--secondary-container {
   width: 100%;
-
 }
 
 .tabbar--secondary-container {
@@ -11,7 +10,6 @@
   border-top: 1px solid var(--color-platinum);
   background-color: var(--color-gray-secondary);
 }
-
 
 .tabbar {
   display: flex;
@@ -43,6 +41,7 @@
     @include below768inclusive {
       border-right: none;
       margin-right: 0;
+      margin-left: 0;
     }
   }
 
@@ -113,6 +112,29 @@
     flex-direction: column;
     padding: 15px;
     gap: 20px;
+
+    &--title {
+      font-weight: 700;
+      box-shadow: none !important;
+
+      pointer-events: none !important;
+    }
+
+    &--all {
+      padding: 15px;
+      box-shadow: none !important;
+      width: fit-content;
+      margin: 20px auto 0;
+
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 5px;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background-color: black !important;
+      }
+    }
 
     &__item {
       display: flex;
@@ -227,7 +249,7 @@
     font-size: 14px;
     color: var(--color-gray);
 
-    >div {
+    > div {
       height: 100%;
     }
 
@@ -256,7 +278,7 @@
       }
 
       &:hover {
-        +.tabbar__dropdown {
+        + .tabbar__dropdown {
           opacity: 1;
           transform: translateY(0);
           z-index: 100;
@@ -282,6 +304,7 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     width: 100%;
+    z-index: -1;
 
     &:hover {
       opacity: 1;

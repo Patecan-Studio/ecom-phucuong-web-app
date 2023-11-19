@@ -40,16 +40,14 @@ const OverviewModalInner = (
       <div ref={ref} className="overview__image--modal">
         <div className="overview__image__list">
           {data.image_list.map((image: any) => (
-            <CustomImage
-              key={image._id}
-              src={image.imageUrl}
-              alt="Editor Desktop"
-              className="overview__image__item"
-              width={0}
-              height={0}
-              sizes="100vw"
-              preload="false"
-            />
+            <div className="overview__image__item" key={image._id}>
+              <CustomImage
+                src={image.imageUrl}
+                alt="Editor Desktop"
+                fill
+                preload="false"
+              />
+            </div>
           ))}
         </div>
       </div>

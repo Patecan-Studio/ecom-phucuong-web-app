@@ -7,7 +7,6 @@ import "@/styles/responsives.scss";
 import styles from "./page.module.css";
 import { Overview } from "@/components/composite";
 import { ProductDescription } from "@/components/common";
-
 const getProduct = async (id: string) => {
   try {
     const response = await fetch(
@@ -27,11 +26,11 @@ const Page = async ({ params }: { params: { id: string } }) => {
     <div className={styles.detail}>
       <Overview data={productData.data} />
       <ProductDescription
-        longDesc={productData.data.product_description}
-        productName={productData.data.product_name}
-        brand={productData.data.product_brand?.brand_name}
-        imgURL={productData.data.product_variants[0].image_list[0].imageUrl}
-      />
+          longDesc={productData.data.product_description}
+          productName={productData.data.product_name}
+          brand={productData.data.product_brand?.brand_name}
+          imgURL={productData.data.product_variants[0].image_list[0].imageUrl}
+        />
     </div>
   );
 };

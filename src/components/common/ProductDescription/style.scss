@@ -2,10 +2,15 @@
 
 .product-description {
   background-color: var(--color-white);
-  padding: 20px;
   text-align: justify;
   margin-bottom: 30px;
+  padding: 45px;
+  padding-top: 0px;
   @include responsiveContainer;
+
+  * {
+    text-align: start;
+  }
 
   ul,
   ol {
@@ -86,7 +91,6 @@
     padding: 10px;
     color: var(--color-text-primary);
     border-radius: 5px;
-    margin-bottom: 15px;
   }
 
   &__content {
