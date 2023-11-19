@@ -63,7 +63,6 @@ const SignInForm = () => {
       setMessage({ msg: "Đăng nhập thất bại", type: "warning" });
       setLoading(false);
     } else if (res.user && res.user.aud === "authenticated") {
-      console.log("xxx", res);
       router.push("/account");
       setLoading(false);
     } else {
@@ -82,7 +81,6 @@ const SignInForm = () => {
     );
     setLoading(false);
     if (!error) {
-      console.log(data);
       setMessage({
         msg: "Link đặt lại mật khẩu đã được gửi đến email của bạn! Hãy kiểm tra email!",
         type: "success",
@@ -97,7 +95,6 @@ const SignInForm = () => {
     handleSignIn(values.email, values.password);
   };
   const onFinishReset = (values: any) => {
-    console.log("`1");
     handleResetPassword(values.email);
   };
   const onFinishFailed = (errorInfo: any) => {
