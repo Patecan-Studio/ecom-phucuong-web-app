@@ -5,7 +5,6 @@ import "./style.scss";
 import { useRouter } from "next/navigation";
 import { CustomImage } from "../CustomImage";
 import Link from "next/link";
-import { GoogleCircleFilled, GoogleOutlined } from "@ant-design/icons";
 import { supabaseClient } from "@/share/supabaseUtil";
 type FieldType = {
   email?: string;
@@ -50,10 +49,11 @@ const signInWithGoogle = async (event: MouseEvent<HTMLButtonElement>) => {
     },
   });
 };
+
 const SignInForm = () => {
   const [message, setMessage] = useState<any>({ msg: "", type: "warning" });
   const [loading, setLoading] = useState(false);
-
+  const [isReset, setIsReset] = useState(false);
   const router = useRouter();
 
   const handleSignIn = async (email: string, password: string) => {
@@ -63,19 +63,43 @@ const SignInForm = () => {
       setMessage({ msg: "Đăng nhập thất bại", type: "warning" });
       setLoading(false);
     } else if (res.user && res.user.aud === "authenticated") {
-      setLoading(false);
       console.log("xxx", res);
       router.push("/account");
+      setLoading(false);
     } else {
       setMessage({ msg: "Đăng nhập thất bại", type: "warning" });
     }
     router.refresh();
   };
 
+  const handleResetPassword = async (email: string) => {
+    setLoading(true);
+    const { data, error } = await supabaseClient.auth.resetPasswordForEmail(
+      email,
+      {
+        redirectTo: `${location.origin}/auth/callback?next=reset`,
+      }
+    );
+    setLoading(false);
+    if (!error) {
+      console.log(data);
+      setMessage({
+        msg: "Link đặt lại mật khẩu đã được gửi đến email của bạn! Hãy kiểm tra email!",
+        type: "success",
+      });
+      return data;
+    } else {
+      setMessage({ msg: error.message, type: "warning" });
+    }
+  };
+
   const onFinish = async (values: any) => {
     handleSignIn(values.email, values.password);
   };
-
+  const onFinishReset = (values: any) => {
+    console.log("`1");
+    handleResetPassword(values.email);
+  };
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
   };
@@ -89,77 +113,142 @@ const SignInForm = () => {
             type={message.type}
           />
         )}
-
-        <Form
-          name="basic"
-          style={{ maxWidth: 600 }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
-          validateMessages={validateMessages}
-          layout="vertical"
-          disabled={message.type === "success" ? true : false}
-          action="/auth/login"
-          method="post"
-        >
-          <Form.Item<FieldType>
-            validateDebounce={1000}
-            label="Email"
-            name="email"
-            htmlFor="email"
-            rules={[
-              {
-                required: true,
-                type: "email",
-              },
-            ]}
+        {!isReset ? (
+          <Form
+            name="basic"
+            style={{ maxWidth: 600 }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
+            validateMessages={validateMessages}
+            layout="vertical"
+            disabled={message.type === "success" ? true : false}
           >
-            <Input name="email" />
-          </Form.Item>
+            <Form.Item<FieldType>
+              validateDebounce={1000}
+              label="Email"
+              name="email"
+              rules={[
+                {
+                  required: true,
+                  type: "email",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
 
-          <Form.Item<FieldType>
-            htmlFor="password"
-            label="Password"
-            name="password"
-            rules={[
-              {
-                required: true,
-              },
-            ]}
+            <Form.Item<FieldType>
+              label="Password"
+              name="password"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+
+            <Form.Item style={{ display: "flex", justifyContent: "center" }}>
+              <Button type="primary" htmlType="submit" loading={loading}>
+                Đăng Nhập
+              </Button>
+            </Form.Item>
+            <Form.Item style={{ display: "flex", justifyContent: "center" }}>
+              <button
+                onClick={signInWithGoogle}
+                className=" hover:cursor-pointer px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-200 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-300 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150"
+              >
+                <img
+                  className="w-6 h-6"
+                  src="https://www.svgrepo.com/show/475656/google-color.svg"
+                  loading="lazy"
+                  alt="google logo"
+                />
+                <span className="text-gray-800">Login with Google</span>
+              </button>
+            </Form.Item>
+
+            <Form.Item
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                textAlign: "center",
+              }}
+            >
+              <div>
+                <span
+                  style={{
+                    textDecoration: "underline",
+                    color: "gray",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => setIsReset(true)}
+                >
+                  Quên mật khẩu
+                </span>
+              </div>
+              <span>Chưa có tài khoản? </span>
+              <Link
+                style={{
+                  textDecoration: "underline",
+                  color: "gray",
+                }}
+                href="/signup"
+              >
+                Đăng ký ngay!
+              </Link>
+            </Form.Item>
+          </Form>
+        ) : (
+          <Form
+            name="basic"
+            style={{ maxWidth: 600 }}
+            onFinish={onFinishReset}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
+            validateMessages={validateMessages}
+            layout="vertical"
+            disabled={message.type === "success" ? true : false}
           >
-            <Input.Password name="password" />
-          </Form.Item>
-
-          <Form.Item style={{ display: "flex", justifyContent: "center" }}>
-            <Button type="primary" htmlType="submit" loading={loading}>
-              Đăng Nhập
-            </Button>
-          </Form.Item>
-          <Form.Item style={{ display: "flex", justifyContent: "center" }}>
-            <button
-              onClick={signInWithGoogle}
-              className=" hover:cursor-pointer px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-200 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-300 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150"
+            <Form.Item<FieldType>
+              validateDebounce={1000}
+              label="Email"
+              name="email"
+              rules={[
+                {
+                  required: true,
+                  type: "email",
+                },
+              ]}
             >
-              <img
-                className="w-6 h-6"
-                src="https://www.svgrepo.com/show/475656/google-color.svg"
-                loading="lazy"
-                alt="google logo"
-              />
-              <span className="text-gray-800">Login with Google</span>
-            </button>
-          </Form.Item>
+              <Input />
+            </Form.Item>
 
-          <Form.Item style={{ display: "flex", justifyContent: "center" }}>
-            <span>Chưa có tài khoản? </span>
-            <Link
-              style={{ textDecoration: "underline", color: "gray" }}
-              href="/signup"
-            >
-              Đăng ký ngay!
-            </Link>
-          </Form.Item>
-        </Form>
+            <Form.Item style={{ display: "flex", justifyContent: "center" }}>
+              <Button htmlType="submit" type="primary" loading={loading}>
+                Lấy lại mật khẩu.
+              </Button>
+            </Form.Item>
+            <Form.Item style={{ display: "flex", justifyContent: "center" }}>
+              <span>Đã có tài khoản? </span>
+              <span
+                onClick={() => {
+                  setIsReset(false);
+                  setMessage({ msg: "", type: "" });
+                }}
+                style={{
+                  textDecoration: "underline",
+                  color: "gray",
+                  cursor: "pointer",
+                }}
+              >
+                Đăng nhập ngay!
+              </span>
+            </Form.Item>
+          </Form>
+        )}
       </div>
       <div className="right">
         <CustomImage
