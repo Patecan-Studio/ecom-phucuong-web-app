@@ -10,6 +10,9 @@ export async function middleware(request: NextRequest) {
       headers: request.headers,
     },
   });
+  const { searchParams } = new URL(request.url);
+  const url = request.nextUrl.clone();
+  const next = url.searchParams.get("next");
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_PROJECT_URL!,
@@ -81,6 +84,9 @@ export async function middleware(request: NextRequest) {
   if (user && request.nextUrl.pathname === "/login") {
     return NextResponse.redirect(new URL("/account", request.url));
   }
+  if (user && request.nextUrl.pathname === "/reset" && next !== "reset") {
+    return NextResponse.redirect(new URL("/account", request.url));
+  }
 
   const {
     data: { session },
@@ -90,5 +96,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/login", "/account", "/signup", "/signin"],
+  matcher: ["/login", "/account", "/signup", "/signin", "/reset"],
 };
