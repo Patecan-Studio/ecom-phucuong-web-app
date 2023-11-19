@@ -10,9 +10,14 @@ import {useEffect, useState} from "react";
 import {persistor} from "@/store/store";
 import CheckoutSummary from "@/components/cart/CheckoutSummary/CheckoutSummary";
 import CartHeader from "@/components/cart/CartHeader/CartHeader";
+import { useRouter } from 'next/navigation'
+import {saveCart} from "@/backend/cartFunction";
 
 
 const Cart = () => {
+    const router = useRouter();
+
+    //-------------------------------------------------------------------------
     const [selected, setSelected] = useState<any[]>([]);
     console.log("SELECTED: "+JSON.stringify(selected));
     const cart = useSelector(cartState);
@@ -34,6 +39,26 @@ const Cart = () => {
     }, [selected]);
 
     //-------------------------------------------------------------------------
+
+    // -----------------------------------------------------------------------
+    const saveCartHandler = async ()=>{
+        const res = await saveCart(selected);
+        if(res.status == 200){
+            router.push('/checkout', { scroll: false })
+        }
+
+        // if(session){
+        //     const res = await saveCart(selected);
+        //     console.log(res);
+        //     if(res.status === 200){
+        //         await Router.push("/checkout");
+        //     }
+        // }else {
+        //     await signIn();
+        // }
+    }
+
+    //----------------------------------------------------------------------
 
 
     return (
@@ -60,7 +85,7 @@ const Cart = () => {
                                     />
                                 ))}
                             </div>
-                            <CheckoutSummary subTotal={subTotal} total={total} selected={selected} />
+                            <CheckoutSummary subTotal={subTotal} total={total} selected={selected} saveCart={saveCartHandler}/>
                         </div>
                     ) : (
                         <EmptyCart />

@@ -4,9 +4,10 @@ interface CheckoutSummaryProps {
     subTotal: number;
     total: number;
     selected: any[];
+    saveCart: () => void;
 }
 
-export default function CheckoutSummary({subTotal, total, selected}: CheckoutSummaryProps) {
+export default function CheckoutSummary({subTotal, total, selected, saveCart}: CheckoutSummaryProps) {
     return (
         <div className={`${styles.cart__checkout} ${styles.cart}`}>
             <h2>Order Summary</h2>
@@ -25,6 +26,7 @@ export default function CheckoutSummary({subTotal, total, selected}: CheckoutSum
                         background: `${selected.length == 0 ? '#eee' : ''}`,
                         cursor: `${selected.length == 0 ? 'not-allowed' : 'pointer'}`
                     }}
+                    onClick={() => saveCart()}
                 >Continue
                 </button>
             </div>
