@@ -1,7 +1,9 @@
 import styles from "./styles.module.scss";
 import { useField, ErrorMessage } from "formik";
 import { useEffect, useState, useRef } from "react";
-export default function ShippingInput({ placeholder, ...props }: any) {
+
+
+export default function ShippingInput({ placeholder, type,...props }: any) {
     const inputRef = useRef(null);
     const [field, meta] = useField(props);
     const [move, setMove] = useState(false);
@@ -14,6 +16,7 @@ export default function ShippingInput({ placeholder, ...props }: any) {
             }
         }
     }, [field.value]);
+    // @ts-ignore
     return (
         <div
             className={`${styles.input} ${
@@ -27,16 +30,17 @@ export default function ShippingInput({ placeholder, ...props }: any) {
             >
                 <input
                     ref={inputRef}
-                    type={field.type}
-                    name={field.name}
+                    type={type}
                     {...field}
                     {...props}
                 />
                 <span
                     className={move ? styles.move : ""}
                     onClick={() => {
+                        // @ts-ignore
                         inputRef.current.focus();
                         setMove(true);
+
                     }}
                 >
           {placeholder}
