@@ -56,9 +56,7 @@ router
             console.log("Step 2: " + JSON.stringify(user));
 
             let existingCart = await CartModel.findOne({user: user_id});
-            if (existingCart) {
-                await CartModel.findOneAndUpdate({user: user_id}, cart);
-            }
+
             console.log('Step 3');
 
             for (let i = 0; i < cart.length; i++) {
@@ -106,7 +104,7 @@ router
             console.log('Step 6: ' + cartTotal);
 
 
-            let cartTotalAfterDiscount=cartTotal;
+            let cartTotalAfterDiscount = cartTotal;
 
             for (let i = 0; i < productsListInCheckout.length; i++) {
                 cartTotalAfterDiscount += (productsListInCheckout[i].discount_price * productsListInCheckout[i].qty);
@@ -120,7 +118,17 @@ router
                 user: user_id
             });
 
-            const result = await raw.save()
+            let result: any = null;
+            if (existingCart) {
+                result = await CartModel.findOneAndUpdate({user: user_id}, {
+                    productsList: productsListInCheckout,
+                    cartTotal: cartTotal,
+                    totalAfterDiscount: cartTotalAfterDiscount
+                });
+            } else {
+                result = await raw.save()
+            }
+
 
             return res.status(200).json({status: 200, message: 'success', data: result});
 

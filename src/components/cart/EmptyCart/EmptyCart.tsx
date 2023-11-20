@@ -8,7 +8,7 @@ export default function EmptyCart() {
             <img src={"../../../images/cart/empty.png"} alt={""}/>
             <h1>Cart is empty</h1>
 
-            <Link href={"/browse"}>
+            <Link href={"/"}>
                 <button className={styles.empty__btn}>SHOP NOW</button>
             </Link>
 

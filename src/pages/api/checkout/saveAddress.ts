@@ -1,10 +1,11 @@
 import {createRouter} from "next-connect"
 import db from "../../../utils/db";
 import UserModel from "../../../models/User.model";
+import {NextApiRequest, NextApiResponse} from "next";
 
 
 
-const router = createRouter()
+const router = createRouter<NextApiRequest, NextApiResponse>();
 router
     .post(async (req, res) => {
 
@@ -18,16 +19,18 @@ router
         console.log("user: "+JSON.stringify(user));
 
 
-        const options = {
+        const options: object  = {
             returnDocument: 'after', // This option returns the updated document
         };
 
-        const updatedDocument = await User.findOneAndUpdate({_id: user_id}, {$push: {address: address}}, options);
+        const updatedDocument = await UserModel.findOneAndUpdate({_id: user_id}, {$push: {address: address}}, options);
         console.log("updatedDocument: "+JSON.stringify(updatedDocument));
+        if(!updatedDocument) return res.status(404).json({message: 'Not found'});
+        // @ts-ignore
         res.status(200).json({addresses: updatedDocument.address});
 
         db.disconnectDb();
-    } catch (e) {
+    } catch (e: any) {
         return res.status(500).json({message: e.message});
     }
 })

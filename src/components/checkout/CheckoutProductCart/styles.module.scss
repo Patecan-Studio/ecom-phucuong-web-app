@@ -1,3 +1,5 @@
+@import "../base";
+
 $blue-color: #2f82ff;
 $dark-blue-color: #1a28f1dc;
 $yellow-color: #fac80f;
@@ -19,6 +21,8 @@ $shadow-1: rgba(99,99,99,.2) 0px 2px 8px 0px;
   border: 1px solid #ccc;
   padding: 1rem;
   margin-top: 1rem;
+  font-family: sans-serif;
+  line-height: 1.5;
   &__header {
     display: flex;
     align-items: center;
@@ -40,10 +44,10 @@ $shadow-1: rgba(99,99,99,.2) 0px 2px 8px 0px;
   &__img {
     position: relative;
     img {
-      width: 140px;
-      height: 180px;
+      width: 180px;
+      height: 200px;
       object-fit: cover;
-      border-radius: 5px;
+      border-radius: 10px;
     }
   }
   &__infos {
@@ -54,6 +58,8 @@ $shadow-1: rgba(99,99,99,.2) 0px 2px 8px 0px;
     justify-content: space-between;
     font-weight: 700;
     position: absolute;
+    border-radius: 10px;
+    font-size: 14px;
     bottom: 0;
     right: 0;
     left: 0;

@@ -1,6 +1,5 @@
 import styles from "./styles.module.scss";
 import React, {useEffect, useState} from "react";
-import PaymentAddress from "../PaymentAddress/PaymentAddress";
 
 import {Form, Formik} from "formik";
 import * as Yup from "yup";
@@ -318,7 +317,7 @@ export default function Shipping({selectedAddress, setSelectedAddress, user, add
                                 </FormControl>
                             </div>
                             <Button type="submit" variant="contained" color="primary"
-                                // onClick={() => saveShippingHandler()}
+                                onClick={() => saveShippingHandler()}
                             >
                                 Save Address
                             </Button>

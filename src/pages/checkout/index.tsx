@@ -4,6 +4,9 @@ import db from "@/utils/db";
 import UserModel from "@/models/User.model";
 import CartModel from "@/models/Cart.model";
 import Shipping from "@/components/checkout/Shipping";
+import CheckoutPaymentMethod from "@/components/checkout/CheckoutPaymentMethod";
+import CheckoutProductsCart from "@/components/checkout/CheckoutProductCart";
+import CheckoutSummary from "@/components/checkout/CheckoutSummary";
 
 
 
@@ -29,7 +32,7 @@ interface Address {
 
 
 // eslint-disable-next-line @next/next/no-async-client-component
-export default function Checkout({cart, user}) {
+export default function Checkout({cart, user}:CheckoutProps) {
 
 
     const [addresses, setAddresses] = useState(user.address ?? []);
@@ -57,21 +60,23 @@ export default function Checkout({cart, user}) {
                     addresses={addresses}
                     setAddresses={setAddresses}
                 />
-                {/*<CheckoutProductsCart*/}
-                {/*    cart={cart}*/}
-                {/*/>*/}
+                <CheckoutProductsCart
+                    cart={cart}
+                />
             </div>
             <div className={styles.checkout_side}>
-                {/*<CheckoutPaymentMethod*/}
-                {/*    paymentMethod={paymentMethod}*/}
-                {/*    setPaymentMethod={setPaymentMethod}*/}
-                {/*/>*/}
-                {/*<CheckoutSummary*/}
-                {/*    totalAfterDiscount={totalAfterDiscount}*/}
-                {/*    setTotalAfterDiscount={setTotalAfterDiscount}*/}
-                {/*    cart={cart}*/}
-                {/*    user={user}*/}
-                {/*/>*/}
+                <CheckoutPaymentMethod
+                    paymentMethod={paymentMethod}
+                    setPaymentMethod={setPaymentMethod}
+                />
+                <CheckoutSummary
+                    totalAfterDiscount={totalAfterDiscount}
+                    setTotalAfterDiscount={setTotalAfterDiscount}
+                    paymentMethod={paymentMethod!}
+                    selectedAddress={selectedAddress}
+                    cart={cart}
+                    user={user}
+                />
             </div>
             <div className={styles.checkout_side}></div>
 
@@ -80,7 +85,7 @@ export default function Checkout({cart, user}) {
     );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: any) {
     console.log("GET DATA");
     await db.connectDb();
     const user = await UserModel.findById('655609014186e2628008b45d');
