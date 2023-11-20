@@ -5,10 +5,13 @@ import TabbarSearch from "./TabbarSearch/TabbarSearch";
 import TabbarMenu from "./TabbarMenu";
 import TabbarSecondary from "./TabbarSecondary";
 
-const Tabbar = ({isSecondaryMenu = true}: any) => {
+const Tabbar = ({ isSecondaryMenu = true }: any) => {
   return (
     <div className="tabbar-container">
-      <nav className="tabbar flex items-center justify-between">
+      <nav
+        className="tabbar flex items-center justify-between"
+        style={{ border: isSecondaryMenu && "none" }}
+      >
         <TabbarLogo />
         <TabbarSearch />
         <TabbarMenu />
