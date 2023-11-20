@@ -16,7 +16,7 @@ const ProductsContent = ({
 }: ProductsContentProps) => {
   const { queryParams, setQueryParams } = useQueryParams<{ page: number }>();
   const [selectedPage, setSelectedPage] = useState(
-    Number(queryParams.get("page")) || 1
+    Number(queryParams?.get("page")) || 1
   );
 
   const handlePrevClick = () => {

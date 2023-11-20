@@ -1,0 +1,81 @@
+@import "../base";
+
+$blue-color: #2f82ff;
+$dark-blue-color: #1a28f1dc;
+$yellow-color: #fac80f;
+$violet-color: #5a31f4;
+$green-color: #3c811f;
+$redish-color: #f15f6f;
+$grey-color: #f8f8f8;
+$light-error-color: #fd010169;
+$error-color: #ed4337;
+$error-secondary-color: #f02f2fd8;
+$success-color: #6cc070;
+$shadow-1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+$shadow-2: rgba(99, 99, 99, 0.1) 0px 0px 4px 0px;
+$cubic-bezier: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+$shadow-1: rgba(99,99,99,.2) 0px 2px 8px 0px;
+
+.products {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-family: sans-serif;
+  line-height: 1.5;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1rem;
+  }
+  &__total {
+    margin-top: 1rem;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+  }
+}
+.product {
+  &__img {
+    position: relative;
+    img {
+      width: 180px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  }
+  &__infos {
+    background: #f3f2f0;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+    position: absolute;
+    border-radius: 10px;
+    font-size: 14px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  &__name {
+    font-size: 13px;
+    margin-top: 2px;
+  }
+  &__price {
+    font-size: 14px;
+    font-weight: 700;
+  }
+}

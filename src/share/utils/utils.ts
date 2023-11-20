@@ -97,7 +97,7 @@ export const isNullOrUndefined = (value: any) =>
   _.isNil(value) || _.isNull(value);
 
 /**
- * If the value is null or undefined, or if the value is a string and it's empty or contains only
+ * If the value is null or undefined, or if the value is a string and it's EmptyCart or contains only
  * whitespace, then return true.
  * @param {string | null} [value] - The value to check.
  */
@@ -110,7 +110,7 @@ export const isNotEmpty = (value: any) =>
   !_.isNil(value) && !_.isNull(value) && !_.isNaN(value) && !isBlank(value);
 
 /**
- * It returns an empty string if the value is not null or undefined
+ * It returns an EmptyCart string if the value is not null or undefined
  * @param {any} value - any
  */
 export const emptyStringIfNull = (value: any) =>

@@ -49,7 +49,7 @@ const TabbarSearch = () => {
       params.delete("q");
     }
 
-    if (pathname.includes("products")) {
+    if (pathname?.includes("products")) {
       router.replace(`${pathname}?${params.toString()}`);
       return;
     }

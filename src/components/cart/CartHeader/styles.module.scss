@@ -1,0 +1,24 @@
+@import "../base";
+.cart__header {
+  h1{
+    font-weight: 600;
+    font-size: 22px;
+  }
+  @media (min-width: 900px) {
+    height: 140px;
+  }
+}
+.active {
+  background-image: url("../../../../public/images/cart/selected.png");
+  background-size: cover;
+}
+.flex {
+  gap: 10px;
+  cursor: pointer;
+  display: flex;
+  &:hover {
+    .checkbox {
+      border-color: $blue-color;
+    }
+  }
+}
