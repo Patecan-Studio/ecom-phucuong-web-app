@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 
-export default function CheckoutPaymentMethod({paymentMethod, setPaymentMethod}) {
+export default function CheckoutPaymentMethod({paymentMethod, setPaymentMethod}: any) {
 
     const availablePaymentMethods= [
         {
@@ -44,7 +44,7 @@ export default function CheckoutPaymentMethod({paymentMethod, setPaymentMethod})
                         <p>
                             {pm.images.length > 0
                                 ? pm.images.map((img) => (
-                                    <img src={`../../../images/payment/${img}.webp`} alt="" />
+                                    <img key={pm.id} src={`../../../images/payment/${img}.webp`} alt="" />
                                 ))
                                 : pm.description}
                         </p>
