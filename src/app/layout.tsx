@@ -10,6 +10,10 @@ import "../styles/fonts.scss";
 import "../styles/reset.css";
 import "../styles/responsives.scss";
 import SaleBanner from "@/components/common/SaleBanner/SaleBanner";
+import { Overview } from "@/components/composite";
+import React from "react";
+import ProductCardSlider from "@/components/common/CategorySlider/CategorySlider";
+
 import {ReduxProviders} from "@/components/Provider";
 
 import {persistor} from "@/store/store";

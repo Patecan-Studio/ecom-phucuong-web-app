@@ -13,8 +13,7 @@ const defaultCategory = {
   category_images: [
     {
       imageName: "Tất cả sản phẩm",
-      imageUrl:
-        `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/category/Living-room-in-amagansett-beach-house.webp`,
+      imageUrl: `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/category/Living-room-in-amagansett-beach-house.webp`,
       _id: "6532144232d913fecc48e401",
     },
   ],
@@ -35,7 +34,7 @@ const getCategory = async (id: string) => {
 const Page = async ({
   searchParams,
 }: {
-  searchParams: { category: string, page: number, q: string };
+  searchParams: { category: string; page: number; q: string };
 }) => {
   const category = searchParams.category
     ? await getCategory(searchParams.category)

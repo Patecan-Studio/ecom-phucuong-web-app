@@ -1,29 +1,28 @@
-import {Carousel, CategorySection, Products} from "@/components/common";
+import { Carousel, CategorySection, Products } from "@/components/common";
 import styles from "./page.module.css";
 import SaleBanner from "@/components/common/SaleBanner/SaleBanner";
 import ProductCardSlider from "@/components/common/CategorySlider/CategorySlider";
 import React from "react";
 import CategorySlider from "@/components/common/CategorySlider/CategorySlider";
-import {Blog} from "@/components/composite";
-import {persistor} from "@/store/store";
+import { Blog } from "@/components/composite";
 
 export default function Home({
-                                 searchParams,
-                             }: {
-    searchParams: { category: string; page: number, q: string };
+  searchParams,
+}: {
+  searchParams: { category: string; page: number; q: string };
 }) {
-    return (
-        <main className={styles.main}>
-                <Carousel/>
-                <CategorySection/>
-                <Products
-                    page={searchParams.page ? searchParams.page : 1}
-                    category={searchParams.category ? searchParams.category : "all"}
-                    pageSize={8}
-                    q={searchParams.q ? searchParams.q : ""}
-                />
-                <CategorySlider/>
-                <Blog/>
-        </main>
-    );
+  return (
+    <main className={styles.main}>
+      <Carousel />
+      <CategorySection />
+      <Products
+        page={searchParams.page ? searchParams.page : 1}
+        category={searchParams.category ? searchParams.category : "all"}
+        pageSize={8}
+        q={searchParams.q ? searchParams.q : ""}
+      />
+      <CategorySlider />
+      <Blog />
+    </main>
+  );
 }

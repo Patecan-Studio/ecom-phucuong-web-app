@@ -7,7 +7,6 @@ import "@/styles/responsives.scss";
 import styles from "./page.module.css";
 import { Overview } from "@/components/composite";
 import { ProductDescription } from "@/components/common";
-
 const getProduct = async (id: string) => {
   try {
     const response = await fetch(
