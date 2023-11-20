@@ -52,7 +52,7 @@ export const totalCartPriceSelector = createSelector([cartItems], (cartItems: Ca
 
 export const productQtyInCartSelector = createSelector(
     [cartItems, (cartItems, productId: string) => productId],
-    (cartItems, productId) => cartItems.find(item => item.product.id === productId)?.qty ?? 0
+    (cartItems, productId) => cartItems.find(item => item.product._id === productId)?.qty ?? 0
 );
 
 export const {addToCart, removeFromCart, deleteProduct} = cartSlice.actions;

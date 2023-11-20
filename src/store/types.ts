@@ -30,7 +30,7 @@ export interface Product {
     product_warranty?: string | null;
     product_isActive?: boolean | null;
     product_status?: string | null;
-    current_variant: {
+    variant: {
         _id: string | null;
         sku: string;
         color?: {
@@ -49,6 +49,7 @@ export interface Product {
         }[] | null;
         status: string | null;
     };
+    price: number;
     product_variants: {
         color: {
             label: string | null;

@@ -72,7 +72,7 @@ router
                 tempProduct.sku = variant.sku;
                 console.log('Step 5.2: ' + JSON.stringify(tempProduct));
                 tempProduct.product_brand_id = dbProduct.product_brand;
-                tempProduct.product_category_ids = dbProduct.product_categories.map((c) => c._id);
+                tempProduct.product_category_ids = dbProduct.product_categories.map((c: any) => c._id);
                 tempProduct.product_name = dbProduct.product_name;
                 tempProduct.product_slug = dbProduct.product_slug;
                 tempProduct.product_variant_image = variant.image_list[0].imageUrl;
@@ -99,6 +99,7 @@ router
             let cartTotal = 0;
 
             for (let i = 0; i < productsListInCheckout.length; i++) {
+                // @ts-ignore
                 cartTotal += (productsListInCheckout[i].price * productsListInCheckout[i].qty);
             }
             console.log('Step 6: ' + cartTotal);
@@ -107,6 +108,7 @@ router
             let cartTotalAfterDiscount = cartTotal;
 
             for (let i = 0; i < productsListInCheckout.length; i++) {
+                // @ts-ignore
                 cartTotalAfterDiscount += (productsListInCheckout[i].discount_price * productsListInCheckout[i].qty);
             }
             console.log('Step 7: ' + cartTotalAfterDiscount);
@@ -128,7 +130,6 @@ router
             } else {
                 result = await raw.save()
             }
-
 
             return res.status(200).json({status: 200, message: 'success', data: result});
 
