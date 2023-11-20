@@ -1,0 +1,23 @@
+@import "@/styles/colors.scss";
+.user-sider {
+    z-index: 10;
+    &__wrapper {
+        background-color: var(--color-gray-secondary);
+        padding: 8px;
+        border: 1px solid #000;
+        border-radius: 8px;
+        margin-left: 16px;
+        margin-top: 16px;
+        width: 100%;
+        z-index: 20;
+        &__ul {
+            margin-left: 8px;
+            div {
+                margin: 8px;
+            }
+            div:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.user-edit {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+  &__sider {
+      position: absolute;
+      top: 0%;
+  }
+  &__page {
+    margin-left: 180px;
+    width: 100%;
+  }
+}

@@ -1,0 +1,50 @@
+@import "@/styles/colors.scss";
+.payment-address {
+  border: 1px solid #000;
+  border-radius: 8px;
+  margin-top: 16px;
+  margin-left: 32px;
+  z-index: 10;
+  width: 80%;
+  background-color: var(--color-gray-secondary);
+  &__wrapper {
+    padding: 8px;
+    &__title {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    form {
+      select {
+        font-weight: 300;
+        border: 1px solid #000;
+        border-radius: 8px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        width: 100%;
+        height: 30px;
+      }
+      input {
+        margin-bottom: 16px;
+        border-radius: 8px;
+        font-weight: 300;
+        height: 30px;
+      }
+      label {
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .country {
+        font-weight: 500;
+        font-size: 20px;
+        margin-bottom: 16px;
+      }
+      .submit-btn {
+        padding: 4px;
+        border-radius: 8px;
+        width: 100px;
+        background-color: #e8e8e8;
+      }
+    }
+  }
+}

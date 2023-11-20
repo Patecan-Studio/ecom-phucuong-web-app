@@ -1,0 +1,53 @@
+@import "@/styles/colors.scss";
+.user-form-edit {
+  border: 1px solid #000;
+  border-radius: 8px;
+  margin-top: 16px;
+  margin-left: 32px;
+  z-index: 10;
+  width: 80%;
+  background-color: var(--color-gray-secondary);
+  &__wrapper {
+    padding: 8px;
+    &__title {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    form {
+      input {
+        margin-bottom: 16px;
+        border-radius: 8px;
+        font-weight: 300;
+        height: 30px;
+        width: 100%;
+      }
+      label {
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .full-name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        label {
+          width: 50%;
+        }
+        .first-name {
+          margin-right: 1%;
+        }
+      }
+      .pw-info {
+        font-size: 20px;
+        font-weight: 500;
+      }
+      .submit-btn {
+        padding: 4px;
+        border-radius: 8px;
+        width: 100px;
+        font-weight: 500;
+        background-color: #e8e8e8;
+      }
+    }
+  }
+}
