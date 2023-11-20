@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import {FaStaylinked} from "react-icons/fa";
 
-export default function CheckoutProductsCart({cart}) {
+export default function CheckoutProductsCart({cart}: any) {
     console.log("#CheckoutProductsCart", JSON.stringify(cart))
     return (<div className={styles.products}>
         <div className={styles.products__header}>
@@ -13,7 +13,7 @@ export default function CheckoutProductsCart({cart}) {
         </span>
         </div>
         <div className={styles.products__wrap}>
-            {cart.productsList.map((product) => (
+            {cart.productsList.map((product: any) => (
 
                 <div key={product.product_id} className={styles.product}>
                     <div className={styles.product__img}>

@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 import {useState} from "react";
 import * as Yup from "yup";
 import {Form, Formik} from "formik";
-import ShippingInput from "../shipping-input";
+import ShippingInput from "../shipping-input/ShippingInput";
 import axios from "axios";
 import {useRouter} from 'next/navigation'
 

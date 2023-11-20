@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 
 import {Form, Formik} from "formik";
 import * as Yup from "yup";
-import ShippingInput from "../shipping-input";
+import ShippingInput from "../shipping-input/ShippingInput";
 import {Button, FormControl, Input, InputLabel, MenuItem, Select, TextField} from "@mui/material";
 import {fetchData} from "./Utils";
 import {FaIdCard, FaMapMarkerAlt} from "react-icons/fa";

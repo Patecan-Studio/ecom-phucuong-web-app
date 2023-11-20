@@ -3,10 +3,10 @@ import {useEffect, useState} from "react";
 import db from "@/utils/db";
 import UserModel from "@/models/User.model";
 import CartModel from "@/models/Cart.model";
-import Shipping from "@/components/checkout/Shipping";
-import CheckoutPaymentMethod from "@/components/checkout/CheckoutPaymentMethod";
-import CheckoutProductsCart from "@/components/checkout/CheckoutProductCart";
-import CheckoutSummary from "@/components/checkout/CheckoutSummary";
+import Shipping from "@/components/checkout/Shipping/Shipping";
+import CheckoutPaymentMethod from "@/components/checkout/CheckoutPaymentMethod/CheckoutPaymentMethod";
+import CheckoutProductsCart from "@/components/checkout/CheckoutProductCart/CheckoutProductsCart";
+import CheckoutSummary from "@/components/checkout/CheckoutSummary/CheckoutSummary";
 
 
 
