@@ -3,11 +3,17 @@ import React, { useEffect, useState } from "react";
 import "./PaymentAddress.scss";
 import { fetchData } from "./Common/Utils";
 
-const PaymentAddress = () => {
+type Props = {
+  dataSource: any;
+}
+
+const PaymentAddress = (props: Props) => {
   const [data, setData] = useState<any>();
   const [selectedCities, setselectedCities] = useState<string>();
   const [selectedDistricts, setselectedDistricts] = useState<string>();
   const [selectedWard, setselectedWard] = useState<string>();
+
+  
   const availableState = data?.find((c: any) => c.Name === selectedCities);
   const availableCities = availableState?.Districts?.find(
     (s: any) => s.Name === selectedDistricts
