@@ -5,11 +5,9 @@ import { headers } from "next/headers";
 import type { NextRequest } from "next/server";
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const headersList = headers();
   const code = searchParams.get("code");
-  // const next = searchParams.get("next") ?? `${headersList.get("host")}/account`;
   const url = request.nextUrl.clone();
-
+  const next = url.searchParams.get("next");
   if (code) {
     const cookieStore = cookies();
     const supabase = createServerClient(
@@ -32,6 +30,10 @@ export async function GET(request: NextRequest) {
 
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) {
+      if (next === "reset") {
+        url.pathname = "/reset";
+        return NextResponse.redirect(url);
+      }
       url.pathname = "/account";
       return NextResponse.redirect(url);
     }

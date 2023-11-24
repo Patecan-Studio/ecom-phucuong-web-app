@@ -45,8 +45,7 @@ const OverviewInfo = ({
           Mã sản phẩm: <span>{productCode}</span>
         </div>
         <div className="overview__brand">
-          Thương hiệu: <span>{brandName}</span>
-          <img src={brandImage} />
+          Thương hiệu: <img src={brandImage} />
         </div>
         {warranty && warranty !== "0" && (
           <div className="overview__warranty">

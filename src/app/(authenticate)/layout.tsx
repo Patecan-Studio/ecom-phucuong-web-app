@@ -1,16 +1,18 @@
-import { Footer, Tabbar } from "@/components/common";
-import "./globals.css";
+import {
+  Footer,
+  Tabbar,
+  AntdStyledComponentsRegistry,
+} from "@/components/common";
+import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "../styles/common.scss";
-import "../styles/colors.scss";
-import "../styles/fonts.scss";
-import "../styles/reset.css";
-import "../styles/responsives.scss";
-import SaleBanner from "@/components/common/SaleBanner/SaleBanner";
-import { Overview } from "@/components/composite";
+import "@/styles/common.scss";
+import "@/styles/colors.scss";
+import "@/styles/fonts.scss";
+import "@/styles/reset.css";
+import "@/styles/responsives.scss";
+import "antd/dist/reset.css";
 import React from "react";
-import ProductCardSlider from "@/components/common/CategorySlider/CategorySlider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -30,15 +32,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning={true}>
       <body className={inter.className}>
-        <SaleBanner
-          data={
-            "\n" +
-            "                    Tận hưởng ưu đãi giảm giá 20% cho Toàn bộ sản phẩm Ghế nồi Phòng Khách từ Sofa, Sofa Giường, Ghế\n" +
-            "                    Bành đến Ghế Đồn. Ngày kết thức: 29/10/2023"
-          }
-        />
-        <Tabbar />
-        {children}
+        <Tabbar isSecondaryMenu={false} />
+        <AntdStyledComponentsRegistry>{children}</AntdStyledComponentsRegistry>
         <Footer />
       </body>
     </html>
