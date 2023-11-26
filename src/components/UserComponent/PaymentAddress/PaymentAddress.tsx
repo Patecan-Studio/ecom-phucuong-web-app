@@ -5,15 +5,20 @@ import { fetchData } from "./Common/Utils";
 
 type Props = {
   dataSource: any;
-}
+};
 
 const PaymentAddress = (props: Props) => {
   const [data, setData] = useState<any>();
   const [selectedCities, setselectedCities] = useState<string>();
   const [selectedDistricts, setselectedDistricts] = useState<string>();
   const [selectedWard, setselectedWard] = useState<string>();
+  const [name, setName] = useState<string>("");
+  const [company, setCompany] = useState<string>("");
+  const [address, setAdress] = useState<string>("");
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
 
-  
+  console.log("props.dataSource", props.dataSource);
   const availableState = data?.find((c: any) => c.Name === selectedCities);
   const availableCities = availableState?.Districts?.find(
     (s: any) => s.Name === selectedDistricts
@@ -21,6 +26,11 @@ const PaymentAddress = (props: Props) => {
 
   useEffect(() => {
     fetchData(setData);
+    setName(props.dataSource?.session?.user?.user_metadata?.fullname);
+    setCompany("");
+    setAdress("");
+    setPhoneNumber(props.dataSource?.session?.user?.user_metadata?.phone);
+    setEmail(props.dataSource?.session?.user?.email);
   }, []);
 
   return (
@@ -37,11 +47,23 @@ const PaymentAddress = (props: Props) => {
           >
             <label>
               Họ và tên
-              <input type="text" id="fname" name="fname" />
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                id="fname"
+                name="fname"
+              />
             </label>
             <label>
               Tên công ty (tuỳ chọn)
-              <input type="text" id="fcompany" name="fcompany" />
+              <input
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                type="text"
+                id="fcompany"
+                name="fcompany"
+              />
             </label>
             <div className="continental">Quốc gia/Khu vực </div>
             <div className="country">Việt Nam</div>
@@ -101,15 +123,33 @@ const PaymentAddress = (props: Props) => {
             </div>
             <label>
               Địa chỉ
-              <input type="text" id="address" name="address" />
+              <input
+                value={address}
+                onChange={(e) => setAdress(e.target.value)}
+                type="text"
+                id="address"
+                name="address"
+              />
             </label>
             <label>
               Số điện thoại
-              <input type="text" id="phoneNumber" name="phoneNumber" />
+              <input
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                type="text"
+                id="phoneNumber"
+                name="phoneNumber"
+              />
             </label>
             <label>
               Địa chỉ email
-              <input type="text" id="email" name="email" />
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                id="email"
+                name="email"
+              />
             </label>
             <input className="submit-btn" type="submit" value="Lưu" />
           </form>
