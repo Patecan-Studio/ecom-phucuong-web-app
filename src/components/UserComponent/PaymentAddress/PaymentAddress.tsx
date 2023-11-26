@@ -31,7 +31,7 @@ const PaymentAddress = (props: Props) => {
     setAdress("");
     setPhoneNumber(props.dataSource?.session?.user?.user_metadata?.phone);
     setEmail(props.dataSource?.session?.user?.email);
-  }, []);
+  }, [props.dataSource]);
 
   return (
     <div className="payment-address">
