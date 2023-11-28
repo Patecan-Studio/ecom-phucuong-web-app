@@ -32,12 +32,30 @@ const getCampaign = async () => {
   }
 };
 
+const getPageTemplate = async () => {
+  try {
+    const response = await fetch(
+      `${process.env.SITE_DOMAIN}/api/v1/page-templates/default`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const campaign = await getCampaign();
+  const pageTemplate = await getPageTemplate();
+  const section_list = pageTemplate?.section_list || [];
+  const coupon_banner_section =
+    section_list.find(
+      (section: any) => section.name === "coupon_banner_section"
+    )?.image_list || [];
 
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning={true}>
@@ -45,7 +63,7 @@ export default async function RootLayout({
         <SaleBanner data={campaign?.campaign_content || ""} />
         <Tabbar />
         {children}
-        <Footer />
+        <Footer data={coupon_banner_section} />
       </body>
     </html>
   );
