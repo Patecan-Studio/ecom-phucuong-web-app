@@ -6,14 +6,33 @@ import React from "react";
 import CategorySlider from "@/components/common/CategorySlider/CategorySlider";
 import { Blog } from "@/components/composite";
 
-export default function Home({
+const getPageTemplate = async () => {
+  try {
+    const response = await fetch(
+      `${process.env.SITE_DOMAIN}/api/v1/page-templates/default`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export default async function Home({
   searchParams,
 }: {
   searchParams: { category: string; page: number; q: string };
 }) {
+  const pageTemplate = await getPageTemplate();
+  const section_list = pageTemplate?.section_list || [];
+
+  const banner_section =
+    section_list.find((section: any) => section.name === "banner_section")
+      ?.image_list || [];
+
   return (
     <main className={styles.main}>
-      <Carousel />
+      <Carousel data={banner_section} />
       <CategorySection />
       <Products
         page={searchParams.page ? searchParams.page : 1}
