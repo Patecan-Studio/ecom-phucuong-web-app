@@ -50,7 +50,6 @@ const infoItems: CollapseProps["items"] = [
   },
 ];
 const Footer = ({ data }: any) => {
-  console.log(data);
   return (
     <div className="footer">
       <div className="footer__slider">

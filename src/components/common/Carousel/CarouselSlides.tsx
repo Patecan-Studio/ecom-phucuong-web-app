@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import { CarouselSlidesProps } from "./types";
 import CarouselSlideMain from "./CarouselSlideMain";
 import CarouselSlideSub from "./CarouselSlideSub";

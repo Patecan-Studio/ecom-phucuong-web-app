@@ -35,7 +35,7 @@ const Carousel = ({ data }: any) => {
 
   const mainSLides = data.map((item: any, index: number) => {
     return {
-      id: item.id,
+      id: item.image_url,
       image: (
         <NextImage
           src={item.image_url}
@@ -43,7 +43,7 @@ const Carousel = ({ data }: any) => {
           width={0}
           height={0}
           sizes="100vw"
-          style={{ width: "100%", height: 'auto' }}
+          style={{ width: "100%", height: "auto" }}
         />
       ),
     };
