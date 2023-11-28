@@ -185,7 +185,7 @@ const Footer = ({ data }: any) => {
       <div className="footer__title">
         <div
           dangerouslySetInnerHTML={{
-            __html: data[0]?.display_text || "",
+            __html: data?.[0]?.display_text || "",
           }}
         />
       </div>
