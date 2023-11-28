@@ -34,6 +34,10 @@ export default async function Home({
     (section: any) => section.name === "category_section"
   )?.image_list || [];
 
+  const category_slider_section = section_list.find(
+    (section: any) => section.name === "category_slider"
+  )?.image_list || [];
+
   return (
     <main className={styles.main}>
       <Carousel data={banner_section} />
@@ -44,7 +48,7 @@ export default async function Home({
         pageSize={8}
         q={searchParams.q ? searchParams.q : ""}
       />
-      <CategorySlider />
+      <CategorySlider data={category_slider_section}/>
       <Blog />
     </main>
   );
