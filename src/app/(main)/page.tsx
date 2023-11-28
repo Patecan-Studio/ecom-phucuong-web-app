@@ -30,10 +30,14 @@ export default async function Home({
     section_list.find((section: any) => section.name === "banner_section")
       ?.image_list || [];
 
+  const category_section = section_list.find(
+    (section: any) => section.name === "category_section"
+  )?.image_list || [];
+
   return (
     <main className={styles.main}>
       <Carousel data={banner_section} />
-      <CategorySection />
+      <CategorySection data={category_section} />
       <Products
         page={searchParams.page ? searchParams.page : 1}
         category={searchParams.category ? searchParams.category : "all"}
