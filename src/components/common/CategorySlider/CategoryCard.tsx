@@ -30,9 +30,9 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
             alt={altText}
             draggable={false}
           />
-          <h2 className="category-card__text" draggable={false}>
+          <p className="category-card__text" draggable={false}>
             {productName}
-          </h2>
+          </p>
         </Link>
       </div>
     </div>

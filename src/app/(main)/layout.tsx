@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   icons: {
-    icon: "/icon.png",
+    icon: "/favicon.ico",
   },
   title: "Phú Cường Home",
   description:
