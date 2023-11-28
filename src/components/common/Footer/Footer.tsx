@@ -49,7 +49,7 @@ const infoItems: CollapseProps["items"] = [
     children: support,
   },
 ];
-const Footer = () => {
+const Footer = ({ data }: any) => {
   return (
     <div className="footer">
       <div className="footer__slider">
@@ -183,11 +183,11 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer__title">
-        <h2 className="title">showroom nội thất phú cường</h2>
-        <span>
-          TM3, Đường 3/2, Khu đô thị Phú Cường, Phường An Hòa, TP. Rạch Giá,
-          Kiên Giang
-        </span>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: data[0]?.display_text || "",
+          }}
+        />
       </div>
       <div className="footer__connection">
         <TabbarLogo />
