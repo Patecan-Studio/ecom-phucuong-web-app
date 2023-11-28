@@ -20,21 +20,29 @@ export const metadata: Metadata = {
     "Tập đoàn Phú Cường (Phu Cuong Group) được thành lập đầu năm 2009 với vai trò nhà đầu tư tài chính của các công ty thành viên trong tập đoàn, với tổng số vốn điều lệ hơn 3.500 tỷ đồng (tương đương 170 triệu USD).",
 };
 
-export default function RootLayout({
+const getCampaign = async () => {
+  try {
+    const response = await fetch(
+      `${process.env.SITE_DOMAIN}/api/v1/campaigns/default`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const campaign = await getCampaign();
+
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning={true}>
       <body className={inter.className}>
-        <SaleBanner
-          data={
-            "\n" +
-            "                    Tận hưởng ưu đãi giảm giá 20% cho Toàn bộ sản phẩm Ghế nồi Phòng Khách từ Sofa, Sofa Giường, Ghế\n" +
-            "                    Bành đến Ghế Đồn. Ngày kết thức: 29/10/2023"
-          }
-        />
+        <SaleBanner data={campaign?.campaign_content || ""} />
         <Tabbar />
         {children}
         <Footer />
