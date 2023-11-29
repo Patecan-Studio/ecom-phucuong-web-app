@@ -8,7 +8,7 @@ import "./styles.scss";
 const CategorySlider = ({ data }: any) => {
   const categories = (data || []).map((item: any) => ({
     label: item.display_text,
-    imageUrl: item.link_url,
+    imageUrl: item.image_url,
     path: item.link_url,
   }));
 

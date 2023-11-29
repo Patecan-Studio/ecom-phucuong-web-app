@@ -1,11 +1,9 @@
 @import "../../../styles/responsives.scss";
 
 @mixin white-gradient {
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 100%);
 }
 
 $animationSpeed: 40s;
@@ -15,6 +13,7 @@ $animationSpeed: 40s;
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(calc(-195px * 7));
   }
@@ -23,6 +22,7 @@ $animationSpeed: 40s;
 .footer {
   background-color: white;
   margin-top: 20px;
+
   &__slider {
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
     height: 80px;
@@ -30,9 +30,11 @@ $animationSpeed: 40s;
     overflow: hidden;
     position: relative;
     width: 100%;
+
     @include below414inclusive {
       display: none;
     }
+
     &::before,
     &::after {
       @include white-gradient;
@@ -77,6 +79,7 @@ $animationSpeed: 40s;
         width: auto;
         filter: grayscale(1);
         object-fit: contain;
+
         &:hover {
           filter: unset;
         }
@@ -85,7 +88,7 @@ $animationSpeed: 40s;
   }
 
   &__title {
-    background-color: black;
+    background-image: var(--title-background-image);
     color: white;
     height: 160px;
     display: flex;
@@ -93,10 +96,12 @@ $animationSpeed: 40s;
     justify-content: center;
     text-align: center;
     padding: 30px;
+
     .title {
       text-transform: uppercase;
       font-size: 20px;
     }
+
     @include below768inclusive {
       padding: 20px;
     }
@@ -114,15 +119,18 @@ $animationSpeed: 40s;
     padding: 30px;
     border-bottom: 1px solid var(--color-platinum);
     padding-left: 10%;
+
     @include below768inclusive {
       flex-wrap: wrap;
       padding: 20px;
+
       .tabbar__logo {
         flex: 1 100%;
         display: block;
         padding-left: 0;
       }
     }
+
     @include below414inclusive {
       flex-direction: column;
       align-items: flex-start;
@@ -136,6 +144,7 @@ $animationSpeed: 40s;
       justify-content: flex-start;
       padding: 0;
     }
+
     &__inputWrapper {
       width: 50%;
       padding: 10px 20px;
@@ -144,6 +153,7 @@ $animationSpeed: 40s;
       flex-direction: column;
       justify-content: center;
       height: 200px;
+
       @include below768inclusive {
         width: 66%;
         padding: 10px 30px 10px 0;
@@ -155,9 +165,11 @@ $animationSpeed: 40s;
         border-right: unset;
         height: 100%;
       }
+
       span {
         font-weight: 500;
       }
+
       .inputGroup {
         margin-top: 10px;
         height: 50px;
@@ -165,6 +177,7 @@ $animationSpeed: 40s;
         display: flex;
         flex-direction: row;
       }
+
       .input {
         background-color: var(--color-white);
         width: 100%;
@@ -177,6 +190,7 @@ $animationSpeed: 40s;
         border-radius: 5px 0 0 5px;
         height: 100%;
       }
+
       .inputButton {
         background-color: black;
         color: white;
@@ -203,14 +217,17 @@ $animationSpeed: 40s;
         width: 30%;
         padding-left: 0;
       }
+
       @include below414inclusive {
         width: 100%;
         align-items: flex-start;
         padding-left: 0;
       }
+
       span {
         font-weight: 600;
       }
+
       .iconWrapper {
         margin-top: 10px;
         display: flex;
@@ -232,6 +249,7 @@ $animationSpeed: 40s;
       }
     }
   }
+
   @mixin itemInfo {
     display: flex;
     flex-direction: column;
@@ -247,6 +265,7 @@ $animationSpeed: 40s;
       word-break: break-word;
     }
   }
+
   &__info {
     background-color: #f7f4ef;
     display: flex;
@@ -262,16 +281,20 @@ $animationSpeed: 40s;
       padding-left: 20px;
       gap: 7%;
     }
+
     @include below414inclusive {
       display: none;
     }
+
     .about,
     .contact,
     .support {
       @include itemInfo();
       max-width: 30%;
+
       h3 {
         white-space: nowrap;
+
         @include below768inclusive {
           font-size: 19px;
         }
@@ -284,20 +307,24 @@ $animationSpeed: 40s;
     display: none;
     background-color: #f7f4ef;
     padding-bottom: 20px;
+
     .about,
     .contact,
     .support {
       @include itemInfo();
     }
+
     @include below414inclusive {
       display: block;
     }
+
     .ant-collapse {
       .ant-collapse-item {
         .ant-collapse-content-box {
           padding-top: 0;
           padding-bottom: 0;
         }
+
         .ant-collapse-header {
           font-weight: 500;
           font-size: 1rem;
@@ -309,9 +336,11 @@ $animationSpeed: 40s;
   &__license {
     background-color: #f7f4ef;
     padding: 0 0 30px 10%;
+
     @include below768inclusive {
       padding-left: 20px;
     }
+
     @include below414inclusive {
       padding-bottom: 150px;
     }

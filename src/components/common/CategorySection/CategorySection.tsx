@@ -2,26 +2,17 @@ import React from "react";
 import "./style.scss";
 import { CustomImage } from "..";
 import Link from "next/link";
-const categoryImages = [
-  `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/homepage/outside.png`,
-  `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/homepage/living-room.png`,
-  `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/homepage/kitchen.jpg`,
-  `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/homepage/office.jpg`,
-  `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/homepage/decor.jpg`,
-  `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/homepage/bed-room.jpg`,
-  `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/homepage/light.jpg`,
-  `https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/homepage/mateiral.jpg`,
-];
 
 const CategorySection = ({ data }: any) => {
-  const categoryList = data.map((item: any, index: number) => {
+  const categoryList = data.map((item: any) => {
     const categoryId = item.link_url ? item.link_url.split("category=")[1] : "";
     return {
       id: categoryId,
       cateName: item.display_text,
-      imgUrl: categoryImages[index],
+      imgUrl: item.image_url,
     };
   });
+
   return (
     <div className="category-section">
       <div className="category-section__left-content"></div>
