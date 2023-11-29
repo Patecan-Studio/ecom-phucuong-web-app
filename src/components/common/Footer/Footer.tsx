@@ -50,8 +50,14 @@ const infoItems: CollapseProps["items"] = [
   },
 ];
 const Footer = ({ data }: any) => {
+  const styles = {
+    "--title-background-image": data?.[0]?.image_url
+      ? `url(${data?.[0]?.image_url})`
+      : "none",
+  } as React.CSSProperties;
+
   return (
-    <div className="footer">
+    <div className="footer" style={styles}>
       <div className="footer__slider">
         <div className="slide-track">
           <div className="slide">
