@@ -23,7 +23,8 @@ export const metadata: Metadata = {
 const getCampaign = async () => {
   try {
     const response = await fetch(
-      `${process.env.SITE_DOMAIN}/api/v1/campaigns/default`
+      `${process.env.SITE_DOMAIN}/api/v1/campaigns/default`,
+      { cache: "no-cache" }
     );
     const data = await response.json();
     return data;
@@ -35,7 +36,8 @@ const getCampaign = async () => {
 const getPageTemplate = async () => {
   try {
     const response = await fetch(
-      `${process.env.SITE_DOMAIN}/api/v1/page-templates/default`
+      `${process.env.SITE_DOMAIN}/api/v1/page-templates/default`,
+      { cache: "no-cache" }
     );
     const data = await response.json();
     return data;

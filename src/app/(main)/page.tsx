@@ -9,7 +9,8 @@ import { Blog } from "@/components/composite";
 const getPageTemplate = async () => {
   try {
     const response = await fetch(
-      `${process.env.SITE_DOMAIN}/api/v1/page-templates/default`
+      `${process.env.SITE_DOMAIN}/api/v1/page-templates/default`,
+      { cache: "no-cache" }
     );
     const data = await response.json();
     return data;
@@ -30,13 +31,13 @@ export default async function Home({
     section_list.find((section: any) => section.name === "banner_section")
       ?.image_list || [];
 
-  const category_section = section_list.find(
-    (section: any) => section.name === "category_section"
-  )?.image_list || [];
+  const category_section =
+    section_list.find((section: any) => section.name === "category_section")
+      ?.image_list || [];
 
-  const category_slider_section = section_list.find(
-    (section: any) => section.name === "category_slider"
-  )?.image_list || [];
+  const category_slider_section =
+    section_list.find((section: any) => section.name === "category_slider")
+      ?.image_list || [];
 
   return (
     <main className={styles.main}>
@@ -48,7 +49,7 @@ export default async function Home({
         pageSize={8}
         q={searchParams.q ? searchParams.q : ""}
       />
-      <CategorySlider data={category_slider_section}/>
+      <CategorySlider data={category_slider_section} />
       <Blog />
     </main>
   );
