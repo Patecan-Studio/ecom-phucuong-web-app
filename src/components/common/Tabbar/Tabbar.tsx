@@ -8,11 +8,11 @@ import TabbarSecondary from "./TabbarSecondary";
 const Tabbar = () => {
   return (
     <div className="tabbar-container">
-      <nav className="tabbar flex items-center justify-between">
+      <div className="tabbar flex items-center justify-between">
         <TabbarLogo />
         <TabbarSearch />
         <TabbarMenu />
-      </nav>
+      </div>
       <TabbarSecondary />
     </div>
   );
