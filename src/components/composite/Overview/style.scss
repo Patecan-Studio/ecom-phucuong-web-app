@@ -46,7 +46,6 @@
       cursor: pointer;
       position: relative;
       height: 500px;
-      background-color: var(--color-gray-light);
 
       &--active {
         border: 1px solid var(--color-primary) !important;
@@ -67,11 +66,12 @@
 
     &--main {
       margin-bottom: 30px;
+      background-color: white;
     }
 
     &--main &__item {
       img {
-        padding: 30px;
+        padding: 0;
       }
     }
 
@@ -368,7 +368,7 @@
 
     &__title {
       &::after {
-        content: ':';
+        content: ":";
         margin-left: 1px;
       }
     }
@@ -381,17 +381,17 @@
       margin-left: 5px;
 
       &::after {
-        content: ',';
+        content: ",";
       }
 
       &:last-child {
         &::after {
-          content: '';
+          content: "";
         }
       }
     }
 
-    >div {
+    > div {
       margin: 0;
     }
   }

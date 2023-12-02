@@ -23,7 +23,7 @@ const OverviewAbout = ({
     <>
       <div className="overview__about">
         <div className="overview__about__title">
-          <h4>VỀ SẢN PHẨM</h4>
+          <h4>THÔNG TIN SẢN PHẨM</h4>
           <div className="overview__about__reset" onClick={onResetVariant}>
             Reset
           </div>
