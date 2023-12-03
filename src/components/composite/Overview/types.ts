@@ -88,12 +88,25 @@ interface ProductCategories {
 interface ProductVariant {
   _id: string;
   sku: string;
-  color: ProductColor;
+  color: string;
   material: string;
+  measurement: string;
   price: number;
   quantity: number;
   discount_price: number;
   discount_percentage: number;
+  metadata: {
+    color: ProductColor;
+    material: string;
+    measurement: {
+      width: number;
+      height: number;
+      length: number;
+      weight: number;
+      sizeUnit: string;
+      weightUnit: string;
+    };
+  },
   image_list: ProductImage[];
 }
 
@@ -134,8 +147,6 @@ export interface OverviewAboutProps {
   onColorSelect: (color: string) => void;
   selectedMaterial: string;
   selectedColor: string;
-  isShowMaterial: boolean;
-  isShowColor: boolean;
   dictionary: {
     [key: string]: string[];
   };
