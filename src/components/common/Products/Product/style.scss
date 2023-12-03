@@ -145,6 +145,10 @@
   &__further-info,
   &__info {
     padding: 20px;
+
+    @include below414inclusive {
+      padding: 8px;
+    }
   }
 
   &__logo {

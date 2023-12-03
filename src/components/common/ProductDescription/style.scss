@@ -85,6 +85,10 @@
     padding-left: 8em;
   }
 
+  @include below768inclusive {
+    width: 100%;
+  }
+
   &__header {
     background-color: var(--color-primary);
     width: fit-content;
