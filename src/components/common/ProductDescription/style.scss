@@ -165,6 +165,10 @@
       img {
         object-fit: contain;
       }
+
+      @include below768inclusive {
+        width: 100%;
+      }
     }
   }
 }
