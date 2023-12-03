@@ -16,7 +16,7 @@ function doubleDictionary(t: any) {
   for (let i = 0; i < t.length; i++) {
     const variant = t[i];
     const material = variant.material;
-    const color = variant.color.value;
+    const color = variant.color;
 
     if (!dictionary[material]) {
       dictionary[material] = [color];
@@ -34,6 +34,7 @@ function doubleDictionary(t: any) {
 }
 
 const Overview = ({ data }: OverviewProps) => {
+  console.log(data);
   const [overviewData, setOverviewData] = React.useState(
     JSON.parse(JSON.stringify(data.product_variants[0]))
   );
@@ -76,7 +77,7 @@ const Overview = ({ data }: OverviewProps) => {
     : [];
   const colors = isShowColor
     ? data.product_variants
-        .map((item) => item.color)
+        .map((item) => item.metadata.color)
         .filter(
           (item, index, self) =>
             index ===
@@ -96,7 +97,7 @@ const Overview = ({ data }: OverviewProps) => {
   const handleVariantChange = () => {
     const newOverviewData = data.product_variants.find(
       (item) =>
-        item.color?.value === selectedColor &&
+        item.color === selectedColor &&
         item.material === selectedMaterial
     );
     if (newOverviewData) {
@@ -107,7 +108,7 @@ const Overview = ({ data }: OverviewProps) => {
 
   const handleVariantChangeMaterialNull = () => {
     const newOverviewData = data.product_variants.find(
-      (item) => item.color?.value === selectedColor
+      (item) => item.color === selectedColor
     );
     setOverviewData(newOverviewData);
     setSelectedQuantity(1);

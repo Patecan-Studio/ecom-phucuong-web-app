@@ -69,7 +69,7 @@ const OverviewAbout = ({
                     <div
                       className="square-color"
                       style={{
-                        background: item.value,
+                        background: item.value.split(',')[0],
                         width: "12px",
                         height: "12px",
                         borderRadius: "3px",
