@@ -359,10 +359,6 @@
     }
   }
 
-  @include below1440inclusive {
-    max-width: 1140px;
-  }
-
   @include below1200inclusive {
     &--secondary {
       display: none;

@@ -95,7 +95,7 @@
 
   &__content {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 20px;
 
     @include below768inclusive {
@@ -103,10 +103,11 @@
     }
 
     .left {
-      width: 70%;
+      width: fit-content;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      padding-top: 35px;
 
       @include below768inclusive {
         width: 100%;
