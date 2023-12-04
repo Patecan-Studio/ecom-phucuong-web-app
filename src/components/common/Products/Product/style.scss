@@ -75,7 +75,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
   }
 
   &__name {
@@ -146,6 +145,10 @@
   &__further-info,
   &__info {
     padding: 20px;
+
+    @include below414inclusive {
+      padding: 8px;
+    }
   }
 
   &__logo {
@@ -167,7 +170,7 @@
     width: 60%;
     display: flex;
     flex-direction: column;
-    font-size: 16px;
+    font-size: 13px;
 
     @include below992inclusive {
       font-size: 14px;

@@ -59,6 +59,10 @@ $item-gap: 20px;
       @include below992inclusive {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      @include below414inclusive {
+        gap: 15px;
+      }
     }
   }
 
@@ -101,10 +105,15 @@ $item-gap: 20px;
   }
 
   &__navigation {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    margin-top: 40px;
+    overflow: auto;
+    width: 88vw;
+    margin: 20px auto;
+    &__wrapper {
+      display: flex;
+      flex-direction: row;
+      width: fit-content;
+      margin: 0 auto;
+    }
   }
 
   &__dot {

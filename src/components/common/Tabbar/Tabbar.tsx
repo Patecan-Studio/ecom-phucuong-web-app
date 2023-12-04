@@ -8,15 +8,12 @@ import TabbarSecondary from "./TabbarSecondary";
 const Tabbar = ({ isSecondaryMenu = true }: any) => {
   return (
     <div className="tabbar-container">
-      <nav
-        className="tabbar flex items-center justify-between"
-        style={{ border: isSecondaryMenu && "none" }}
-      >
+      <div className="tabbar flex items-center justify-between">
         <TabbarLogo />
         <TabbarSearch />
         <TabbarMenu />
-      </nav>
-      {isSecondaryMenu && <TabbarSecondary />}
+      </div>
+      <TabbarSecondary />
     </div>
   );
 };

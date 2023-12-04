@@ -8,6 +8,10 @@ const ProductLinks = () => {
         Xem chi tiết
         <PlusSignIcon />
       </a>
+      <a className="product__cart" href="#">
+        Thêm vào giỏ hàng
+        <PlusSignIcon />
+      </a>
     </div>
   );
 };

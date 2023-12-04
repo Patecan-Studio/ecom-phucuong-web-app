@@ -6,14 +6,16 @@ const ProductsNavigation = ({ selected, onNavigate, totalPage }: any) => {
 
   return (
     <div className="products__navigation">
-      {pageArray.map((_, index: number) => (
-        <ProductsDotButton
-          key={index}
-          selected={index + 1 === selected}
-          value={index + 1}
-          onClick={() => onNavigate(index + 1)}
-        />
-      ))}
+      <div className="products__navigation__wrapper">
+        {pageArray.map((_, index: number) => (
+          <ProductsDotButton
+            key={index}
+            selected={index + 1 === selected}
+            value={index + 1}
+            onClick={() => onNavigate(index + 1)}
+          />
+        ))}
+      </div>
     </div>
   );
 };
