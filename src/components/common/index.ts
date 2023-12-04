@@ -6,6 +6,8 @@ import { Footer } from "./Footer";
 import TabbarLogo from "./Tabbar/TabbarLogo";
 import { CustomImage } from "./CustomImage";
 import { ProductDescription } from "./ProductDescription";
+import { AuthForm, SignupForm } from "./Auth";
+import { AntdStyledComponentsRegistry } from "./AntdStyledComponentsRegistry";
 
 export {
   Tabbar,
@@ -16,4 +18,7 @@ export {
   TabbarLogo,
   CustomImage,
   ProductDescription,
+  AuthForm,
+  SignupForm,
+  AntdStyledComponentsRegistry,
 };

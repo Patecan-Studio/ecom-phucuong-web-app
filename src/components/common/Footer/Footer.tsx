@@ -49,9 +49,15 @@ const infoItems: CollapseProps["items"] = [
     children: support,
   },
 ];
-const Footer = () => {
+const Footer = ({ data }: any) => {
+  const styles = {
+    "--title-background-image": data?.[0]?.image_url
+      ? `url(${data?.[0]?.image_url})`
+      : "none",
+  } as React.CSSProperties;
+
   return (
-    <div className="footer">
+    <div className="footer" style={styles}>
       <div className="footer__slider">
         <div className="slide-track">
           <div className="slide">
@@ -183,11 +189,11 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer__title">
-        <h2 className="title">showroom nội thất phú cường</h2>
-        <span>
-          TM3, Đường 3/2, Khu đô thị Phú Cường, Phường An Hòa, TP. Rạch Giá,
-          Kiên Giang
-        </span>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: data?.[0]?.display_text || "",
+          }}
+        />
       </div>
       <div className="footer__connection">
         <TabbarLogo />

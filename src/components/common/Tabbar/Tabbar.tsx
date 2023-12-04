@@ -5,7 +5,7 @@ import TabbarSearch from "./TabbarSearch/TabbarSearch";
 import TabbarMenu from "./TabbarMenu";
 import TabbarSecondary from "./TabbarSecondary";
 
-const Tabbar = () => {
+const Tabbar = ({ isSecondaryMenu = true }: any) => {
   return (
     <div className="tabbar-container">
       <div className="tabbar flex items-center justify-between">

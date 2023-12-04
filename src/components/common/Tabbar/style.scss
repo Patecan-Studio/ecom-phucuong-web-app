@@ -20,6 +20,15 @@
   font-family: "Mulish Italic", sans-serif;
   max-width: 100%;
   padding: 0 5em;
+  border-bottom: 1px solid var(--color-platinum);
+
+  @include below1440inclusive {
+    padding: 0;
+  }
+
+  @include below992inclusive {
+    padding: 0 5em;
+  }
 
   &__logo {
     min-width: 280px;
@@ -45,6 +54,7 @@
     @include below768inclusive {
       border-right: none;
       margin-right: 0;
+      margin-left: 0;
     }
   }
 
