@@ -377,7 +377,7 @@
       &::after {
         content: ":";
         margin-left: 1px;
-      } 
+      }
     }
 
     h5 {
@@ -408,11 +408,9 @@
     flex-direction: row;
     align-items: center;
     gap: 15px;
-    max-width: 49%;
+    max-width: 100%;
     justify-content: space-between;
-    @include below576inclusive {
-      max-width: 54%;
-    }
+
     &__content {
       display: flex;
       gap: 40px;
@@ -420,10 +418,7 @@
       align-items: center;
       margin-bottom: 15px;
       align-items: flex-start;
-      max-width: 58%;
-      @include below576inclusive {
-        max-width: 55%;
-      }
+      width: 100%;
     }
 
     &--info {
@@ -434,6 +429,7 @@
       font-size: 14px;
       font-weight: 900;
       margin-bottom: 10px;
+      text-wrap: nowrap;
     }
 
     &__input {
@@ -441,6 +437,7 @@
       justify-content: space-between;
       border: 1px solid var(--color-gray-less-light);
       border-radius: 5px;
+      width: 100%;
     }
 
     &__value {
