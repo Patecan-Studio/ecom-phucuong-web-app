@@ -1,18 +1,69 @@
 import React from "react";
 
-const OverviewSpecifications = ({ sizes }: { sizes: string[] }) => {
-  // const isShowHeight = height.match(/\d+/) && parseFloat(height) !== 0;
-  // const isShowWidth = width.match(/\d+/) && parseFloat(width) !== 0;
-  // const isShowLength = length.match(/\d+/) && parseFloat(length) !== 0;
-  // const isShowWeight = weight.match(/\d+/) && parseFloat(weight) !== 0;
-
+const OverviewSpecifications = ({
+  measurements,
+  dictionary,
+  selectedMaterial,
+  selectedColor,
+  selectedMeasurement,
+  onMeasurementSelect,
+}: any) => {
   return (
-    <div className="overview__specifications">
-      {/* <h5 className="overview__specifications__title">Kích thước</h5>
-      {isShowHeight && <p>cao {height}</p>}
-      {isShowWidth && <p>rộng {width}</p>}
-      {isShowLength && <p>dài {length}</p>}
-      {isShowWeight && <p>nặng {weight}</p>} */}
+    <div className="overview__about__list">
+      <h5 className="overview__about__list__title">Kích thước</h5>
+      <div className="overview__about__items">
+        {measurements.map((item: any, index: number) => {
+          const [size, weight] = item.split("|");
+          const [height, width, length] = size.split("x");
+          const sizeUnit = "(" + length.split("(")[1];
+          const disabled =
+            !dictionary[item]?.includes(selectedMaterial) ||
+            !dictionary[item]?.includes(selectedColor);
+          const classname = `overview__about__item ${
+            selectedMeasurement === item &&
+            dictionary[item]?.includes(selectedMaterial) &&
+            "active"
+          }`;
+          return (
+            <div
+              className="overview__about__items--specifications"
+              onClick={() => onMeasurementSelect(item)}
+            >
+              <button
+                className={classname}
+                key={item + index}
+                disabled={disabled}
+              >
+                {height + sizeUnit}
+              </button>
+              <button
+                className={classname}
+                key={item + index}
+                disabled={disabled}
+              >
+                {width + sizeUnit}
+              </button>
+              <button
+                className={classname}
+                key={item + index}
+                disabled={
+                  !dictionary[item]?.includes(selectedMaterial) ||
+                  !dictionary[item]?.includes(selectedColor)
+                }
+              >
+                {length.split("(")[0] + sizeUnit}
+              </button>
+              <button
+                className={classname}
+                key={item + index}
+                disabled={disabled}
+              >
+                {weight}
+              </button>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
