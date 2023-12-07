@@ -34,14 +34,14 @@ const OverviewSpecifications = ({
                 key={item + index}
                 disabled={disabled}
               >
-                {height + sizeUnit}
+                {"Cao " + height + sizeUnit}
               </button>
               <button
                 className={classname}
                 key={item + index}
                 disabled={disabled}
               >
-                {width + sizeUnit}
+                {"Rộng " + width + sizeUnit}
               </button>
               <button
                 className={classname}
@@ -51,14 +51,14 @@ const OverviewSpecifications = ({
                   !dictionary[item]?.includes(selectedColor)
                 }
               >
-                {length.split("(")[0] + sizeUnit}
+                {"Dài " + length.split("(")[0] + sizeUnit}
               </button>
               <button
                 className={classname}
                 key={item + index}
                 disabled={disabled}
               >
-                {weight}
+                {"Nặng " + weight}
               </button>
             </div>
           );
