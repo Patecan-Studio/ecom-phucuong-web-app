@@ -3,7 +3,7 @@ import type { ForwardedRef } from "react";
 import { CustomImage } from "@/components/common";
 import { OverviewSubImagesProps } from "./types";
 
-const OverviewMainImagesInner = (
+const OverviewSubImagesInner = (
   { data, isActiveItem, onClick }: any,
   ref: ForwardedRef<HTMLDivElement>
 ) => {
@@ -13,7 +13,7 @@ const OverviewMainImagesInner = (
         {data?.image_list.map((image: any, index: number) => (
           <div
             className={`overview__image__item ${isActiveItem(index)}`}
-            key={image._id}
+            key={image.imageName}
           >
             <CustomImage
               src={image.imageUrl}
@@ -29,5 +29,5 @@ const OverviewMainImagesInner = (
   );
 };
 
-const OverviewMainImages = forwardRef(OverviewMainImagesInner);
-export default OverviewMainImages;
+const OverviewSubImages = forwardRef(OverviewSubImagesInner);
+export default OverviewSubImages;
