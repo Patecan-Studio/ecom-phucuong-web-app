@@ -39,6 +39,7 @@
     &__list {
       display: flex;
       align-items: center;
+      height: 100%;
     }
 
     &__item {
@@ -95,16 +96,16 @@
     }
 
     &--modal {
-      max-width: 600px;
-      width: 70%;
-      margin: 0 10%;
+      height: 800px;
+      width: 80%;
+      background-color: var(--color-white);
+    }
 
-      @include below768inclusive {
-        width: 65%;
-      }
+    &--modal &__item {
+      height: 100%;
 
-      @include below576inclusive {
-        width: 90%;
+      img {
+      height: 100%;
       }
     }
 
