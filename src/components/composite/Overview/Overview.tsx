@@ -17,17 +17,27 @@ function doubleDictionary(t: any) {
     const variant = t[i];
     const material = variant.material;
     const color = variant.metadata.color.value;
+    const measurement = variant.measurement;
 
     if (!dictionary[material]) {
-      dictionary[material] = [color];
+      dictionary[material] = [color, measurement];
     } else {
       dictionary[material].push(color);
+      dictionary[material].push(measurement);
     }
 
     if (!dictionary[color]) {
-      dictionary[color] = [material];
+      dictionary[color] = [material, measurement];
     } else {
       dictionary[color].push(material);
+      dictionary[color].push(measurement);
+    }
+
+    if (!dictionary[measurement]) {
+      dictionary[measurement] = [material, color];
+    } else {
+      dictionary[measurement].push(material);
+      dictionary[measurement].push(color);
     }
   }
   return dictionary;
@@ -42,6 +52,7 @@ const Overview = ({ data }: OverviewProps) => {
     overviewData?.material || ""
   );
   const [selectedColor, setSelectedColor] = useState(overviewData?.color || "");
+  const [selectedMeasurement, setSelectedMeasurement] = useState(overviewData?.measurement || "");
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   useEffect(() => {
@@ -66,10 +77,10 @@ const Overview = ({ data }: OverviewProps) => {
         )
     );
 
-  const length = data.product_length + data.product_size_unit;
-  const height = data.product_height + data.product_size_unit;
-  const width = data.product_width + data.product_size_unit;
-  const weight = data.product_weight?.value + data.product_weight?.unit;
+  const measurements = data.product_variants
+    .map((item) => item.measurement)
+    .filter((value, index, self) => self.indexOf(value) === index);
+
   const warranty = data.product_warranty;
 
   const handleMaterialChange = () => {
@@ -79,14 +90,16 @@ const Overview = ({ data }: OverviewProps) => {
     if (newOverviewData) {
       setOverviewData(newOverviewData);
       setSelectedColor(newOverviewData.metadata.color.value);
+      setSelectedMeasurement(newOverviewData.measurement);
       setSelectedQuantity(1);
     }
-  }
+  };
 
   const handleResetVariant = () => {
     setOverviewData(JSON.parse(JSON.stringify(data.product_variants[0])));
     setSelectedMaterial(materials[0]);
     setSelectedColor(colors[0].value);
+    setSelectedMeasurement(measurements[0]);
   };
 
   const handleSelectMaterial = (material: string) => {
@@ -96,6 +109,10 @@ const Overview = ({ data }: OverviewProps) => {
   const handleSelectColor = (colorValue: string) => {
     setSelectedColor(colorValue);
   };
+
+  const handleSelectMeasurement = (measurement: string) => {
+    setSelectedMeasurement(measurement);
+  }
 
   const handleDecreaseQuantity = () => {
     if (selectedQuantity === 1) return;
@@ -136,14 +153,13 @@ const Overview = ({ data }: OverviewProps) => {
               onResetVariant={handleResetVariant}
               onMaterialSelect={handleSelectMaterial}
               onColorSelect={handleSelectColor}
+              onMeasurementSelect={handleSelectMeasurement}
               selectedMaterial={selectedMaterial}
               selectedColor={selectedColor}
+              selectedMeasurement={selectedMeasurement}
               materials={materials}
               colors={colors}
-              length={length}
-              width={width}
-              height={height}
-              weight={weight}
+              measurements={measurements}
               dictionary={dictionary}
             />
             <OverviewQuantity

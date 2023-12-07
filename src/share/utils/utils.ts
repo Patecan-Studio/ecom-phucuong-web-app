@@ -88,6 +88,10 @@ export const formatNumber = (
   }).format(newValue as any);
 };
 
+export const upperCaseFirstLetter = (value: string) => {
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
 // Clear all notification when init page
 export const clearNotification = () => {
   notification.destroy();
