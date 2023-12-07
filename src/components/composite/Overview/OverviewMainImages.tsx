@@ -10,7 +10,7 @@ const OverviewMainImagesInner = (
     <div ref={ref} className="overview__image--main">
       <div className="overview__image__list">
         {data?.image_list.map((image: any) => (
-          <div className="overview__image__item" key={image._id}>
+          <div className="overview__image__item" key={image.imageName}>
             <CustomImage
               src={image.imageUrl}
               alt="Editor Desktop"
