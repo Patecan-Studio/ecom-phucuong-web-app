@@ -10,62 +10,61 @@ const OverviewMeasurements = ({
   onMeasurementSelect,
 }: OverviewMeasurementsProps) => {
   return (
-    <div className="overview__about__list">
-      <h5 className="overview__about__list__title">Kích thước</h5>
-      <div className="overview__about__items--specifications">
-        {measurements.map((item: any, index: number) => {
-          const [size, weight] = item.split("|");
-          const [height, width, length] = size.split("x");
-          const sizeUnit = "(" + length.split("(")[1];
-          const disabled =
-            !dictionary[item]?.includes(selectedMaterial) ||
-            !dictionary[item]?.includes(selectedColor);
-          const classname = `overview__about__item ${
-            selectedMeasurement === item &&
-            dictionary[item]?.includes(selectedMaterial) &&
-            "active"
-          }`;
-          return (
-            <div
-              className="overview__about__items--specification"
-              onClick={() => onMeasurementSelect(item)}
-            >
-              <button
-                className={classname}
+    measurements[0] !== "0x0x0(cm)|0(kg)" && (
+      <div className="overview__about__list">
+        <h5 className="overview__about__list__title">Kích thước</h5>
+        <div className="overview__about__items--specifications">
+          {measurements.map((item: any, index: number) => {
+            const [size, weight] = item.split("|");
+            const [height, width, length] = size.split("x");
+            const sizeUnit = "(" + length.split("(")[1];
+            const disabled =
+              !dictionary[item]?.includes(selectedMaterial) ||
+              !dictionary[item]?.includes(selectedColor);
+            const classname = `overview__about__item ${
+              selectedMeasurement === item &&
+              dictionary[item]?.includes(selectedMaterial) &&
+              "active"
+            }`;
+
+            return (
+              <div
+                className="overview__about__items--specification"
+                onClick={() => onMeasurementSelect(item)}
                 key={item + index}
-                disabled={disabled}
               >
-                {"Cao " + height + sizeUnit}
-              </button>
-              <button
-                className={classname}
-                key={item + index}
-                disabled={disabled}
-              >
-                {"Rộng " + width + sizeUnit}
-              </button>
-              <button
-                className={classname}
-                key={item + index}
-                disabled={
-                  !dictionary[item]?.includes(selectedMaterial) ||
-                  !dictionary[item]?.includes(selectedColor)
-                }
-              >
-                {"Dài " + length.split("(")[0] + sizeUnit}
-              </button>
-              <button
-                className={classname}
-                key={item + index}
-                disabled={disabled}
-              >
-                {"Nặng " + weight}
-              </button>
-            </div>
-          );
-        })}
+                {height !== "0" && (
+                  <button className={classname} disabled={disabled}>
+                    {"Cao " + height + sizeUnit}
+                  </button>
+                )}
+                {width !== "0" && (
+                  <button className={classname} disabled={disabled}>
+                    {"Rộng " + width + sizeUnit}
+                  </button>
+                )}
+                {length.split("(")[0] !== "0" && (
+                  <button
+                    className={classname}
+                    disabled={
+                      !dictionary[item]?.includes(selectedMaterial) ||
+                      !dictionary[item]?.includes(selectedColor)
+                    }
+                  >
+                    {"Dài " + length.split("(")[0] + sizeUnit}
+                  </button>
+                )}
+                {weight.split("(")[0] !== "0" && (
+                  <button className={classname} disabled={disabled}>
+                    {"Nặng " + weight}
+                  </button>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    )
   );
 };
 
