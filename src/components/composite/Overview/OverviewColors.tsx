@@ -1,4 +1,5 @@
 import React from "react";
+import { OverviewColorsProps } from "./types";
 
 const OverviewColors = ({
   colors,
@@ -6,7 +7,7 @@ const OverviewColors = ({
   selectedMaterial,
   selectedColor,
   onColorSelect,
-}: any) => {
+}: OverviewColorsProps) => {
   return (
     <div className="overview__about__list">
           <h5 className="overview__about__list__title">Màu sắc</h5>

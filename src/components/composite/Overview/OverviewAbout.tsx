@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { OverviewAboutProps } from "./types";
-import OverviewSpecifications from "./OverviewSpecifications";
+import OverviewMeasurements from "./OverviewMeasurements";
 import OverviewColors from "./OverviewColors";
 import OverviewMaterials from "./OverviewMaterials";
 
@@ -19,37 +19,34 @@ const OverviewAbout = ({
   dictionary,
 }: OverviewAboutProps) => {
   return (
-    <>
-      <div className="overview__about">
-        <div className="overview__about__title">
-          <h4>THÔNG TIN SẢN PHẨM</h4>
-          <div className="overview__about__reset" onClick={onResetVariant}>
-            Reset
-          </div>
+    <div className="overview__about">
+      <div className="overview__about__title">
+        <h4>THÔNG TIN SẢN PHẨM</h4>
+        <div className="overview__about__reset" onClick={onResetVariant}>
+          Reset
         </div>
-        <OverviewMaterials
-          materials={materials}
-          dictionary={dictionary}
-          selectedMaterial={selectedMaterial}
-          onMaterialSelect={onMaterialSelect}
-        />
-        <OverviewColors
-          colors={colors}
-          dictionary={dictionary}
-          selectedMaterial={selectedMaterial}
-          selectedColor={selectedColor}
-          onColorSelect={onColorSelect}
-        />
-        <OverviewSpecifications
-          measurements={measurements}
-          dictionary={dictionary}
-          selectedMaterial={selectedMaterial}
-          selectedColor={selectedColor}
-          selectedMeasurement={selectedMeasurement}
-          onMeasurementSelect={onMeasurementSelect}
-        />
       </div>
-    </>
+      <OverviewMaterials
+        materials={materials}
+        selectedMaterial={selectedMaterial}
+        onMaterialSelect={onMaterialSelect}
+      />
+      <OverviewColors
+        colors={colors}
+        dictionary={dictionary}
+        selectedMaterial={selectedMaterial}
+        selectedColor={selectedColor}
+        onColorSelect={onColorSelect}
+      />
+      <OverviewMeasurements
+        measurements={measurements}
+        dictionary={dictionary}
+        selectedMaterial={selectedMaterial}
+        selectedColor={selectedColor}
+        selectedMeasurement={selectedMeasurement}
+        onMeasurementSelect={onMeasurementSelect}
+      />
+    </div>
   );
 };
 

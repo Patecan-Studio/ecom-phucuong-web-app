@@ -1,13 +1,14 @@
 import React from "react";
+import { OverviewMeasurementsProps } from "./types";
 
-const OverviewSpecifications = ({
+const OverviewMeasurements = ({
   measurements,
   dictionary,
   selectedMaterial,
   selectedColor,
   selectedMeasurement,
   onMeasurementSelect,
-}: any) => {
+}: OverviewMeasurementsProps) => {
   return (
     <div className="overview__about__list">
       <h5 className="overview__about__list__title">Kích thước</h5>
@@ -68,4 +69,4 @@ const OverviewSpecifications = ({
   );
 };
 
-export default OverviewSpecifications;
+export default OverviewMeasurements;
