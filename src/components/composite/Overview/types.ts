@@ -138,10 +138,7 @@ export interface OverviewQuantityProps {
 export interface OverviewAboutProps {
   materials: string[];
   colors: ProductColor[];
-  width: string;
-  height: string;
-  length: string;
-  weight: string;
+  measurements: string[];
   onResetVariant: () => void;
   onMaterialSelect: (material: string) => void;
   onColorSelect: (color: string) => void;

@@ -1,15 +1,11 @@
 import React from "react";
 import "./style.scss";
 import { OverviewAboutProps } from "./types";
-import OverviewSpecifications from "./OverviewSpecifications";
 
 const OverviewAbout = ({
   materials,
   colors,
-  width,
-  length,
-  height,
-  weight,
+  measurements,
   onResetVariant,
   onMaterialSelect,
   onColorSelect,
@@ -54,9 +50,7 @@ const OverviewAbout = ({
                 }`}
                 key={item.value}
                 onClick={() => onColorSelect(item.value)}
-                disabled={
-                  !dictionary[item.value]?.includes(selectedMaterial)
-                }
+                disabled={!dictionary[item.value]?.includes(selectedMaterial)}
               >
                 <div
                   className="square-color"
@@ -73,12 +67,32 @@ const OverviewAbout = ({
           </div>
         </div>
       </div>
-      <OverviewSpecifications
-        height={height}
-        width={width}
-        weight={weight}
-        length={length}
-      />
+      <div className="overview__about__list">
+        <h5 className="overview__about__list__title">Kích thước</h5>
+        <div className="overview__about__items">
+          {measurements.map((item: any, index: number) => {
+            const [size, weight] = item.split("|");
+            const [height, width, length] = size.split("x");
+            const sizeUnit = "(" + length.split("(")[1];
+            return (
+              <div className="overview__about__items--specifications">
+                <button className="overview__about__item" key={item + index} disabled>
+                  {height + sizeUnit}
+                </button>
+                <button className="overview__about__item" key={item + index} disabled>
+                  {width + sizeUnit}
+                </button>
+                <button className="overview__about__item" key={item + index} disabled>
+                  {length.split("(")[0] + sizeUnit}
+                </button>
+                <button className="overview__about__item" key={item + index} disabled>
+                  {weight}
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 };

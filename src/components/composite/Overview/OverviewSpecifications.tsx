@@ -1,16 +1,6 @@
 import React from "react";
 
-const OverviewSpecifications = ({
-  height,
-  width,
-  weight,
-  length,
-}: {
-  height: string;
-  width: string;
-  weight: string;
-  length: string;
-}) => {
+const OverviewSpecifications = ({ sizes }: { sizes: string[] }) => {
   // const isShowHeight = height.match(/\d+/) && parseFloat(height) !== 0;
   // const isShowWidth = width.match(/\d+/) && parseFloat(width) !== 0;
   // const isShowLength = length.match(/\d+/) && parseFloat(length) !== 0;

@@ -17,17 +17,27 @@ function doubleDictionary(t: any) {
     const variant = t[i];
     const material = variant.material;
     const color = variant.metadata.color.value;
+    const measurement = variant.measurement;
 
     if (!dictionary[material]) {
-      dictionary[material] = [color];
+      dictionary[material] = [color, measurement];
     } else {
       dictionary[material].push(color);
+      dictionary[material].push(measurement);
     }
 
     if (!dictionary[color]) {
-      dictionary[color] = [material];
+      dictionary[color] = [material, measurement];
     } else {
       dictionary[color].push(material);
+      dictionary[color].push(measurement);
+    }
+
+    if (!dictionary[measurement]) {
+      dictionary[measurement] = [material, color];
+    } else {
+      dictionary[measurement].push(material);
+      dictionary[measurement].push(color);
     }
   }
   return dictionary;
@@ -66,10 +76,10 @@ const Overview = ({ data }: OverviewProps) => {
         )
     );
 
-  const length = data.product_length + data.product_size_unit;
-  const height = data.product_height + data.product_size_unit;
-  const width = data.product_width + data.product_size_unit;
-  const weight = data.product_weight?.value + data.product_weight?.unit;
+  const measurements = data.product_variants
+    .map((item) => item.measurement)
+    .filter((value, index, self) => self.indexOf(value) === index);
+
   const warranty = data.product_warranty;
 
   const handleMaterialChange = () => {
@@ -81,7 +91,7 @@ const Overview = ({ data }: OverviewProps) => {
       setSelectedColor(newOverviewData.metadata.color.value);
       setSelectedQuantity(1);
     }
-  }
+  };
 
   const handleResetVariant = () => {
     setOverviewData(JSON.parse(JSON.stringify(data.product_variants[0])));
@@ -140,10 +150,7 @@ const Overview = ({ data }: OverviewProps) => {
               selectedColor={selectedColor}
               materials={materials}
               colors={colors}
-              length={length}
-              width={width}
-              height={height}
-              weight={weight}
+              measurements={measurements}
               dictionary={dictionary}
             />
             <OverviewQuantity
