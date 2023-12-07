@@ -112,11 +112,10 @@
       margin-bottom: 20px;
       background-color: white;
       box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+      position: relative;
     }
 
     &--main &__item {
-      position: relative;
-
       img {
         padding: 0;
       }
