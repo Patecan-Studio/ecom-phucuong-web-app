@@ -36,13 +36,13 @@ const OverviewMainImagesInner = (
               />
             </div>
           ))}
-          <button className="overview__image__expand" onClick={onOpenModal}>
+        </div>
+        <button className="overview__image__expand" onClick={onOpenModal}>
             <div className="overview__image__expand--inner">
               <ExpandIcon />
               <span>Nhấp để phóng to</span>
             </div>
           </button>
-        </div>
       </div>
     </>
   );
