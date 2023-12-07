@@ -142,8 +142,10 @@ export interface OverviewAboutProps {
   onResetVariant: () => void;
   onMaterialSelect: (material: string) => void;
   onColorSelect: (color: string) => void;
+  onMeasurementSelect: (measurement: string) => void;
   selectedMaterial: string;
   selectedColor: string;
+  selectedMeasurement: string;
   dictionary: {
     [key: string]: string[];
   };

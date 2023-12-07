@@ -52,6 +52,7 @@ const Overview = ({ data }: OverviewProps) => {
     overviewData?.material || ""
   );
   const [selectedColor, setSelectedColor] = useState(overviewData?.color || "");
+  const [selectedMeasurement, setSelectedMeasurement] = useState(overviewData?.measurement || "");
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   useEffect(() => {
@@ -89,6 +90,7 @@ const Overview = ({ data }: OverviewProps) => {
     if (newOverviewData) {
       setOverviewData(newOverviewData);
       setSelectedColor(newOverviewData.metadata.color.value);
+      setSelectedMeasurement(newOverviewData.measurement);
       setSelectedQuantity(1);
     }
   };
@@ -97,6 +99,7 @@ const Overview = ({ data }: OverviewProps) => {
     setOverviewData(JSON.parse(JSON.stringify(data.product_variants[0])));
     setSelectedMaterial(materials[0]);
     setSelectedColor(colors[0].value);
+    setSelectedMeasurement(measurements[0]);
   };
 
   const handleSelectMaterial = (material: string) => {
@@ -106,6 +109,10 @@ const Overview = ({ data }: OverviewProps) => {
   const handleSelectColor = (colorValue: string) => {
     setSelectedColor(colorValue);
   };
+
+  const handleSelectMeasurement = (measurement: string) => {
+    setSelectedMeasurement(measurement);
+  }
 
   const handleDecreaseQuantity = () => {
     if (selectedQuantity === 1) return;
@@ -146,8 +153,10 @@ const Overview = ({ data }: OverviewProps) => {
               onResetVariant={handleResetVariant}
               onMaterialSelect={handleSelectMaterial}
               onColorSelect={handleSelectColor}
+              onMeasurementSelect={handleSelectMeasurement}
               selectedMaterial={selectedMaterial}
               selectedColor={selectedColor}
+              selectedMeasurement={selectedMeasurement}
               materials={materials}
               colors={colors}
               measurements={measurements}

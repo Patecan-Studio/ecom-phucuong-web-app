@@ -9,8 +9,10 @@ const OverviewAbout = ({
   onResetVariant,
   onMaterialSelect,
   onColorSelect,
+  onMeasurementSelect,
   selectedMaterial,
   selectedColor,
+  selectedMeasurement,
   dictionary,
 }: OverviewAboutProps) => {
   return (
@@ -74,18 +76,48 @@ const OverviewAbout = ({
             const [size, weight] = item.split("|");
             const [height, width, length] = size.split("x");
             const sizeUnit = "(" + length.split("(")[1];
+            const disabled =
+              !dictionary[item]?.includes(selectedMaterial) ||
+              !dictionary[item]?.includes(selectedColor);
+            const classname = `overview__about__item ${
+              selectedMeasurement === item &&
+              dictionary[item]?.includes(selectedMaterial) &&
+              "active"
+            }`;
             return (
-              <div className="overview__about__items--specifications">
-                <button className="overview__about__item" key={item + index} disabled>
+              <div
+                className="overview__about__items--specifications"
+                onClick={() => onMeasurementSelect(item)}
+              >
+                <button
+                  className={classname}
+                  key={item + index}
+                  disabled={disabled}
+                >
                   {height + sizeUnit}
                 </button>
-                <button className="overview__about__item" key={item + index} disabled>
+                <button
+                  className={classname}
+                  key={item + index}
+                  disabled={disabled}
+                >
                   {width + sizeUnit}
                 </button>
-                <button className="overview__about__item" key={item + index} disabled>
+                <button
+                  className={classname}
+                  key={item + index}
+                  disabled={
+                    !dictionary[item]?.includes(selectedMaterial) ||
+                    !dictionary[item]?.includes(selectedColor)
+                  }
+                >
                   {length.split("(")[0] + sizeUnit}
                 </button>
-                <button className="overview__about__item" key={item + index} disabled>
+                <button
+                  className={classname}
+                  key={item + index}
+                  disabled={disabled}
+                >
                   {weight}
                 </button>
               </div>
