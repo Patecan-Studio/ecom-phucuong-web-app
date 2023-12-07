@@ -303,6 +303,7 @@
       margin-bottom: 15px;
 
       &__title {
+        width: 100px;
         font-weight: normal;
         margin-right: 10px;
         padding: 5px;
@@ -314,6 +315,17 @@
       display: flex;
       flex-wrap: wrap;
       gap: 5px;
+
+      &--specifications {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      &--specification {
+        display: flex;
+        gap: 5px;
+      }
     }
 
     &__item {
@@ -361,45 +373,6 @@
       &:hover {
         color: rgb(242, 179, 179);
       }
-    }
-  }
-
-  &__specifications {
-    display: flex;
-    border-bottom: 1px solid var(--color-gray-less-light);
-    padding: 5px;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-
-    &__title {
-      font-weight: normal;
-      font-size: 16px;
-      &::after {
-        content: ":";
-        margin-left: 1px;
-      }
-    }
-
-    h5 {
-      margin: 0;
-    }
-
-    p {
-      margin-left: 5px;
-
-      &::after {
-        content: ",";
-      }
-
-      &:last-child {
-        &::after {
-          content: "";
-        }
-      }
-    }
-
-    > div {
-      margin: 0;
     }
   }
 
