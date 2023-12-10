@@ -52,28 +52,29 @@ $item-gap: 20px;
     &__items {
       display: grid;
       gap: 30px;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
+
+      @include below1440inclusive {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @include below1200inclusive {
+        grid-template-columns: repeat(3, 1fr);
+      }
 
       @include below992inclusive {
         grid-template-columns: repeat(2, 1fr);
       }
 
       @include below414inclusive {
-        gap: 15px;
+        grid-template-columns: 1fr;
       }
     }
   }
 
-  &__buttons {
-    display: flex;
-    gap: 82vw;
-    position: absolute;
-    top: 50%;
-    left: -10%;
-  }
-
   &__next,
   &__prev {
+    position: absolute;
     background-color: rgb(236 229 223 / 80%);
     border-radius: 5px;
     border: none;
@@ -103,7 +104,13 @@ $item-gap: 20px;
   }
 
   &__next {
-    margin-left: 25px;
+    right: -100px;
+    top: 50%;
+  }
+
+  &__prev {
+    left: -100px;
+    top: 50%;
   }
 
   &__guide {

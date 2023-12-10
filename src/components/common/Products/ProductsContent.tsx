@@ -28,10 +28,6 @@ const ProductsContent = ({
     setSelectedPage((prev) => prev + 1);
     setQueryParams({ page: selectedPage + 1 });
   };
-  const handleSelect = (page: number) => {
-    setSelectedPage(page);
-    setQueryParams({ page });
-  };
 
   return (
     <div className="products__content">
@@ -42,7 +38,7 @@ const ProductsContent = ({
         onPrevClick={handlePrevClick}
         onNextClick={handleNextClick}
       />
-      {products.length >= 1 ? (
+      {(products?.length || 0) >= 1 ? (
         <ProductsSubContent products={products} />
       ) : (
         <h2>Hiện chưa có sản phẩm</h2>
