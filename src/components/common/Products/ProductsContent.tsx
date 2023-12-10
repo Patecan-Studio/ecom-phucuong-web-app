@@ -5,7 +5,6 @@ import { ProductsContentProps } from "./types";
 import ProductsSubContent from "./ProductsSubContent";
 import ProductsTitle from "./ProductsTitle";
 import ProductsButtons from "./ProductsButtons/ProductsButtons";
-import ProductsNavigation from "./ProductsNavigation/ProductsNavigation";
 import ProductsGuide from "./ProductsGuide";
 import useQueryParams from "@/hooks/useQueryParams";
 
@@ -38,22 +37,18 @@ const ProductsContent = ({
     <div className="products__content">
       <div className="products__content--top">
         <ProductsTitle title={productsTitle} />
-        <ProductsButtons
-          onPrevClick={handlePrevClick}
-          onNextClick={handleNextClick}
-        />
       </div>
+      <ProductsButtons
+        onPrevClick={handlePrevClick}
+        onNextClick={handleNextClick}
+      />
       {products.length >= 1 ? (
         <ProductsSubContent products={products} />
       ) : (
         <h2>Hiện chưa có sản phẩm</h2>
       )}
-      <ProductsNavigation
-        selected={selectedPage}
-        onNavigate={handleSelect}
-        totalPage={totalPage}
-      />
       <ProductsGuide />
+      
     </div>
   );
 };

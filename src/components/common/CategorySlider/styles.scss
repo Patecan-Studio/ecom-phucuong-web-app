@@ -1,6 +1,7 @@
 @import "@/styles/responsives.scss";
 
 .category-slider-container {
+  position: relative;
   @include responsiveContainer;
   margin-bottom: 50px;
 

@@ -17,10 +17,11 @@ $item-gap: 20px;
 }
 
 .products {
+  position: relative;
   color: var(--color-black);
   padding-top: 20px;
   @include responsiveContainer;
-  margin-bottom: 30px;
+  margin-bottom: 100px;
 
   @include below768inclusive {
     padding: 0 15px;
@@ -39,9 +40,6 @@ $item-gap: 20px;
 
   &__content {
     &--top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       margin-bottom: 40px;
 
       @include below992inclusive {
@@ -68,6 +66,10 @@ $item-gap: 20px;
 
   &__buttons {
     display: flex;
+    gap: 82vw;
+    position: absolute;
+    top: 50%;
+    left: -10%;
   }
 
   &__next,
@@ -102,41 +104,6 @@ $item-gap: 20px;
 
   &__next {
     margin-left: 25px;
-  }
-
-  &__navigation {
-    overflow: auto;
-    width: 88vw;
-    margin: 20px auto;
-    &__wrapper {
-      display: flex;
-      flex-direction: row;
-      width: fit-content;
-      margin: 0 auto;
-    }
-  }
-
-  &__dot {
-    margin-right: 20px;
-    margin-bottom: 40px;
-    cursor: pointer;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background-color: var(--color-gray-less-light) !important;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--color-text-primary);
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    &--selected {
-      background-color: var(--color-primary) !important;
-    }
   }
 
   &__guide {
