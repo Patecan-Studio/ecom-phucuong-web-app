@@ -17,11 +17,10 @@ $item-gap: 20px;
 }
 
 .products {
-  position: relative;
   color: var(--color-black);
   padding-top: 20px;
   @include responsiveContainer;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 
   @include below768inclusive {
     padding: 0 15px;
@@ -49,6 +48,9 @@ $item-gap: 20px;
   }
 
   &__sub-content {
+    margin-bottom: 30px;
+    position: relative;
+
     &__items {
       display: grid;
       gap: 30px;
@@ -89,28 +91,36 @@ $item-gap: 20px;
     &:hover {
       background-color: var(--color-primary);
     }
-
-    @include below1200inclusive {
-      width: 35px;
-      height: 35px;
-    }
-
-    @include below768inclusive {
-      svg {
-        width: 15px;
-        height: 15px;
-      }
-    }
   }
 
   &__next {
-    right: -100px;
+    @include above1200 {
+      right: -100px;
+    }
+
+    right: -80px;
     top: 50%;
+    transform: translateY(-50%);
+
+    @include below992inclusive {
+      top: -50px;
+      right: 0;
+    }
   }
 
   &__prev {
-    left: -100px;
+    @include above1200 {
+      left: -100px;
+    }
+
+    left: -80px;
     top: 50%;
+    transform: translateY(-50%);
+
+    @include below992inclusive {
+      top: -50px;
+      left: calc(100% - 120px);
+    }
   }
 
   &__guide {

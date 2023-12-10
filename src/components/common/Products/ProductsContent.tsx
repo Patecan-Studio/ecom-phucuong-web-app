@@ -34,12 +34,8 @@ const ProductsContent = ({
       <div className="products__content--top">
         <ProductsTitle title={productsTitle} />
       </div>
-      <ProductsButtons
-        onPrevClick={handlePrevClick}
-        onNextClick={handleNextClick}
-      />
       {(products?.length || 0) >= 1 ? (
-        <ProductsSubContent products={products} />
+        <ProductsSubContent products={products} onPrevClick={handlePrevClick} onNextClick={handleNextClick}/>
       ) : (
         <h2>Hiện chưa có sản phẩm</h2>
       )}

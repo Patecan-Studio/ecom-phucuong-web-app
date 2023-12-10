@@ -5,6 +5,10 @@
   @include responsiveContainer;
   margin-bottom: 50px;
 
+  @include below992inclusive {
+    overflow: hidden;
+  }
+
   @include below768inclusive {
     padding: 0 15px;
 
