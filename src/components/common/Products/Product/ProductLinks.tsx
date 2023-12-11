@@ -5,11 +5,11 @@ const ProductLinks = () => {
   return (
     <div className="product__links">
       <a className="product__cart" href="#">
-        Xem chi tiết
+        Chi tiết
         <PlusSignIcon />
       </a>
       <a className="product__cart" href="#">
-        Thêm vào giỏ hàng
+        Giỏ hàng
         <PlusSignIcon />
       </a>
     </div>

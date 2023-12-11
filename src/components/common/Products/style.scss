@@ -91,6 +91,11 @@ $item-gap: 20px;
     &:hover {
       background-color: var(--color-primary);
     }
+
+    @include below768inclusive {
+      width: 40px;
+      height: 40px;
+    }
   }
 
   &__next {
@@ -106,6 +111,10 @@ $item-gap: 20px;
       top: -50px;
       right: 0;
     }
+
+    @include below768inclusive {
+      top: -40px;
+    }
   }
 
   &__prev {
@@ -120,6 +129,11 @@ $item-gap: 20px;
     @include below992inclusive {
       top: -50px;
       left: calc(100% - 120px);
+    }
+
+    @include below768inclusive {
+      top: -40px;
+      left: calc(100% - 100px);
     }
   }
 
