@@ -51,7 +51,7 @@ const Products = ({ category, productsTitle, page, q }: any) => {
     };
 
     getData();
-  }, [breakpoint]);
+  }, [breakpoint, category, currentPage, q]);
 
   return (
     <div className="products font-bold">
