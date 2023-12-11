@@ -23,8 +23,8 @@
   border-radius: 10px;
   white-space: nowrap;
   overflow: hidden;
-  // touch-action: none;
-
+  touch-action: auto;
+  
   &.dragging {
     cursor: grab;
 
