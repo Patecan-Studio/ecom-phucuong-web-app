@@ -54,7 +54,7 @@ const Products = ({ category, productsTitle, page, q }: any) => {
   }, [breakpoint, category, currentPage, q]);
 
   return (
-    <div className="products font-bold">
+    <div className="products">
       <ProductsContent
         productsTitle={productsTitle ? productsTitle : "Sản Phẩm"}
         products={data.items}
