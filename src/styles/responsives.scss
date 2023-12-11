@@ -63,6 +63,10 @@
 @mixin responsiveContainer {
   margin: auto;
   width: 80%;
+
+  @include below992inclusive {
+    width: 95%;
+  }
 }
 
 @mixin responsiveHeadingH2 {

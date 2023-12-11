@@ -53,13 +53,14 @@ const CategorySlider = ({ data }: any) => {
     if (sliderRef.current) sliderRef.current.style.scrollBehavior = "auto";
     prevPageX.current = e.pageX || e.touches[0].pageX;
     prevScrollLeft.current = sliderRef.current?.scrollLeft || 0;
-    if (positionDiff.current !== 0) {
+    if (positionDiff.current !== 0 || prevPageX.current !== 0) {
       setTimeout(() => {
         setIsDragging(true);
       }, 100);
     }
     positionDiff.current = 0;
   };
+
 
   const handleMouseUp = () => {
     if (sliderRef.current) sliderRef.current.style.scrollBehavior = "auto";
