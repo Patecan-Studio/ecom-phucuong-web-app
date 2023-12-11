@@ -92,19 +92,6 @@
     }
   }
 
-  &__price-container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-end;
-
-    @include below1440inclusive {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
-
   &__price {
     font-size: 22px;
     font-weight: 800;
@@ -138,7 +125,6 @@
 
     @include below768inclusive {
       padding: 0 8px;
-      height: unset;
     }
   }
 
@@ -162,7 +148,7 @@
     }
 
     @include below768inclusive {
-      display: none;
+      width: 80%;
     }
   }
 

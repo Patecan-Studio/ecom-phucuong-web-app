@@ -62,23 +62,7 @@
 
 @mixin responsiveContainer {
   margin: auto;
-  max-width: 1410px;
-
-  @include below1440inclusive {
-    max-width: 1140px;
-  }
-
-  @include below1200inclusive {
-    max-width: 960px;
-  }
-
-  @include below992inclusive {
-    max-width: 720px;
-  }
-
-  @include below768inclusive() {
-    max-width: 540px;
-  }
+  width: 80%;
 }
 
 @mixin responsiveHeadingH2 {

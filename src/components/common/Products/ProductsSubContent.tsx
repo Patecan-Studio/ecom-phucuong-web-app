@@ -2,8 +2,14 @@
 import React, { useEffect, useState } from "react";
 import { Product } from "./Product";
 import Link from "next/link";
+import ProductsButtons from "./ProductsButtons/ProductsButtons";
 
-const ProductsSubContent = ({ products, productsRef }: any) => {
+const ProductsSubContent = ({
+  products,
+  productsRef,
+  onPrevClick,
+  onNextClick,
+}: any) => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -39,6 +45,7 @@ const ProductsSubContent = ({ products, productsRef }: any) => {
 
   return (
     <div className="products__sub-content" ref={productsRef}>
+      <ProductsButtons onPrevClick={onPrevClick} onNextClick={onNextClick} />
       <div className="products__sub-content__items">{renderProducts()}</div>
     </div>
   );
