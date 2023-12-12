@@ -35,7 +35,7 @@ const OverviewMeasurements = ({
               >
                 {height !== "0" && (
                   <button className={classname} disabled={disabled}>
-                    {"Cao " + height + sizeUnit}
+                    {"Cao " + height}
                   </button>
                 )}
                 {width !== "0" && (
