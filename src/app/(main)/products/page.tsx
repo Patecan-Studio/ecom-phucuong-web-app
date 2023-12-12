@@ -51,7 +51,6 @@ const Page = async ({
         category={searchParams.category ? searchParams.category : "all"}
         q={searchParams.q ? searchParams.q : ""}
         page={searchParams.page ? searchParams.page : 1}
-        pageSize={8}
       />
     </div>
   );

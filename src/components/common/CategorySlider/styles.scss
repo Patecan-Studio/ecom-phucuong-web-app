@@ -1,8 +1,13 @@
 @import "@/styles/responsives.scss";
 
 .category-slider-container {
+  position: relative;
   @include responsiveContainer;
   margin-bottom: 50px;
+
+  @include below992inclusive {
+    overflow: hidden;
+  }
 
   @include below768inclusive {
     padding: 0 15px;
@@ -18,8 +23,8 @@
   border-radius: 10px;
   white-space: nowrap;
   overflow: hidden;
-  touch-action: none;
-
+  touch-action: auto;
+  
   &.dragging {
     cursor: grab;
 

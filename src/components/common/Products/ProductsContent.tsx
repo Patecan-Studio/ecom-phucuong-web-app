@@ -5,7 +5,6 @@ import { ProductsContentProps } from "./types";
 import ProductsSubContent from "./ProductsSubContent";
 import ProductsTitle from "./ProductsTitle";
 import ProductsButtons from "./ProductsButtons/ProductsButtons";
-import ProductsNavigation from "./ProductsNavigation/ProductsNavigation";
 import ProductsGuide from "./ProductsGuide";
 import useQueryParams from "@/hooks/useQueryParams";
 
@@ -29,31 +28,19 @@ const ProductsContent = ({
     setSelectedPage((prev) => prev + 1);
     setQueryParams({ page: selectedPage + 1 });
   };
-  const handleSelect = (page: number) => {
-    setSelectedPage(page);
-    setQueryParams({ page });
-  };
 
   return (
     <div className="products__content">
       <div className="products__content--top">
         <ProductsTitle title={productsTitle} />
-        <ProductsButtons
-          onPrevClick={handlePrevClick}
-          onNextClick={handleNextClick}
-        />
       </div>
-      {products.length >= 1 ? (
-        <ProductsSubContent products={products} />
+      {(products?.length || 0) >= 1 ? (
+        <ProductsSubContent products={products} onPrevClick={handlePrevClick} onNextClick={handleNextClick}/>
       ) : (
         <h2>Hiện chưa có sản phẩm</h2>
       )}
-      <ProductsNavigation
-        selected={selectedPage}
-        onNavigate={handleSelect}
-        totalPage={totalPage}
-      />
       <ProductsGuide />
+      
     </div>
   );
 };
