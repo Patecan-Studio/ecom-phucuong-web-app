@@ -16,8 +16,8 @@ const OverviewMeasurements = ({
         <div className="overview__about__items--specifications">
           {measurements.map((item: any, index: number) => {
             const [size, weight] = item.split("|");
-            const [height, width, length] = size.split("x");
-            const sizeUnit = "(" + length.split("(")[1];
+            const [width, length, height] = size.split("x");
+            const sizeUnit = "(" + height.split("(")[1];
             const disabled =
               !dictionary[item]?.includes(selectedMaterial) ||
               !dictionary[item]?.includes(selectedColor);
