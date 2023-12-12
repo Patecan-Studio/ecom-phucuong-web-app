@@ -610,6 +610,22 @@ const TabbarSecondary = () => {
             },
           ],
         },
+        {
+          label: {
+            name: "Ván sàn",
+            path: createCategoryPath("6578989a48c7123cadcd9efe"),
+          },
+          list: [
+            {
+              name: "Sàn gỗ",
+              path: createCategoryPath("657898bb48c7123cadcd9fbb"),
+            },
+            {
+              name: "Sàn nhựa",
+              path: createCategoryPath("657898cd48c7123cadcda07c"),
+            },
+          ],
+        },
       ],
     },
     {
