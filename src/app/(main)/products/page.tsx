@@ -44,7 +44,7 @@ const Page = async ({
       <ProductBanner
         title={category.category_name}
         description={category.category_description}
-        image={category.category_images[0].imageUrl}
+        image={category.category_images?.[0].imageUrl}
       />
       <Products
         productsTitle={category.category_name}
