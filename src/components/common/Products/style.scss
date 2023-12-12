@@ -49,7 +49,7 @@ $item-gap: 20px;
 
     &__items {
       display: grid;
-      gap: 10px;
+      gap: 20px;
       grid-template-columns: repeat(5, 1fr);
 
       @include below1440inclusive {
@@ -62,6 +62,10 @@ $item-gap: 20px;
 
       @include below992inclusive {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include below768inclusive {
+        gap: 10px;
       }
     }
   }
