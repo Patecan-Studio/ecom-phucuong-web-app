@@ -33,7 +33,7 @@ const OverviewMeasurements = ({
                 onClick={() => onMeasurementSelect(item)}
                 key={item + index}
               >
-                {height !== "0" && (
+                {height.split("(")[0] !== "0" && (
                   <button className={classname} disabled={disabled}>
                     {"Cao " + height}
                   </button>
@@ -43,7 +43,7 @@ const OverviewMeasurements = ({
                     {"Rộng " + width + sizeUnit}
                   </button>
                 )}
-                {length.split("(")[0] !== "0" && (
+                {length !== "0" && (
                   <button
                     className={classname}
                     disabled={
@@ -51,7 +51,7 @@ const OverviewMeasurements = ({
                       !dictionary[item]?.includes(selectedColor)
                     }
                   >
-                    {"Dài " + length.split("(")[0] + sizeUnit}
+                    {"Dài " + length + sizeUnit}
                   </button>
                 )}
                 {weight.split("(")[0] !== "0" && (
