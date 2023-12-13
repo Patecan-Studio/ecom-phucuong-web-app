@@ -56,8 +56,8 @@ const Overview = ({ data }: OverviewProps) => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   useEffect(() => {
-    handleMaterialChange();
-  }, [selectedMaterial]);
+    handleVariantChange();
+  }, [selectedMaterial, selectedColor, selectedMeasurement]);
 
   let dictionary: { [key: string]: string[] } = Object.create(null);
   dictionary = doubleDictionary(data.product_variants);
@@ -83,17 +83,18 @@ const Overview = ({ data }: OverviewProps) => {
 
   const warranty = data.product_warranty;
 
-  const handleMaterialChange = () => {
+  const handleVariantChange = () => {
     const newOverviewData = data.product_variants.find(
-      (item) => item.material === selectedMaterial
+      (item) =>
+        item.material === selectedMaterial &&
+        item.metadata.color.value === selectedColor &&
+        item.measurement === selectedMeasurement
     );
     if (newOverviewData) {
       setOverviewData(newOverviewData);
-      setSelectedColor(newOverviewData.metadata.color.value);
-      setSelectedMeasurement(newOverviewData.measurement);
       setSelectedQuantity(1);
     }
-  };
+  }
 
   const handleResetVariant = () => {
     setOverviewData(JSON.parse(JSON.stringify(data.product_variants[0])));
