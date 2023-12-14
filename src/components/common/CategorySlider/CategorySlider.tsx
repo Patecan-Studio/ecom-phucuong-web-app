@@ -13,6 +13,7 @@ const CategorySlider = ({ data }: any) => {
   }));
 
   const [isDragging, setIsDragging] = useState(false);
+  const [isMouseDown, setIsMouseDown] = useState(false);
   const sliderRef = useRef<HTMLDivElement | null>(null);
   const prevPageX = useRef(0);
   const prevScrollLeft = useRef(0);
@@ -38,26 +39,22 @@ const CategorySlider = ({ data }: any) => {
       slider.scrollLeft +=
         positiveDiff > firstChildWidth / 2 ? valDiff : -positiveDiff;
     }
-    slider.style.scrollBehavior = "auto";
   };
 
   const handleDragging = (e: any) => {
     const slider = sliderRef.current;
     positionDiff.current = (e.pageX || e.touches[0].pageX) - prevPageX.current;
-    if (slider && isDragging) {
+    if (slider && isMouseDown) {
+      setIsDragging(true);
       slider.scrollLeft = prevScrollLeft.current - positionDiff.current;
     }
   };
 
   const handleMouseDown = (e: any) => {
+    setIsMouseDown(true);
     if (sliderRef.current) sliderRef.current.style.scrollBehavior = "auto";
     prevPageX.current = e.pageX || e.touches[0].pageX;
     prevScrollLeft.current = sliderRef.current?.scrollLeft || 0;
-    if (positionDiff.current !== 0 || prevPageX.current !== 0) {
-      setTimeout(() => {
-        setIsDragging(true);
-      }, 100);
-    }
     positionDiff.current = 0;
   };
 
@@ -65,6 +62,7 @@ const CategorySlider = ({ data }: any) => {
   const handleMouseUp = () => {
     if (sliderRef.current) sliderRef.current.style.scrollBehavior = "auto";
     if (isDragging) autoSlide();
+    setIsMouseDown(false);
     setIsDragging(false);
     positionDiff.current = 0;
   };
