@@ -56,8 +56,16 @@ const Overview = ({ data }: OverviewProps) => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   useEffect(() => {
-    handleVariantChange();
-  }, [selectedMaterial, selectedColor, selectedMeasurement]);
+    handleMaterialChange();
+  }, [selectedMaterial]);
+
+  useEffect(() => {
+    handleColorChange();
+  }, [selectedColor]);
+
+  useEffect(() => {
+    handleMeasurementChange();
+  }, [selectedMeasurement]);
 
   let dictionary: { [key: string]: string[] } = Object.create(null);
   dictionary = doubleDictionary(data.product_variants);
@@ -83,15 +91,41 @@ const Overview = ({ data }: OverviewProps) => {
 
   const warranty = data.product_warranty;
 
-  const handleVariantChange = () => {
+  const handleMaterialChange = () => {
     const newOverviewData = data.product_variants.find(
       (item) =>
-        item.material === selectedMaterial &&
-        item.metadata.color.value === selectedColor &&
+        item.material === selectedMaterial
+    );
+    if (newOverviewData) {
+      setOverviewData(newOverviewData);
+      setSelectedColor(newOverviewData.color);
+      setSelectedMeasurement(newOverviewData.measurement);
+      setSelectedQuantity(1);
+    }
+  }
+
+  const handleColorChange = () => {
+    const newOverviewData = data.product_variants.find(
+      (item) =>
+        item.color === selectedColor
+    );
+    if (newOverviewData) {
+      setOverviewData(newOverviewData);
+      setSelectedMaterial(newOverviewData.material);
+      setSelectedMeasurement(newOverviewData.measurement);
+      setSelectedQuantity(1);
+    }
+  }
+
+  const handleMeasurementChange = () => {
+    const newOverviewData = data.product_variants.find(
+      (item) =>
         item.measurement === selectedMeasurement
     );
     if (newOverviewData) {
       setOverviewData(newOverviewData);
+      setSelectedMaterial(newOverviewData.material);
+      setSelectedColor(newOverviewData.color);
       setSelectedQuantity(1);
     }
   }
