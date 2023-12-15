@@ -1,7 +1,9 @@
+"use client"
+
 import React from "react";
-import "./style.scss";
-import { CustomImage } from "..";
 import Link from "next/link";
+import { CustomImage } from "..";
+import "./style.scss";
 
 const CategorySection = ({ data }: any) => {
   const categoryList = data.map((item: any) => {
