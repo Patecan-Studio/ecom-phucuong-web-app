@@ -150,7 +150,7 @@
       height: 100%;
 
       img {
-      height: 100%;
+        height: 100%;
       }
     }
 
@@ -230,6 +230,10 @@
     border-bottom: 1px solid var(--color-gray-less-light);
     margin-bottom: 10px;
     gap: 20px;
+    @include below576inclusive {
+      flex-direction: column;
+      align-items: start;
+    }
   }
 
   &__discountPrice {
@@ -275,6 +279,10 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding-bottom: 10px;
+
+    @include below576inclusive {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   &__code {
@@ -322,6 +330,10 @@
     padding: 20px;
     padding-bottom: 0;
 
+    @include below414inclusive {
+      padding: 0;
+      padding-top: 20px;
+    }
     &__left {
       width: 100%;
 
@@ -349,11 +361,18 @@
       margin-bottom: 15px;
 
       &__title {
-        width: 100px;
+        min-width: 100px;
         font-weight: normal;
         margin-right: 10px;
         padding: 5px;
         font-size: 16px;
+        text-wrap: nowrap;
+
+        @include below414inclusive {
+          max-width: 80px;
+          min-width: 80px;
+          width: 80px;
+        }
       }
     }
 
@@ -384,7 +403,14 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      
+      text-wrap: wrap;
+      @include below414inclusive {
+        text-align: left;
+      }
+
+      .square-color {
+        min-width: 12px;
+      }
 
       &--null {
         padding: 5px;
@@ -510,6 +536,7 @@
     padding-top: 0;
     @include below576inclusive {
       flex-direction: column;
+      padding: 0;
     }
   }
 
