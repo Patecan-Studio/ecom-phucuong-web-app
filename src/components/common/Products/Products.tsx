@@ -33,13 +33,13 @@ const Products = ({ category, productsTitle, page, q }: any) => {
   useEffect(() => {
     let pageSize = 10;
 
-    // if (breakpoint === "xl") {
-    //   pageSize = 8;
-    // }
+    if (breakpoint === "xl") {
+      pageSize = 8;
+    }
 
-    // if (breakpoint === "lg") {
-    //   pageSize = 6;
-    // }
+    if (breakpoint === "lg") {
+      pageSize = 6;
+    }
 
     if (breakpoint === "md" || breakpoint === "sm" || breakpoint === "xs") {
       pageSize = 4;
