@@ -15,8 +15,6 @@ const CategorySection = ({ data }: any) => {
     };
   });
 
-  console.log('categoryList', categoryList)
-
   return (
     <div className="category-section">
       <div className="category-section__left-content"></div>
