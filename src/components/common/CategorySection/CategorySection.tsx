@@ -1,7 +1,9 @@
+"use client";
+
 import React from "react";
-import "./style.scss";
-import { CustomImage } from "..";
 import Link from "next/link";
+import { CustomImage } from "..";
+import "./style.scss";
 
 const CategorySection = ({ data }: any) => {
   const categoryList = data.map((item: any) => {
@@ -10,6 +12,7 @@ const CategorySection = ({ data }: any) => {
       id: categoryId,
       cateName: item.display_text,
       imgUrl: item.image_url,
+      linkUrl: item.link_url,
     };
   });
 
@@ -35,7 +38,7 @@ const CategorySection = ({ data }: any) => {
         </div>
         <div className="right">
           {categoryList.map((item: any) => (
-            <Link key={item.id} href={`/products?category=${item.id}`}>
+            <Link key={item.id} href={item.linkUrl}>
               <div className="icon-wrapper">
                 <CustomImage
                   src={item.imgUrl}

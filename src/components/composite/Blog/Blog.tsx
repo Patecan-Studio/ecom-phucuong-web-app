@@ -14,7 +14,7 @@ const blogList = [
         "\n" +
         "Nơi làm việc không còn đơn điệu nhàm chán bằng cách sử dụng cây xanh décor. Các chậu cây mini xanh mướt đặt trên giá ngăn vừa mang đến vẻ đẹp cho không gian vừa giúp chia tách không gian hợp lý. ",
     link: "https://www.google.com/",
-    image: "https://crafurni.com/wp-content/uploads/2023/07/Equilibrio-entre-vida-privada-y-trabajo.png",
+    image: "/images/blogs/blog-1.jpg",
     date: "14, tháng 07, 2023",
   },
   {
@@ -22,7 +22,7 @@ const blogList = [
     type: "Xu hướng và phong cách",
     title: "Các đường thẳng đứng mang lại cho mọi người cảm giác đối xứng thị giác thẩm mỹ. Với đệm mềm và lưng vừa phải, tiện dụng và phù hợp với mọi người. Trong khi người tiêu dùng thưởng thức các món ngon tại nhà hàng đồng thời cũng có thể cảm nhận được sự thoải mái trong cơ thể từ ghế ăn Crane.",
     link: "https://www.google.com/",
-    image: "https://crafurni.com/wp-content/uploads/2023/04/z4252844864982_861036e34395972797109a3517e64da5.jpg",
+    image: "/images/blogs/blog-2.jpg",
     date: "10, tháng 04, 2023",
   },
   {
@@ -33,7 +33,7 @@ const blogList = [
         "Với sự khéo léo của ghế Rabbit và Travertine. Nó xác định lại ranh giới của vật liệu và không gian, truyền tải vẻ đẹp, kết cấu của nghề thủ công.\n" +
         "\n",
     link: "https://www.google.com/",
-    image: "https://crafurni.com/wp-content/uploads/2023/04/z4252845805005_44e425514a086678593a459637da0e95.jpg",
+    image: "/images/blogs/blog-3.jpg",
     date: "10, tháng 05, 2023",
   },
 ]
