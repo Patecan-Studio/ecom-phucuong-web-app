@@ -5,6 +5,7 @@ import TabbarSearchInput from "./TabbarSearchInput";
 import TabbarSearchButton from "./TabbarSearchButton";
 import { usePathname, useRouter } from "next/navigation";
 import TabbarSuggest from "./TabbarSuggest";
+import TabbarBurger from "./TabberBurger";
 
 const getDropdownProductsByKeyword = async (q: string) => {
   try {
@@ -109,6 +110,7 @@ const TabbarSearch = () => {
         products={dropdownProducts}
         isDisplay={dropdownProducts.length > 0}
       />
+      <TabbarBurger />
     </form>
   );
 };

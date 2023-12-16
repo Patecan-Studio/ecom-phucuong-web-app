@@ -83,13 +83,12 @@
       }
 
       @include below768inclusive {
-        min-width: 0;
         width: 30px;
-        height: 30px;
+        height: 40px;
 
         svg {
-          width: 10px;
-          height: 10px;
+          width: 15px;
+          height: 15px;
         }
       }
     }
@@ -354,6 +353,60 @@
     }
   }
 
+  &__burger {
+    display: none;
+    position: relative;
+    z-index: 100;
+    cursor: pointer;
+    width: 50px;
+    height: 25px;
+    margin-left: 20px;
+
+    @include below1200inclusive {
+      display: block;
+    }
+
+    &__line {
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background-color: var(--color-primary);
+      transition: all 0.2s ease-in-out;
+      border-radius: 5px;
+
+      &:nth-child(1) {
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &:nth-child(3) {
+        bottom: 0;
+      }
+    }
+
+    &--active {
+      .tabbar__burger__line {
+        &:nth-child(1) {
+          transform: rotate(45deg);
+          top: 42%;
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+          bottom: 45%;
+        }
+      }
+    }
+  }
+
   @include below1200inclusive {
     &--secondary {
       display: none;
@@ -361,7 +414,7 @@
   }
 
   @include below768inclusive {
-    max-width: 540px;
+    padding: 0;
 
     .not-on-small-device {
       display: none;
