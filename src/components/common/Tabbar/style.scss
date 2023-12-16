@@ -6,6 +6,7 @@
 }
 
 .tabbar--secondary-container {
+  position: relative;
   width: 100%;
   border-top: 1px solid var(--color-platinum);
   background-color: var(--color-gray-secondary);
@@ -403,6 +404,32 @@
           transform: rotate(-45deg);
           bottom: 45%;
         }
+      }
+    }
+  }
+
+  &--secondaryMobile {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    background-color: var(--color-gray-secondary);
+
+    @include above1200 {
+      display: none;
+    }
+
+    &__item {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--color-platinum);
+      transition: all 0.2s ease-in-out;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        background-color: var(--color-gray-light);
       }
     }
   }

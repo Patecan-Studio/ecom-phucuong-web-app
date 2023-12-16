@@ -905,7 +905,7 @@ const Tabbar = () => {
 
   return (
     <div className="tabbar-container">
-      <div className="tabbar flex items-center justify-between">
+      <div className="tabbar">
         <TabbarLogo />
         <TabbarSearch
           isMobileActive={isMobileActive}
@@ -913,13 +913,15 @@ const Tabbar = () => {
         />
         <TabbarMenu />
       </div>
-      <TabbarSecondary menu={menu} checkExternalLink={checkExternalLink} />
-      {isMobileActive && (
-        <TabbarSecondaryMobile
-          menu={menu}
-          checkExternalLink={checkExternalLink}
-        />
-      )}
+      <div className="tabbar--secondary-container">
+        <TabbarSecondary menu={menu} checkExternalLink={checkExternalLink} />
+        {isMobileActive && (
+          <TabbarSecondaryMobile
+            menu={menu}
+            checkExternalLink={checkExternalLink}
+          />
+        )}
+      </div>
     </div>
   );
 };

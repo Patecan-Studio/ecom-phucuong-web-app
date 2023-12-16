@@ -5,13 +5,13 @@ import Link from "next/link";
 
 const TabbarSecondaryMobile = ({ menu, checkExternalLink }: any) => {
   return (
-    <div className="tabbar--secondary__mobile">
+    <div className="tabbar--secondaryMobile">
       {menu.map((item: any) => (
         <div key={item.label}>
-          <div className="tabbar--secondary__item">
+          <div className="tabbar--secondaryMobile__item">
             {checkExternalLink(item.path) ? (
               <a
-                className="tabbar--secondary__link tracking-tight"
+                className="tabbar--secondaryMobile__link"
                 href={item.path}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -20,7 +20,7 @@ const TabbarSecondaryMobile = ({ menu, checkExternalLink }: any) => {
               </a>
             ) : (
               <Link
-                className="tabbar--secondary__link tracking-tight"
+                className="tabbar--secondaryMobile__link"
                 href={item.path}
               >
                 {item.label}
