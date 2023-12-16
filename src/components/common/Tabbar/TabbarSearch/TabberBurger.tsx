@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 
-const TabbarBurger = () => {
-  const [isActive, setIsActive] = useState(false);
-
-  const handleClick = () => {
-    setIsActive(!isActive);
-  };
-
+const TabbarBurger = ({ isActive, onClick }: any) => {
   return (
     <div
       className={`tabbar__burger ${isActive && "tabbar__burger--active"}`}
-      onClick={handleClick}
+      onClick={onClick}
     >
       <div className="tabbar__burger__line"></div>
       <div className="tabbar__burger__line"></div>

@@ -33,7 +33,7 @@ const getDropdownProducts = async (page_size?: any) => {
   }
 };
 
-const TabbarSearch = () => {
+const TabbarSearch = ({ isMobileActive, onBurgerClick }: any) => {
   const [inputValue, setInputValue] = useState("");
   const [debounceInputValue, setDebounceInputValue] = useState("");
   const [dropdownProducts, setDropdownProducts] = useState([]);
@@ -110,7 +110,7 @@ const TabbarSearch = () => {
         products={dropdownProducts}
         isDisplay={dropdownProducts.length > 0}
       />
-      <TabbarBurger />
+      <TabbarBurger isActive={isMobileActive} onClick={onBurgerClick} />
     </form>
   );
 };

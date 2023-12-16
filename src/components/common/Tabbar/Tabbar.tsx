@@ -6,9 +6,11 @@ import TabbarMenu from "./TabbarMenu";
 import TabbarSecondary from "./TabbarSecondary";
 import TabbarSearch from "./TabbarSearch/TabbarSearch";
 import "./style.scss";
+import TabbarSecondaryMobile from "./TabbarSecondaryMobile";
+const initialPath = "/products";
 
 const Tabbar = () => {
-  const initialPath = "/products";
+  const [isMobileActive, setIsMobileActive] = useState(false);
 
   function createCategoryPath(categoryId: string): string {
     return `${initialPath}?category=${categoryId}`;
@@ -897,14 +899,27 @@ const Tabbar = () => {
     return path.startsWith("http");
   };
 
+  const handleBurgerClick = () => {
+    setIsMobileActive(!isMobileActive);
+  };
+
   return (
     <div className="tabbar-container">
       <div className="tabbar flex items-center justify-between">
-        <TabbarLogo logoUrl={logoUrl} />
-        <TabbarSearch />
+        <TabbarLogo />
+        <TabbarSearch
+          isMobileActive={isMobileActive}
+          onBurgerClick={handleBurgerClick}
+        />
         <TabbarMenu />
       </div>
       <TabbarSecondary menu={menu} checkExternalLink={checkExternalLink} />
+      {isMobileActive && (
+        <TabbarSecondaryMobile
+          menu={menu}
+          checkExternalLink={checkExternalLink}
+        />
+      )}
     </div>
   );
 };
