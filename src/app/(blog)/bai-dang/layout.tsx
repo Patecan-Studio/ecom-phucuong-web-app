@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import "../../../styles/main.css"
 import Navbar from "@/components/BlogComponent/navbar/Navbar";
 import NextTopLoader from "nextjs-toploader";
-// import Footer from "@/components/BlogComponent/footer/Footer";
 import DesktopMenu from "@/components/BlogComponent/desktop-menu/DesktopMenu";
-import { siteInfo } from "@/lib/data";
 import { Footer } from "@/components/common";
 
 export const metadata: Metadata = {
