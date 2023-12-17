@@ -5,11 +5,11 @@ import styles from "./Topic.module.css";
 import React from "react";
 import { compareDesc } from "date-fns";
 import PostPreview from "@/components/BlogComponent/PostPreview/PostPreview";
-import { allPosts } from "../../../../../.contentlayer/generated";
+import { allPosts } from "../../../../../../.contentlayer/generated";
 
-function Topic() {
+const Topic = () => {
   const pathname = usePathname();
-  const topicName = pathname.replace("/topic/", "").toLowerCase();
+  const topicName = pathname.replace("/bai-dang/", "").toLowerCase();
 
   // get posts specific to topic in question
   const posts = allPosts

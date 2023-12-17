@@ -3,20 +3,19 @@
 import styles from "./Navbar.module.css";
 import {
   IconSearch,
-  IconMoonFilled,
   IconMenuDeep,
   IconX,
 } from "@tabler/icons-react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { menuItems, siteInfo } from "@/lib/data";
+import { useRouter } from "next/navigation";
+import { menuItems } from "@/lib/data";
 import ThemeButton from "../theme-button/ThemeButton";
 import { NavbarWrapper } from "react-show-hide-sticky-navbar";
 import { useState } from "react";
 
 import React, { useRef, useEffect } from "react";
 
-function Navbar() {
+const Navbar = () => {
   // update state when menu opens
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -123,7 +122,7 @@ function Navbar() {
               style={{ color: "inherit", textDecoration: "inherit" }}
               href="/"
             >
-              <h1>{siteInfo.title}</h1>
+              <h1>{"Phu Cuong"}</h1>
             </Link>
             <div onClick={handleSearchClick} className={styles.IconWrapper}>
               <IconSearch size={20} />

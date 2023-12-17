@@ -7,7 +7,7 @@ import { format, parseISO } from "date-fns";
 import Link from "next/link";
 import { Post } from "../../../../.contentlayer/generated";
 
-function PostPreview(props: Post) {
+const PostPreview = (props: Post) => {
   const router = useRouter();
 
   // function handleRoute(path: string) {
@@ -22,9 +22,8 @@ function PostPreview(props: Post) {
       style={{ textDecoration: "inherit", color: "inherit" }}
       onClick={(event) => {
         event.stopPropagation();
-        router.push(props.url);
+        router.push(`bai-dang/${props.url}`);
       }} // go to the article page
-      // href={props.url}
       className={styles.PostPreviewContainer}
     >
       <div className={styles.ImageWrapper}>
@@ -44,7 +43,7 @@ function PostPreview(props: Post) {
             <div
               onClick={(event) => {
                 event.stopPropagation();
-                router.push(`topic/${topic}`);
+                router.push(`bai-dang/${topic}`);
               }}
               // href={`/topic/${topic}`}
               style={{ textDecoration: "inherit" }}

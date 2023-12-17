@@ -5,32 +5,24 @@ interface IMenuItem {
 
 export const menuItems: IMenuItem[] = [
   {
-    title: "News",
-    href: "/topic/news",
+    title: "Tin tức",
+    href: "/bai-dang/tin-tuc",
   },
   {
-    title: "Reviews",
-    href: "/topic/reviews",
+    title: "Đánh giá",
+    href: "/bai-dang/danh-gia",
   },
   {
-    title: "Best",
-    href: "/topic/best",
+    title: "Về Chúng tôi",
+    href: "/bai-dang/ve-chung-toi",
   },
   {
-    title: "Devices",
-    href: "/topic/devices",
-  },
-  {
-    title: "About",
-    href: "/about",
-  },
-  {
-    title: "Contact",
-    href: "/contact",
+    title: "Liên hệ",
+    href: "/bai-dang/lien-he",
   },
 ];
 
 export const siteInfo = {
-  title: "TechMag",
-  description: "Tech Magazine",
+  title: "Phu Cuong",
+  description: "Phu Cuong Magazine",
 };

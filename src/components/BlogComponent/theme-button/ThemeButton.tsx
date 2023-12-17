@@ -3,7 +3,7 @@
 import { IconMoonFilled, IconSunFilled } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 
-function ThemeButton() {
+const ThemeButton = () => {
   const [theme, settheme] = useState("dark");
 
   const handleToggle = () => {

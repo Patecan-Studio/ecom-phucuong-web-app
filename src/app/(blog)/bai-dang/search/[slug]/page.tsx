@@ -3,9 +3,9 @@ import styles from "./Search.module.css";
 import { usePathname } from "next/navigation";
 import { compareDesc } from "date-fns";
 import PostPreview from "@/components/BlogComponent/PostPreview/PostPreview";
-import { allPosts } from "../../../../../.contentlayer/generated";
+import { allPosts } from "../../../../../../.contentlayer/generated";
 
-function Search() {
+const Search = () => {
   const pathname = usePathname();
   const keyword = pathname.replace("/search/", "");
   const decodedKeyword = decodeURIComponent(keyword);

@@ -5,7 +5,7 @@ import styles from "./Article.module.css";
 import MarkdownWrapper from "@/components/BlogComponent/markdown-wrapper/MarkdownWrapper";
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
-import { allPosts } from "../../../../.contentlayer/generated";
+import { allPosts } from "../../../../../.contentlayer/generated";
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
@@ -16,7 +16,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   return { title: post.title };
 };
 
-function PostPage({ params }: { params: { slug: string } }) {
+const PostPage = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
   if (!post)
     return (
@@ -33,7 +33,7 @@ function PostPage({ params }: { params: { slug: string } }) {
         {post.topics.map((category: string) => {
           return (
             <Link
-              href={`topic/${category}`}
+              href={`bai-dang/${category}`}
               key={category}
               className={styles.ArticleTopic}
               style={{ textDecoration: "inherit" }}

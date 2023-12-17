@@ -5,7 +5,7 @@ import styles from "./DesktopMenu.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-function DesktopMenu() {
+const DesktopMenu = () => {
   const pathname = usePathname();
   return (
     <div className={styles.DesktopMenu}>
