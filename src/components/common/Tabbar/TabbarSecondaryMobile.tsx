@@ -22,35 +22,37 @@ const TabbarSecondaryMobile = ({ menu, checkExternalLink }: any) => {
   return (
     <div className="tabbar--secondaryMobile">
       {mobileMenu.map((item: any, index: number) => (
-        <div
-          key={item.label}
-          className="tabbar--secondaryMobile__item"
-          onClick={() => toggleDropdown(index)}
-        >
-          {checkExternalLink(item.path) ? (
-            <a
-              className="tabbar--secondaryMobile__link"
-              href={item.path}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {item.label}
-            </a>
-          ) : (
-            <Link
-              className={`tabbar--secondaryMobile__link ${
-                item.isOpen ? "active" : ""
-              }`}
-              href={item.path}
-            >
-              {item.label}
-            </Link>
-          )}
-
+        <>
+          <div
+            key={item.label}
+            className="tabbar--secondaryMobile__item"
+            onClick={() => toggleDropdown(index)}
+          >
+            {checkExternalLink(item.path) ? (
+              <a
+                className="tabbar--secondaryMobile__link"
+                href={item.path}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                className={`tabbar--secondaryMobile__link ${
+                  item.isOpen ? "active" : ""
+                }`}
+                style={{ pointerEvents: item.isOpen ? "auto" : "none" }}
+                href={item.path}
+              >
+                {item.label}
+              </Link>
+            )}
+          </div>
           {item.dropdownMenu && item?.isOpen && (
             <TabbarDropdown dropdownMenu={item.dropdownMenu} />
           )}
-        </div>
+        </>
       ))}
     </div>
   );
