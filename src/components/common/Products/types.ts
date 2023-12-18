@@ -55,7 +55,6 @@ export interface ProductImageProps {
   image: string;
   isNew: boolean;
   discountPercentage: number;
-  productSlug: string;
 }
 
 export interface ProductStatusProps {
@@ -65,6 +64,7 @@ export interface ProductStatusProps {
 
 export interface ProductFurtherInfoProps {
   brandImage: string;
+  productSlug: string;
 }
 
 export interface ProductLogoProps {
