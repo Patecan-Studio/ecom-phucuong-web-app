@@ -21,7 +21,7 @@ const CategorySection = ({ data }: any) => {
       <div className="category-section__left-content"></div>
       <div className="category-section__right-content">
         <CustomImage
-          src={`https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/phucuong_background_large.webp`}
+          src="/images/phucuong_background_large.webp"
           alt="main-slide-1"
           width={0}
           height={0}
