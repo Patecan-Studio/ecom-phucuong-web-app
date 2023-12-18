@@ -9,6 +9,7 @@ import { CustomImage } from "./CustomImage";
 import { ProductDescription } from "./ProductDescription";
 import { AuthForm, SignupForm } from "./Auth";
 import { AntdStyledComponentsRegistry } from "./AntdStyledComponentsRegistry";
+import { HomeWrapper } from "./HomeWrapper";
 
 export {
   Tabbar,
@@ -23,4 +24,5 @@ export {
   AuthForm,
   SignupForm,
   AntdStyledComponentsRegistry,
+  HomeWrapper,
 };
