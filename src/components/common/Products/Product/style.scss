@@ -1,7 +1,7 @@
 @import "../../../../styles/responsives.scss";
 
-.product {
-  height: 100%;
+.product-container {
+  height: fit-content;
   border-radius: 10px;
   transition: all 200ms ease-in-out;
   cursor: pointer;
@@ -14,7 +14,9 @@
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),
       0px 4px 8px 3px rgba(0, 0, 0, 0.15);
   }
+}
 
+.product {
   &:hover &__name {
     color: var(--color-primary);
   }
