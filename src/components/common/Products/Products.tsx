@@ -5,25 +5,6 @@ import "./style.scss";
 import ProductsContent from "./ProductsContent";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
 
-const getProducts = async (
-  category: string,
-  pageSize: number,
-  page: number,
-  q: string
-) => {
-  try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/products?category=${
-        category ? category : "all"
-      }&page=${page}&page_size=${pageSize}&q=${q}&time=${new Date().getTime()}`
-    );
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 const Products = ({ category, productsTitle, page, q }: any) => {
   const [data, setData] = useState<any>([]);
   const breakpoint = useBreakpoints();
@@ -31,27 +12,41 @@ const Products = ({ category, productsTitle, page, q }: any) => {
   const totalPage = data?.total_page || 1;
 
   useEffect(() => {
-    let pageSize = 10;
+    if (breakpoint === "xxl") {
+      getProducts(category, 10, currentPage, q);
+    }
 
     if (breakpoint === "xl") {
-      pageSize = 8;
+      getProducts(category, 8, currentPage, q);
     }
 
     if (breakpoint === "lg") {
-      pageSize = 6;
+      getProducts(category, 6, currentPage, q);
     }
 
     if (breakpoint === "md" || breakpoint === "sm" || breakpoint === "xs") {
-      pageSize = 4;
+      getProducts(category, 4, currentPage, q);
     }
-
-    const getData = async () => {
-      const data = await getProducts(category, pageSize, currentPage, q);
-      setData(data);
-    };
-
-    getData();
   }, [breakpoint, category, currentPage, q]);
+
+  const getProducts = async (
+    category: string,
+    pageSize: number,
+    page: number,
+    q: string
+  ) => {
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/products?category=${
+          category ? category : "all"
+        }&page=${page}&page_size=${pageSize}&q=${q}&time=${new Date().getTime()}`
+      );
+      const jsonData = await response.json();
+      setData(jsonData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="products">
