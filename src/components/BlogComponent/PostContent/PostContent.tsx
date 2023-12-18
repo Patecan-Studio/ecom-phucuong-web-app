@@ -44,7 +44,7 @@ const PostContent = ({ params }: { params: { slug: string } }) => {
         </time> */}
       </div>
       <div className={styles.ArticleBody}>
-        <MarkdownWrapper>{post.body.html}</MarkdownWrapper>
+        <MarkdownWrapper>{post?.body?.html}</MarkdownWrapper>
       </div>
     </div>
   );

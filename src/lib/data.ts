@@ -6,19 +6,19 @@ interface IMenuItem {
 export const menuItems: IMenuItem[] = [
   {
     title: "Tin tức",
-    href: "/bai-dang/tin-tuc",
+    href: "/bai-dang/topic/tin-tuc",
   },
   {
     title: "Đánh giá",
-    href: "/bai-dang/danh-gia",
+    href: "/bai-dang/topic/danh-gia",
   },
   {
     title: "Về Chúng tôi",
-    href: "/bai-dang/ve-chung-toi",
+    href: "/bai-dang/topic/ve-chung-toi",
   },
   {
     title: "Liên hệ",
-    href: "/bai-dang/lien-he",
+    href: "/bai-dang/topic/lien-he",
   },
 ];
 
