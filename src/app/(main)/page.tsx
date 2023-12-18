@@ -1,10 +1,12 @@
-import { Carousel, CategorySection, Products } from "@/components/common";
-import styles from "./page.module.css";
-import SaleBanner from "@/components/common/SaleBanner/SaleBanner";
-import ProductCardSlider from "@/components/common/CategorySlider/CategorySlider";
 import React from "react";
-import CategorySlider from "@/components/common/CategorySlider/CategorySlider";
 import { Blog } from "@/components/composite";
+import {
+  Carousel,
+  CategorySection,
+  Products,
+  CategorySlider,
+} from "@/components/common";
+import styles from "./page.module.css";
 
 const getPageTemplate = async () => {
   try {
