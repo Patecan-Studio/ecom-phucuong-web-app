@@ -66,7 +66,7 @@ export default async function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning={true}>
       <body className={inter.className}>
         <ChatBot />
-        <a href="tel:012345678">
+        <a href="tel:02973818181">
           <FloatButton
             icon={<PhoneOutlined />}
             type="primary"
