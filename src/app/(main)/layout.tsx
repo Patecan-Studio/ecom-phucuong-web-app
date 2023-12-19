@@ -70,7 +70,7 @@ export default async function RootLayout({
           <FloatButton
             icon={<PhoneOutlined />}
             type="primary"
-            style={{ right: 94 }}
+            style={{ right: 24, bottom: 104, width: 60, height: 60 }}
           />
         </a>
         <SaleBanner data={campaign?.campaign_content || ""} />
