@@ -9,9 +9,7 @@ import "@/styles/reset.css";
 import "@/styles/responsives.scss";
 import SaleBanner from "@/components/common/SaleBanner/SaleBanner";
 import React from "react";
-import ChatBot from "@/components/common/Facebook/Chatbox";
-import { FloatButton } from "antd";
-import { PhoneOutlined } from "@ant-design/icons";
+import ContactGroup from "@/components/common/ContactGroup/ContactGroup";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -65,14 +63,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning={true}>
       <body className={inter.className}>
-        <ChatBot />
-        <a href="tel:02973818181">
-          <FloatButton
-            icon={<PhoneOutlined />}
-            type="primary"
-            style={{ right: 24, bottom: 104, width: 60, height: 60 }}
-          />
-        </a>
+        <ContactGroup />
         <SaleBanner data={campaign?.campaign_content || ""} />
         <Tabbar />
         {children}
