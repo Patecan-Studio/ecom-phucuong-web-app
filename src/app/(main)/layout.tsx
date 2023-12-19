@@ -9,6 +9,7 @@ import "@/styles/reset.css";
 import "@/styles/responsives.scss";
 import SaleBanner from "@/components/common/SaleBanner/SaleBanner";
 import React from "react";
+import ChatBot from "@/components/common/Facebook/Chatbox";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -62,6 +63,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning={true}>
       <body className={inter.className}>
+        <ChatBot />
         <SaleBanner data={campaign?.campaign_content || ""} />
         <Tabbar />
         {children}
