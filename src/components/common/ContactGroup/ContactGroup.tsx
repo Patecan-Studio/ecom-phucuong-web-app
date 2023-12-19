@@ -1,8 +1,7 @@
 "use client";
-import { CustomerServiceOutlined, PhoneOutlined } from "@ant-design/icons";
+import { PhoneOutlined } from "@ant-design/icons";
 import { FloatButton } from "antd";
 import React from "react";
-import "./style.scss";
 import ChatBot from "../Facebook/Chatbox";
 const ContactGroup = () => {
   return (
