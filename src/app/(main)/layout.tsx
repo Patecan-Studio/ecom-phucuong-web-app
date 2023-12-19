@@ -10,6 +10,8 @@ import "@/styles/responsives.scss";
 import SaleBanner from "@/components/common/SaleBanner/SaleBanner";
 import React from "react";
 import ChatBot from "@/components/common/Facebook/Chatbox";
+import { FloatButton } from "antd";
+import { PhoneOutlined } from "@ant-design/icons";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -64,6 +66,13 @@ export default async function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning={true}>
       <body className={inter.className}>
         <ChatBot />
+        <a href="tel:012345678">
+          <FloatButton
+            icon={<PhoneOutlined />}
+            type="primary"
+            style={{ right: 94 }}
+          />
+        </a>
         <SaleBanner data={campaign?.campaign_content || ""} />
         <Tabbar />
         {children}
