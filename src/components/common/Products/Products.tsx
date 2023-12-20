@@ -51,7 +51,7 @@ const Products = ({ category, productsTitle, page, q }: any) => {
   return (
     <div className="products">
       <ProductsContent
-        productsTitle={productsTitle ? productsTitle : "Sản Phẩm"}
+        productsTitle={productsTitle ? productsTitle : "Sản phẩm mới"}
         products={data.items}
         totalPage={totalPage}
       />

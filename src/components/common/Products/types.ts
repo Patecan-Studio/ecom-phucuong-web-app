@@ -8,6 +8,7 @@ export interface ProductsContentProps {
   products: Product[];
   productsTitle: string;
   totalPage: number;
+  pageParam?: string;
 }
 
 export interface ProductsSubContentProps {
