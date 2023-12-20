@@ -6,7 +6,7 @@ const TabbarLogo = ({ logoUrl }: any) => {
   return (
     <Link className="tabbar__logo" href="/">
       <NextImage
-        src={logoUrl}
+        src={logoUrl || "/images/logo.png"}
         alt="package-icon"
         width={0}
         height={0}

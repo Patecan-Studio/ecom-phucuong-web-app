@@ -22,11 +22,11 @@
     height: fit-content;
   }
   @include below414inclusive {
-    background-color: var(--color-primary);
+    background-image: var(--left-background-image);
   }
   &__left-content {
     min-width: 50%;
-    background-color: var(--color-primary);
+    background-image: var(--left-background-image);
     @include below768inclusive {
       display: none;
     }
