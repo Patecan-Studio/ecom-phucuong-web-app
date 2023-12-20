@@ -1,9 +1,11 @@
 @import "../../../styles/responsives.scss";
 
 @mixin white-gradient {
-  background: linear-gradient(to right,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 $animationSpeed: 40s;
@@ -30,6 +32,7 @@ $animationSpeed: 40s;
     overflow: hidden;
     position: relative;
     width: 100%;
+    margin-bottom: 14px;
 
     @include below414inclusive {
       display: none;
@@ -60,7 +63,7 @@ $animationSpeed: 40s;
       animation: scroll $animationSpeed linear infinite;
       display: flex;
       width: calc(195px * 14);
-
+      gap: 70px;
       &:hover {
         animation-play-state: paused;
       }
@@ -73,9 +76,9 @@ $animationSpeed: 40s;
       align-items: center;
       justify-content: center;
       position: relative;
-
+      padding: 10px;
       img {
-        height: auto;
+        height: -webkit-fill-available;
         width: auto;
         filter: grayscale(1);
         object-fit: contain;
