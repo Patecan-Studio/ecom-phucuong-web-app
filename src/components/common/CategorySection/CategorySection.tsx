@@ -16,6 +16,10 @@ const CategorySection = ({ data }: any) => {
     };
   });
 
+  if (categoryList.length > 8) {
+    categoryList.splice(7, categoryList.length - 7);
+  }
+
   return (
     <div className="category-section">
       <div className="category-section__left-content"></div>
