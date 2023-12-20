@@ -5,7 +5,7 @@ import Link from "next/link";
 import { CustomImage } from "..";
 import "./style.scss";
 
-const CategorySection = ({ data }: any) => {
+const CategorySection = ({ data, backgroundImages }: any) => {
   const categoryList = data.map((item: any) => {
     const categoryId = item.link_url ? item.link_url.split("category=")[1] : "";
     return {
@@ -20,12 +20,16 @@ const CategorySection = ({ data }: any) => {
     categoryList.splice(8, categoryList.length - 8);
   }
 
+  const styles = {
+    "--left-background-image": `url(${backgroundImages[0]})` || `url('')`,
+  } as React.CSSProperties;
+
   return (
-    <div className="category-section">
+    <div className="category-section" style={styles}>
       <div className="category-section__left-content"></div>
       <div className="category-section__right-content">
         <CustomImage
-          src="/images/phucuong_background_large.webp"
+          src={backgroundImages[1] || "/images/phucuong_background_large.webp"}
           alt="main-slide-1"
           width={0}
           height={0}

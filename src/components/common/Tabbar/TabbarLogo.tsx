@@ -2,11 +2,11 @@ import React from "react";
 import NextImage from "next/image";
 import Link from "next/link";
 
-const TabbarLogo = () => {
+const TabbarLogo = ({ logoUrl }: any) => {
   return (
     <Link className="tabbar__logo" href="/">
       <NextImage
-        src="/images/logo.png"
+        src={logoUrl || "/images/logo.png"}
         alt="package-icon"
         width={0}
         height={0}

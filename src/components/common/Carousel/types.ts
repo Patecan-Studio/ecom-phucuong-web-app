@@ -33,6 +33,7 @@ interface MainSlide {
     React.ImgHTMLAttributes<HTMLImageElement>,
     HTMLImageElement
   >;
+  link?: string;
 }
 
 interface SubSlide {
