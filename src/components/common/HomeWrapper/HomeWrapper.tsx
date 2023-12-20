@@ -7,6 +7,7 @@ import {
   CategorySection,
   Products,
   CategorySlider,
+  SpecialProducts,
 } from "@/components/common";
 import { usePathname, useSearchParams } from "next/navigation";
 
@@ -14,6 +15,7 @@ const HomeWrapper = () => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const page = searchParams.get("page") ? searchParams.get("page") : 1;
+  const subPage = searchParams.get("sub_page") ? searchParams.get("sub_page") : 1;
   const category = searchParams.get("category")
     ? searchParams.get("category")
     : "all";
@@ -55,6 +57,7 @@ const HomeWrapper = () => {
       <Carousel data={banner_section} />
       <CategorySection data={category_section} />
       <Products page={page} category={category} q={q} />
+      <SpecialProducts page={subPage} />
       <CategorySlider data={category_slider_section} />
       <Blog />
     </>

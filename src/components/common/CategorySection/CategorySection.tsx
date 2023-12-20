@@ -20,8 +20,6 @@ const CategorySection = ({ data }: any) => {
     categoryList.splice(8, categoryList.length - 8);
   }
 
-  console.log('after', categoryList)
-
   return (
     <div className="category-section">
       <div className="category-section__left-content"></div>
