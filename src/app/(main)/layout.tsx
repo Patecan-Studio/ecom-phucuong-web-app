@@ -64,7 +64,7 @@ export default async function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning={true}>
       <body className={inter.className}>
         <ContactGroup />
-        <SaleBanner data={campaign?.campaign_content || ""} />
+        <SaleBanner data={campaign} />
         <Tabbar />
         {children}
         <Footer data={coupon_banner_section} />
