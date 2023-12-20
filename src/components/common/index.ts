@@ -10,6 +10,7 @@ import { ProductDescription } from "./ProductDescription";
 import { AuthForm, SignupForm } from "./Auth";
 import { AntdStyledComponentsRegistry } from "./AntdStyledComponentsRegistry";
 import { HomeWrapper } from "./HomeWrapper";
+import { SpecialProducts } from "./SpecialProducts";
 
 export {
   Tabbar,
@@ -25,4 +26,5 @@ export {
   SignupForm,
   AntdStyledComponentsRegistry,
   HomeWrapper,
+  SpecialProducts,
 };
