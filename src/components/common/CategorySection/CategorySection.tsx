@@ -17,7 +17,7 @@ const CategorySection = ({ data }: any) => {
   });
 
   if (categoryList.length > 8) {
-    categoryList.splice(7, categoryList.length - 7);
+    categoryList.splice(7, categoryList.length - 8);
   }
 
   return (
