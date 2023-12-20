@@ -6,6 +6,7 @@ import CheckIcon from "../Icons/CheckIcon";
 import TwentyFourHourIcon from "../Icons/TwentyFourHourIcon";
 import PackageIcon from "../Icons/PackageIcon";
 import NextImage from "next/image";
+import Link from "next/link";
 
 const Carousel = ({ data }: any) => {
   const carouselMainOption = {
@@ -46,6 +47,7 @@ const Carousel = ({ data }: any) => {
           style={{ width: "100%", height: "auto" }}
         />
       ),
+      link: item.link_url || ''
     };
   });
 
