@@ -1,16 +1,17 @@
 import Image from "next/image";
 
 export default function SaleBanner({ data }: any) {
-  return (
-    <div
-      style={{
-        backgroundImage: `url(${data?.campaign_images[0]?.imageUrl})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-      className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-800 text-white px-6 py-2.5 sm:px-3.5 sm:before:flex-1"
-    >
+  return data?.campaign_images.length > 0 ? (
+    <Image
+      src={data?.campaign_images[0]?.imageUrl}
+      alt={data?.campaign_content}
+      width="0"
+      height="0"
+      sizes="100vw"
+      style={{ width: "100%", height: "auto" }}
+    />
+  ) : (
+    <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-800 text-white px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
       <div
         className="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
         aria-hidden="true"
