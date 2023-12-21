@@ -23,11 +23,7 @@ const TabbarSecondaryMobile = ({ menu, checkExternalLink }: any) => {
     <div className="tabbar--secondaryMobile">
       {mobileMenu.map((item: any, index: number) => (
         <>
-          <div
-            key={item.label}
-            className="tabbar--secondaryMobile__item"
-            onClick={() => toggleDropdown(index)}
-          >
+          <div key={item.label} className="tabbar--secondaryMobile__item">
             {checkExternalLink(item.path) ? (
               <a
                 className="tabbar--secondaryMobile__link"
@@ -42,11 +38,18 @@ const TabbarSecondaryMobile = ({ menu, checkExternalLink }: any) => {
                 className={`tabbar--secondaryMobile__link ${
                   item.isOpen ? "active" : ""
                 }`}
-                style={{ pointerEvents: item.isOpen ? "auto" : "none" }}
                 href={item.path}
               >
                 {item.label}
               </Link>
+            )}
+            {!checkExternalLink(item.path) && (
+              <button
+                className={`tabbar--secondaryMobile__button ${
+                  item.isOpen ? "active" : ""
+                }`}
+                onClick={() => toggleDropdown(index)}
+              ></button>
             )}
           </div>
           {item.dropdownMenu && item?.isOpen && (

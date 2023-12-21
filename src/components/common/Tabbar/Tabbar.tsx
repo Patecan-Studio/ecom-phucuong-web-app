@@ -9,7 +9,7 @@ import "./style.scss";
 import TabbarSecondaryMobile from "./TabbarSecondaryMobile";
 const initialPath = "/products";
 
-const Tabbar = () => {
+const Tabbar = ({ logoUrl }: any) => {
   const [isMobileActive, setIsMobileActive] = useState(false);
 
   function createCategoryPath(categoryId: string): string {
@@ -906,7 +906,7 @@ const Tabbar = () => {
   return (
     <div className="tabbar-container">
       <div className="tabbar">
-        <TabbarLogo />
+        <TabbarLogo logoUrl={logoUrl} />
         <TabbarSearch
           isMobileActive={isMobileActive}
           onBurgerClick={handleBurgerClick}
