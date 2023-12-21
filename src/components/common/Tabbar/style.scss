@@ -309,6 +309,7 @@
     opacity: 0;
     transition: all 0.2s ease-in-out;
     display: flex;
+    flex-wrap: wrap;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     width: 100%;
@@ -325,7 +326,7 @@
         border-right: none;
         padding: 0 !important;
         border-bottom: 1px solid var(--color-platinum);
-        width: 100%;
+        flex-basis: 200px;
         text-align: start;
 
         &:last-child {
@@ -357,7 +358,10 @@
     &__item {
       padding: 15px 30px;
       border-right: 1px solid var(--color-platinum);
+      border-bottom: 1px solid var(--color-platinum);
       transition: all 0.2s ease-in-out;
+      flex-basis: 33.33%;
+
 
       &:last-child {
         margin-right: 0;
