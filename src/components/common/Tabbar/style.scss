@@ -462,7 +462,6 @@
       &:last-child {
         margin-right: 0;
       }
-
     }
 
     &__link {
@@ -472,6 +471,7 @@
 
       &:hover {
         background-color: var(--color-gray-light);
+        color: var(--color-primary);
       }
     }
 
