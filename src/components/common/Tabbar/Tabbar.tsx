@@ -1,16 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TabbarLogo from "./TabbarLogo";
 import TabbarMenu from "./TabbarMenu";
 import TabbarSecondary from "./TabbarSecondary";
 import TabbarSearch from "./TabbarSearch/TabbarSearch";
 import "./style.scss";
 import TabbarSecondaryMobile from "./TabbarSecondaryMobile";
+import { usePathname } from "next/navigation";
 const initialPath = "/products";
 
 const Tabbar = ({ logoUrl }: any) => {
   const [isMobileActive, setIsMobileActive] = useState(false);
+  const pathname = usePathname()
 
   function createCategoryPath(categoryId: string): string {
     return `${initialPath}?category=${categoryId}`;
@@ -903,6 +905,10 @@ const Tabbar = ({ logoUrl }: any) => {
     setIsMobileActive(!isMobileActive);
   };
 
+  const handleBurgerClose = () => {
+    setIsMobileActive(false);
+  }
+
   return (
     <div className="tabbar-container">
       <div className="tabbar">
@@ -919,6 +925,7 @@ const Tabbar = ({ logoUrl }: any) => {
           <TabbarSecondaryMobile
             menu={menu}
             checkExternalLink={checkExternalLink}
+            onBurgerClose={handleBurgerClose}
           />
         )}
       </div>

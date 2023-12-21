@@ -4,7 +4,7 @@ import React from "react";
 import { TabbarDropdownProps } from "./types";
 import Link from "next/link";
 
-const TabbarDropdown = ({ dropdownMenu }: TabbarDropdownProps) => {
+const TabbarDropdown = ({ dropdownMenu, onBurgerClose }: TabbarDropdownProps) => {
   return (
     <div className="tabbar__dropdown">
       {dropdownMenu.map((item) => (
@@ -19,7 +19,9 @@ const TabbarDropdown = ({ dropdownMenu }: TabbarDropdownProps) => {
                 {item.label.name}
               </a>
             ) : (
-              <Link href={`${item.label.path}`}>{item.label.name}</Link>
+              <Link href={`${item.label.path}`}
+                onClick={onBurgerClose}
+              >{item.label.name}</Link>
             )}
           </div>
           <div className="tabbar__dropdown__list">
@@ -39,6 +41,7 @@ const TabbarDropdown = ({ dropdownMenu }: TabbarDropdownProps) => {
                   href={`${subItem.path}`}
                   key={subItem.name}
                   className="tabbar__dropdown__list__item hover:text-blue-500"
+                  onClick={onBurgerClose}
                 >
                   {subItem.name}
                 </Link>

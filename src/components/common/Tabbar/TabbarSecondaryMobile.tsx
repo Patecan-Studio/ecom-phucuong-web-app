@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import TabbarDropdown from "./TabbarDropdown";
 import Link from "next/link";
 
-const TabbarSecondaryMobile = ({ menu, checkExternalLink }: any) => {
+const TabbarSecondaryMobile = ({ menu, checkExternalLink, onBurgerClose }: any) => {
   const [mobileMenu, setMobileMenu] = useState(
     menu.map((item: any) => {
       if (item.dropdownMenu) {
@@ -39,6 +39,7 @@ const TabbarSecondaryMobile = ({ menu, checkExternalLink }: any) => {
                   item.isOpen ? "active" : ""
                 }`}
                 href={item.path}
+                onClick={onBurgerClose}
               >
                 {item.label}
               </Link>
@@ -53,7 +54,7 @@ const TabbarSecondaryMobile = ({ menu, checkExternalLink }: any) => {
             )}
           </div>
           {item.dropdownMenu && item?.isOpen && (
-            <TabbarDropdown dropdownMenu={item.dropdownMenu} />
+            <TabbarDropdown dropdownMenu={item.dropdownMenu} onBurgerClose={onBurgerClose}/>
           )}
         </>
       ))}
