@@ -35,21 +35,11 @@
     border-right: 1px solid var(--color-platinum);
     display: flex;
     justify-content: center;
-    padding: 12px 8px 12px 0;
     height: 100%;
     max-height: 100px;
 
     img {
       object-fit: contain;
-    }
-
-    @include below1440inclusive {
-      padding: 5px;
-      padding-left: 0;
-    }
-
-    @include below1200inclusive {
-      padding: 8px;
     }
 
     @include below768inclusive {
