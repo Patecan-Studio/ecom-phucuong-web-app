@@ -34,9 +34,9 @@ $animationSpeed: 40s;
     width: 100%;
     margin-bottom: 14px;
 
-    @include below414inclusive {
-      display: none;
-    }
+    // @include below414inclusive {
+    //   display: none;
+    // }
 
     &::before,
     &::after {
