@@ -13,7 +13,7 @@ const initialPath = "/products";
 const Tabbar = ({ logoUrl }: any) => {
   const [isMobileActive, setIsMobileActive] = useState(false);
   const [menu, setMenu] = useState<any>([]);
-  
+
   useEffect(() => {
     const fetchCategoryTree = async () => {
       try {
@@ -21,16 +21,18 @@ const Tabbar = ({ logoUrl }: any) => {
           `${process.env.NEXT_PUBLIC_API_URL}/categories:{categoryTree}`
         );
         const categoryTree = await response.json();
-        // temporary remove category with 653b5fb490f7fb2f9cfdd2cc id
-        categoryTree.items = categoryTree.items.filter((item: any) => item._id !== "653b5fb490f7fb2f9cfdd2cc");
+        // remove 653b5fb490f7fb2f9cfdd2cc id from category tree
+        categoryTree.items = categoryTree.items.filter(
+          (item: any) => item._id !== "653b5fb490f7fb2f9cfdd2cc"
+        );
         setMenu(transformCategoryTree(categoryTree));
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
+    };
 
     fetchCategoryTree();
-  }, [])
+  }, []);
 
   function createCategoryPath(categoryId: string): string {
     return `${initialPath}?category=${categoryId}`;
@@ -38,6 +40,29 @@ const Tabbar = ({ logoUrl }: any) => {
 
   const transformCategoryTree = (categoryTree: any) => {
     const menu = categoryTree.items.map((item: any) => {
+      if (item._id === "6583e62e3ebb0257be7dbf0c") {
+        const dropdownMenu = item.child_category_list.map((child: any) => {
+          return {
+            label: {
+              name: child.category_name,
+              path: "https://ddspace.com.vn/",
+            },
+            list: child.child_category_list.map((grandChild: any) => {
+              return {
+                name: grandChild.category_name,
+                path: "https://ddspace.com.vn/",
+              };
+            }),
+          };
+        });
+
+        return {
+          label: item.category_name,
+          path: "https://ddspace.com.vn/",
+          dropdownMenu,
+        };
+      }
+
       const dropdownMenu = item.child_category_list.map((child: any) => {
         return {
           label: {
@@ -45,6 +70,27 @@ const Tabbar = ({ logoUrl }: any) => {
             path: createCategoryPath(child._id),
           },
           list: child.child_category_list.map((grandChild: any) => {
+            if (grandChild._id === "6584124e5603a35c31cfac87") {
+              return {
+                name: grandChild.category_name,
+                path: "https://kesgroup.com.vn/san-pham/van-phu/melamine/melamine-phu-tren-van-mdf",
+              };
+            }
+
+            if (grandChild._id === "658412675603a35c31cfad6d") {
+              return {
+                name: grandChild.category_name,
+                path: "https://kesgroup.com.vn/san-pham/van-phu/melamine/melamine-phu-tren-van-dam",
+              };
+            }
+
+            if (grandChild._id === "6584127d5603a35c31cfae54") {
+              return {
+                name: grandChild.category_name,
+                path: "https://kesgroup.com.vn/san-pham/van-phu/melamine/melamine-phu-tren-van-hdf",
+              };
+            }
+              
             return {
               name: grandChild.category_name,
               path: createCategoryPath(grandChild._id),
@@ -59,8 +105,8 @@ const Tabbar = ({ logoUrl }: any) => {
       };
     });
     return menu;
-  }
-  
+  };
+
   const checkExternalLink = (path: string) => {
     if (!path) return false;
     return path.startsWith("http");
@@ -72,7 +118,7 @@ const Tabbar = ({ logoUrl }: any) => {
 
   const handleBurgerClose = () => {
     setIsMobileActive(false);
-  }
+  };
 
   return (
     <div className="tabbar-container">
