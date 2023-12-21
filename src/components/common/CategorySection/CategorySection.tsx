@@ -46,7 +46,7 @@ const CategorySection = ({ data, backgroundImages }: any) => {
         </div>
         <div className="right">
           {categoryList.map((item: any) => (
-            <Link key={item.id} href={item.linkUrl}>
+            <Link key={item.id} href={`/products?category=${item.id}`}>
               <div className="icon-wrapper">
                 <CustomImage
                   src={item.imgUrl}
