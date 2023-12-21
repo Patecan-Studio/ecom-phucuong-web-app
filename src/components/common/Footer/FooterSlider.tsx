@@ -103,7 +103,7 @@ const FooterSlider = () => {
             height={0}
             sizes="100vw"
             alt="footer slide 11"
-            src="https://djwgwcdcgfsknzddrchp.supabase.co/storage/v1/object/public/images/footer-slider2/phucuonggroup.png?t=2023-12-21T02%3A27%3A32.523Z"
+            src="https://djwgwcdcgfsknzddrchp.supabase.co/storage/v1/object/public/images/footer-slider2/08b7f2780841a01ff950.jpg?t=2023-12-21T05%3A19%3A44.818Z"
           />
         </div>
         <div className="slide">
@@ -238,7 +238,7 @@ const FooterSlider = () => {
             height={0}
             sizes="100vw"
             alt="footer slide 11"
-            src="https://djwgwcdcgfsknzddrchp.supabase.co/storage/v1/object/public/images/footer-slider2/phucuonggroup.png?t=2023-12-21T02%3A27%3A32.523Z"
+            src="https://djwgwcdcgfsknzddrchp.supabase.co/storage/v1/object/public/images/footer-slider2/08b7f2780841a01ff950.jpg?t=2023-12-21T05%3A19%3A44.818Z"
           />
         </div>
         <div className="slide">
