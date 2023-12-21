@@ -90,7 +90,7 @@ const Tabbar = ({ logoUrl }: any) => {
                 path: "https://kesgroup.com.vn/san-pham/van-phu/melamine/melamine-phu-tren-van-hdf",
               };
             }
-              
+
             return {
               name: grandChild.category_name,
               path: createCategoryPath(grandChild._id),
@@ -132,13 +132,11 @@ const Tabbar = ({ logoUrl }: any) => {
       </div>
       <div className="tabbar--secondary-container">
         <TabbarSecondary menu={menu} checkExternalLink={checkExternalLink} />
-        {isMobileActive && (
-          <TabbarSecondaryMobile
-            menu={menu}
-            checkExternalLink={checkExternalLink}
-            onBurgerClose={handleBurgerClose}
-          />
-        )}
+        <TabbarSecondaryMobile
+          menu={menu}
+          checkExternalLink={checkExternalLink}
+          onBurgerClose={handleBurgerClose}
+        />
       </div>
     </div>
   );
