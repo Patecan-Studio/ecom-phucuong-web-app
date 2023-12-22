@@ -9,16 +9,24 @@ import "@/styles/reset.css";
 import "@/styles/responsives.scss";
 import SaleBanner from "@/components/common/SaleBanner/SaleBanner";
 import React from "react";
+import ContactGroup from "@/components/common/ContactGroup/ContactGroup";
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  icons: {
-    icon: "/favicon.ico",
-  },
-  title: "Phú Cường Home",
-  description:
-    "Tập đoàn Phú Cường (Phu Cuong Group) được thành lập đầu năm 2009 với vai trò nhà đầu tư tài chính của các công ty thành viên trong tập đoàn, với tổng số vốn điều lệ hơn 3.500 tỷ đồng (tương đương 170 triệu USD).",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const sections = await getPageTemplate();
+  const favicon = sections?.section_list?.find(
+    (section: any) => section.name === "logo_section"
+  ).favicon;
+
+  return {
+    icons: {
+      icon: favicon,
+    },
+    title: "Phú Cường Home",
+    description:
+      "Tập đoàn Phú Cường (Phu Cuong Group) được thành lập đầu năm 2009 với vai trò nhà đầu tư tài chính của các công ty thành viên trong tập đoàn, với tổng số vốn điều lệ hơn 3.500 tỷ đồng (tương đương 170 triệu USD).",
+  };
+}
 
 const getCampaign = async () => {
   try {
@@ -58,12 +66,14 @@ export default async function RootLayout({
     section_list.find(
       (section: any) => section.name === "coupon_banner_section"
     )?.image_list || [];
+  const logo = section_list.find((section: any) => section.name === "logo_section")?.logo;
 
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning={true}>
       <body className={inter.className}>
-        <SaleBanner data={campaign?.campaign_content || ""} />
-        <Tabbar />
+        <ContactGroup />
+        <SaleBanner data={campaign} />
+        <Tabbar logoUrl={logo} />
         {children}
         <Footer data={coupon_banner_section} />
       </body>

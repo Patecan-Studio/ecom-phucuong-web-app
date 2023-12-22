@@ -5,6 +5,7 @@ import TabbarSearchInput from "./TabbarSearchInput";
 import TabbarSearchButton from "./TabbarSearchButton";
 import { usePathname, useRouter } from "next/navigation";
 import TabbarSuggest from "./TabbarSuggest";
+import TabbarBurger from "./TabberBurger";
 
 const getDropdownProductsByKeyword = async (q: string) => {
   try {
@@ -32,7 +33,7 @@ const getDropdownProducts = async (page_size?: any) => {
   }
 };
 
-const TabbarSearch = () => {
+const TabbarSearch = ({ isMobileActive, onBurgerClick }: any) => {
   const [inputValue, setInputValue] = useState("");
   const [debounceInputValue, setDebounceInputValue] = useState("");
   const [dropdownProducts, setDropdownProducts] = useState([]);
@@ -109,6 +110,7 @@ const TabbarSearch = () => {
         products={dropdownProducts}
         isDisplay={dropdownProducts.length > 0}
       />
+      <TabbarBurger isActive={isMobileActive} onClick={onBurgerClick} />
     </form>
   );
 };

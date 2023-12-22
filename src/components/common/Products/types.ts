@@ -8,6 +8,7 @@ export interface ProductsContentProps {
   products: Product[];
   productsTitle: string;
   totalPage: number;
+  pageParam?: string;
 }
 
 export interface ProductsSubContentProps {
@@ -55,7 +56,6 @@ export interface ProductImageProps {
   image: string;
   isNew: boolean;
   discountPercentage: number;
-  productSlug: string;
 }
 
 export interface ProductStatusProps {
@@ -65,6 +65,7 @@ export interface ProductStatusProps {
 
 export interface ProductFurtherInfoProps {
   brandImage: string;
+  productSlug: string;
 }
 
 export interface ProductLogoProps {

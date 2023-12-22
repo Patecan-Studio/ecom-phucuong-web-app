@@ -1,13 +1,14 @@
 import React from "react";
 import PlusSignIcon from "../../Icons/PlusSignIcon";
+import Link from "next/link";
 
-const ProductLinks = () => {
+const ProductLinks = ({ productSlug }: any) => {
   return (
     <div className="product__links">
-      <a className="product__cart" href="#">
+      <Link className="product__cart" href={`/products/${productSlug}`}>
         Chi tiết
         <PlusSignIcon />
-      </a>
+      </Link>
       <a className="product__cart" href="#">
         Giỏ hàng
         <PlusSignIcon />

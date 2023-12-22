@@ -5,7 +5,7 @@ import Link from "next/link";
 import { CustomImage } from "..";
 import "./style.scss";
 
-const CategorySection = ({ data }: any) => {
+const CategorySection = ({ data, backgroundImages }: any) => {
   const categoryList = data.map((item: any) => {
     const categoryId = item.link_url ? item.link_url.split("category=")[1] : "";
     return {
@@ -16,12 +16,20 @@ const CategorySection = ({ data }: any) => {
     };
   });
 
+  if (categoryList.length > 8) {
+    categoryList.splice(8, categoryList.length - 8);
+  }
+
+  const styles = {
+    "--left-background-image": `url(${backgroundImages[0]})` || `url('')`,
+  } as React.CSSProperties;
+
   return (
-    <div className="category-section">
+    <div className="category-section" style={styles}>
       <div className="category-section__left-content"></div>
       <div className="category-section__right-content">
         <CustomImage
-          src={`https://${process.env.SUPABSE_STORAGE_URL}.supabase.co/storage/v1/object/public/images/static/phucuong_background_large.webp`}
+          src={backgroundImages[1] || "/images/phucuong_background_large.webp"}
           alt="main-slide-1"
           width={0}
           height={0}
@@ -38,7 +46,7 @@ const CategorySection = ({ data }: any) => {
         </div>
         <div className="right">
           {categoryList.map((item: any) => (
-            <Link key={item.id} href={item.linkUrl}>
+            <Link key={item.id} href={`/products?category=${item.id}`}>
               <div className="icon-wrapper">
                 <CustomImage
                   src={item.imgUrl}

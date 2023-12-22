@@ -1,19 +1,21 @@
+"use client";
+
 import { useState, useEffect } from "react";
 
 export const useBreakpoints = () => {
-  const [breakpoint, setBreakpoint] = useState("xxl");
+  const [breakpoint, setBreakpoint] = useState("");
 
   useEffect(() => {
     const calcInnerWidth = () => {
-      if (window.innerWidth >= 1440) {
+      if (window?.innerWidth >= 1440) {
         setBreakpoint("xxl");
-      } else if (window.innerWidth >= 1200) {
+      } else if (window?.innerWidth >= 1200) {
         setBreakpoint("xl");
-      } else if (window.innerWidth >= 992) {
+      } else if (window?.innerWidth >= 992) {
         setBreakpoint("lg");
-      } else if (window.innerWidth >= 768) {
+      } else if (window?.innerWidth >= 768) {
         setBreakpoint("md");
-      } else if (window.innerWidth >= 576) {
+      } else if (window?.innerWidth >= 576) {
         setBreakpoint("sm");
       } else {
         setBreakpoint("xs");
@@ -21,9 +23,8 @@ export const useBreakpoints = () => {
     };
 
     calcInnerWidth();
-    window.addEventListener("resize", calcInnerWidth);
-    return () => window.removeEventListener("resize", calcInnerWidth);
+    window?.addEventListener("resize", calcInnerWidth);
+    return () => window?.removeEventListener("resize", calcInnerWidth);
   }, []);
-
   return breakpoint;
 };

@@ -35,12 +35,12 @@ const OverviewMeasurements = ({
               >
                 {height.split("(")[0] !== "0" && (
                   <button className={classname} disabled={disabled}>
-                    {"Cao " + height}
+                    {"C " + height}
                   </button>
                 )}
                 {width !== "0" && (
                   <button className={classname} disabled={disabled}>
-                    {"Rộng " + width + sizeUnit}
+                    {"R " + width + sizeUnit}
                   </button>
                 )}
                 {length !== "0" && (
@@ -51,7 +51,7 @@ const OverviewMeasurements = ({
                       !dictionary[item]?.includes(selectedColor)
                     }
                   >
-                    {"Dài " + length + sizeUnit}
+                    {"D " + length + sizeUnit}
                   </button>
                 )}
                 {weight.split("(")[0] !== "0" && (
