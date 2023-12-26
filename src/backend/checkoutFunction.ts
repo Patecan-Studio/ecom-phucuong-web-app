@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const saveAddress= async (address: any) => {
     try{
-        const {data} = await axios.post("/api/checkout/saveAddress", {address});
+        const {data} = await axios.post("http://localhost:8080/api/v1/address", address);
         console.log("SAVED ADDRESS: "+JSON.stringify(data));
         return data;
     }catch (error: any) {

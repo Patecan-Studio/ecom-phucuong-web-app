@@ -32,13 +32,12 @@ const cartSchema = new mongoose.Schema(
         product_size_unit: { type: String },
         variant: {
           sku: String,
-          color: {
-            type: Schema.Types.Mixed,
-            default: null,
-            label: { type: String },
-            value: { type: String },
-          },
-          material: String,
+          property_list: [
+              {
+                key: String,
+                value:String
+              }
+          ],
           price: Number,
           discount_price: Number,
           discount_percentage: Number,
@@ -54,6 +53,21 @@ const cartSchema = new mongoose.Schema(
             default: ProductVariantStatus.Active,
             required: false,
           },
+          metadata: {
+            color: {
+              label: String,
+              value: String
+            },
+            material: String,
+            measurement: {
+              width: Number,
+              length: Number,
+              height: Number,
+              weight: Number,
+              sizeUnit: String,
+              weightUnit: String
+            }
+          }
         },
         product_warranty: { type: String },
         qty: { type: Number },
@@ -71,7 +85,7 @@ const cartSchema = new mongoose.Schema(
     },
   },
   {
-    collection: "carts",
+    collection: "Carts",
     timestamps: true,
   }
 );

@@ -7,6 +7,9 @@ import Shipping from "@/components/checkout/Shipping/Shipping";
 import CheckoutPaymentMethod from "@/components/checkout/CheckoutPaymentMethod/CheckoutPaymentMethod";
 import CheckoutProductsCart from "@/components/checkout/CheckoutProductCart/CheckoutProductsCart";
 import CheckoutSummary from "@/components/checkout/CheckoutSummary/CheckoutSummary";
+import {ObjectId} from "mongodb";
+import mongoose from 'mongoose'
+import axios from "axios";
 
 interface CheckoutProps {
   cart: any;
@@ -77,22 +80,21 @@ export default function Checkout({ cart, user }: CheckoutProps) {
 }
 
 export async function getServerSideProps(context: any) {
-  console.log("GET DATA");
   await db.connectDb();
   const user = await UserModel.findById("655609014186e2628008b45d");
-  console.log(user);
-  const cart = await CartModel.findOne({ user: user._id });
-  console.log(user);
+  console.log("GET DATA USER: "+user._id);
+  const response = await axios.get(`http://localhost:8080/api/v1/carts/${user._id}`);
+  console.log("GET DATA CART: "+ response.data);
+  const cart = response.data.cart;
 
-  db.disconnectDb();
   if (!cart) {
     return {
       redirect: {
-        destination: "/cart",
+        destination: "/the-page-tell-you-to-go-back-to-cart",
       },
     };
   }
-
+  db.disconnectDb();
   return {
     props: {
       cart: JSON.parse(JSON.stringify(cart)),

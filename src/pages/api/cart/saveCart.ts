@@ -19,6 +19,34 @@ interface CartInCheckout {
   totalAfterDiscount?: number;
 }
 
+interface Metadata {
+    color: {
+        label: string;
+        value: string;
+    };
+    material: string;
+    measurement: {
+        width: number;
+        length: number;
+        height: number;
+        weight: number;
+        sizeUnit: string;
+        weightUnit: string;
+    };
+}
+
+interface Variant{
+  sku: string,
+  property_list: object[],
+  price: number,
+  discount_price: number,
+  discount_percentage: number | 0,
+  quantity: number,
+  image_list: object[],
+  status: string,
+  metadata: Metadata
+}
+
 interface ProductInCheckout {
   product_id?: string;
   sku?: string;
@@ -27,13 +55,12 @@ interface ProductInCheckout {
   product_name?: string;
   product_slug?: string;
   product_variant_image?: string;
-  //-----> Effect Shipping
   product_weight?: string;
   product_height?: number;
   product_width?: number;
   product_length?: number;
   product_size_unit?: string;
-  variant?: object;
+  variant: Variant;
   product_warranty?: string;
   qty?: number;
   price?: number;
@@ -66,9 +93,12 @@ router.post(async (req: NextApiRequest, res: NextApiResponse) => {
       let variant = dbProduct.product_variants.find(
         (v: any) => v.sku === cart[i]._uid
       );
-      console.log("Step 4.1: " + JSON.stringify(variant));
-      let tempProduct: ProductInCheckout = {};
+      console.log("Step 4.0: " + JSON.stringify(variant.property_list));
 
+      let tempProduct: ProductInCheckout = {};
+      tempProduct.variant = variant;
+      tempProduct.variant = variant;
+      console.log("Step 4.1: " + JSON.stringify(tempProduct.variant));
       tempProduct.product_id = dbProduct._id;
       console.log("Step 5.1: " + JSON.stringify(tempProduct));
       tempProduct.sku = variant.sku;
@@ -81,13 +111,12 @@ router.post(async (req: NextApiRequest, res: NextApiResponse) => {
       tempProduct.product_slug = dbProduct.product_slug;
       tempProduct.product_variant_image = variant.image_list[0].imageUrl;
       console.log("Step 5.3: " + JSON.stringify(tempProduct));
-      tempProduct.product_weight = `${dbProduct.product_weight.value} ${dbProduct.product_weight.unit}`;
-      tempProduct.product_width = dbProduct.product_width;
-      tempProduct.product_length = dbProduct.product_length;
-      tempProduct.product_height = dbProduct.product_height;
-      tempProduct.product_size_unit = dbProduct.product_size_unit;
+      tempProduct.product_weight = `${variant.metadata.measurement.weight} ${variant.metadata.measurement.weightUnit}`;
+      tempProduct.product_width = variant.metadata.measurement.width;
+      tempProduct.product_length = variant.metadata.measurement.length;
+      tempProduct.product_height = variant.metadata.measurement.height;
+      tempProduct.product_size_unit = variant.metadata.measurement.sizeUnit;
       console.log("Step 5.4: " + JSON.stringify(tempProduct));
-      tempProduct.variant = variant;
       tempProduct.product_warranty = dbProduct.product_warranty;
       console.log("Step 5.5: " + JSON.stringify(tempProduct));
       tempProduct.qty = Number(cart[i].qty);
@@ -141,11 +170,12 @@ router.post(async (req: NextApiRequest, res: NextApiResponse) => {
       result = await raw.save();
     }
 
+    db.disconnectDb();
+
     return res
       .status(200)
       .json({ status: 200, message: "success", data: result });
 
-    await db.disconnectDb();
   } catch (e: any) {
     return res.status(500).json({ message: e.message });
   }

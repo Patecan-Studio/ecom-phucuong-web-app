@@ -6,6 +6,7 @@ import {Form, Formik} from "formik";
 import ShippingInput from "../shipping-input/ShippingInput";
 import axios from "axios";
 import {useRouter} from 'next/navigation'
+import {Router} from "next/router";
 
 interface CheckoutSummaryProps {
     totalAfterDiscount: number,
@@ -38,14 +39,14 @@ export default function CheckoutSummary({totalAfterDiscount, setTotalAfterDiscou
                 return;
             }
             const {data} = await axios.post("/api/order/createOrder", {
-                products: cart.products,
+                productsList: cart.productsList,
                 shippingAddress: selectedAddress,
                 paymentMethod,
                 total: totalAfterDiscount !== 0 ? totalAfterDiscount : cart.cartTotal,
                 totalBeforeDiscount: cart.cartTotal,
                 couponApplied: coupon,
             });
-            //await Router.push(`/order/${data.order_id}`);
+            router.push(`/order/${data._id}`);
         } catch (error: any) {
             setError(error.response.data.message);
         }

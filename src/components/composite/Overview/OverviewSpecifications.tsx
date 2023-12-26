@@ -11,10 +11,10 @@ const OverviewSpecifications = ({
   weight: string;
   length: string;
 }) => {
-  const isShowHeight = height.match(/\d+/) && parseFloat(height) !== 0;
-  const isShowWidth = width.match(/\d+/) && parseFloat(width) !== 0;
-  const isShowLength = length.match(/\d+/) && parseFloat(length) !== 0;
-  const isShowWeight = weight.match(/\d+/) && parseFloat(weight) !== 0;
+  const isShowHeight = true;
+  const isShowWidth = true;
+  const isShowLength = true;
+  const isShowWeight = true;
 
   return (
     <div className="overview__specifications">

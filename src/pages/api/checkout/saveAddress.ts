@@ -26,7 +26,6 @@ router
         const updatedDocument = await UserModel.findOneAndUpdate({_id: user_id}, {$push: {address: address}}, options);
         console.log("updatedDocument: "+JSON.stringify(updatedDocument));
         if(!updatedDocument) return res.status(404).json({message: 'Not found'});
-        // @ts-ignore
         res.status(200).json({addresses: updatedDocument.address});
 
         db.disconnectDb();

@@ -20,8 +20,8 @@ export default function CheckoutProductsCart({cart}: any) {
                         <img src={product.product_variant_image} alt=""/>
                         <div className={styles.product__infos}>
                             <img src={product.product_variant_image} alt=""/>
-                            <span>{`${product.variant.color.label}`}</span>
-                            <span>{`${product.variant.material}`}</span>
+                            <span>{`${product.variant.metadata.color.label}`}</span>
+                            <span>{`${product.variant.metadata.material}`}</span>
                             <span>x{product.qty}</span>
                         </div>
                     </div>

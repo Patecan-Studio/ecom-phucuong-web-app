@@ -12,7 +12,9 @@ import {IoIosArrowDropupCircle, IoMdArrowDropdown, IoMdArrowDropupCircle} from "
 import {Simulate} from "react-dom/test-utils";
 import {CiCircleRemove} from "react-icons/ci";
 import {RiMapPinAddFill} from "react-icons/ri";
-import {changeActiveAddress, deleteAddress, saveAddress} from "@/backend/checkoutFunction";
+import {deleteAddress, saveAddress} from "@/backend/checkoutFunction";
+import {AddressUtils} from "@/utils/AddressUtils";
+import axios from "axios";
 
 
 const initialValues = {
@@ -107,15 +109,20 @@ export default function Shipping({selectedAddress, setSelectedAddress, user, add
         shipping.city = selectedCity;
         shipping.district = selectedDistrict;
         shipping.ward = selectedWard;
-        const res = await saveAddress(shipping);
-        setAddresses(res.addresses);
+        //const res = await saveAddress(shipping);
+        await axios.post("http://localhost:8080/api/v1/address", shipping);
+        //setAddresses(res.addresses);
     };
 
     const changeActiveAddressHandler = async (address_id: string) => {
         console.log("ADDRESS ID 0: "+ address_id);
         console.log("ALL ADDRESES NOW: "+ JSON.stringify(addresses));
-        const res = await changeActiveAddress(address_id);
-        setAddresses(res.addresses);
+        const newAddresses = AddressUtils.changeActiveAddress(addresses,address_id);
+        setAddresses(newAddresses.addresses);
+        //changeActiveAddress(address_id);
+
+       const response = await axios.patch(`http://localhost:8080/api/v1/address/active/${address_id}`);
+       console.log("RESPONSE: "+ JSON.stringify(response.data));
     };
 
 

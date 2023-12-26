@@ -11,7 +11,8 @@ import {persistor} from "@/store/store";
 import CheckoutSummary from "@/components/cart/CheckoutSummary/CheckoutSummary";
 import CartHeader from "@/components/cart/CartHeader/CartHeader";
 import { useRouter } from 'next/navigation'
-import {saveCart} from "@/backend/cartFunction";
+import { Router } from "next/router";
+import axios from "axios";
 
 
 const Cart = () => {
@@ -42,9 +43,13 @@ const Cart = () => {
 
     // -----------------------------------------------------------------------
     const saveCartHandler = async ()=>{
-        const res = await saveCart(selected);
-        if(res.status == 200){
-            router.push('/checkout', { scroll: false })
+
+        const response = await axios.post(`http://localhost:8080/api/v1/carts`, selected);
+
+        const res = response.data;
+        if(res.resultCode === 201){
+            console.log("REDIRECT TO CHECKOUT");
+            router.push("/checkout");
         }
 
         // if(session){
