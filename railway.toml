@@ -1,0 +1,8 @@
+# railway.toml
+
+[rewrites]
+  # Redirect from HTTPS to HTTP
+  [[redirects]]
+    from = "/*"
+    to = "http://www.phucuonghome.com/"
+    status = 301
