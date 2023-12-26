@@ -6,6 +6,7 @@ import YoutubeIcon from "../Icons/YoutubeIcon";
 import InstagramIcon from "../Icons/InstagramIcon";
 import { Collapse } from "antd";
 import type { CollapseProps } from "antd";
+import FooterSlider from "./FooterSlider";
 const contact = (
   <div className="contact">
     <span>Hotline Cskh</span>
@@ -49,145 +50,22 @@ const infoItems: CollapseProps["items"] = [
     children: support,
   },
 ];
-const Footer = () => {
+const Footer = ({ data }: any) => {
+  const styles = {
+    "--title-background-image": data?.[0]?.image_url
+      ? `url(${data?.[0]?.image_url})`
+      : "none",
+  } as React.CSSProperties;
+
   return (
-    <div className="footer">
-      <div className="footer__slider">
-        <div className="slide-track">
-          <div className="slide">
-            <CustomImage
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="footer slide 1"
-              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/image-1.png"
-            />
-          </div>
-          <div className="slide">
-            <CustomImage
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="footer slide 2"
-              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/hansgrohe-Euronics-Viet-Nam-2.png"
-            />
-          </div>
-          <div className="slide">
-            <CustomImage
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="footer slide 3"
-              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/caesar-logo-1.png"
-            />
-          </div>
-          <div className="slide">
-            <CustomImage
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="footer slide 4"
-              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/AVALLON-LOGO2_TM_Gray-2.png"
-            />
-          </div>
-          <div className="slide">
-            <CustomImage
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="footer slide 5"
-              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/92941291_1122254314795138_1554983477768617984_n-removebg-preview-4.png"
-            />
-          </div>
-          <div className="slide">
-            <CustomImage
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="footer slide 6"
-              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/AVALLON-LOGO2_TM_Gray-2.png"
-            />
-          </div>
-          <div className="slide">
-            <CustomImage
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="footer slide 7"
-              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/caesar-logo-1.png"
-            />
-          </div>
-          <div className="slide">
-            <CustomImage
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="footer slide 8"
-              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/hansgrohe-Euronics-Viet-Nam-2.png"
-            />
-          </div>
-          <div className="slide">
-            <CustomImage
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="footer slide 9"
-              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/image-1.png"
-            />
-          </div>
-          <div className="slide">
-            <CustomImage
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="footer slide 10"
-              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/hansgrohe-Euronics-Viet-Nam-2.png"
-            />
-          </div>
-          <div className="slide">
-            <CustomImage
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="footer slide 11"
-              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/caesar-logo-1.png"
-            />
-          </div>
-          <div className="slide">
-            <CustomImage
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="footer slide 12"
-              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/AVALLON-LOGO2_TM_Gray-2.png"
-            />
-          </div>
-          <div className="slide">
-            <CustomImage
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="footer slide 13"
-              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/92941291_1122254314795138_1554983477768617984_n-removebg-preview-4.png"
-            />
-          </div>
-          <div className="slide">
-            <CustomImage
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="footer slide 14"
-              src="https://demo4d.thuythu.com/vatlieuxaydung/wp-content/uploads/2022/05/AVALLON-LOGO2_TM_Gray-2.png"
-            />
-          </div>
-        </div>
-      </div>
+    <div className="footer" style={styles}>
+      <FooterSlider />
       <div className="footer__title">
-        <h2 className="title">showroom nội thất phú cường</h2>
-        <span>
-          TM3, Đường 3/2, Khu đô thị Phú Cường, Phường An Hòa, TP. Rạch Giá,
-          Kiên Giang
-        </span>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: data?.[0]?.display_text || "",
+          }}
+        />
       </div>
       <div className="footer__connection">
         <TabbarLogo />

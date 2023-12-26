@@ -88,12 +88,25 @@ interface ProductCategories {
 interface ProductVariant {
   _id: string;
   sku: string;
-  color: ProductColor;
+  color: string;
   material: string;
+  measurement: string;
   price: number;
   quantity: number;
   discount_price: number;
   discount_percentage: number;
+  metadata: {
+    color: ProductColor;
+    material: string;
+    measurement: {
+      width: number;
+      height: number;
+      length: number;
+      weight: number;
+      sizeUnit: string;
+      weightUnit: string;
+    };
+  };
   image_list: ProductImage[];
 }
 
@@ -125,17 +138,41 @@ export interface OverviewQuantityProps {
 export interface OverviewAboutProps {
   materials: string[];
   colors: ProductColor[];
-  width: string;
-  height: string;
-  length: string;
-  weight: string;
+  measurements: string[];
   onResetVariant: () => void;
   onMaterialSelect: (material: string) => void;
   onColorSelect: (color: string) => void;
+  onMeasurementSelect: (measurement: string) => void;
   selectedMaterial: string;
   selectedColor: string;
-  isShowMaterial: boolean;
-  isShowColor: boolean;
+  selectedMeasurement: string;
+  dictionary: {
+    [key: string]: string[];
+  };
+}
+
+export interface OverviewMaterialsProps {
+  materials: string[];
+  selectedMaterial: string;
+  onMaterialSelect: (material: string) => void;
+}
+
+export interface OverviewColorsProps {
+  colors: ProductColor[];
+  selectedColor: string;
+  selectedMaterial: string;
+  onColorSelect: (color: string) => void;
+  dictionary: {
+    [key: string]: string[];
+  };
+}
+
+export interface OverviewMeasurementsProps {
+  measurements: string[];
+  selectedMeasurement: string;
+  selectedColor: string;
+  selectedMaterial: string;
+  onMeasurementSelect: (measurement: string) => void;
   dictionary: {
     [key: string]: string[];
   };

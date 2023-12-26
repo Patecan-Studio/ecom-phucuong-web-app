@@ -1,1 +1,0 @@
-This folder needs to be delete after having API endpoints, this is hard code for now

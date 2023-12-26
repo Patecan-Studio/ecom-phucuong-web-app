@@ -5,7 +5,9 @@ const ProductStatus = ({ isNew, discountPercentage }: ProductStatusProps) => {
   return (
     <div className="product__status">
       {isNew && <p className="product__status--label">Mới</p>}
-      <p className="product__status--discount">{`- ${discountPercentage}%`}</p>
+      {discountPercentage != 0 && (
+        <p className="product__status--discount">{`- ${discountPercentage}%`}</p>
+      )}
     </div>
   );
 };

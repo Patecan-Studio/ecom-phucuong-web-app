@@ -16,18 +16,28 @@ function doubleDictionary(t: any) {
   for (let i = 0; i < t.length; i++) {
     const variant = t[i];
     const material = variant.material;
-    const color = variant.color.value;
+    const color = variant.metadata.color.value;
+    const measurement = variant.measurement;
 
     if (!dictionary[material]) {
-      dictionary[material] = [color];
+      dictionary[material] = [color, measurement];
     } else {
       dictionary[material].push(color);
+      dictionary[material].push(measurement);
     }
 
     if (!dictionary[color]) {
-      dictionary[color] = [material];
+      dictionary[color] = [material, measurement];
     } else {
       dictionary[color].push(material);
+      dictionary[color].push(measurement);
+    }
+
+    if (!dictionary[measurement]) {
+      dictionary[measurement] = [material, color];
+    } else {
+      dictionary[measurement].push(material);
+      dictionary[measurement].push(color);
     }
   }
   return dictionary;
@@ -38,109 +48,93 @@ const Overview = ({ data }: OverviewProps) => {
     JSON.parse(JSON.stringify(data.product_variants[0]))
   );
 
-  const [categories, setCategories] = useState(data.product_categories);
-
-  let dictionary: { [key: string]: string[] } = Object.create(null);
-
   const [selectedMaterial, setSelectedMaterial] = useState(
     overviewData?.material || ""
   );
-  const [selectedColor, setSelectedColor] = useState(
-    overviewData?.color?.value || ""
-  );
+  const [selectedColor, setSelectedColor] = useState(overviewData?.color || "");
+  const [selectedMeasurement, setSelectedMeasurement] = useState(overviewData?.measurement || "");
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
-  const isShowMaterial = overviewData?.material
-    ? overviewData.material !== "null" && overviewData.material !== null
-    : false;
-  const isShowColor = overviewData?.color
-    ? overviewData.color !== "null" && overviewData.color !== null
-    : false;
-
-  if (isShowMaterial && isShowColor) {
-    dictionary = doubleDictionary(data.product_variants);
-  }
-
   useEffect(() => {
-    if (isShowMaterial && isShowColor) {
-      if (dictionary[selectedMaterial][0] !== selectedColor) {
-        setSelectedColor(dictionary[selectedMaterial][0]);
-      }
-    }
+    handleMaterialChange();
   }, [selectedMaterial]);
 
-  const materials = isShowMaterial
-    ? data.product_variants
-        .map((item) => item.material)
-        .filter((value, index, self) => self.indexOf(value) === index)
-    : [];
-  const colors = isShowColor
-    ? data.product_variants
-        .map((item) => item.color)
-        .filter(
-          (item, index, self) =>
-            index ===
-            self.findIndex(
-              (sub_item) =>
-                sub_item.label === item.label && sub_item.value === item.value
-            )
-        )
-    : [];
+  useEffect(() => {
+    handleColorChange();
+  }, [selectedColor]);
 
-  const length = data.product_length + data.product_size_unit;
-  const height = data.product_height + data.product_size_unit;
-  const width = data.product_width + data.product_size_unit;
-  const weight = data.product_weight?.value + data.product_weight?.unit;
+  useEffect(() => {
+    handleMeasurementChange();
+  }, [selectedMeasurement]);
+
+  let dictionary: { [key: string]: string[] } = Object.create(null);
+  dictionary = doubleDictionary(data.product_variants);
+
+  const materials = data.product_variants
+    .map((item) => item.material)
+    .filter((value, index, self) => self.indexOf(value) === index);
+
+  const colors = data.product_variants
+    .map((item) => item.metadata.color)
+    .filter(
+      (item, index, self) =>
+        index ===
+        self.findIndex(
+          (sub_item) =>
+            sub_item.label === item.label && sub_item.value === item.value
+        )
+    );
+
+  const measurements = data.product_variants
+    .map((item) => item.measurement)
+    .filter((value, index, self) => self.indexOf(value) === index);
+
   const warranty = data.product_warranty;
 
-  const handleVariantChange = () => {
+  const handleMaterialChange = () => {
     const newOverviewData = data.product_variants.find(
       (item) =>
-        item.color?.value === selectedColor &&
         item.material === selectedMaterial
     );
     if (newOverviewData) {
       setOverviewData(newOverviewData);
+      setSelectedColor(newOverviewData.color);
+      setSelectedMeasurement(newOverviewData.measurement);
       setSelectedQuantity(1);
     }
-  };
+  }
 
-  const handleVariantChangeMaterialNull = () => {
+  const handleColorChange = () => {
     const newOverviewData = data.product_variants.find(
-      (item) => item.color?.value === selectedColor
+      (item) =>
+        item.color === selectedColor
     );
-    setOverviewData(newOverviewData);
-    setSelectedQuantity(1);
-  };
+    if (newOverviewData) {
+      setOverviewData(newOverviewData);
+      setSelectedMaterial(newOverviewData.material);
+      setSelectedMeasurement(newOverviewData.measurement);
+      setSelectedQuantity(1);
+    }
+  }
 
-  const handleVariantChangeColorNull = () => {
+  const handleMeasurementChange = () => {
     const newOverviewData = data.product_variants.find(
-      (item) => item.material === selectedMaterial
+      (item) =>
+        item.measurement === selectedMeasurement
     );
-    setOverviewData(newOverviewData);
-    setSelectedQuantity(1);
-  };
-
-  useEffect(() => {
-    isShowColor && isShowMaterial && handleVariantChange();
-  }, [selectedMaterial, selectedColor]);
-
-  useEffect(() => {
-    if (!isShowMaterial && isShowColor) {
-      handleVariantChangeMaterialNull();
+    if (newOverviewData) {
+      setOverviewData(newOverviewData);
+      setSelectedMaterial(newOverviewData.material);
+      setSelectedColor(newOverviewData.color);
+      setSelectedQuantity(1);
     }
-  }, [selectedColor]);
-
-  useEffect(() => {
-    if (isShowMaterial && !isShowColor) {
-      handleVariantChangeColorNull();
-    }
-  }, [selectedMaterial]);
+  }
 
   const handleResetVariant = () => {
     setOverviewData(JSON.parse(JSON.stringify(data.product_variants[0])));
     setSelectedMaterial(materials[0]);
     setSelectedColor(colors[0].value);
+    setSelectedMeasurement(measurements[0]);
   };
 
   const handleSelectMaterial = (material: string) => {
@@ -150,6 +144,10 @@ const Overview = ({ data }: OverviewProps) => {
   const handleSelectColor = (colorValue: string) => {
     setSelectedColor(colorValue);
   };
+
+  const handleSelectMeasurement = (measurement: string) => {
+    setSelectedMeasurement(measurement);
+  }
 
   const handleDecreaseQuantity = () => {
     if (selectedQuantity === 1) return;
@@ -176,10 +174,12 @@ const Overview = ({ data }: OverviewProps) => {
           discountPrice={overviewData?.discount_price || 0}
           discountPercentage={overviewData?.discount_percentage || 0}
           productCode={overviewData?.sku || ""}
-          brandImage={overviewData ? data.product_brand?.brand_logoUrl || "" : ""}
+          brandImage={
+            overviewData ? data.product_brand?.brand_logoUrl || "" : ""
+          }
           brandName={overviewData ? data.product_brand?.brand_name || "" : ""}
           quantity={overviewData?.quantity || 0}
-          categories={categories.slice(0, 3)}
+          categories={data.product_categories.slice(0, 3)}
           warranty={warranty}
         />
         <div className="overview__order">
@@ -188,16 +188,13 @@ const Overview = ({ data }: OverviewProps) => {
               onResetVariant={handleResetVariant}
               onMaterialSelect={handleSelectMaterial}
               onColorSelect={handleSelectColor}
+              onMeasurementSelect={handleSelectMeasurement}
               selectedMaterial={selectedMaterial}
               selectedColor={selectedColor}
+              selectedMeasurement={selectedMeasurement}
               materials={materials}
               colors={colors}
-              length={length}
-              width={width}
-              height={height}
-              weight={weight}
-              isShowMaterial={isShowMaterial}
-              isShowColor={isShowColor}
+              measurements={measurements}
               dictionary={dictionary}
             />
             <OverviewQuantity

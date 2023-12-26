@@ -7,6 +7,7 @@ export interface TabbarMenuItemProps {
 
 export interface TabbarDropdownProps {
   dropdownMenu: DropdownItem[];
+  onBurgerClose?: () => void;
 }
 
 interface DropdownItem {

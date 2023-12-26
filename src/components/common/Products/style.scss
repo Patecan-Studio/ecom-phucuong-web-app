@@ -20,11 +20,7 @@ $item-gap: 20px;
   color: var(--color-black);
   padding-top: 20px;
   @include responsiveContainer;
-  margin-bottom: 30px;
-
-  @include below768inclusive {
-    padding: 0 15px;
-  }
+  margin-bottom: 60px;
 
   &__title {
     @include containerTitle;
@@ -39,9 +35,6 @@ $item-gap: 20px;
 
   &__content {
     &--top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       margin-bottom: 40px;
 
       @include below992inclusive {
@@ -51,23 +44,35 @@ $item-gap: 20px;
   }
 
   &__sub-content {
+    margin-bottom: 30px;
+    position: relative;
+
     &__items {
       display: grid;
-      gap: 30px;
-      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      grid-template-columns: repeat(5, 1fr);
+
+      @include below1440inclusive {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @include below1200inclusive {
+        grid-template-columns: repeat(3, 1fr);
+      }
 
       @include below992inclusive {
         grid-template-columns: repeat(2, 1fr);
       }
-    }
-  }
 
-  &__buttons {
-    display: flex;
+      @include below768inclusive {
+        gap: 10px;
+      }
+    }
   }
 
   &__next,
   &__prev {
+    position: absolute;
     background-color: rgb(236 229 223 / 80%);
     border-radius: 5px;
     border: none;
@@ -83,50 +88,48 @@ $item-gap: 20px;
       background-color: var(--color-primary);
     }
 
-    @include below1200inclusive {
-      width: 35px;
-      height: 35px;
-    }
-
     @include below768inclusive {
-      svg {
-        width: 15px;
-        height: 15px;
-      }
+      width: 40px;
+      height: 40px;
     }
   }
 
   &__next {
-    margin-left: 25px;
-  }
-
-  &__navigation {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    margin-top: 40px;
-  }
-
-  &__dot {
-    margin-right: 20px;
-    margin-bottom: 40px;
-    cursor: pointer;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background-color: var(--color-gray-less-light) !important;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--color-text-primary);
-
-    &:last-child {
-      margin-right: 0;
+    @include above1200 {
+      right: -100px;
     }
 
-    &--selected {
-      background-color: var(--color-primary) !important;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include below992inclusive {
+      top: -50px;
+      right: 0;
+    }
+
+    @include below768inclusive {
+      top: -40px;
+    }
+  }
+
+  &__prev {
+    @include above1200 {
+      left: -100px;
+    }
+
+    left: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include below992inclusive {
+      top: -50px;
+      left: calc(100% - 120px);
+    }
+
+    @include below768inclusive {
+      top: -40px;
+      left: calc(100% - 100px);
     }
   }
 

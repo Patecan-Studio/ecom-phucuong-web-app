@@ -6,8 +6,9 @@ import CheckIcon from "../Icons/CheckIcon";
 import TwentyFourHourIcon from "../Icons/TwentyFourHourIcon";
 import PackageIcon from "../Icons/PackageIcon";
 import NextImage from "next/image";
+import Link from "next/link";
 
-const Carousel = () => {
+const Carousel = ({ data }: any) => {
   const carouselMainOption = {
     loop: true,
     align: "center",
@@ -33,34 +34,22 @@ const Carousel = () => {
     },
   } as EmblaOptionsType;
 
-  const mainSLides = [
-    {
-      id: "1",
+  const mainSLides = data.map((item: any, index: number) => {
+    return {
+      id: item.image_url,
       image: (
         <NextImage
-          src="/images/main-slide-1.jpg"
-          alt="main-slide-1"
+          src={item.image_url}
+          alt={`main-slide-${index}`}
           width={0}
           height={0}
           sizes="100vw"
           style={{ width: "100%", height: "auto" }}
         />
       ),
-    },
-    {
-      id: "2",
-      image: (
-        <NextImage
-          src="/images/main-slide-2.jpg"
-          alt="main-slide-2"
-          width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: "100%", height: "auto" }}
-        />
-      ),
-    },
-  ];
+      link: item.link_url || ''
+    };
+  });
 
   const subSlides = [
     {
