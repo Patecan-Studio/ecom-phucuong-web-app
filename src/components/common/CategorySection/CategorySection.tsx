@@ -2,8 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { CustomImage } from "..";
 import "./style.scss";
+import Image from "next/image";
 
 const CategorySection = ({ data, backgroundImages }: any) => {
   const categoryList = data.map((item: any) => {
@@ -11,7 +11,7 @@ const CategorySection = ({ data, backgroundImages }: any) => {
     return {
       id: categoryId,
       cateName: item.display_text,
-      imgUrl: item.image_url,
+      imgUrl: `${item.image_url}?w=200&h=200&fit=crop&auto=format`,
       linkUrl: item.link_url,
     };
   });
@@ -28,7 +28,7 @@ const CategorySection = ({ data, backgroundImages }: any) => {
     <div className="category-section" style={styles}>
       <div className="category-section__left-content"></div>
       <div className="category-section__right-content">
-        <CustomImage
+        <Image
           src={backgroundImages[1] || "/images/phucuong_background_large.webp"}
           alt="main-slide-1"
           width={0}
@@ -48,7 +48,7 @@ const CategorySection = ({ data, backgroundImages }: any) => {
           {categoryList.map((item: any) => (
             <Link key={item.id} href={`/products?category=${item.id}`}>
               <div className="icon-wrapper">
-                <CustomImage
+                <Image
                   src={item.imgUrl}
                   alt="main-slide-2"
                   width={0}
