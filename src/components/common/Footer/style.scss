@@ -90,22 +90,18 @@ $animationSpeed: 40s;
   }
 
   &__title {
-    background-image: var(--title-background-image);
+    position: relative;
     color: white;
-    height: 160px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding: 30px;
 
-    .title {
-      text-transform: uppercase;
-      font-size: 20px;
-    }
-
-    @include below768inclusive {
-      padding: 20px;
+    &__text {
+      position: absolute;
+      left: 50%;
+      top: 5%;
+      transform: translateX(-50%);
     }
   }
 
