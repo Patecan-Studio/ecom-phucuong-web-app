@@ -15,6 +15,7 @@ const OverviewSubImagesInner = (
             key={image.imageName}
           >
             <Image
+              quality={100}
               src={image.imageUrl}
               alt="Editor Desktop"
               fill

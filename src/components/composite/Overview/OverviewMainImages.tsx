@@ -15,6 +15,7 @@ const OverviewMainImagesInner = (
             <div className="overview__image__item" key={image.imageName}>
               <Image
                 src={image.imageUrl}
+                quality={100}
                 alt="Editor Desktop"
                 fill
                 onClick={onOpenModal}
