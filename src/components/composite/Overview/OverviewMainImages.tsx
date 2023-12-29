@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import type { ForwardedRef } from "react";
-import { CustomImage } from "@/components/common";
 import ExpandIcon from "@/components/common/Icons/ExpandIcon";
+import Image from "next/image";
 
 const OverviewMainImagesInner = (
   { data, onOpenModal }: any,
@@ -13,12 +13,11 @@ const OverviewMainImagesInner = (
         <div className="overview__image__list">
           {data?.image_list.map((image: any) => (
             <div className="overview__image__item" key={image.imageName}>
-              <CustomImage
+              <Image
                 src={image.imageUrl}
                 alt="Editor Desktop"
                 fill
                 onClick={onOpenModal}
-                preload="false"
                 onMouseMove={(e: any) => {
                   const x = e.nativeEvent.offsetX;
                   const y = e.nativeEvent.offsetY;
