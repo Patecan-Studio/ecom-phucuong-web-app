@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { CustomImage } from "..";
 import "./style.scss";
 import { ReadMoreProps } from "./types";
+import Image from "next/image";
 
 const ProductDescription: React.FC<ReadMoreProps> = ({
   longDesc,
@@ -51,7 +51,7 @@ const ProductDescription: React.FC<ReadMoreProps> = ({
           {readMoreButton}
         </div>
         <div className="right">
-          <CustomImage
+          <Image
             fill
             alt=""
             src={imgURL}

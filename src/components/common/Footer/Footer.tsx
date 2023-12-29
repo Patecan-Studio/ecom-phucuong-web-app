@@ -54,15 +54,15 @@ const infoItems: CollapseProps["items"] = [
 const Footer = ({ data }: any) => {
   const styles = !data?.[0]?.image_url
     ? ({
-        background: "#000",
+        backgroundColor: "#000",
         height: "160px",
       } as React.CSSProperties)
     : {};
 
   return (
-    <div className="footer" style={styles}>
+    <div className="footer">
       <FooterSlider />
-      <div className="footer__title">
+      <div className="footer__title" style={styles}>
         <div
           className="footer__title__text"
           dangerouslySetInnerHTML={{
