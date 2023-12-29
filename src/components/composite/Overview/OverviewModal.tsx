@@ -5,6 +5,7 @@ import { OverviewModalProps } from "./types";
 import CloseIcon from "@/components/common/Icons/CloseIcon";
 import ArrowLeftIcon from "@/components/common/Icons/ArrowLeftIcon";
 import ArrowRightIcon from "@/components/common/Icons/ArrowRightIcon";
+import Image from "next/image";
 
 const OverviewModalInner = (
   { data, onClose, onClickNext, onClickPrev }: any,
@@ -41,11 +42,11 @@ const OverviewModalInner = (
         <div className="overview__image__list">
           {data.image_list.map((image: any) => (
             <div className="overview__image__item" key={image._id}>
-              <CustomImage
+              <Image
+                quality={100}
                 src={image.imageUrl}
                 alt="Editor Desktop"
                 fill
-                preload="false"
               />
             </div>
           ))}
