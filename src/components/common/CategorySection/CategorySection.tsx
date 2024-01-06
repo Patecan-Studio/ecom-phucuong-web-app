@@ -35,11 +35,6 @@ const CategorySection = ({ data, backgroundImages }: any) => {
           width={0}
           height={0}
           sizes="100vw"
-          loader={() => cloudflareLoader({
-            src: backgroundImages[1] || "/images/phucuong_background_large.webp",
-            width: 960,
-          })
-          }
         />
       </div>
       <div className="category-section__center-content">
