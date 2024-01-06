@@ -1,3 +1,5 @@
+import { cloudflareLoader } from "@/share/utils/cloudflare/images";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -24,11 +26,12 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
           draggable={false}
           style={{ pointerEvents: isDragging ? "none" : "auto" }}
         >
-          <img
+          <Image
             className="category-card__image"
             src={imageUrl}
             alt={altText}
             draggable={false}
+            loader={cloudflareLoader}
           />
           <p className="category-card__text" draggable={false}>
             {productName}
