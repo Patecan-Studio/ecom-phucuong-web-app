@@ -2,7 +2,6 @@ import React from "react";
 import "./style.scss";
 import NextImage from "next/image";
 import { ProductBannerProps } from "./types";
-import { cloudflareLoader } from "@/share/utils/cloudflare/images";
 
 const ProductBanner = ({ title, description, image }: ProductBannerProps) => {
   return (
