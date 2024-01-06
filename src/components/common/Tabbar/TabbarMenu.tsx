@@ -6,6 +6,7 @@ import ConsultIcon from "../Icons/ConsultIcon";
 import AvatarIcon from "../Icons/AvatarIcon";
 import CartIcon from "../Icons/CartIcon";
 import TabbarMenuItem from "./TabbarMenuItem";
+import Link from "next/link";
 
 const TabbarMenu = () => {
   const menu = [
@@ -23,7 +24,7 @@ const TabbarMenu = () => {
     },
     { label: "Hệ thống phân phối", icon: <NavigatorIcon />, path: "/" },
     { label: "Tra cứu đơn hàng", icon: <ConsultIcon />, path: "/" },
-    { label: "Đăng nhập", icon: <AvatarIcon />, path: "/" },
+    { label: "Đăng nhập", icon: <AvatarIcon />, path: "/signin" },
     {
       label: "Giỏ hàng",
       icon: <CartIcon />,
@@ -36,13 +37,14 @@ const TabbarMenu = () => {
   return (
     <div className="tabbar__menu">
       {menu.map((item) => (
-        <TabbarMenuItem
-          key={item.label}
-          className={`text-black ${item.className || ""}`}
-          count={item.count}
-          label={item.label}
-          icon={item.icon}
-        />
+        <Link key={item.label} href={item.path}>
+          <TabbarMenuItem
+            className={`text-black ${item.className || ""}`}
+            count={item.count}
+            label={item.label}
+            icon={item.icon}
+          />
+        </Link>
       ))}
     </div>
   );
