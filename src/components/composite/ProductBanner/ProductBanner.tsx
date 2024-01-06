@@ -2,6 +2,7 @@ import React from "react";
 import "./style.scss";
 import NextImage from "next/image";
 import { ProductBannerProps } from "./types";
+import { cloudflareLoader } from "@/share/utils/cloudflare/images";
 
 const ProductBanner = ({ title, description, image }: ProductBannerProps) => {
   return (
@@ -21,6 +22,7 @@ const ProductBanner = ({ title, description, image }: ProductBannerProps) => {
               sizes="100vw"
               priority
               style={{ width: "100%", height: "auto" }}
+              loader={cloudflareLoader}
             />
           </div>
         </div>

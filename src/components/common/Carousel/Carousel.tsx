@@ -7,6 +7,7 @@ import TwentyFourHourIcon from "../Icons/TwentyFourHourIcon";
 import PackageIcon from "../Icons/PackageIcon";
 import NextImage from "next/image";
 import Link from "next/link";
+import { cloudflareLoader } from "@/share/utils/cloudflare/images";
 
 const Carousel = ({ data }: any) => {
   const carouselMainOption = {
@@ -45,6 +46,7 @@ const Carousel = ({ data }: any) => {
           height={0}
           sizes="100vw"
           style={{ width: "100%", height: "auto" }}
+          loader={cloudflareLoader}
         />
       ),
       link: item.link_url || ''
