@@ -31,7 +31,10 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
             src={imageUrl}
             alt={altText}
             draggable={false}
-            loader={cloudflareLoader}
+            loader={() => cloudflareLoader({
+              src: imageUrl,
+              width: 300,
+            })}
           />
           <p className="category-card__text" draggable={false}>
             {productName}
