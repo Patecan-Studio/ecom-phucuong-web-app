@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import "./style.scss";
 import Image from "next/image";
+import { cloudflareLoader } from "@/share/utils/cloudflare/images";
 
 const CategorySection = ({ data, backgroundImages }: any) => {
   const categoryList = data.map((item: any) => {
@@ -54,6 +55,7 @@ const CategorySection = ({ data, backgroundImages }: any) => {
                   width={0}
                   height={0}
                   sizes="100vw"
+                  loader={cloudflareLoader}
                 />
                 <span>{item.cateName}</span>
               </div>
