@@ -38,6 +38,7 @@ const CategorySection = ({ data, backgroundImages }: any) => {
           loader={() => cloudflareLoader({
             src: backgroundImages[1] || "/images/phucuong_background_large.webp",
             width: 960,
+            format: "webp",
           })
           }
         />
@@ -63,6 +64,7 @@ const CategorySection = ({ data, backgroundImages }: any) => {
                   loader={() => cloudflareLoader({
                     src: item.imgUrl,
                     width: 170,
+                    format: "webp",
                   })
                   }
                 />
