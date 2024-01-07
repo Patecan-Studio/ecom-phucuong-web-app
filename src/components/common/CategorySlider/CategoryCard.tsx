@@ -35,6 +35,8 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
               src: imageUrl,
               width: 300,
             })}
+            width={0}
+            height={0}
           />
           <p className="category-card__text" draggable={false}>
             {productName}
