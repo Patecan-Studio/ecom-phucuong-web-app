@@ -12,7 +12,7 @@ const CategorySection = ({ data, backgroundImages }: any) => {
     return {
       id: categoryId,
       cateName: item.display_text,
-      imgUrl: `${item.image_url}?w=200&h=200&fit=crop&auto=format`,
+      imgUrl: item.image_url,
       linkUrl: item.link_url,
     };
   });
