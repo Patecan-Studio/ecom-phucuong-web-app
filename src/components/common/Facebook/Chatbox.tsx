@@ -8,6 +8,7 @@ const ChatBot = () => {
       <Script
         strategy="lazyOnload"
         src="https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js"
+        defer
         onLoad={() => {
           window.fbAsyncInit = function () {
             window.FB.init({
