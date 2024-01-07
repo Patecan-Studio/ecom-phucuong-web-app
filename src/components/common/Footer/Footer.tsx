@@ -7,6 +7,7 @@ import InstagramIcon from "../Icons/InstagramIcon";
 import { Collapse } from "antd";
 import type { CollapseProps } from "antd";
 import FooterSlider from "./FooterSlider";
+import Image from "next/image";
 const contact = (
   <div className="contact">
     <span>Hotline Cskh</span>
@@ -51,19 +52,33 @@ const infoItems: CollapseProps["items"] = [
   },
 ];
 const Footer = ({ data }: any) => {
-  const styles = {
-    "--title-background-image": data?.[0]?.image_url
-      ? `url(${data?.[0]?.image_url})`
-      : "none",
-  } as React.CSSProperties;
+  const styles = !data?.[0]?.image_url
+    ? ({
+        backgroundColor: "#000",
+        height: "160px",
+      } as React.CSSProperties)
+    : {};
 
   return (
-    <div className="footer" style={styles}>
+    <div className="footer">
       <FooterSlider />
-      <div className="footer__title">
+      <div className="footer__title" style={styles}>
         <div
+          className="footer__title__text"
           dangerouslySetInnerHTML={{
             __html: data?.[0]?.display_text || "",
+          }}
+        />
+        <Image
+          className="footer__title__background"
+          src={data?.[0]?.image_url || ""}
+          alt="footer title background"
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto",
           }}
         />
       </div>

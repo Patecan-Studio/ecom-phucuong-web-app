@@ -12,7 +12,9 @@ const SpecialProductsContent = ({
   products,
   totalPage,
 }: ProductsContentProps) => {
-  const { queryParams, setQueryParams } = useQueryParams<{ sub_page: number }>();
+  const { queryParams, setQueryParams } = useQueryParams<{
+    sub_page: number;
+  }>();
   const [selectedPage, setSelectedPage] = useState(
     Number(queryParams.get("sub_page")) || 1
   );
@@ -27,18 +29,23 @@ const SpecialProductsContent = ({
     setQueryParams({ sub_page: selectedPage + 1 });
   };
 
+  if (products?.length === 0) return <h2>Hiện tại không có sản phẩm này</h2>;
+
   return (
     <div className="products__content">
       <div className="products__content--top">
         <ProductsTitle title={productsTitle} />
       </div>
       {(products?.length || 0) >= 1 ? (
-        <ProductsSubContent products={products} onPrevClick={handlePrevClick} onNextClick={handleNextClick}/>
+        <ProductsSubContent
+          products={products}
+          onPrevClick={handlePrevClick}
+          onNextClick={handleNextClick}
+        />
       ) : (
-        <h2>Hiện chưa có sản phẩm</h2>
+        <img src="/images/load.gif" alt="loading..." />
       )}
       <ProductsGuide />
-      
     </div>
   );
 };

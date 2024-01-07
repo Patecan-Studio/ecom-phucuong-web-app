@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { ProductsContentProps } from "./types";
 import ProductsSubContent from "./ProductsSubContent";
 import ProductsTitle from "./ProductsTitle";
-import ProductsButtons from "./ProductsButtons/ProductsButtons";
 import ProductsGuide from "./ProductsGuide";
 import useQueryParams from "@/hooks/useQueryParams";
 
@@ -29,18 +28,23 @@ const ProductsContent = ({
     setQueryParams({ page: selectedPage + 1 });
   };
 
+  if (products?.length === 0) return <h2>Hiện tại không có sản phẩm này</h2>;
+
   return (
     <div className="products__content">
       <div className="products__content--top">
         <ProductsTitle title={productsTitle} />
       </div>
       {(products?.length || 0) >= 1 ? (
-        <ProductsSubContent products={products} onPrevClick={handlePrevClick} onNextClick={handleNextClick}/>
+        <ProductsSubContent
+          products={products}
+          onPrevClick={handlePrevClick}
+          onNextClick={handleNextClick}
+        />
       ) : (
-        <h2>Hiện chưa có sản phẩm</h2>
+        <img src="/images/load.gif" alt="loading..." />
       )}
       <ProductsGuide />
-      
     </div>
   );
 };

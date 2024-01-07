@@ -7,6 +7,7 @@ import TwentyFourHourIcon from "../Icons/TwentyFourHourIcon";
 import PackageIcon from "../Icons/PackageIcon";
 import NextImage from "next/image";
 import Link from "next/link";
+import { cloudflareLoader } from "@/share/utils/cloudflare/images";
 
 const Carousel = ({ data }: any) => {
   const carouselMainOption = {

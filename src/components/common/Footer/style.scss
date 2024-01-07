@@ -34,9 +34,9 @@ $animationSpeed: 40s;
     width: 100%;
     margin-bottom: 14px;
 
-    @include below414inclusive {
-      display: none;
-    }
+    // @include below414inclusive {
+    //   display: none;
+    // }
 
     &::before,
     &::after {
@@ -62,8 +62,8 @@ $animationSpeed: 40s;
     .slide-track {
       animation: scroll $animationSpeed linear infinite;
       display: flex;
-      width: calc(195px * 14);
-      gap: 70px;
+      width: calc(195px * 29);
+      gap: 15px;
       &:hover {
         animation-play-state: paused;
       }
@@ -76,7 +76,6 @@ $animationSpeed: 40s;
       align-items: center;
       justify-content: center;
       position: relative;
-      padding: 10px;
       img {
         height: -webkit-fill-available;
         width: auto;
@@ -91,22 +90,18 @@ $animationSpeed: 40s;
   }
 
   &__title {
-    background-image: var(--title-background-image);
+    position: relative;
     color: white;
-    height: 160px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding: 30px;
 
-    .title {
-      text-transform: uppercase;
-      font-size: 20px;
-    }
-
-    @include below768inclusive {
-      padding: 20px;
+    &__text {
+      position: absolute;
+      left: 50%;
+      top: 5%;
+      transform: translateX(-50%);
     }
   }
 

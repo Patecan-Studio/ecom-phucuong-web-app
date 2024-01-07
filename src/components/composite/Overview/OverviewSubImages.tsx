@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react";
 import type { ForwardedRef } from "react";
-import { CustomImage } from "@/components/common";
-import { OverviewSubImagesProps } from "./types";
+import Image from "next/image";
 
 const OverviewSubImagesInner = (
   { data, isActiveItem, onClick }: any,
@@ -15,12 +14,12 @@ const OverviewSubImagesInner = (
             className={`overview__image__item ${isActiveItem(index)}`}
             key={image.imageName}
           >
-            <CustomImage
+            <Image
+              quality={100}
               src={image.imageUrl}
               alt="Editor Desktop"
               fill
               onClick={() => onClick(index)}
-              preload="false"
             />
           </div>
         ))}
