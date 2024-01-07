@@ -1,7 +1,6 @@
 import React from "react";
 import NextImage from "next/image";
 import Link from "next/link";
-import { cloudflareLoader } from "@/share/utils/cloudflare/images";
 
 const TabbarLogo = ({ logoUrl }: any) => {
   return (
@@ -13,13 +12,6 @@ const TabbarLogo = ({ logoUrl }: any) => {
         height={0}
         sizes="100vw"
         style={{ width: "100%", height: "auto" }}
-        priority
-        loader={() =>
-          cloudflareLoader({
-            src: logoUrl || "/images/logo.png",
-            width: 450,
-          })
-        }
       />
     </Link>
   );
