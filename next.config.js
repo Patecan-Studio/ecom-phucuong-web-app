@@ -16,7 +16,7 @@ const nextConfig = {
     },
   ],
   images: {
-    domains: [`${process.env.SUPABSE_STORAGE_URL}.supabase.co`,"pos.nvncdn.net", 'djwgwcdcgfsknzddrchp.supabase.co']
+    domains: [`${process.env.SUPABSE_STORAGE_URL}.supabase.co`,"pos.nvncdn.net"]
   },
 };
 
