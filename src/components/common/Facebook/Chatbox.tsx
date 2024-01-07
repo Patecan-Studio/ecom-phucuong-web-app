@@ -6,23 +6,23 @@ const ChatBot = () => {
   const MessengerRef = useRef();
 
   useEffect(() => {
-    async function loadMessengerScript() {
-      try {
-        const fbSDK = await import('https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js');
+    const loadMessengerScript = () => {
+      const script = document.createElement("script");
+      script.defer = true;
+      script.src = "https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js";
+      script.setAttribute("crossorigin", "anonymous");
+      script.onload = () => {
         window.fbAsyncInit = function () {
           window.FB.init({
             xfbml: true,
             version: "v18.0",
           });
         };
-
-        fbSDK.default(document, "script", "facebook-jssdk");
         MessengerRef.current.setAttribute("page_id", "105032941775735");
         MessengerRef.current.setAttribute("attribution", "biz_inbox");
-      } catch (error) {
-        console.error("Error loading Facebook Messenger SDK", error);
-      }
-    }
+      };
+      document.body.appendChild(script);
+    };
 
     loadMessengerScript();
   }, []);
@@ -36,6 +36,7 @@ const ChatBot = () => {
 };
 
 export default ChatBot;
+
 // <!-- Messenger Plugin chat Code -->
 // <div id="fb-root"></div>
 
