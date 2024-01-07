@@ -180,13 +180,6 @@
       @include below1200inclusive {
         height: 70px;
       }
-
-      @include below768inclusive {
-        flex: 1;
-        white-space: normal;
-        padding: 10px 5px;
-        border: none;
-      }
     }
 
     &__icon {

@@ -46,6 +46,8 @@ const Carousel = ({ data }: any) => {
           height={0}
           sizes="100vw"
           style={{ width: "100%", height: "auto" }}
+          priority
+          loader={cloudflareLoader}
         />
       ),
       link: item.link_url || ''

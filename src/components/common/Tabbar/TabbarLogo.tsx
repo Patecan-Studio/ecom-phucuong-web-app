@@ -7,12 +7,11 @@ const TabbarLogo = ({ logoUrl }: any) => {
     <Link className="tabbar__logo" href="/">
       <NextImage
         src={logoUrl || "/images/logo.png"}
-        alt="package-icon"
+        alt="tabbar-logo"
         width={0}
         height={0}
         sizes="100vw"
         style={{ width: "100%", height: "auto" }}
-        priority
       />
     </Link>
   );
