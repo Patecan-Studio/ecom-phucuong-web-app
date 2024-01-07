@@ -38,15 +38,20 @@ export default function CheckoutSummary({totalAfterDiscount, setTotalAfterDiscou
                 setError("Please choose a shipping address.");
                 return;
             }
-            const {data} = await axios.post("/api/order/createOrder", {
+
+            const orderBody = {
                 productsList: cart.productsList,
                 shippingAddress: selectedAddress,
                 paymentMethod,
                 total: totalAfterDiscount !== 0 ? totalAfterDiscount : cart.cartTotal,
                 totalBeforeDiscount: cart.cartTotal,
                 couponApplied: coupon,
-            });
-            router.push(`/order/${data._id}`);
+            };
+
+
+            const response = await axios.post("http://localhost:8080/api/v1/orders", orderBody);
+            console.log("RESPONSE: "+ JSON.stringify(response.data.data._id));
+            router.push(`/order/${response.data.data._id}`);
         } catch (error: any) {
             setError(error.response.data.message);
         }

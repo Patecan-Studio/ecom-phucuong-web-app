@@ -1,16 +1,11 @@
 import styles from "./styles.module.scss";
-import {useEffect, useReducer, useState} from "react";
 import db from "@/utils/db";
 import UserModel from "@/models/User.model";
 import {useRouter} from "next/navigation";
 import OrderModel from "@/models/Order.model";
 import {IoIosArrowForward} from "react-icons/io";
-import {PayPalButtons, usePayPalScriptReducer} from "@paypal/react-paypal-js";
-import createOrder from "@/pages/api/order/createOrder";
-import {PayloadAction} from "@reduxjs/toolkit";
-import StripePayment from "@/pages/StripePayment";
-import {deleteAddress} from "@/backend/checkoutFunction";
 import {createSession} from "@/backend/paymentFunction";
+import axios from "axios";
 
 function reducer(state: any, action: any) {
     switch (action.type) {
@@ -35,27 +30,7 @@ interface OrderProps {
 export default function Order({orderData, stripe_public_key}: OrderProps) {
     const router = useRouter();
 
-
-    // useEffect(() => {
-    //     if (!orderData._id) {
-    //         dispatch({
-    //             type: "PAY_RESET",
-    //         });
-    //     } else {
-    //         paypalDispatch({
-    //             type: "resetOptions",
-    //             value: {
-    //                 clientId: paypalClientId,
-    //                 currency: "USD",
-    //             }
-    //         });
-    //         paypalDispatch({
-    //             type: "setLoadingStatus",
-    //             value: "pending",
-    //         });
-    //     }
-    // }, [Order]);
-
+    console.log("ORDER DATA CLIENT: "+ JSON.stringify(orderData));
 
     async function payWithVnPayHandler() {
         console.log("PAY WITH VN PAY");
@@ -227,23 +202,20 @@ export default function Order({orderData, stripe_public_key}: OrderProps) {
 
 
 export async function getServerSideProps(context: any) {
-    await db.connectDb();
+
     const {query} = context;
     const id = query.id;
-    const order = await OrderModel.findById(id)
-        .populate({path: "user", model: UserModel})
-        .lean();
 
-    const paypalClientId = process.env.PAYPAL_CLIENT_ID;
+    const response = await axios.get(`http://localhost:8080/api/v1/orders/${id}`);
+
+    console.log("RESPONSE: "+JSON.stringify(response.data.data))
+
     const stripe_public_key = process.env.STRIPE_PUBLIC_KEY;
 
-    db.disconnectDb()
-
-    console.log("ORDER DATA: ", order);
 
     return {
         props: {
-            orderData: JSON.parse(JSON.stringify(order)),
+            orderData: response.data.data,
             stripe_public_key
         },
     };

@@ -180,7 +180,7 @@ const orderSchema = new mongoose.Schema(
         },
     },
     {
-        collection: "orders",
+        collection: "Orders",
         timestamps: true,
     }
 );

@@ -105,13 +105,13 @@ export default function Shipping({selectedAddress, setSelectedAddress, user, add
     }
 
 
-    const saveShippingHandler = async () => {
+    const saveNewAddressHandler = async () => {
         shipping.city = selectedCity;
         shipping.district = selectedDistrict;
         shipping.ward = selectedWard;
-        //const res = await saveAddress(shipping);
-        await axios.post("http://localhost:8080/api/v1/address", shipping);
-        //setAddresses(res.addresses);
+        const response = await axios.post("http://localhost:8080/api/v1/address", shipping);
+        console.log("RESPONSE: "+ JSON.stringify(response.data.data.address));
+        setAddresses(response.data.data.address);
     };
 
     const changeActiveAddressHandler = async (address_id: string) => {
@@ -126,13 +126,16 @@ export default function Shipping({selectedAddress, setSelectedAddress, user, add
     };
 
 
+    const deleteAddressHandler = async (address_id: string) => {
+        const response = await axios.delete(`http://localhost:8080/api/v1/address/${address_id}`);
+        console.log("RESPONSE: "+ JSON.stringify(response.data.data.address));
+        setAddresses(response.data.data.address);
+    };
+
+
     //--------------------------------------------------------------------------------------------------------
 
 
-    async function deleteAddressHandler(_id: string) {
-        const res = await deleteAddress(_id);
-        setAddresses(res.addresses);
-    }
 
     return (
         <div className={styles.shipping}>
@@ -209,7 +212,7 @@ export default function Shipping({selectedAddress, setSelectedAddress, user, add
                         country,
                     }}
                     validationSchema={validate}
-                    onSubmit={saveShippingHandler}
+                    onSubmit={saveNewAddressHandler}
                 >
 
                     {(formik) => (
@@ -324,7 +327,7 @@ export default function Shipping({selectedAddress, setSelectedAddress, user, add
                                 </FormControl>
                             </div>
                             <Button type="submit" variant="contained" color="primary"
-                                onClick={() => saveShippingHandler()}
+                                onClick={() => saveNewAddressHandler()}
                             >
                                 Save Address
                             </Button>

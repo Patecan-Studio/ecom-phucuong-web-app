@@ -22,7 +22,6 @@ interface OrderInfo {
 }
 
 export const createSession = async (orderId: string, amount: number, orderInfo: OrderInfo, orderType: string) => {
-    console.log("hello")
     try {
         const {data} = await axios.get(`http://localhost:8080/api/v1/payment`, {
             params: {orderId, amount, orderInfo, orderType},
@@ -31,28 +30,6 @@ export const createSession = async (orderId: string, amount: number, orderInfo: 
         return {
             uri: data
         };
-    } catch (error: any) {
-        return error.response.data.message;
-    }
-}
-
-export const changeActiveAddress = async (address_id: string) => {
-    try {
-        const {data} = await axios.put("/api/checkout/updateAddress", {data: {address_id}});
-        return data;
-    } catch (error: any) {
-        return error.response.data.message;
-    }
-}
-
-
-export const deleteAddress = async (address_id: string) => {
-    try {
-        const {data} = await axios.delete("/api/checkout/updateAddress", {
-            data: {address_id},
-        });
-
-        return data;
     } catch (error: any) {
         return error.response.data.message;
     }
