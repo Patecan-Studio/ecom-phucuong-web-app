@@ -31,12 +31,21 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
             src={imageUrl}
             alt={altText}
             draggable={false}
-            loader={() => cloudflareLoader({
-              src: imageUrl,
-              width: 300,
-            })}
+            loader={() =>
+              cloudflareLoader({
+                src: imageUrl,
+                width: 300,
+              })
+            }
             width={0}
             height={0}
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
           />
           <p className="category-card__text" draggable={false}>
             {productName}
