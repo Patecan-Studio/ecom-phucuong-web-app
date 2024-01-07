@@ -8,10 +8,6 @@ const nextConfig = {
           key: 'Cache-Control',
           value: 'no-store',
         },
-        {
-          key: 'Access-Control-Allow-Origin',
-          value: 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js'
-        }
       ],
     },
   ],
