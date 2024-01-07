@@ -1,4 +1,8 @@
-import { Footer, Tabbar } from "@/components/common";
+import {
+  Footer,
+  Tabbar,
+  AntdStyledComponentsRegistry,
+} from "@/components/common";
 import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -66,16 +70,20 @@ export default async function RootLayout({
     section_list.find(
       (section: any) => section.name === "coupon_banner_section"
     )?.image_list || [];
-  const logo = section_list.find((section: any) => section.name === "logo_section")?.logo;
+  const logo = section_list.find(
+    (section: any) => section.name === "logo_section"
+  )?.logo;
 
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning={true}>
       <body className={inter.className}>
-        <ContactGroup />
-        <SaleBanner data={campaign} />
-        <Tabbar logoUrl={logo} />
-        {children}
-        <Footer data={coupon_banner_section} />
+        <AntdStyledComponentsRegistry>
+          <ContactGroup />
+          <SaleBanner data={campaign} />
+          <Tabbar logoUrl={logo} />
+          {children}
+          <Footer data={coupon_banner_section} />
+        </AntdStyledComponentsRegistry>
       </body>
     </html>
   );

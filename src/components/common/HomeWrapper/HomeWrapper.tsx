@@ -59,7 +59,10 @@ const HomeWrapper = () => {
       ?.image_list || [];
 
   return (
-    <>
+    <div style={{
+      opacity: sectionList.length > 0 ? 1 : 0,
+      transition: "opacity 0.5s ease-in-out",
+    }}>
       <Carousel data={banner_section} />
       <CategorySection
         data={category_section}
@@ -69,7 +72,7 @@ const HomeWrapper = () => {
       <SpecialProducts page={subPage} />
       <CategorySlider data={category_slider_section} />
       <Blog />
-    </>
+    </div>
   );
 };
 
