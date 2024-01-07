@@ -16,7 +16,13 @@ const nextConfig = {
     },
   ],
   images: {
-    domains: [`${process.env.SUPABSE_STORAGE_URL}.supabase.co`,"pos.nvncdn.net"]
+    domains: [`${process.env.SUPABSE_STORAGE_URL}.supabase.co`,"pos.nvncdn.net"],
+    remotePatterns: [
+      {
+        hostname: 'directus-develop-4dfc.up.railway.app',
+        protocol: 'https'
+      }
+    ]
   },
 };
 

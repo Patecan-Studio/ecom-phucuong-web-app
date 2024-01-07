@@ -13,7 +13,7 @@ const Topic = () => {
 
   // get posts specific to topic in question
   const posts = allPosts
-    .filter((post) => {debugger
+    .filter((post) => {
       // convert topics array to lowercase to search for matches
       const topicsInLowerCase = post.topics.toString().toLowerCase();
       return topicsInLowerCase.includes(topicName);

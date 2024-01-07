@@ -4,32 +4,23 @@ import styles from "./PostPreview.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { format, parseISO } from "date-fns";
-import Link from "next/link";
-import { Post } from "../../../../.contentlayer/generated";
 
-const PostPreview = (props: Post) => {
+const PostPreview = (props: any) => {
   const router = useRouter();
-
-  // function handleRoute(path: string) {
-  //   router.push(path);
-
-  //   // now this part stops the click from propagating
-  //   window.event.stopPropagation();
-  // }
 
   return (
     <div
       style={{ textDecoration: "inherit", color: "inherit" }}
       onClick={(event) => {
         event.stopPropagation();
-        router.push(`bai-dang/${props.url}`);
-      }} // go to the article page
+        router.push(`bai-dang/${props.slug}`);
+      }}
       className={styles.PostPreviewContainer}
     >
       <div className={styles.ImageWrapper}>
         <Image
           className={styles.Image}
-          src={props.featured_image}
+          src={`${process.env.NEXT_PUBLIC_ASSET_URL}${props.featured_image}?key=optimised`}
           alt=""
           fill
           sizes="100%"
@@ -39,7 +30,7 @@ const PostPreview = (props: Post) => {
       </div>
       <div className={styles.ArticleTextInfo}>
         <div className={styles.Topics}>
-          {props.topics.map((topic) => (
+          {props.topics.map((topic: any) => (
             <div
               onClick={(event) => {
                 event.stopPropagation();
@@ -56,7 +47,7 @@ const PostPreview = (props: Post) => {
         </div>
         <div className={styles.Title}>{props.title}</div>
         <time className={styles.Date} dateTime={props.date}>
-          {format(parseISO(props.date), "LLLL d, yyyy")}
+          {format(parseISO(props?.date_created), "LLLL d, yyyy")}
         </time>
       </div>
     </div>
