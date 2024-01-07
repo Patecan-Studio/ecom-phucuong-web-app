@@ -47,10 +47,17 @@ const Carousel = ({ data }: any) => {
           sizes="100vw"
           style={{ width: "100%", height: "auto" }}
           priority
-          loader={cloudflareLoader}
+          loader={() =>
+            cloudflareLoader({
+              src: item.image_url,
+              width: 1920,
+              quality: 100,
+              format: "webp",
+            })
+          }
         />
       ),
-      link: item.link_url || ''
+      link: item.link_url || "",
     };
   });
 
