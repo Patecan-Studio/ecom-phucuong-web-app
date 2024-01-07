@@ -1,11 +1,18 @@
 import ArrowRightIcon from "@/components/common/Icons/ArrowRightIcon";
+import Image from "next/image";
 import React from "react";
 
 const BlogItem = ({ blog }: any) => {
   return (
     <div className="blog__item">
       <div className="blog__item__image">
-        <img src={blog.image} alt="" />
+        <Image
+          src={blog.image}
+          alt="blog item"
+          width={0}
+          height={0}
+          sizes="100vw"
+        />
       </div>
       <div className="blog__item__texts">
         <h4 className="blog__item__type">{blog.type}</h4>

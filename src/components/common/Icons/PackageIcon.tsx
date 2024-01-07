@@ -14,6 +14,12 @@ const PackageIcon = (props: PackageIconProps) => {
         height={0}
         sizes="100vw"
         style={{ width: "100%", height: "auto" }}
+        loader={() =>
+          cloudflareLoader({
+            src: "/images/package-icon.png",
+            width: 600,
+          })
+        }
       />
     </div>
   );
